@@ -145,3 +145,15 @@ def test_cli_allow_partial_must_not_overwrite_results():
     r = subprocess.run([sys.executable, str(ROOT / "scripts" / "aggregate.py"), "--allow-partial"],
                        capture_output=True, text=True)
     assert r.returncode == 2 and "separate --out" in r.stderr
+
+
+def test_compare_is_paired_by_seed():
+    seeds = list(EVAL_SEEDS)
+    base = {s: 0.05 * i for i, s in enumerate(seeds)}              # strong seed effect
+    ps = {"g": {"drm": {s: base[s] + 0.01 for s in seeds}}}
+    for b in A.BASELINES:
+        ps["g"][b] = dict(base)
+    r = A.compare(ps, ["g"])["g:drm-fwd"]
+    assert r["wins"] == len(seeds) and r["losses"] == 0
+    assert r["lo"] == pytest.approx(0.01) and r["hi"] == pytest.approx(0.01)
+    assert r["p"] == pytest.approx(2 / 2 ** len(seeds))
