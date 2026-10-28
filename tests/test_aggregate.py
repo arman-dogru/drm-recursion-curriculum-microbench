@@ -158,3 +158,20 @@ def test_compare_is_paired_by_seed():
     assert r["wins"] == len(seeds) and r["losses"] == 0
     assert r["lo"] == pytest.approx(0.01) and r["hi"] == pytest.approx(0.01)
     assert r["p"] == pytest.approx(2 / 2 ** len(seeds))
+
+
+def test_pooled3_traces_at_choice_and_cpu_hours(grid):
+    raw, out, tuning, jobs = grid
+    s = A.main(raw, out)
+    p3 = np.mean([s["primary"][t]["drm"]["mean"] for t in A.DEPTH_TASKS])
+    assert s["primary"]["pooled3"]["drm"]["mean"] == pytest.approx(p3)
+    assert not any(k.startswith("pooled3") for k in s["tests"])        # descriptive only, not in Holm family
+    assert set(A.DEPTH_TASKS) < set(MAIN_TASKS) == set(TASKS)
+    # the fabricated traces only exist for S16_k1 -> only methods whose dev schedule is S16_k1 appear
+    tac = s["traces_at_choice"]["flood"]
+    assert set(tac) == {m for m in METHODS if SCHED[m] == [16, 1]}
+    assert all(v["schedule"] == [16, 1] for v in tac.values())
+    n_eval = len(run_grid.main_jobs(tuning))
+    assert s["cpu_hours"]["eval"] == pytest.approx(n_eval * 1.0 / 3600)
+    r = s["primary"]["gravity"]["drm"]
+    assert r["t_lo"] <= r["mean"] <= r["t_hi"]

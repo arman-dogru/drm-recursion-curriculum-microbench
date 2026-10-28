@@ -22,7 +22,7 @@ One shared transition operator Phi, which is one pre-norm transformer layer (d =
 
 `H_t = Phi(H_{t-1}, X) = Block(H_{t-1} + E_in(X))`
 
-Attention is **local**: a cell attends to cells within Chebyshev distance 1. Information therefore moves at most one cell per Phi step, and each task has a known minimum recursion depth ([`test_receptive_field_grows_one_cell_per_phi`](../tests/test_model.py)). I chose this deliberately. In a first dev-only pilot with global attention, one Phi application could solve most tasks (symfill is a single copy), so the experiment could not separate recursive training from one-step training. The output stream has its own embedding table with colours plus MASK, separate from the input embedding, as in paper §4.3. The model has about 52k parameters, far under the 2M cap.
+Attention is **local**: a cell attends to cells within Chebyshev distance 1. Information therefore moves at most one cell per Phi step, and each task has a known minimum recursion depth ([`test_receptive_field_grows_one_cell_per_phi`](../tests/test_model.py)). This is a design choice: with global attention a single Phi application can in principle move information anywhere (symfill, for example, is a single copy), so the tasks would not *require* recursion. I make no empirical claim about global attention. The only global-attention pilot I ran (8×8 grids, before `radius` existed; [logs/pilot/](../logs/pilot/), configs in [docs/pilots.md](pilots.md)) does not show one-step solutions, and an earlier version of this text that said it did was wrong. The output stream has its own embedding table with colours plus MASK, separate from the input embedding, as in paper §4.3. The model has about 52k parameters, far under the 2M cap.
 
 ## Trainers ([`drm/train.py`](../drm/train.py)): paper §3.1.1, §3.1.2 and §3.2
 
@@ -46,31 +46,41 @@ Simplifications versus the paper, the same for every method: no TRM scratchpad z
 
 Every method starts from a fully masked output grid. At each of **S** outer steps, the model embeds the current token grid, applies Phi **k_in** times, decodes the argmax grid, and re-masks floor(r(s_i)·M) uniformly random cells, with s_i = 1 − i/S. Tokens are not frozen. S = 1 is pure latent recursion, which is how a backward-trained model is natively used. One difference from the paper: s_i is evenly spaced, not sorted uniform samples.
 
-Every run is evaluated on **every** schedule with S, k_in ∈ {1, 2, 4, 8, 16} and S·k_in ≤ 64.
+Every run is evaluated on **every** schedule with S ∈ {1, 2, 4, 8, 16}, k_in ∈ {1, 2, 4, 8, 16, 32, 64} and S·k_in ≤ 64 (25 schedules). In round 0, k_in stopped at 16, so pure latent recursion (S = 1) was not offered above 16 Phi; that was fixed after review (M3).
 
 ## Protocol: dev/eval separation ([`scripts/run_grid.py`](../scripts/run_grid.py), [`scripts/tune.py`](../scripts/tune.py))
 
-1. **Tune (dev only).** Every (task, method, lr ∈ {5e-4, 1e-3, 2e-3}) is trained, plus lr = 4e-3 on the three eval tasks. I added 4e-3 on dev evidence, because the recursive methods peaked at the 2e-3 edge. Each run is trained with dev seeds {1, 2} and scored on the dev split. For each (task, method), `tune.py` picks the lr **and** the inference schedule from the matched-compute menu S × k_in = 16, {(1,16), (2,8), (4,4), (8,2), (16,1)}, that maximise mean dev pass@1. This gives every baseline its best schedule, so for example the one-step denoiser can choose 16 small steps. For the compute curves it also records the dev-best schedule at every test-compute level.
-2. **Main (eval only).** Every (method, task ∈ {shift, gravity, flood}) is retrained at its tuned lr with 10 fresh eval seeds {100, …, 109} and scored on the held-out eval split at its dev-chosen schedule.
-3. **k-sweep.** `drm` and `bwd_tbptt` are trained at k ∈ {1, 2, 8} (k = 4 comes from the main grid) on flood with eval seeds 100-103, at a fixed 12000-Phi budget.
+1. **Tune (dev only).** Every (task, method, lr ∈ {5e-4, 1e-3, 2e-3, 4e-3, 8e-3, 1.6e-2}) is trained with dev seeds {1, 2} and scored on the dev split: 5 tasks × 5 methods × 6 lrs × 2 seeds = 300 runs. For each (task, method), `tune.py` picks the lr **and** the inference schedule from the matched-compute menu S × k_in = 16, {(1,16), (2,8), (4,4), (8,2), (16,1)}, that maximise mean dev pass@1. This gives every baseline its best schedule, so for example the one-step denoiser can choose 16 small steps. For the compute curves it also records, for every test-compute level c, the dev-best schedule among **all** schedules with S·k_in = c, so each method can use its best inference mode (latent or re-masking) at every budget. `tune.py --fail-on-edge` stops the pipeline if any chosen lr is at an end of the grid and strictly better than its neighbour; the list is stored in `results/tuning.json` (`meta.lr_edges`).
+2. **Commit, then eval.** `scripts/pipeline.sh` (with `COMMIT=1`) commits the dev outputs and `tuning.json` before it launches any eval run, so the order is auditable from git, and every raw result and log line carries an ISO timestamp.
+3. **Main (eval only).** Every (task, method), all five tasks, is retrained at its tuned lr with the 12 reserved eval seeds {100, …, 111} and scored on the held-out eval split at its dev-chosen schedule: 300 runs.
+4. **k-sweep (exploratory).** `drm` and `bwd_tbptt` are trained at k ∈ {1, 2, 8} (k = 4 comes from the main grid) on gravity and flood with eval seeds 100-103, at a fixed 12000-Phi budget. Each is scored at two pre-registered schedules: native (S = 16/k, k_in = k) and latent (S = 1, k_in = 16). **The k ≠ 4 runs reuse the lr tuned at k = 4**; lr is not re-tuned per k.
 
-**Scope cut, made before any eval run.** At about 10:00 EDT the box CPU slowed about 3.5× (per-run training went from about 140 s to about 510 s). Using **dev results only**, I cut the eval grid. Colormap is solved by every method at every lr (dev pass@1 = 1.00), so it cannot separate them. Symfill is near the floor for every method. Every (method, lr) cell has a mean dev pass@1 of at most 0.01, except `bwd_k` at lr 2e-3, which reached 0.18 on one dev seed and 0.004 on the other (mean 0.09). Both are reported from the dev tuning grid only. The eval grid uses 10 of the 12 reserved eval seeds, and the k-sweep uses flood only. The cut is recorded in [`scripts/run_grid.py`](../scripts/run_grid.py). Each is scored at two pre-registered schedules: native (S = 16/k, k_in = k) and latent (S = 1, k_in = 16).
+### Round-0 scope cut (reverted)
+
+The round-0 version (PR head 932be94, kept in [`results/r0_932be94/`](../results/r0_932be94/)) cut colormap and symfill from the eval grid, used 10 of the 12 eval seeds, and only gave the 4e-3 lr to the three remaining tasks. The cut was made before any eval run and from dev results only, but it was a mistake:
+
+- The stated reason, "the box CPU slowed about 3.5×", is not what the logs show. In `logs/tune.log` the slowdown came in short bursts: a wave of 7 jobs (jobs 29-35) took about 390 s each and a few later waves (jobs 106-112, 117-119, 130) about 500 s, while every other job took 42-217 s, and the later eval runs had a median of about 160 s.
+- The two dropped tasks were exactly the ones where DRM did not win on dev (colormap: every method 100%; symfill: DRM ≈ fwd, both < 1%, and DRM behind `bwd_k`). Dropping them made the headline look better.
+
+Round 1 therefore restores the full suite (5 tasks × 12 seeds), and gives every (task, method) the same 6-point lr grid.
 
 The learning curve logged during training is measured on 200 **dev** examples, never on eval, and a test checks this.
 
 ## Statistics ([`drm/stats.py`](../drm/stats.py), [`scripts/aggregate.py`](../scripts/aggregate.py))
 
 - The unit is the training seed. Methods with the same seed share the init RNG, batch-order RNG and inference RNG, so comparisons are paired by seed.
-- **CI:** a percentile bootstrap over seeds (10,000 resamples), seeds only. Examples within a seed are not resampled.
-- **Test:** an exact two-sided paired sign-flip permutation test on the per-seed difference. With 10 seeds the smallest attainable p is 2/1024 ≈ 0.002.
-- **Multiplicity:** one Holm family over all 16 primary comparisons (DRM vs 4 baselines × (3 eval tasks + the pooled mean over them)). A comparison where all 10 seeds agree in sign survives Holm (16 × 0.002 = 0.031).
+- **CI:** a percentile bootstrap over seeds (10,000 resamples), seeds only. Examples within a seed are not resampled. With n = 12 seeds the percentile bootstrap **under-covers** (it is roughly a z-interval with the ddof=0 SD, about 10% narrower than a t-interval), so `results/tables/*.csv` and `summary.json` also report a Student-t interval (`t_lo`, `t_hi`). The README quotes the bootstrap interval, as pre-registered.
+- **Test:** an exact two-sided paired sign-flip permutation test on the per-seed difference. With 12 seeds the smallest attainable p is 2/4096 ≈ 0.0005.
+- **Multiplicity:** one Holm family over all 24 primary comparisons (DRM vs 4 baselines × (5 tasks + the pooled mean over all 5)). The pooled mean over the three tasks that need depth (shift, gravity, flood) is reported descriptively, for continuity with round 0, and is not tested.
 - **Provenance:** every raw result records a hash of the code and of its config. `tune.py` and `aggregate.py` refuse (exit 2) a grid that is incomplete or has extra, stale or mixed-code files. `--allow-partial` must write somewhere other than `results/`.
 
 ## Train-test mismatch probe
 
-For the S = 16, k_in = 1 schedule, each eval run records per outer step:
+Each eval run records, at every schedule of the matched menu (S·k_in = 16), per outer step:
 
 - cell accuracy along the model's **own** trajectory;
 - the same accuracy when the step's input is the **training distribution**: the clean target masked at the same level (the "oracle state");
 - the fraction of visible (unmasked) input cells that are wrong. Under q_tau this is always 0 in training, but at test time it is whatever the model got wrong earlier;
 - the fraction of those wrong visible cells the next prediction fixes (self-correction).
+
+The probe is reported in two ways: at S = 16, k_in = 1 for every method (same schedule), and at each method's own dev-chosen schedule. Near the end of a schedule the oracle input is almost entirely clean visible cells, so a high oracle accuracy there partly measures copying. The probe shows a symptom (accuracy on own states is lower than on training-distribution states). It does not, on its own, isolate that symptom as the cause of the one-step denoiser's loss.

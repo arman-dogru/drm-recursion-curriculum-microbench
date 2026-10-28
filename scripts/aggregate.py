@@ -3,7 +3,9 @@
 Primary metric: eval pass@1 (exact match) at the inference schedule chosen on
 dev for that (task, method) from the matched-compute menu (S x k_in = 16).
 Comparisons are DRM minus each baseline, paired by training seed; two-sided
-exact sign-flip test; Holm over the whole family (4 baselines x (3 main tasks + pooled)).
+exact sign-flip test; Holm over the whole family (4 baselines x (5 tasks + pooled)).
+The pooled mean over the three tasks that need depth (shift, gravity, flood) is
+reported descriptively (CIs, no test), for continuity with round 0.
 
 Refuses (exit 2) on a missing/extra/stale/mixed-code grid. --allow-partial is
 for debugging only and must write to a directory other than results/.
@@ -22,16 +24,18 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from drm.config import EVAL_SEEDS, MATCHED_MENU, METHODS, ROOT, inference_grid  # noqa: E402
-from drm.stats import bootstrap_ci, holm, sign_flip_p  # noqa: E402
+from drm.stats import bootstrap_ci, holm, sign_flip_p, t_ci  # noqa: E402
 from drm.tasks import TASKS  # noqa: E402
 from run_grid import (KSWEEP_METHODS, KSWEEP_SEEDS, KSWEEP_TASKS, MAIN_SEEDS, MAIN_TASKS,  # noqa: E402
-                      TUNING_PATH, ksweep_jobs, main_jobs)  # noqa: E402
+                      TUNING_PATH, ksweep_jobs, main_jobs, tune_jobs)  # noqa: E402
 from run_one import out_paths  # noqa: E402
 from tune import GridError  # noqa: E402
 
 BASELINES = ("fwd", "fwd_steps", "bwd_k", "bwd_tbptt")
 TARGET = "drm"
 POOLED = "pooled"
+POOLED3 = "pooled3"
+DEPTH_TASKS = ("shift", "gravity", "flood")
 
 
 def load_grid(jobs, raw: Path, allow_partial=False, code=None):
@@ -76,18 +80,20 @@ def per_seed(runs, tuning, method_filter=None, k=4, schedule_fn=None):
     return out
 
 
-def add_pooled(ps, tasks):
+def add_pooled(ps, tasks, name=POOLED):
     for m in METHODS:
         seeds = set.intersection(*(set(ps[t][m]) for t in tasks)) if all(m in ps[t] for t in tasks) else set()
         for s in seeds:
-            ps[POOLED][m][s] = float(np.mean([ps[t][m][s] for t in tasks]))
+            ps[name][m][s] = float(np.mean([ps[t][m][s] for t in tasks]))
     return ps
 
 
 def summarize(vals: dict):
     seeds = sorted(vals)
-    mean, lo, hi = bootstrap_ci(np.array([vals[s] for s in seeds]))
-    return {"mean": mean, "lo": lo, "hi": hi, "n_seeds": len(seeds)}
+    v = np.array([vals[s] for s in seeds])
+    mean, lo, hi = bootstrap_ci(v)
+    _, tlo, thi = t_ci(v)
+    return {"mean": mean, "lo": lo, "hi": hi, "t_lo": tlo, "t_hi": thi, "n_seeds": len(seeds)}
 
 
 def compare(ps, groups):
@@ -100,9 +106,10 @@ def compare(ps, groups):
                 continue
             diff = np.array([a_[s] - b_[s] for s in seeds])
             mean, lo, hi = bootstrap_ci(diff)
+            _, tlo, thi = t_ci(diff)
             key = f"{g}:{TARGET}-{b}"
             raw_p[key] = sign_flip_p(diff)
-            tests[key] = {"group": g, "baseline": b, "diff": mean, "lo": lo, "hi": hi,
+            tests[key] = {"group": g, "baseline": b, "diff": mean, "lo": lo, "hi": hi, "t_lo": tlo, "t_hi": thi,
                           "n_seeds": len(seeds), "wins": int((diff > 0).sum()),
                           "losses": int((diff < 0).sum()), "p": raw_p[key]}
     adj = holm(raw_p)
@@ -166,6 +173,43 @@ def traces(runs):
     return out
 
 
+def traces_at_choice(tr, tuning):
+    """Own-vs-oracle trace at each method's own dev-chosen schedule (review m1)."""
+    out = defaultdict(dict)
+    for t in tr:
+        for m in tr[t]:
+            s, k = tuning[t][m]["schedule"]
+            rec = tr[t][m].get(f"S{s}_k{k}")
+            if rec is not None:
+                out[t][m] = {"schedule": [s, k], **rec}
+    return out
+
+
+def cpu_hours(raw: Path, runs_by_stage: dict) -> dict:
+    """Sum of per-run train + eval seconds (single-threaded runs), and the wall-clock span."""
+    out, starts, ends = {}, [], []
+    for stage, runs in runs_by_stage.items():
+        out[stage] = sum(d["train"].get("train_seconds", 0) + d["meta"].get("eval_seconds", 0)
+                         for d in runs.values()) / 3600
+        starts += [d["meta"].get("started_at") for d in runs.values() if d["meta"].get("started_at")]
+        ends += [d["meta"].get("finished_at") for d in runs.values() if d["meta"].get("finished_at")]
+    out["total"] = sum(out.values())
+    out["first_start"] = min(starts) if starts else None
+    out["last_finish"] = max(ends) if ends else None
+    return out
+
+
+def load_dev(raw: Path, code):
+    runs = {}
+    for cfg in tune_jobs():
+        js, _ = out_paths(cfg, raw)
+        if js.exists():
+            d = json.loads(js.read_text())
+            if d["meta"]["code_hash"] == code:
+                runs[cfg] = d
+    return runs
+
+
 def learning_curves(runs):
     out = defaultdict(dict)
     for t in MAIN_TASKS:
@@ -182,7 +226,8 @@ def learning_curves(runs):
 
 def ksweep(runs_main, runs_k):
     """k in {1,2,4,8} for recursive methods on KSWEEP_TASKS, KSWEEP_SEEDS only.
-    Pre-registered schedules: native (S = 16/k, k_in = k) and latent (S=1, k_in=16)."""
+    Pre-registered schedules: native (S = 16/k, k_in = k) and latent (S=1, k_in=16).
+    NOTE: k != 4 runs reuse the lr tuned at k = 4 (not re-tuned per k)."""
     out = defaultdict(lambda: defaultdict(dict))
     for t in KSWEEP_TASKS:
         for m in KSWEEP_METHODS:
@@ -210,8 +255,9 @@ def main(raw: Path, out_dir: Path, allow_partial: bool = False):
 
     ps = per_seed(runs, tuning)
     ps = add_pooled(ps, MAIN_TASKS)
+    ps = add_pooled(ps, DEPTH_TASKS, POOLED3)
     groups = list(MAIN_TASKS) + [POOLED]
-    primary = {g: {m: summarize(ps[g][m]) for m in METHODS if ps[g].get(m)} for g in groups}
+    primary = {g: {m: summarize(ps[g][m]) for m in METHODS if ps[g].get(m)} for g in groups + [POOLED3]}
     tests = compare(ps, groups)
     n_params = sorted({d["meta"]["n_params"] for d in runs.values()})
     summary = {
@@ -221,11 +267,15 @@ def main(raw: Path, out_dir: Path, allow_partial: bool = False):
                  "holm_family_size": len(tests), "menu": [list(x) for x in MATCHED_MENU]},
         "tuning": tuning,
         "primary": primary,
-        "per_seed": {g: {m: {str(s): v for s, v in sorted(ps[g][m].items())} for m in ps[g]} for g in groups},
+        "per_seed": {g: {m: {str(s): v for s, v in sorted(ps[g][m].items())} for m in ps[g]}
+                     for g in groups + [POOLED3]},
         "tests": tests,
         "schedules": schedule_table(runs),
         "compute_curves": compute_curves(runs, tuning_full["by_compute"]),
-        "traces": traces(runs),
+        "traces": (tr := traces(runs)),
+        "traces_at_choice": traces_at_choice(tr, tuning),
+        "cpu_hours": cpu_hours(raw, {"dev": load_dev(raw, code), "eval": runs, "ksweep": runs_k}),
+        "tuning_meta": tuning_full["meta"],
         "learning_curves": learning_curves(runs),
         "ksweep": ksweep(runs, runs_k),
         "train_seconds": {m: float(np.mean([d["train"]["train_seconds"] for c, d in runs.items()
@@ -237,17 +287,20 @@ def main(raw: Path, out_dir: Path, allow_partial: bool = False):
     tdir.mkdir(exist_ok=True)
     with open(tdir / "primary.csv", "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["group", "method", "mean_pass1", "ci_lo", "ci_hi", "n_seeds", "lr", "schedule"])
-        for g in groups:
+        w.writerow(["group", "method", "mean_pass1", "ci_lo", "ci_hi", "t_lo", "t_hi", "n_seeds", "lr", "schedule"])
+        for g in groups + [POOLED3]:
             for m, r in primary[g].items():
                 ch = tuning.get(g, {}).get(m, {})
-                w.writerow([g, m, f"{r['mean']:.4f}", f"{r['lo']:.4f}", f"{r['hi']:.4f}", r["n_seeds"],
+                w.writerow([g, m, f"{r['mean']:.4f}", f"{r['lo']:.4f}", f"{r['hi']:.4f}",
+                            f"{r['t_lo']:.4f}", f"{r['t_hi']:.4f}", r["n_seeds"],
                             ch.get("lr", ""), "x".join(map(str, ch.get("schedule", [])))])
     with open(tdir / "tests.csv", "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["comparison", "diff", "ci_lo", "ci_hi", "wins", "losses", "p", "p_holm", "significant"])
+        w.writerow(["comparison", "diff", "ci_lo", "ci_hi", "t_lo", "t_hi", "wins", "losses", "p", "p_holm",
+                    "significant"])
         for k, r in tests.items():
-            w.writerow([k, f"{r['diff']:.4f}", f"{r['lo']:.4f}", f"{r['hi']:.4f}", r["wins"], r["losses"],
+            w.writerow([k, f"{r['diff']:.4f}", f"{r['lo']:.4f}", f"{r['hi']:.4f}", f"{r['t_lo']:.4f}",
+                        f"{r['t_hi']:.4f}", r["wins"], r["losses"],
                         f"{r['p']:.6f}", f"{r['p_holm']:.6f}", r["significant"]])
     return summary
 
