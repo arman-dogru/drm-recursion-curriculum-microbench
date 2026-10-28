@@ -11,7 +11,7 @@ A small, CPU-only reproduction of the core idea of **Denoising Recursion Models*
 - **DRM does not beat TRM-style backward TBPTT overall.** Pooled it is 82.6% [80.2, 84.9] against 88.0% [87.2, 88.9] (-5.5 pp [-7.8, -3.4]). DRM is better on flood (+5.8 pp [+3.3, +8.5]) and shift (+1.0 pp [+0.6, +1.3]), but clearly worse on gravity (-23.3 pp [-30.3, -16.2]). All three differences survive Holm correction. TBPTT here gets 4 windows (16 recursive steps) per batch for the same FLOPs, which is the regime where the paper's App. F.8 also reports TRM ahead (Sudoku).
 - **The one-step denoiser's train-test mismatch is directly visible.** It essentially never corrects a wrong visible cell: self-correction is 0.1% on flood and 0.0% on gravity and shift, because in training every visible cell is correct. Along its own trajectory, flood cell accuracy stays at 87.0% after 16 steps, while the same model fed noised clean targets reaches 100.0%.
 
-All numbers are eval-split pass@1 (whole-grid exact match) over **10 fresh training seeds**, at a matched test compute of 16 Phi applications, with the inference schedule chosen on dev. Intervals are 95% seed-bootstrap CIs, and p-values are exact paired sign-flip tests with Holm correction over all 16 comparisons. The model has 52,488 parameters, the code hash is `5e3b723109944734`, and there are 73 tests with 58/58 planted bugs caught (see [Verification](#verification)).
+All numbers are eval-split pass@1 (whole-grid exact match) over **10 fresh training seeds**, at a matched test compute of 16 Phi applications, with the inference schedule chosen on dev. Intervals are 95% seed-bootstrap CIs, and p-values are exact paired sign-flip tests with Holm correction over all 16 comparisons. The model has 52,488 parameters, the code hash is `5e3b723109944734`, and there are 73 tests with 63/63 planted bugs caught (see [Verification](#verification)).
 
 ![Grouped bar chart of eval pass@1 for five trainers on shift, gravity, flood and their pooled mean. DRM 82.6%, backward TBPTT 88.0%, one-step denoising FLOP-matched 15.2%, step-matched 14.6%, single-window backward 40.3% pooled.](figures/primary.png)
 
@@ -200,7 +200,7 @@ python scripts/mutation_check.py --workers 2
 ## Verification
 
 - **73 tests** cover the pipeline wiring end to end, not just helpers. Examples: training Phi counts and budgets per method; DRM and fwd starting from corrupted targets while bwd starts from a full mask; TBPTT detaching between windows; loss targets being clean labels; the remask schedule; eval metrics using the eval split while the learning curve uses dev; the main grid using tuned lrs and eval seeds; tuning choosing only from the matched-compute menu; and aggregation pairing by seed, applying one Holm family, and refusing partial, extra or stale grids.
-- **Mutation check** ([scripts/mutation_check.py](scripts/mutation_check.py), [results/mutation.csv](results/mutation.csv)): an unmutated control run must pass first, and a mutant counts as killed only when pytest exits 1. **58/58 killed.**
+- **Mutation check** ([scripts/mutation_check.py](scripts/mutation_check.py), [results/mutation.csv](results/mutation.csv)): an unmutated control run must pass first, and a mutant counts as killed only when pytest exits 1. **63/63 killed.**
 - **Provenance:** every raw result stores the code hash (`5e3b723109944734`) and its config hash. Results are deterministic per seed, which the trajectory demo re-checks.
 
 ## Limitations
