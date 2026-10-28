@@ -8,7 +8,9 @@ from __future__ import annotations
 
 import argparse
 import dataclasses
+import datetime as dt
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -20,9 +22,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from drm.config import ROOT, Config, code_hash, inference_grid  # noqa: E402
 from drm.infer import exact_match, infer, oracle_state_acc  # noqa: E402
 from drm.model import n_params  # noqa: E402
-from drm.tasks import make_task_data  # noqa: E402
+from drm.config import METHODS  # noqa: E402
+from drm.tasks import TASKS, make_task_data  # noqa: E402
 
-TRACE_SCHEDULES = ((16, 1), (4, 4), (1, 16))
+TRACE_SCHEDULES = ((16, 1), (8, 2), (4, 4), (2, 8), (1, 16))   # the whole matched-compute menu
 
 
 def eval_gen(seed: int, S: int, k: int) -> torch.Generator:
@@ -32,6 +35,22 @@ def eval_gen(seed: int, S: int, k: int) -> torch.Generator:
 def out_paths(cfg: Config, out_root: Path):
     base = out_root / f"{cfg.run_name()}"
     return base.with_suffix(".json"), base.with_suffix(".npz")
+
+
+def now_iso() -> str:
+    return dt.datetime.now().astimezone().isoformat(timespec="seconds")
+
+
+def loadavg() -> float:
+    try:
+        return os.getloadavg()[0]
+    except OSError:
+        return float("nan")
+
+
+def ckpt_path(cfg: Config, out_root: Path) -> Path:
+    """Model weights are kept next to (not inside) the raw results tree; not committed."""
+    return out_root.parent / "checkpoints" / f"{cfg.run_name()}.pt"
 
 
 def up_to_date(js: Path, cfg: Config) -> bool:
@@ -50,6 +69,7 @@ def run(cfg: Config, out_root: Path, force: bool = False) -> dict | None:
         print(f"skip (up to date) {js}")
         return None
     torch.set_num_threads(1)
+    started, load0, wall0 = now_iso(), loadavg(), time.time()
     data = make_task_data(cfg.task, cfg.n_train, cfg.n_dev, cfg.n_eval, cfg.data_seed)
     Xtr, Ytr = data["train"]
     Xev, Yev = (torch.from_numpy(a) for a in data[cfg.split])
@@ -78,10 +98,15 @@ def run(cfg: Config, out_root: Path, force: bool = False) -> dict | None:
     out = {
         "meta": {"code_hash": code_hash(), "config_hash": cfg.config_hash(),
                  "config": dataclasses.asdict(cfg), "n_params": n_params(model),
-                 "torch": torch.__version__, "eval_seconds": time.time() - t0},
+                 "torch": torch.__version__, "eval_seconds": time.time() - t0,
+                 "started_at": started, "finished_at": now_iso(), "wall_seconds": time.time() - wall0,
+                 "loadavg_start": load0, "loadavg_end": loadavg(), "cpu_count": os.cpu_count()},
         "train": log, "eval": res, "traces": traces,
     }
     js.parent.mkdir(parents=True, exist_ok=True)
+    ck = ckpt_path(cfg, out_root)
+    ck.parent.mkdir(parents=True, exist_ok=True)
+    torch.save(model.state_dict(), ck)
     np.savez_compressed(npz, **bits)
     js.write_text(json.dumps(out, indent=1, sort_keys=True))
     print(f"wrote {js}  pass1(S4,k4)={res['S4_k4']['pass1']:.3f}  train={log['train_seconds']:.0f}s")
@@ -93,8 +118,8 @@ from drm.train import train  # noqa: E402  (after sys.path tweak)
 
 def parse(argv=None):
     p = argparse.ArgumentParser()
-    p.add_argument("--task", required=True)
-    p.add_argument("--method", required=True)
+    p.add_argument("--task", required=True, choices=TASKS)
+    p.add_argument("--method", required=True, choices=METHODS)
     p.add_argument("--seed", type=int, required=True)
     p.add_argument("--split", default="dev", choices=["dev", "eval"])
     p.add_argument("--lr", type=float, default=1e-3)
@@ -104,6 +129,12 @@ def parse(argv=None):
     p.add_argument("--out", default=str(ROOT / "results" / "raw"))
     p.add_argument("--force", action="store_true")
     a = p.parse_args(argv)
+    if a.k < 1:
+        p.error("--k must be >= 1")
+    if a.phi_budget <= 0:
+        p.error("--phi_budget must be > 0")
+    if a.lr <= 0:
+        p.error("--lr must be > 0")
     cfg = Config(task=a.task, method=a.method, seed=a.seed, split=a.split, lr=a.lr, k=a.k,
                  phi_budget=a.phi_budget, radius=a.radius)
     return cfg, Path(a.out), a.force

@@ -74,19 +74,41 @@ def choose(runs: dict):
     return choice, scores, by_compute
 
 
-def main(raw: Path = ROOT / "results" / "raw", out: Path = TUNING_PATH):
+def lr_edges(choice: dict, scores: dict) -> list[str]:
+    """(task, method) cells whose chosen lr is an end point of the grid AND strictly
+    better on dev than its only neighbour, i.e. the optimum may lie outside the grid."""
+    out = []
+    for t, ms in choice.items():
+        for m, ch in ms.items():
+            lrs = [x for x in LR_GRID if f"{x:g}" in scores[t][m]]
+            i = lrs.index(ch["lr"])
+            if i in (0, len(lrs) - 1) and len(lrs) > 1:
+                nb = lrs[1] if i == 0 else lrs[-2]
+                nb_best = max(scores[t][m][f"{nb:g}"][f"S{s}_k{k}"] for s, k in MATCHED_MENU)
+                if ch["dev_pass1"] > nb_best + 1e-12:
+                    out.append(f"{t}:{m}:{ch['lr']:g}")
+    return sorted(out)
+
+
+def main(raw: Path = ROOT / "results" / "raw", out: Path = TUNING_PATH, fail_on_edge: bool = False):
     runs, code = load_runs(tune_jobs(), raw)
     choice, scores, by_compute = choose(runs)
+    edges = lr_edges(choice, scores)
     out.write_text(json.dumps({"meta": {"code_hash": code, "dev_seeds": list(DEV_SEEDS),
-                                        "lr_grid": list(LR_GRID), "menu": [list(x) for x in MATCHED_MENU]},
+                                        "lr_grid": list(LR_GRID), "menu": [list(x) for x in MATCHED_MENU],
+                                        "lr_edges": edges},
                                "choice": choice, "by_compute": by_compute, "dev_scores": scores},
                               indent=1, sort_keys=True))
     print(json.dumps(choice, indent=1))
+    print(f"lr edges: {edges}")
+    if fail_on_edge and edges:
+        print("tune: chosen lr at a grid edge; extend the grid on dev before eval", file=sys.stderr)
+        sys.exit(3)
 
 
 if __name__ == "__main__":
     try:
-        main()
+        main(fail_on_edge="--fail-on-edge" in sys.argv)
     except GridError as e:
         print(f"tune: refusing: {e}", file=sys.stderr)
         sys.exit(2)
