@@ -1,11 +1,11 @@
 tune: 180 jobs
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/bwd_tbptt_k4_lr5e-4_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/bwd_k_k4_lr1e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/bwd_k_k4_lr2e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/bwd_k_k4_lr5e-4_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/fwd_k4_lr2e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/fwd_k4_lr1e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/fwd_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr5e-4_s1.json
 [1/180] dev/colormap/bwd_tbptt_k4_lr5e-4_s1 ok
 [2/180] dev/colormap/bwd_k_k4_lr1e-3_s1 ok
 [3/180] dev/colormap/bwd_k_k4_lr2e-3_s1 ok
@@ -14,350 +14,350 @@ skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw
 [6/180] dev/colormap/fwd_k4_lr2e-3_s1 ok
 [7/180] dev/colormap/fwd_k4_lr5e-4_s1 ok
 [8/180] dev/colormap/fwd_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/fwd_k4_lr5e-4_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/drm_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/colormap/drm_k4_lr5e-4_s1.json
 [9/180] dev/colormap/drm_k4_lr5e-4_s1 ok
 [10/180] dev/colormap/bwd_tbptt_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/bwd_tbptt_k4_lr1e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/bwd_tbptt_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr2e-3_s1.json
 [11/180] dev/colormap/bwd_tbptt_k4_lr2e-3_s1 ok
 [12/180] dev/colormap/drm_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/drm_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/colormap/drm_k4_lr2e-3_s1.json
 [13/180] dev/colormap/fwd_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/fwd_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr1e-3_s2.json
 [14/180] dev/colormap/drm_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/drm_k4_lr1e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/fwd_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/colormap/drm_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr2e-3_s2.json
 [15/180] dev/colormap/fwd_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/bwd_k_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr1e-3_s2.json
 [16/180] dev/colormap/bwd_k_k4_lr1e-3_s2 ok
 [17/180] dev/colormap/bwd_k_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/bwd_k_k4_lr5e-4_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/bwd_k_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr2e-3_s2.json
 [18/180] dev/colormap/bwd_k_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/bwd_tbptt_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr5e-4_s2.json
 [19/180] dev/colormap/bwd_tbptt_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/bwd_tbptt_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr1e-3_s2.json
 [20/180] dev/colormap/bwd_tbptt_k4_lr1e-3_s2 ok
 [21/180] dev/colormap/bwd_tbptt_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/bwd_tbptt_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr2e-3_s2.json
 [22/180] dev/colormap/drm_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/drm_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/colormap/drm_k4_lr2e-3_s2.json
 [23/180] dev/colormap/drm_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/drm_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/colormap/drm_k4_lr1e-3_s2.json
 [24/180] dev/flood/fwd_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_k4_lr5e-4_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/drm_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/flood/fwd_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/colormap/drm_k4_lr5e-4_s2.json
 [25/180] dev/colormap/drm_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/flood/fwd_k4_lr1e-3_s1.json
 [26/180] dev/flood/fwd_k4_lr1e-3_s1 ok
 [27/180] dev/flood/fwd_k4_lr4e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_k4_lr4e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/flood/fwd_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/flood/fwd_k4_lr2e-3_s1.json
 [28/180] dev/flood/fwd_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_k_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr5e-4_s1.json
 [29/180] dev/flood/bwd_k_k4_lr5e-4_s1 ok
 [30/180] dev/flood/bwd_k_k4_lr4e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_k_k4_lr4e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_k_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr1e-3_s1.json
 [31/180] dev/flood/bwd_k_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_k_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr2e-3_s1.json
 [32/180] dev/flood/bwd_k_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_tbptt_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr5e-4_s1.json
 [33/180] dev/flood/bwd_tbptt_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_tbptt_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr1e-3_s1.json
 [34/180] dev/flood/bwd_tbptt_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_tbptt_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr2e-3_s1.json
 [35/180] dev/flood/bwd_tbptt_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_tbptt_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr4e-3_s1.json
 [36/180] dev/flood/bwd_tbptt_k4_lr4e-3_s1 ok
 [37/180] dev/flood/drm_k4_lr4e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/drm_k4_lr4e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/drm_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/flood/drm_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/flood/drm_k4_lr5e-4_s1.json
 [38/180] dev/flood/drm_k4_lr5e-4_s1 ok
 [39/180] dev/flood/drm_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/drm_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/flood/drm_k4_lr1e-3_s1.json
 [40/180] dev/flood/drm_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/drm_k4_lr2e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/flood/drm_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/flood/fwd_k4_lr5e-4_s2.json
 [41/180] dev/flood/fwd_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/flood/fwd_k4_lr1e-3_s2.json
 [42/180] dev/flood/fwd_k4_lr1e-3_s2 ok
 [43/180] dev/flood/fwd_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/flood/fwd_k4_lr2e-3_s2.json
 [44/180] dev/flood/bwd_k_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_k_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr2e-3_s2.json
 [45/180] dev/flood/fwd_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_k4_lr4e-3_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_k_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/flood/fwd_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr1e-3_s2.json
 [46/180] dev/flood/bwd_k_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_k_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr4e-3_s2.json
 [47/180] dev/flood/bwd_k_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_k_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr5e-4_s2.json
 [48/180] dev/flood/bwd_k_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_tbptt_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr5e-4_s2.json
 [49/180] dev/flood/bwd_tbptt_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_tbptt_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr2e-3_s2.json
 [50/180] dev/flood/bwd_tbptt_k4_lr2e-3_s2 ok
 [51/180] dev/flood/drm_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/drm_k4_lr5e-4_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/drm_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/flood/drm_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/flood/drm_k4_lr1e-3_s2.json
 [52/180] dev/flood/drm_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_tbptt_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr4e-3_s2.json
 [53/180] dev/flood/bwd_tbptt_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/bwd_tbptt_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr1e-3_s2.json
 [54/180] dev/flood/bwd_tbptt_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/drm_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/flood/drm_k4_lr4e-3_s2.json
 [55/180] dev/flood/drm_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/drm_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/flood/drm_k4_lr2e-3_s2.json
 [56/180] dev/flood/drm_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr5e-4_s1.json
 [57/180] dev/gravity/fwd_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr4e-3_s1.json
 [58/180] dev/gravity/fwd_k4_lr4e-3_s1 ok
 [59/180] dev/gravity/fwd_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr1e-3_s1.json
 [60/180] dev/gravity/fwd_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_k4_lr2e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_k_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr5e-4_s1.json
 [61/180] dev/gravity/bwd_k_k4_lr5e-4_s1 ok
 [62/180] dev/gravity/bwd_k_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_k_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr2e-3_s1.json
 [63/180] dev/gravity/bwd_k_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_k_k4_lr1e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_k_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr4e-3_s1.json
 [64/180] dev/gravity/bwd_k_k4_lr4e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_tbptt_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr5e-4_s1.json
 [65/180] dev/gravity/bwd_tbptt_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_tbptt_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr1e-3_s1.json
 [66/180] dev/gravity/bwd_tbptt_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_tbptt_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr4e-3_s1.json
 [67/180] dev/gravity/bwd_tbptt_k4_lr4e-3_s1 ok
 [68/180] dev/gravity/bwd_tbptt_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_tbptt_k4_lr2e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/drm_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/gravity/drm_k4_lr5e-4_s1.json
 [69/180] dev/gravity/drm_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/drm_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/gravity/drm_k4_lr1e-3_s1.json
 [70/180] dev/gravity/drm_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/drm_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/gravity/drm_k4_lr2e-3_s1.json
 [71/180] dev/gravity/drm_k4_lr2e-3_s1 ok
 [72/180] dev/gravity/fwd_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_k4_lr1e-3_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/drm_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/gravity/drm_k4_lr4e-3_s1.json
 [73/180] dev/gravity/drm_k4_lr4e-3_s1 ok
 [74/180] dev/gravity/fwd_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr5e-4_s2.json
 [75/180] dev/gravity/fwd_k4_lr4e-3_s2 ok
 [76/180] dev/gravity/fwd_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_k4_lr4e-3_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_k4_lr2e-3_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_k_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr5e-4_s2.json
 [77/180] dev/gravity/bwd_k_k4_lr5e-4_s2 ok
 [78/180] dev/gravity/bwd_k_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_k_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr1e-3_s2.json
 [79/180] dev/gravity/bwd_k_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_k_k4_lr4e-3_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_k_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr2e-3_s2.json
 [80/180] dev/gravity/bwd_k_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_tbptt_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr2e-3_s2.json
 [81/180] dev/gravity/bwd_tbptt_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_tbptt_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr1e-3_s2.json
 [82/180] dev/gravity/bwd_tbptt_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_tbptt_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr5e-4_s2.json
 [83/180] dev/gravity/bwd_tbptt_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/bwd_tbptt_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr4e-3_s2.json
 [84/180] dev/gravity/bwd_tbptt_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/drm_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/gravity/drm_k4_lr5e-4_s2.json
 [85/180] dev/gravity/drm_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/drm_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/gravity/drm_k4_lr1e-3_s2.json
 [86/180] dev/gravity/drm_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/drm_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/gravity/drm_k4_lr4e-3_s2.json
 [87/180] dev/gravity/drm_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/drm_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/gravity/drm_k4_lr2e-3_s2.json
 [88/180] dev/gravity/drm_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/shift/fwd_k4_lr1e-3_s1.json
 [89/180] dev/shift/fwd_k4_lr1e-3_s1 ok
 [90/180] dev/shift/fwd_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_k4_lr5e-4_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/shift/fwd_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/shift/fwd_k4_lr2e-3_s1.json
 [91/180] dev/shift/fwd_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_k_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr5e-4_s1.json
 [92/180] dev/shift/bwd_k_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_k4_lr4e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_k_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/shift/fwd_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr1e-3_s1.json
 [93/180] dev/shift/fwd_k4_lr4e-3_s1 ok
 [94/180] dev/shift/bwd_k_k4_lr1e-3_s1 ok
 [95/180] dev/shift/bwd_k_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_k_k4_lr2e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_tbptt_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr1e-3_s1.json
 [96/180] dev/shift/bwd_tbptt_k4_lr1e-3_s1 ok
 [97/180] dev/shift/bwd_k_k4_lr4e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_k_k4_lr4e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_tbptt_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr5e-4_s1.json
 [98/180] dev/shift/bwd_tbptt_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_tbptt_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr2e-3_s1.json
 [99/180] dev/shift/bwd_tbptt_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/drm_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/shift/drm_k4_lr4e-3_s1.json
 [100/180] dev/shift/drm_k4_lr4e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/drm_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/shift/drm_k4_lr1e-3_s1.json
 [101/180] dev/shift/drm_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_tbptt_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr4e-3_s1.json
 [102/180] dev/shift/bwd_tbptt_k4_lr4e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/drm_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/shift/drm_k4_lr5e-4_s1.json
 [103/180] dev/shift/drm_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/drm_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/shift/drm_k4_lr2e-3_s1.json
 [104/180] dev/shift/drm_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/shift/fwd_k4_lr5e-4_s2.json
 [105/180] dev/shift/fwd_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/shift/fwd_k4_lr1e-3_s2.json
 [106/180] dev/shift/fwd_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/shift/fwd_k4_lr4e-3_s2.json
 [107/180] dev/shift/fwd_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/shift/fwd_k4_lr2e-3_s2.json
 [108/180] dev/shift/fwd_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_k_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr5e-4_s2.json
 [109/180] dev/shift/bwd_k_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_k_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr2e-3_s2.json
 [110/180] dev/shift/bwd_k_k4_lr2e-3_s2 ok
 [111/180] dev/shift/bwd_k_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_k_k4_lr1e-3_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_k_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr4e-3_s2.json
 [112/180] dev/shift/bwd_k_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_tbptt_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr5e-4_s2.json
 [113/180] dev/shift/bwd_tbptt_k4_lr5e-4_s2 ok
 [114/180] dev/shift/bwd_tbptt_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_tbptt_k4_lr4e-3_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/drm_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/shift/drm_k4_lr1e-3_s2.json
 [115/180] dev/shift/drm_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_tbptt_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr1e-3_s2.json
 [116/180] dev/shift/bwd_tbptt_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/bwd_tbptt_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr2e-3_s2.json
 [117/180] dev/shift/bwd_tbptt_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/drm_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/shift/drm_k4_lr5e-4_s2.json
 [118/180] dev/shift/drm_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/fwd_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr5e-4_s1.json
 [119/180] dev/symfill/fwd_k4_lr5e-4_s1 ok
 [120/180] dev/shift/drm_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/drm_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/shift/drm_k4_lr2e-3_s2.json
 [121/180] dev/shift/drm_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/drm_k4_lr4e-3_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/bwd_k_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/shift/drm_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr5e-4_s1.json
 [122/180] dev/symfill/bwd_k_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/fwd_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr1e-3_s1.json
 [123/180] dev/symfill/fwd_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/fwd_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr2e-3_s1.json
 [124/180] dev/symfill/fwd_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/bwd_k_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr1e-3_s1.json
 [125/180] dev/symfill/bwd_k_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/bwd_k_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr2e-3_s1.json
 [126/180] dev/symfill/bwd_k_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/bwd_tbptt_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr5e-4_s1.json
 [127/180] dev/symfill/bwd_tbptt_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/bwd_tbptt_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr1e-3_s1.json
 [128/180] dev/symfill/bwd_tbptt_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/drm_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/symfill/drm_k4_lr1e-3_s1.json
 [129/180] dev/symfill/drm_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/drm_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/symfill/drm_k4_lr5e-4_s1.json
 [130/180] dev/symfill/drm_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/drm_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/symfill/drm_k4_lr2e-3_s1.json
 [131/180] dev/symfill/drm_k4_lr2e-3_s1 ok
 [132/180] dev/symfill/bwd_tbptt_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/bwd_tbptt_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr2e-3_s1.json
 [133/180] dev/symfill/fwd_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/fwd_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr5e-4_s2.json
 [134/180] dev/symfill/fwd_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/fwd_k4_lr2e-3_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/fwd_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr1e-3_s2.json
 [135/180] dev/symfill/fwd_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/bwd_k_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr5e-4_s2.json
 [136/180] dev/symfill/bwd_k_k4_lr5e-4_s2 ok
 [137/180] dev/symfill/bwd_k_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/bwd_k_k4_lr1e-3_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/bwd_k_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr2e-3_s2.json
 [138/180] dev/symfill/bwd_k_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/bwd_tbptt_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr5e-4_s2.json
 [139/180] dev/symfill/bwd_tbptt_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/bwd_tbptt_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr1e-3_s2.json
 [140/180] dev/symfill/bwd_tbptt_k4_lr1e-3_s2 ok
 [141/180] dev/symfill/bwd_tbptt_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/bwd_tbptt_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr2e-3_s2.json
 [142/180] dev/symfill/drm_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/drm_k4_lr5e-4_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/drm_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/symfill/drm_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/symfill/drm_k4_lr1e-3_s2.json
 [143/180] dev/symfill/drm_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/fwd_steps_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr5e-4_s1.json
 [144/180] dev/colormap/fwd_steps_k4_lr5e-4_s1 ok
 [145/180] dev/colormap/fwd_steps_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/fwd_steps_k4_lr1e-3_s1.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/drm_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/symfill/drm_k4_lr2e-3_s2.json
 [146/180] dev/symfill/drm_k4_lr2e-3_s2 ok
 [147/180] dev/colormap/fwd_steps_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/fwd_steps_k4_lr5e-4_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/fwd_steps_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr1e-3_s2.json
 [148/180] dev/colormap/fwd_steps_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/fwd_steps_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr2e-3_s1.json
 [149/180] dev/colormap/fwd_steps_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_steps_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr5e-4_s1.json
 [150/180] dev/flood/fwd_steps_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/colormap/fwd_steps_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr2e-3_s2.json
 [151/180] dev/colormap/fwd_steps_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_steps_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr2e-3_s1.json
 [152/180] dev/flood/fwd_steps_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_steps_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr1e-3_s1.json
 [153/180] dev/flood/fwd_steps_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_steps_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr4e-3_s1.json
 [154/180] dev/flood/fwd_steps_k4_lr4e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_steps_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr5e-4_s2.json
 [155/180] dev/flood/fwd_steps_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_steps_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr1e-3_s2.json
 [156/180] dev/flood/fwd_steps_k4_lr1e-3_s2 ok
 [157/180] dev/flood/fwd_steps_k4_lr2e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_steps_k4_lr2e-3_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/flood/fwd_steps_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr4e-3_s2.json
 [158/180] dev/flood/fwd_steps_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_steps_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr5e-4_s1.json
 [159/180] dev/gravity/fwd_steps_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_steps_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr1e-3_s1.json
 [160/180] dev/gravity/fwd_steps_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_steps_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr4e-3_s1.json
 [161/180] dev/gravity/fwd_steps_k4_lr4e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_steps_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr5e-4_s2.json
 [162/180] dev/gravity/fwd_steps_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_steps_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr2e-3_s1.json
 [163/180] dev/gravity/fwd_steps_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_steps_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr1e-3_s2.json
 [164/180] dev/gravity/fwd_steps_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_steps_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr2e-3_s2.json
 [165/180] dev/gravity/fwd_steps_k4_lr2e-3_s2 ok
 [166/180] dev/gravity/fwd_steps_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/gravity/fwd_steps_k4_lr4e-3_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_steps_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr5e-4_s1.json
 [167/180] dev/shift/fwd_steps_k4_lr5e-4_s1 ok
 [168/180] dev/shift/fwd_steps_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_steps_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr2e-3_s1.json
 [169/180] dev/shift/fwd_steps_k4_lr4e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_steps_k4_lr4e-3_s1.json
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr4e-3_s1.json
 [170/180] dev/shift/fwd_steps_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_steps_k4_lr5e-4_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_steps_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr1e-3_s1.json
 [171/180] dev/shift/fwd_steps_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_steps_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr1e-3_s2.json
 [172/180] dev/shift/fwd_steps_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_steps_k4_lr4e-3_s2.json
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr4e-3_s2.json
 [173/180] dev/shift/fwd_steps_k4_lr4e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/shift/fwd_steps_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr2e-3_s2.json
 [174/180] dev/shift/fwd_steps_k4_lr2e-3_s2 ok
 [175/180] dev/symfill/fwd_steps_k4_lr5e-4_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/fwd_steps_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr5e-4_s1.json
 [176/180] dev/symfill/fwd_steps_k4_lr1e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/fwd_steps_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr1e-3_s1.json
 [177/180] dev/symfill/fwd_steps_k4_lr5e-4_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/fwd_steps_k4_lr5e-4_s2.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/fwd_steps_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr2e-3_s1.json
 [178/180] dev/symfill/fwd_steps_k4_lr2e-3_s1 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/fwd_steps_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr1e-3_s2.json
 [179/180] dev/symfill/fwd_steps_k4_lr1e-3_s2 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/dev/symfill/fwd_steps_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr2e-3_s2.json
 [180/180] dev/symfill/fwd_steps_k4_lr2e-3_s2 ok
 done; 0 failed
 {
@@ -573,355 +573,355 @@ done; 0 failed
  }
 }
 main: 150 jobs
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_k_k4_lr4e-3_s100.json
+skip (up to date) results/raw/eval/flood/bwd_k_k4_lr4e-3_s100.json
 [1/150] eval/flood/bwd_k_k4_lr4e-3_s100 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s101.json
+skip (up to date) results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s101.json
 [2/150] eval/flood/bwd_tbptt_k4_lr2e-3_s101 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_k4_lr4e-3_s100.json
+skip (up to date) results/raw/eval/flood/fwd_k4_lr4e-3_s100.json
 [3/150] eval/flood/fwd_k4_lr4e-3_s100 ok
 [4/150] eval/flood/bwd_k_k4_lr4e-3_s101 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_k_k4_lr4e-3_s101.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k4_lr4e-3_s100.json
+skip (up to date) results/raw/eval/flood/bwd_k_k4_lr4e-3_s101.json
+skip (up to date) results/raw/eval/flood/drm_k4_lr4e-3_s100.json
 [5/150] eval/flood/drm_k4_lr4e-3_s100 ok
 [6/150] eval/flood/bwd_tbptt_k4_lr2e-3_s100 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s100.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_k4_lr4e-3_s101.json
+skip (up to date) results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s100.json
+skip (up to date) results/raw/eval/flood/fwd_k4_lr4e-3_s101.json
 [7/150] eval/flood/fwd_k4_lr4e-3_s101 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k4_lr4e-3_s101.json
+skip (up to date) results/raw/eval/flood/drm_k4_lr4e-3_s101.json
 [8/150] eval/flood/drm_k4_lr4e-3_s101 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_k4_lr4e-3_s102.json
+skip (up to date) results/raw/eval/flood/fwd_k4_lr4e-3_s102.json
 [9/150] eval/flood/fwd_k4_lr4e-3_s102 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_k_k4_lr4e-3_s102.json
+skip (up to date) results/raw/eval/flood/bwd_k_k4_lr4e-3_s102.json
 [10/150] eval/flood/bwd_k_k4_lr4e-3_s102 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s102.json
+skip (up to date) results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s102.json
 [11/150] eval/flood/bwd_tbptt_k4_lr2e-3_s102 ok
 [12/150] eval/flood/fwd_k4_lr4e-3_s103 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_k4_lr4e-3_s103.json
+skip (up to date) results/raw/eval/flood/fwd_k4_lr4e-3_s103.json
 [13/150] eval/flood/bwd_k_k4_lr4e-3_s103 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k4_lr4e-3_s102.json
+skip (up to date) results/raw/eval/flood/drm_k4_lr4e-3_s102.json
 [14/150] eval/flood/drm_k4_lr4e-3_s102 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_k_k4_lr4e-3_s103.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_k4_lr4e-3_s104.json
+skip (up to date) results/raw/eval/flood/bwd_k_k4_lr4e-3_s103.json
+skip (up to date) results/raw/eval/flood/fwd_k4_lr4e-3_s104.json
 [15/150] eval/flood/fwd_k4_lr4e-3_s104 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s103.json
+skip (up to date) results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s103.json
 [16/150] eval/flood/bwd_tbptt_k4_lr2e-3_s103 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k4_lr4e-3_s103.json
+skip (up to date) results/raw/eval/flood/drm_k4_lr4e-3_s103.json
 [17/150] eval/flood/drm_k4_lr4e-3_s103 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_k_k4_lr4e-3_s104.json
+skip (up to date) results/raw/eval/flood/bwd_k_k4_lr4e-3_s104.json
 [18/150] eval/flood/bwd_k_k4_lr4e-3_s104 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s104.json
+skip (up to date) results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s104.json
 [19/150] eval/flood/bwd_tbptt_k4_lr2e-3_s104 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_k4_lr4e-3_s105.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k4_lr4e-3_s104.json
+skip (up to date) results/raw/eval/flood/fwd_k4_lr4e-3_s105.json
+skip (up to date) results/raw/eval/flood/drm_k4_lr4e-3_s104.json
 [20/150] eval/flood/fwd_k4_lr4e-3_s105 ok
 [21/150] eval/flood/drm_k4_lr4e-3_s104 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s105.json
+skip (up to date) results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s105.json
 [22/150] eval/flood/bwd_tbptt_k4_lr2e-3_s105 ok
 [23/150] eval/flood/bwd_k_k4_lr4e-3_s105 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_k_k4_lr4e-3_s105.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k4_lr4e-3_s105.json
+skip (up to date) results/raw/eval/flood/bwd_k_k4_lr4e-3_s105.json
+skip (up to date) results/raw/eval/flood/drm_k4_lr4e-3_s105.json
 [24/150] eval/flood/drm_k4_lr4e-3_s105 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_k4_lr4e-3_s106.json
+skip (up to date) results/raw/eval/flood/fwd_k4_lr4e-3_s106.json
 [25/150] eval/flood/fwd_k4_lr4e-3_s106 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_k_k4_lr4e-3_s106.json
+skip (up to date) results/raw/eval/flood/bwd_k_k4_lr4e-3_s106.json
 [26/150] eval/flood/bwd_k_k4_lr4e-3_s106 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s106.json
+skip (up to date) results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s106.json
 [27/150] eval/flood/bwd_tbptt_k4_lr2e-3_s106 ok
 [28/150] eval/flood/drm_k4_lr4e-3_s106 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k4_lr4e-3_s106.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_k4_lr4e-3_s107.json
+skip (up to date) results/raw/eval/flood/drm_k4_lr4e-3_s106.json
+skip (up to date) results/raw/eval/flood/fwd_k4_lr4e-3_s107.json
 [29/150] eval/flood/fwd_k4_lr4e-3_s107 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s107.json
+skip (up to date) results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s107.json
 [30/150] eval/flood/bwd_tbptt_k4_lr2e-3_s107 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k4_lr4e-3_s107.json
+skip (up to date) results/raw/eval/flood/drm_k4_lr4e-3_s107.json
 [31/150] eval/flood/drm_k4_lr4e-3_s107 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_k_k4_lr4e-3_s107.json
+skip (up to date) results/raw/eval/flood/bwd_k_k4_lr4e-3_s107.json
 [32/150] eval/flood/bwd_k_k4_lr4e-3_s107 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_k4_lr4e-3_s108.json
+skip (up to date) results/raw/eval/flood/fwd_k4_lr4e-3_s108.json
 [33/150] eval/flood/fwd_k4_lr4e-3_s108 ok
 [34/150] eval/flood/bwd_k_k4_lr4e-3_s108 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_k_k4_lr4e-3_s108.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s108.json
+skip (up to date) results/raw/eval/flood/bwd_k_k4_lr4e-3_s108.json
+skip (up to date) results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s108.json
 [35/150] eval/flood/bwd_tbptt_k4_lr2e-3_s108 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_k_k4_lr4e-3_s109.json
+skip (up to date) results/raw/eval/flood/bwd_k_k4_lr4e-3_s109.json
 [36/150] eval/flood/bwd_k_k4_lr4e-3_s109 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_k4_lr4e-3_s109.json
+skip (up to date) results/raw/eval/flood/fwd_k4_lr4e-3_s109.json
 [37/150] eval/flood/fwd_k4_lr4e-3_s109 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k4_lr4e-3_s108.json
+skip (up to date) results/raw/eval/flood/drm_k4_lr4e-3_s108.json
 [38/150] eval/flood/drm_k4_lr4e-3_s108 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s109.json
+skip (up to date) results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s109.json
 [39/150] eval/flood/bwd_tbptt_k4_lr2e-3_s109 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k4_lr4e-3_s109.json
+skip (up to date) results/raw/eval/flood/drm_k4_lr4e-3_s109.json
 [40/150] eval/flood/drm_k4_lr4e-3_s109 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_k_k4_lr4e-3_s100.json
+skip (up to date) results/raw/eval/gravity/bwd_k_k4_lr4e-3_s100.json
 [41/150] eval/gravity/bwd_k_k4_lr4e-3_s100 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_k4_lr5e-4_s100.json
+skip (up to date) results/raw/eval/gravity/fwd_k4_lr5e-4_s100.json
 [42/150] eval/gravity/fwd_k4_lr5e-4_s100 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/drm_k4_lr4e-3_s100.json
+skip (up to date) results/raw/eval/gravity/drm_k4_lr4e-3_s100.json
 [43/150] eval/gravity/drm_k4_lr4e-3_s100 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s100.json
+skip (up to date) results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s100.json
 [44/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s100 ok
 [45/150] eval/gravity/fwd_k4_lr5e-4_s101 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_k4_lr5e-4_s101.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_k_k4_lr4e-3_s101.json
+skip (up to date) results/raw/eval/gravity/fwd_k4_lr5e-4_s101.json
+skip (up to date) results/raw/eval/gravity/bwd_k_k4_lr4e-3_s101.json
 [46/150] eval/gravity/bwd_k_k4_lr4e-3_s101 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s101.json
+skip (up to date) results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s101.json
 [47/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s101 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/drm_k4_lr4e-3_s101.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_k4_lr5e-4_s102.json
+skip (up to date) results/raw/eval/gravity/drm_k4_lr4e-3_s101.json
+skip (up to date) results/raw/eval/gravity/fwd_k4_lr5e-4_s102.json
 [48/150] eval/gravity/drm_k4_lr4e-3_s101 ok
 [49/150] eval/gravity/fwd_k4_lr5e-4_s102 ok
 [50/150] eval/gravity/bwd_k_k4_lr4e-3_s102 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_k_k4_lr4e-3_s102.json
+skip (up to date) results/raw/eval/gravity/bwd_k_k4_lr4e-3_s102.json
 [51/150] eval/gravity/drm_k4_lr4e-3_s102 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/drm_k4_lr4e-3_s102.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s102.json
+skip (up to date) results/raw/eval/gravity/drm_k4_lr4e-3_s102.json
+skip (up to date) results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s102.json
 [52/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s102 ok
 [53/150] eval/gravity/fwd_k4_lr5e-4_s103 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_k4_lr5e-4_s103.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_k_k4_lr4e-3_s103.json
+skip (up to date) results/raw/eval/gravity/fwd_k4_lr5e-4_s103.json
+skip (up to date) results/raw/eval/gravity/bwd_k_k4_lr4e-3_s103.json
 [54/150] eval/gravity/bwd_k_k4_lr4e-3_s103 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/drm_k4_lr4e-3_s103.json
+skip (up to date) results/raw/eval/gravity/drm_k4_lr4e-3_s103.json
 [55/150] eval/gravity/drm_k4_lr4e-3_s103 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s103.json
+skip (up to date) results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s103.json
 [56/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s103 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s104.json
+skip (up to date) results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s104.json
 [57/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s104 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_k4_lr5e-4_s104.json
+skip (up to date) results/raw/eval/gravity/fwd_k4_lr5e-4_s104.json
 [58/150] eval/gravity/fwd_k4_lr5e-4_s104 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/drm_k4_lr4e-3_s104.json
+skip (up to date) results/raw/eval/gravity/drm_k4_lr4e-3_s104.json
 [59/150] eval/gravity/drm_k4_lr4e-3_s104 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_k4_lr5e-4_s105.json
+skip (up to date) results/raw/eval/gravity/fwd_k4_lr5e-4_s105.json
 [60/150] eval/gravity/fwd_k4_lr5e-4_s105 ok
 [61/150] eval/gravity/bwd_k_k4_lr4e-3_s104 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_k_k4_lr4e-3_s104.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s105.json
+skip (up to date) results/raw/eval/gravity/bwd_k_k4_lr4e-3_s104.json
+skip (up to date) results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s105.json
 [62/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s105 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_k_k4_lr4e-3_s105.json
+skip (up to date) results/raw/eval/gravity/bwd_k_k4_lr4e-3_s105.json
 [63/150] eval/gravity/bwd_k_k4_lr4e-3_s105 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/drm_k4_lr4e-3_s105.json
+skip (up to date) results/raw/eval/gravity/drm_k4_lr4e-3_s105.json
 [64/150] eval/gravity/drm_k4_lr4e-3_s105 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_k4_lr5e-4_s106.json
+skip (up to date) results/raw/eval/gravity/fwd_k4_lr5e-4_s106.json
 [65/150] eval/gravity/fwd_k4_lr5e-4_s106 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s106.json
+skip (up to date) results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s106.json
 [66/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s106 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_k_k4_lr4e-3_s106.json
+skip (up to date) results/raw/eval/gravity/bwd_k_k4_lr4e-3_s106.json
 [67/150] eval/gravity/bwd_k_k4_lr4e-3_s106 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_k4_lr5e-4_s107.json
+skip (up to date) results/raw/eval/gravity/fwd_k4_lr5e-4_s107.json
 [68/150] eval/gravity/fwd_k4_lr5e-4_s107 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/drm_k4_lr4e-3_s106.json
+skip (up to date) results/raw/eval/gravity/drm_k4_lr4e-3_s106.json
 [69/150] eval/gravity/drm_k4_lr4e-3_s106 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_k_k4_lr4e-3_s107.json
+skip (up to date) results/raw/eval/gravity/bwd_k_k4_lr4e-3_s107.json
 [70/150] eval/gravity/bwd_k_k4_lr4e-3_s107 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s107.json
+skip (up to date) results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s107.json
 [71/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s107 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/drm_k4_lr4e-3_s107.json
+skip (up to date) results/raw/eval/gravity/drm_k4_lr4e-3_s107.json
 [72/150] eval/gravity/drm_k4_lr4e-3_s107 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_k4_lr5e-4_s108.json
+skip (up to date) results/raw/eval/gravity/fwd_k4_lr5e-4_s108.json
 [73/150] eval/gravity/fwd_k4_lr5e-4_s108 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_k_k4_lr4e-3_s108.json
+skip (up to date) results/raw/eval/gravity/bwd_k_k4_lr4e-3_s108.json
 [74/150] eval/gravity/bwd_k_k4_lr4e-3_s108 ok
 [75/150] eval/gravity/drm_k4_lr4e-3_s108 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/drm_k4_lr4e-3_s108.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_k4_lr5e-4_s109.json
+skip (up to date) results/raw/eval/gravity/drm_k4_lr4e-3_s108.json
+skip (up to date) results/raw/eval/gravity/fwd_k4_lr5e-4_s109.json
 [76/150] eval/gravity/fwd_k4_lr5e-4_s109 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s108.json
+skip (up to date) results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s108.json
 [77/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s108 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_k_k4_lr4e-3_s109.json
+skip (up to date) results/raw/eval/gravity/bwd_k_k4_lr4e-3_s109.json
 [78/150] eval/gravity/bwd_k_k4_lr4e-3_s109 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/drm_k4_lr4e-3_s109.json
+skip (up to date) results/raw/eval/gravity/drm_k4_lr4e-3_s109.json
 [79/150] eval/gravity/drm_k4_lr4e-3_s109 ok
 [80/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s109 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s109.json
+skip (up to date) results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s109.json
 [81/150] eval/shift/fwd_k4_lr2e-3_s100 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_k4_lr2e-3_s100.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_k_k4_lr4e-3_s100.json
+skip (up to date) results/raw/eval/shift/fwd_k4_lr2e-3_s100.json
+skip (up to date) results/raw/eval/shift/bwd_k_k4_lr4e-3_s100.json
 [82/150] eval/shift/bwd_k_k4_lr4e-3_s100 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s100.json
+skip (up to date) results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s100.json
 [83/150] eval/shift/bwd_tbptt_k4_lr2e-3_s100 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/drm_k4_lr4e-3_s100.json
+skip (up to date) results/raw/eval/shift/drm_k4_lr4e-3_s100.json
 [84/150] eval/shift/drm_k4_lr4e-3_s100 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_k4_lr2e-3_s101.json
+skip (up to date) results/raw/eval/shift/fwd_k4_lr2e-3_s101.json
 [85/150] eval/shift/fwd_k4_lr2e-3_s101 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s101.json
+skip (up to date) results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s101.json
 [86/150] eval/shift/bwd_tbptt_k4_lr2e-3_s101 ok
 [87/150] eval/shift/drm_k4_lr4e-3_s101 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/drm_k4_lr4e-3_s101.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_k_k4_lr4e-3_s101.json
+skip (up to date) results/raw/eval/shift/drm_k4_lr4e-3_s101.json
+skip (up to date) results/raw/eval/shift/bwd_k_k4_lr4e-3_s101.json
 [88/150] eval/shift/bwd_k_k4_lr4e-3_s101 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_k_k4_lr4e-3_s102.json
+skip (up to date) results/raw/eval/shift/bwd_k_k4_lr4e-3_s102.json
 [89/150] eval/shift/bwd_k_k4_lr4e-3_s102 ok
 [90/150] eval/shift/fwd_k4_lr2e-3_s102 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_k4_lr2e-3_s102.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s102.json
+skip (up to date) results/raw/eval/shift/fwd_k4_lr2e-3_s102.json
+skip (up to date) results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s102.json
 [91/150] eval/shift/bwd_tbptt_k4_lr2e-3_s102 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/drm_k4_lr4e-3_s102.json
+skip (up to date) results/raw/eval/shift/drm_k4_lr4e-3_s102.json
 [92/150] eval/shift/drm_k4_lr4e-3_s102 ok
 [93/150] eval/shift/fwd_k4_lr2e-3_s103 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_k4_lr2e-3_s103.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_k_k4_lr4e-3_s103.json
+skip (up to date) results/raw/eval/shift/fwd_k4_lr2e-3_s103.json
+skip (up to date) results/raw/eval/shift/bwd_k_k4_lr4e-3_s103.json
 [94/150] eval/shift/bwd_k_k4_lr4e-3_s103 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s103.json
+skip (up to date) results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s103.json
 [95/150] eval/shift/bwd_tbptt_k4_lr2e-3_s103 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/drm_k4_lr4e-3_s103.json
+skip (up to date) results/raw/eval/shift/drm_k4_lr4e-3_s103.json
 [96/150] eval/shift/drm_k4_lr4e-3_s103 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_k4_lr2e-3_s104.json
+skip (up to date) results/raw/eval/shift/fwd_k4_lr2e-3_s104.json
 [97/150] eval/shift/fwd_k4_lr2e-3_s104 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_k_k4_lr4e-3_s104.json
+skip (up to date) results/raw/eval/shift/bwd_k_k4_lr4e-3_s104.json
 [98/150] eval/shift/bwd_k_k4_lr4e-3_s104 ok
 [99/150] eval/shift/drm_k4_lr4e-3_s104 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/drm_k4_lr4e-3_s104.json
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s104.json
+skip (up to date) results/raw/eval/shift/drm_k4_lr4e-3_s104.json
+skip (up to date) results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s104.json
 [100/150] eval/shift/bwd_tbptt_k4_lr2e-3_s104 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_k4_lr2e-3_s105.json
+skip (up to date) results/raw/eval/shift/fwd_k4_lr2e-3_s105.json
 [101/150] eval/shift/fwd_k4_lr2e-3_s105 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_k_k4_lr4e-3_s105.json
+skip (up to date) results/raw/eval/shift/bwd_k_k4_lr4e-3_s105.json
 [102/150] eval/shift/bwd_k_k4_lr4e-3_s105 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/drm_k4_lr4e-3_s105.json
+skip (up to date) results/raw/eval/shift/drm_k4_lr4e-3_s105.json
 [103/150] eval/shift/drm_k4_lr4e-3_s105 ok
 [104/150] eval/shift/bwd_tbptt_k4_lr2e-3_s105 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s105.json
+skip (up to date) results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s105.json
 [105/150] eval/shift/fwd_k4_lr2e-3_s106 ok
-skip (up to date) /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_k4_lr2e-3_s106.json
+skip (up to date) results/raw/eval/shift/fwd_k4_lr2e-3_s106.json
 [106/150] eval/shift/bwd_tbptt_k4_lr2e-3_s106 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s106.json  pass1(S4,k4)=0.000  train=292s
+wrote results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s106.json  pass1(S4,k4)=0.000  train=292s
 [107/150] eval/shift/bwd_tbptt_k4_lr2e-3_s107 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s107.json  pass1(S4,k4)=0.000  train=298s
+wrote results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s107.json  pass1(S4,k4)=0.000  train=298s
 [108/150] eval/shift/bwd_k_k4_lr4e-3_s107 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_k_k4_lr4e-3_s107.json  pass1(S4,k4)=0.053  train=331s
+wrote results/raw/eval/shift/bwd_k_k4_lr4e-3_s107.json  pass1(S4,k4)=0.053  train=331s
 [109/150] eval/shift/drm_k4_lr4e-3_s106 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/drm_k4_lr4e-3_s106.json  pass1(S4,k4)=0.998  train=331s
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/drm_k4_lr4e-3_s107.json  pass1(S4,k4)=0.994  train=349s
+wrote results/raw/eval/shift/drm_k4_lr4e-3_s106.json  pass1(S4,k4)=0.998  train=331s
+wrote results/raw/eval/shift/drm_k4_lr4e-3_s107.json  pass1(S4,k4)=0.994  train=349s
 [110/150] eval/shift/drm_k4_lr4e-3_s107 ok
 [111/150] eval/shift/fwd_k4_lr2e-3_s107 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_k4_lr2e-3_s107.json  pass1(S4,k4)=0.009  train=349s
+wrote results/raw/eval/shift/fwd_k4_lr2e-3_s107.json  pass1(S4,k4)=0.009  train=349s
 [112/150] eval/shift/bwd_k_k4_lr4e-3_s106 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_k_k4_lr4e-3_s106.json  pass1(S4,k4)=0.061  train=368s
+wrote results/raw/eval/shift/bwd_k_k4_lr4e-3_s106.json  pass1(S4,k4)=0.061  train=368s
 [113/150] eval/shift/bwd_tbptt_k4_lr2e-3_s108 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s108.json  pass1(S4,k4)=0.084  train=241s
+wrote results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s108.json  pass1(S4,k4)=0.084  train=241s
 [114/150] eval/shift/bwd_k_k4_lr4e-3_s108 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_k_k4_lr4e-3_s108.json  pass1(S4,k4)=0.068  train=260s
+wrote results/raw/eval/shift/bwd_k_k4_lr4e-3_s108.json  pass1(S4,k4)=0.068  train=260s
 [115/150] eval/shift/fwd_k4_lr2e-3_s108 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_k4_lr2e-3_s108.json  pass1(S4,k4)=0.055  train=267s
+wrote results/raw/eval/shift/fwd_k4_lr2e-3_s108.json  pass1(S4,k4)=0.055  train=267s
 [116/150] eval/shift/bwd_tbptt_k4_lr2e-3_s109 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s109.json  pass1(S4,k4)=0.000  train=228s
+wrote results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s109.json  pass1(S4,k4)=0.000  train=228s
 [117/150] eval/shift/drm_k4_lr4e-3_s108 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/drm_k4_lr4e-3_s108.json  pass1(S4,k4)=0.997  train=258s
+wrote results/raw/eval/shift/drm_k4_lr4e-3_s108.json  pass1(S4,k4)=0.997  train=258s
 [118/150] eval/shift/bwd_k_k4_lr4e-3_s109 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/bwd_k_k4_lr4e-3_s109.json  pass1(S4,k4)=0.070  train=255s
+wrote results/raw/eval/shift/bwd_k_k4_lr4e-3_s109.json  pass1(S4,k4)=0.070  train=255s
 [119/150] eval/shift/fwd_k4_lr2e-3_s109 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_k4_lr2e-3_s109.json  pass1(S4,k4)=0.000  train=257s
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_steps_k4_lr4e-3_s100.json  pass1(S4,k4)=0.253  train=62s
+wrote results/raw/eval/shift/fwd_k4_lr2e-3_s109.json  pass1(S4,k4)=0.000  train=257s
+wrote results/raw/eval/flood/fwd_steps_k4_lr4e-3_s100.json  pass1(S4,k4)=0.253  train=62s
 [120/150] eval/flood/fwd_steps_k4_lr4e-3_s100 ok
 [121/150] eval/flood/fwd_steps_k4_lr4e-3_s101 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_steps_k4_lr4e-3_s101.json  pass1(S4,k4)=0.036  train=60s
+wrote results/raw/eval/flood/fwd_steps_k4_lr4e-3_s101.json  pass1(S4,k4)=0.036  train=60s
 [122/150] eval/flood/fwd_steps_k4_lr4e-3_s102 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_steps_k4_lr4e-3_s102.json  pass1(S4,k4)=0.125  train=69s
+wrote results/raw/eval/flood/fwd_steps_k4_lr4e-3_s102.json  pass1(S4,k4)=0.125  train=69s
 [123/150] eval/flood/fwd_steps_k4_lr4e-3_s103 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_steps_k4_lr4e-3_s103.json  pass1(S4,k4)=0.274  train=75s
+wrote results/raw/eval/flood/fwd_steps_k4_lr4e-3_s103.json  pass1(S4,k4)=0.274  train=75s
 [124/150] eval/flood/fwd_steps_k4_lr4e-3_s104 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_steps_k4_lr4e-3_s104.json  pass1(S4,k4)=0.245  train=80s
+wrote results/raw/eval/flood/fwd_steps_k4_lr4e-3_s104.json  pass1(S4,k4)=0.245  train=80s
 [125/150] eval/flood/fwd_steps_k4_lr4e-3_s105 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_steps_k4_lr4e-3_s105.json  pass1(S4,k4)=0.329  train=82s
+wrote results/raw/eval/flood/fwd_steps_k4_lr4e-3_s105.json  pass1(S4,k4)=0.329  train=82s
 [126/150] eval/flood/fwd_steps_k4_lr4e-3_s106 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_steps_k4_lr4e-3_s106.json  pass1(S4,k4)=0.032  train=46s
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_steps_k4_lr4e-3_s107.json  pass1(S4,k4)=0.326  train=48s
+wrote results/raw/eval/flood/fwd_steps_k4_lr4e-3_s106.json  pass1(S4,k4)=0.032  train=46s
+wrote results/raw/eval/flood/fwd_steps_k4_lr4e-3_s107.json  pass1(S4,k4)=0.326  train=48s
 [127/150] eval/flood/fwd_steps_k4_lr4e-3_s107 ok
 [128/150] eval/flood/fwd_steps_k4_lr4e-3_s108 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_steps_k4_lr4e-3_s108.json  pass1(S4,k4)=0.355  train=47s
+wrote results/raw/eval/flood/fwd_steps_k4_lr4e-3_s108.json  pass1(S4,k4)=0.355  train=47s
 [129/150] eval/flood/fwd_steps_k4_lr4e-3_s109 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/fwd_steps_k4_lr4e-3_s109.json  pass1(S4,k4)=0.303  train=47s
+wrote results/raw/eval/flood/fwd_steps_k4_lr4e-3_s109.json  pass1(S4,k4)=0.303  train=47s
 [130/150] eval/shift/drm_k4_lr4e-3_s109 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/drm_k4_lr4e-3_s109.json  pass1(S4,k4)=0.999  train=227s
+wrote results/raw/eval/shift/drm_k4_lr4e-3_s109.json  pass1(S4,k4)=0.999  train=227s
 [131/150] eval/gravity/fwd_steps_k4_lr1e-3_s100 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s100.json  pass1(S4,k4)=0.000  train=46s
+wrote results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s100.json  pass1(S4,k4)=0.000  train=46s
 [132/150] eval/gravity/fwd_steps_k4_lr1e-3_s101 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s101.json  pass1(S4,k4)=0.000  train=47s
+wrote results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s101.json  pass1(S4,k4)=0.000  train=47s
 [133/150] eval/gravity/fwd_steps_k4_lr1e-3_s102 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s102.json  pass1(S4,k4)=0.000  train=44s
+wrote results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s102.json  pass1(S4,k4)=0.000  train=44s
 [134/150] eval/gravity/fwd_steps_k4_lr1e-3_s103 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s103.json  pass1(S4,k4)=0.000  train=44s
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s104.json  pass1(S4,k4)=0.000  train=44s
+wrote results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s103.json  pass1(S4,k4)=0.000  train=44s
+wrote results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s104.json  pass1(S4,k4)=0.000  train=44s
 [135/150] eval/gravity/fwd_steps_k4_lr1e-3_s104 ok
 [136/150] eval/gravity/fwd_steps_k4_lr1e-3_s105 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s105.json  pass1(S4,k4)=0.000  train=45s
+wrote results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s105.json  pass1(S4,k4)=0.000  train=45s
 [137/150] eval/gravity/fwd_steps_k4_lr1e-3_s106 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s106.json  pass1(S4,k4)=0.000  train=46s
+wrote results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s106.json  pass1(S4,k4)=0.000  train=46s
 [138/150] eval/gravity/fwd_steps_k4_lr1e-3_s108 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s108.json  pass1(S4,k4)=0.000  train=46s
+wrote results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s108.json  pass1(S4,k4)=0.000  train=46s
 [139/150] eval/gravity/fwd_steps_k4_lr1e-3_s107 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s107.json  pass1(S4,k4)=0.000  train=46s
+wrote results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s107.json  pass1(S4,k4)=0.000  train=46s
 [140/150] eval/shift/fwd_steps_k4_lr2e-3_s100 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_steps_k4_lr2e-3_s100.json  pass1(S4,k4)=0.000  train=62s
+wrote results/raw/eval/shift/fwd_steps_k4_lr2e-3_s100.json  pass1(S4,k4)=0.000  train=62s
 [141/150] eval/gravity/fwd_steps_k4_lr1e-3_s109 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s109.json  pass1(S4,k4)=0.000  train=63s
+wrote results/raw/eval/gravity/fwd_steps_k4_lr1e-3_s109.json  pass1(S4,k4)=0.000  train=63s
 [142/150] eval/shift/fwd_steps_k4_lr2e-3_s101 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_steps_k4_lr2e-3_s101.json  pass1(S4,k4)=0.000  train=60s
+wrote results/raw/eval/shift/fwd_steps_k4_lr2e-3_s101.json  pass1(S4,k4)=0.000  train=60s
 [143/150] eval/shift/fwd_steps_k4_lr2e-3_s102 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_steps_k4_lr2e-3_s102.json  pass1(S4,k4)=0.000  train=58s
+wrote results/raw/eval/shift/fwd_steps_k4_lr2e-3_s102.json  pass1(S4,k4)=0.000  train=58s
 [144/150] eval/shift/fwd_steps_k4_lr2e-3_s103 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_steps_k4_lr2e-3_s103.json  pass1(S4,k4)=0.000  train=54s
+wrote results/raw/eval/shift/fwd_steps_k4_lr2e-3_s103.json  pass1(S4,k4)=0.000  train=54s
 [145/150] eval/shift/fwd_steps_k4_lr2e-3_s104 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_steps_k4_lr2e-3_s104.json  pass1(S4,k4)=0.000  train=52s
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_steps_k4_lr2e-3_s105.json  pass1(S4,k4)=0.030  train=52s
+wrote results/raw/eval/shift/fwd_steps_k4_lr2e-3_s104.json  pass1(S4,k4)=0.000  train=52s
+wrote results/raw/eval/shift/fwd_steps_k4_lr2e-3_s105.json  pass1(S4,k4)=0.030  train=52s
 [146/150] eval/shift/fwd_steps_k4_lr2e-3_s105 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_steps_k4_lr2e-3_s106.json  pass1(S4,k4)=0.000  train=42s
+wrote results/raw/eval/shift/fwd_steps_k4_lr2e-3_s106.json  pass1(S4,k4)=0.000  train=42s
 [147/150] eval/shift/fwd_steps_k4_lr2e-3_s106 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_steps_k4_lr2e-3_s107.json  pass1(S4,k4)=0.000  train=42s
+wrote results/raw/eval/shift/fwd_steps_k4_lr2e-3_s107.json  pass1(S4,k4)=0.000  train=42s
 [148/150] eval/shift/fwd_steps_k4_lr2e-3_s107 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_steps_k4_lr2e-3_s108.json  pass1(S4,k4)=0.027  train=41s
+wrote results/raw/eval/shift/fwd_steps_k4_lr2e-3_s108.json  pass1(S4,k4)=0.027  train=41s
 [149/150] eval/shift/fwd_steps_k4_lr2e-3_s108 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/shift/fwd_steps_k4_lr2e-3_s109.json  pass1(S4,k4)=0.000  train=40s
+wrote results/raw/eval/shift/fwd_steps_k4_lr2e-3_s109.json  pass1(S4,k4)=0.000  train=40s
 [150/150] eval/shift/fwd_steps_k4_lr2e-3_s109 ok
 done; 0 failed
 ksweep: 24 jobs
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k8_lr2e-3_s100.json  pass1(S4,k4)=0.082  train=148s
+wrote results/raw/eval/flood/bwd_tbptt_k8_lr2e-3_s100.json  pass1(S4,k4)=0.082  train=148s
 [1/24] eval/flood/bwd_tbptt_k8_lr2e-3_s100 ok
 [2/24] eval/flood/bwd_tbptt_k1_lr2e-3_s100 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k1_lr2e-3_s100.json  pass1(S4,k4)=0.002  train=151s
+wrote results/raw/eval/flood/bwd_tbptt_k1_lr2e-3_s100.json  pass1(S4,k4)=0.002  train=151s
 [3/24] eval/flood/drm_k8_lr4e-3_s100 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k8_lr4e-3_s100.json  pass1(S4,k4)=0.384  train=151s
+wrote results/raw/eval/flood/drm_k8_lr4e-3_s100.json  pass1(S4,k4)=0.384  train=151s
 [4/24] eval/flood/bwd_tbptt_k2_lr2e-3_s100 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k2_lr2e-3_s100.json  pass1(S4,k4)=0.002  train=155s
+wrote results/raw/eval/flood/bwd_tbptt_k2_lr2e-3_s100.json  pass1(S4,k4)=0.002  train=155s
 [5/24] eval/flood/drm_k1_lr4e-3_s100 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k1_lr4e-3_s100.json  pass1(S4,k4)=0.153  train=165s
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k1_lr4e-3_s101.json  pass1(S4,k4)=0.308  train=167s
+wrote results/raw/eval/flood/drm_k1_lr4e-3_s100.json  pass1(S4,k4)=0.153  train=165s
+wrote results/raw/eval/flood/drm_k1_lr4e-3_s101.json  pass1(S4,k4)=0.308  train=167s
 [6/24] eval/flood/drm_k1_lr4e-3_s101 ok
 [7/24] eval/flood/drm_k2_lr4e-3_s100 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k2_lr4e-3_s100.json  pass1(S4,k4)=0.180  train=183s
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k8_lr4e-3_s101.json  pass1(S4,k4)=0.434  train=288s
+wrote results/raw/eval/flood/drm_k2_lr4e-3_s100.json  pass1(S4,k4)=0.180  train=183s
+wrote results/raw/eval/flood/drm_k8_lr4e-3_s101.json  pass1(S4,k4)=0.434  train=288s
 [8/24] eval/flood/drm_k8_lr4e-3_s101 ok
 [9/24] eval/flood/bwd_tbptt_k1_lr2e-3_s101 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k1_lr2e-3_s101.json  pass1(S4,k4)=0.188  train=283s
+wrote results/raw/eval/flood/bwd_tbptt_k1_lr2e-3_s101.json  pass1(S4,k4)=0.188  train=283s
 [10/24] eval/flood/bwd_tbptt_k2_lr2e-3_s101 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k2_lr2e-3_s101.json  pass1(S4,k4)=0.002  train=291s
+wrote results/raw/eval/flood/bwd_tbptt_k2_lr2e-3_s101.json  pass1(S4,k4)=0.002  train=291s
 [11/24] eval/flood/drm_k2_lr4e-3_s101 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k2_lr4e-3_s101.json  pass1(S4,k4)=0.516  train=296s
+wrote results/raw/eval/flood/drm_k2_lr4e-3_s101.json  pass1(S4,k4)=0.516  train=296s
 [12/24] eval/flood/bwd_tbptt_k8_lr2e-3_s101 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k8_lr2e-3_s101.json  pass1(S4,k4)=0.097  train=287s
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k1_lr4e-3_s102.json  pass1(S4,k4)=0.266  train=303s
+wrote results/raw/eval/flood/bwd_tbptt_k8_lr2e-3_s101.json  pass1(S4,k4)=0.097  train=287s
+wrote results/raw/eval/flood/drm_k1_lr4e-3_s102.json  pass1(S4,k4)=0.266  train=303s
 [13/24] eval/flood/drm_k1_lr4e-3_s102 ok
 [14/24] eval/flood/drm_k2_lr4e-3_s102 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k2_lr4e-3_s102.json  pass1(S4,k4)=0.462  train=312s
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k1_lr2e-3_s102.json  pass1(S4,k4)=0.028  train=158s
+wrote results/raw/eval/flood/drm_k2_lr4e-3_s102.json  pass1(S4,k4)=0.462  train=312s
+wrote results/raw/eval/flood/bwd_tbptt_k1_lr2e-3_s102.json  pass1(S4,k4)=0.028  train=158s
 [15/24] eval/flood/bwd_tbptt_k1_lr2e-3_s102 ok
 [16/24] eval/flood/bwd_tbptt_k8_lr2e-3_s102 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k8_lr2e-3_s102.json  pass1(S4,k4)=0.108  train=157s
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k8_lr4e-3_s102.json  pass1(S4,k4)=0.328  train=163s
+wrote results/raw/eval/flood/bwd_tbptt_k8_lr2e-3_s102.json  pass1(S4,k4)=0.108  train=157s
+wrote results/raw/eval/flood/drm_k8_lr4e-3_s102.json  pass1(S4,k4)=0.328  train=163s
 [17/24] eval/flood/drm_k8_lr4e-3_s102 ok
 [18/24] eval/flood/bwd_tbptt_k2_lr2e-3_s102 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k2_lr2e-3_s102.json  pass1(S4,k4)=0.080  train=164s
+wrote results/raw/eval/flood/bwd_tbptt_k2_lr2e-3_s102.json  pass1(S4,k4)=0.080  train=164s
 [19/24] eval/flood/drm_k1_lr4e-3_s103 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k1_lr4e-3_s103.json  pass1(S4,k4)=0.199  train=174s
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k2_lr4e-3_s103.json  pass1(S4,k4)=0.321  train=173s
+wrote results/raw/eval/flood/drm_k1_lr4e-3_s103.json  pass1(S4,k4)=0.199  train=174s
+wrote results/raw/eval/flood/drm_k2_lr4e-3_s103.json  pass1(S4,k4)=0.321  train=173s
 [20/24] eval/flood/drm_k2_lr4e-3_s103 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/drm_k8_lr4e-3_s103.json  pass1(S4,k4)=0.353  train=166s
+wrote results/raw/eval/flood/drm_k8_lr4e-3_s103.json  pass1(S4,k4)=0.353  train=166s
 [21/24] eval/flood/drm_k8_lr4e-3_s103 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k1_lr2e-3_s103.json  pass1(S4,k4)=0.005  train=358s
+wrote results/raw/eval/flood/bwd_tbptt_k1_lr2e-3_s103.json  pass1(S4,k4)=0.005  train=358s
 [22/24] eval/flood/bwd_tbptt_k1_lr2e-3_s103 ok
 [23/24] eval/flood/bwd_tbptt_k2_lr2e-3_s103 ok
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k2_lr2e-3_s103.json  pass1(S4,k4)=0.031  train=362s
-wrote /home/box/work/drm-recursion-curriculum-microbench/results/raw/eval/flood/bwd_tbptt_k8_lr2e-3_s103.json  pass1(S4,k4)=0.132  train=358s
+wrote results/raw/eval/flood/bwd_tbptt_k2_lr2e-3_s103.json  pass1(S4,k4)=0.031  train=362s
+wrote results/raw/eval/flood/bwd_tbptt_k8_lr2e-3_s103.json  pass1(S4,k4)=0.132  train=358s
 [24/24] eval/flood/bwd_tbptt_k8_lr2e-3_s103 ok
 done; 0 failed
 {
@@ -955,10 +955,10 @@ done; 0 failed
  }
 }
 Traceback (most recent call last):
-  File "/home/box/work/drm-recursion-curriculum-microbench/scripts/demo_trajectories.py", line 68, in <module>
+  File "scripts/demo_trajectories.py", line 68, in <module>
     main()
     ~~~~^^
-  File "/home/box/work/drm-recursion-curriculum-microbench/scripts/demo_trajectories.py", line 56, in main
+  File "scripts/demo_trajectories.py", line 56, in main
     assert abs(p1 - ref) < 1e-9, (m, p1, ref)
            ^^^^^^^^^^^^^^^^^^^^
 AssertionError: ('drm', 0.7490000128746033, 0.749)
