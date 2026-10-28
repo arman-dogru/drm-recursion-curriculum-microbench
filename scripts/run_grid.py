@@ -23,7 +23,8 @@ from drm.tasks import TASKS  # noqa: E402
 # Scope cut made at ~10:00 EDT on 2026-10-28, after the box CPU slowed ~3.5x and
 # before any eval run, using dev results only:
 #  * colormap is solved (dev pass@1 = 1.00) by every method at every lr, and
-#    symfill by none (dev pass@1 < 0.05) -> both are reported from dev tuning
+#    symfill near the floor for all
+#    (every cell <= 0.01 mean dev pass@1 except bwd_k @2e-3: 0.18 / 0.004) -> both are reported from dev tuning
 #    only and dropped from the eval grid;
 #  * the eval grid uses the first 10 of the 12 reserved eval seeds;
 #  * the k-sweep runs on flood only with 4 seeds.
