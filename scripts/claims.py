@@ -67,6 +67,9 @@ def build(s, mut, n_tests):
             vw = [x["visible_wrong_frac"] for x in own[1:] if x["visible_wrong_frac"] is not None]
             sc = [x["self_correct_rate"] for x in own[1:] if x["self_correct_rate"] is not None]
             c[f"mm_{t}_{m}_own_final_exact"] = pct(own[-1]["exact"])
+            c[f"mm_{t}_{m}_own_last_cell"] = pct(own[-1]["cell_acc"])
+            c[f"mm_{t}_{m}_oracle_last_cell"] = pct(ora[-1]["cell_acc"])
+            c[f"mm_{t}_{m}_first_cell"] = pct(own[0]["cell_acc"])
             c[f"mm_{t}_{m}_gap_mid"] = pp(ora[len(ora) // 2]["cell_acc"] - own[len(own) // 2]["cell_acc"])
             c[f"mm_{t}_{m}_vis_wrong"] = pct(float(np.mean(vw))) if vw else "n/a"
             c[f"mm_{t}_{m}_selfcorr"] = pct(float(np.mean(sc))) if sc else "n/a"

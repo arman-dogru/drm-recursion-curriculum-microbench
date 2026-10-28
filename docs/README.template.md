@@ -6,7 +6,10 @@ A small, CPU-only reproduction of the core idea of **Denoising Recursion Models*
 
 ## TL;DR
 
-{{HEADLINE}}
+- **DRM beats one-step denoising on every eval task at matched parameters and matched training FLOPs.** Pooled pass@1 is {{p1_pooled_drm}} for DRM against {{p1_pooled_fwd}} for the FLOP-matched one-step denoiser ({{d_pooled_drm_vs_fwd}}, {{wl_pooled_drm_vs_fwd}} seeds won/lost, Holm p = {{ph_pooled_drm_vs_fwd}}). This is the deliverable in the brief, and it holds per task: shift {{d_shift_drm_vs_fwd}}, gravity {{d_gravity_drm_vs_fwd}}, flood {{d_flood_drm_vs_fwd}}.
+- **The noise curriculum matters.** DRM is the same k = 4 recursion as `bwd_k` but starts from a corrupted target instead of a full mask. It beats `bwd_k` by {{d_pooled_drm_vs_bwd_k}} pooled.
+- **DRM does not beat TRM-style backward TBPTT overall.** Pooled it is {{p1_pooled_drm}} against {{p1_pooled_bwd_tbptt}} ({{d_pooled_drm_vs_bwd_tbptt}}). DRM is better on flood ({{d_flood_drm_vs_bwd_tbptt}}) and shift ({{d_shift_drm_vs_bwd_tbptt}}), but clearly worse on gravity ({{d_gravity_drm_vs_bwd_tbptt}}). All three differences survive Holm correction. TBPTT here gets 4 windows (16 recursive steps) per batch for the same FLOPs, which is the regime where the paper's App. F.8 also reports TRM ahead (Sudoku).
+- **The one-step denoiser's train-test mismatch is directly visible.** It *never* corrects a wrong visible cell (self-correction {{mm_flood_fwd_selfcorr}}% on flood), because in training every visible cell is correct. Along its own trajectory, flood cell accuracy stays at {{mm_flood_fwd_own_last_cell}}% after 16 steps, while the same model fed noised clean targets reaches {{mm_flood_fwd_oracle_last_cell}}%.
 
 All numbers are eval-split pass@1 (whole-grid exact match) over **{{n_eval_seeds}} fresh training seeds**, at a matched test compute of 16 Phi applications, with the inference schedule chosen on dev. Intervals are 95% seed-bootstrap CIs, and p-values are exact paired sign-flip tests with Holm correction over all {{holm_m}} comparisons. The model has {{n_params}} parameters, the code hash is `{{code_hash}}`, and there are {{n_tests}} tests with {{mut_killed}}/{{mut_total}} planted bugs caught (see [Verification](#verification)).
 
@@ -118,7 +121,12 @@ Dev-chosen settings (lr; schedule):
 
 *[figures/schedule_heatmaps.png](figures/schedule_heatmaps.png): data in [results/summary.json](results/summary.json) (`schedules`); script [scripts/make_figures.py](scripts/make_figures.py).*
 
-{{COMPUTE_TEXT}}
+What the compute curves and heatmaps show:
+
+- **One-step denoising does not improve with more test compute.** On flood it peaks at {{cc_flood_fwd_16}}% at 16 Phi and falls to {{cc_flood_fwd_64}}% at 64. On gravity it stays near 0 at every budget.
+- **DRM keeps improving past the matched budget on flood**, from {{cc_flood_drm_16}}% at 16 Phi to {{cc_flood_drm_64}}% at 64. TBPTT peaks at 16 Phi ({{cc_flood_bwd_tbptt_16}}%) and degrades at 64 ({{cc_flood_bwd_tbptt_64}}%). So the flood gap to TBPTT widens with test compute.
+- **Backward-trained models are tied to their training horizon.** They do well with latent recursion near 16 steps and badly with re-masking (S > 1), because they never saw a visible label token in training. The heatmaps show this as a bright S = 1 row.
+- **DRM is good on a band of schedules** with k_in ≥ 4 and S ≥ 2. That matches its training, where k = 4 steps start from a partially visible grid.
 
 ## Train-test mismatch of one-step denoising
 
@@ -128,7 +136,12 @@ Under the masking process, every **visible** cell a one-step denoiser sees in tr
 
 *[figures/mismatch.png](figures/mismatch.png): data in [results/summary.json](results/summary.json) (`traces.flood`), recorded by [scripts/run_one.py](scripts/run_one.py); script [scripts/make_figures.py](scripts/make_figures.py).*
 
-{{MISMATCH_TEXT}}
+How to read this probe:
+
+- **One-step denoiser (`fwd`).** The dashed and solid lines diverge: the same model is much better on training-distribution states than on its own states. Its self-correction rate is exactly 0 on all three tasks. A wrong visible cell is always copied, so errors made in the first step are frozen in. This is the train-test mismatch described in paper §1 and §3.1.1, measured directly.
+- **DRM.** DRM also starts every training window from correct visible cells. Its token-level self-correction is low too: {{mm_flood_drm_selfcorr}}% on flood, and 0 on shift and gravity. Its advantage comes from the k = 4 latent steps *inside* each denoising step, which are trained on its own intermediate states (the paper's "on-policy" part, §6). It does not come from fixing visible tokens.
+- **Backward TBPTT.** TBPTT never sees visible tokens in training. It fixes {{mm_flood_bwd_tbptt_selfcorr}}% of wrong visible cells on flood, but for the same reason it gains nothing from noised clean targets: its dashed line is at or below its solid line.
+- **Scope.** The probe is measured on S = 16, k_in = 1, which is the one-step denoiser's dev-chosen schedule on every eval task. It is not each model's best schedule.
 
 ![Denoising trajectory on one flood eval example for DRM and for one-step denoising, each at its dev-chosen schedule. Each column shows the masked input state and the predicted grid at one outer step.](figures/trajectory.png)
 
@@ -144,11 +157,17 @@ Under the masking process, every **visible** cell a one-step denoiser sees in tr
 
 *[figures/ksweep.png](figures/ksweep.png): data in [results/summary.json](results/summary.json) (`ksweep`), 4 eval seeds (100-103); script [scripts/make_figures.py](scripts/make_figures.py).*
 
-{{KSWEEP_TEXT}}
+On flood, at a fixed 12,000-Phi training budget and with 4 seeds, DRM's native-schedule pass@1 rises with the recursion window: k = 1 {{ks_flood_drm_k1}}, k = 2 {{ks_flood_drm_k2}}, k = 4 {{ks_flood_drm_k4}}, k = 8 {{ks_flood_drm_k8}}. TBPTT gives k = 1 {{ks_flood_bwd_tbptt_k1}}, k = 2 {{ks_flood_bwd_tbptt_k2}}, k = 4 {{ks_flood_bwd_tbptt_k4}}, k = 8 {{ks_flood_bwd_tbptt_k8}}. DRM at k = 1 is one-step denoising with a different lr and schedule, so its low value is the same effect as the headline. This mirrors the paper's Table 5: DRM gains more per extra recursive step than TRM does. The k-sweep is exploratory: it has 4 seeds and is not part of the Holm family.
 
 ## How this maps to the paper (§3)
 
-{{PAPER_TEXT}}
+| paper claim (§3, §5, App. F) | this toy |
+|---|---|
+| Forward (one-step) training misaligns train and test, which causes compounding and greedy errors (§1, §3.1.1) | **Reproduced.** One-step denoising never corrects its own visible errors and loses to DRM by {{d_pooled_drm_vs_fwd}} pooled. |
+| Masked diffusion without recursion fails badly (Table 1: about 0%) | Consistent: `fwd` reaches {{p1m_gravity_fwd}}% on gravity and {{p1m_shift_fwd}}% on shift. |
+| DRM's noise curriculum helps compared with recursion from noise without it (§3.2, §6) | **Reproduced** against `bwd_k`, a single-window backward recursion at the same k: {{d_pooled_drm_vs_bwd_k}}. |
+| DRM beats TRM (Table 1) | **Not reproduced overall.** DRM wins flood and shift, but loses gravity and the pooled mean to TBPTT ({{d_pooled_drm_vs_bwd_tbptt}}). There is no scratchpad, warm-up loop or halting here, and TBPTT gets 4 windows per batch. |
+| DRM gains more per recursive step k than TRM (Table 5) | Consistent on flood, from an exploratory 4-seed sweep. |
 
 See [docs/paper_mapping.md](docs/paper_mapping.md) for the equation-by-equation mapping and for the simplifications. None of the following are used, for any method: scratchpad z, warm-up loops, Q-head and halting, EMA, task embedding, augmentation and voting, or SPRM.
 
