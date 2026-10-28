@@ -144,7 +144,8 @@ def compute_curves(runs, by_compute):
             acc[(cfg.task, cfg.method)][int(c)].append(d["eval"][f"S{s}_k{k}"]["pass1"])
     out = defaultdict(dict)
     for (t, m), curve in acc.items():
-        out[t][m] = {str(c): summarize(dict(enumerate(v))) for c, v in sorted(curve.items())}
+        out[t][m] = {str(c): {**summarize(dict(enumerate(v))), "schedule": by_compute[t][m][str(c)]["schedule"]}
+                     for c, v in sorted(curve.items())}
     return out
 
 

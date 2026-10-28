@@ -13,7 +13,7 @@ def test_figures_from_fabricated_summary(grid, tmp_path):  # noqa: F811
     make_figures.main(out, tmp_path / "figs")
     names = {p.name for p in (tmp_path / "figs").glob("*.png")}
     assert {"primary.png", "forest.png", "compute_curves.png", "schedule_heatmaps.png", "mismatch.png",
-            "learning_curves.png", "ksweep.png", "tasks.png"} <= names
+            "learning_curves.png", "ksweep.png", "tasks.png", "mismatch_own_schedule.png"} <= names
 
 
 def test_figures_refuse_partial(grid, tmp_path):  # noqa: F811

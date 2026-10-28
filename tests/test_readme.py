@@ -30,7 +30,7 @@ def test_every_template_key_is_produced_by_claims(tmp_path, monkeypatch):
 
     tuning = {t: {m: {"lr": 1e-3, "schedule": TA.SCHED[m], "dev_pass1": 0.5} for m in TA.METHODS} for t in TA.TASKS}
     by_compute = {t: {m: {str(c): {"schedule": [1, c]} for c in (1, 2, 4, 8, 16)} | {
-        "32": {"schedule": [2, 16]}, "64": {"schedule": [4, 16]}} for m in TA.METHODS} for t in TA.TASKS}
+        "32": {"schedule": [1, 32]}, "64": {"schedule": [2, 32]}} for m in TA.METHODS} for t in TA.TASKS}
     tp = tmp_path / "tuning.json"
     tp.write_text(json.dumps({"meta": {"code_hash": "c"}, "choice": tuning, "by_compute": by_compute}))
     monkeypatch.setattr(A, "TUNING_PATH", tp)

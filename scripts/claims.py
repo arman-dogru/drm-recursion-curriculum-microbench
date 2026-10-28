@@ -83,6 +83,49 @@ def build(s, mut, n_tests):
             cur = s["compute_curves"][t][m]
             for q in cur:
                 c[f"cc_{t}_{m}_{q}"] = pct(cur[q]["mean"])
+    for t in MAIN_TASKS:
+        for m in METHODS:
+            cur = s["compute_curves"][t][m]
+            for q in cur:
+                c[f"ccs_{t}_{m}_{q}"] = "S={}, k_in={}".format(*cur[q]["schedule"])
+                c[f"ccci_{t}_{m}_{q}"] = ci(cur[q])
+    for g, ms in s["primary"].items():
+        for m, r in ms.items():
+            c[f"p1t_{g}_{m}"] = f"[{pct(r['t_lo'])}, {pct(r['t_hi'])}]"
+    for k, r in s["tests"].items():
+        key = k.replace(":", "_").replace("-", "_vs_")
+        c[f"dt_{key}"] = f"[{pp(r['t_lo'])}, {pp(r['t_hi'])}]"
+    for t, ms in s["traces_at_choice"].items():
+        for m, r in ms.items():
+            c[f"mmo_{t}_{m}_sched"] = "S={}, k_in={}".format(*r["schedule"])
+            c[f"mmo_{t}_{m}_own_last"] = pct(r["own"][-1]["cell_acc"])
+            c[f"mmo_{t}_{m}_oracle_last"] = pct(r["oracle"][-1]["cell_acc"])
+            c[f"mmo_{t}_{m}_gap_last"] = pp(r["oracle"][-1]["cell_acc"] - r["own"][-1]["cell_acc"])
+            sc = [x["self_correct_rate"] for x in r["own"][1:] if x["self_correct_rate"] is not None]
+            c[f"mmo_{t}_{m}_selfcorr"] = pct(float(np.mean(sc))) if sc else "n/a"
+    ch = s["cpu_hours"]
+    for k in ("dev", "eval", "ksweep", "total"):
+        c[f"cpu_h_{k}"] = f"{ch[k]:.1f}"
+    c["run_first_start"] = (ch["first_start"] or "n/a").replace("T", " ")[:16]
+    c["run_last_finish"] = (ch["last_finish"] or "n/a").replace("T", " ")[:16]
+    edges = s["tuning_meta"].get("lr_edges", [])
+    c["lr_edges"] = ", ".join(edges) if edges else "none"
+    c["n_lr_edges"] = str(len(edges))
+    for b in ("fwd", "fwd_steps", "bwd_k", "bwd_tbptt"):
+        for name, ts in (("dev5", TASKS), ("dev3", ("shift", "gravity", "flood"))):
+            v = np.mean([s["tuning"][t]["drm"]["dev_pass1"] - s["tuning"][t][b]["dev_pass1"] for t in ts])
+            c[f"{name}_drm_vs_{b}"] = f"{pp(v)} pp"
+    r0 = ROOT / "docs" / "r0_claim_numbers.json"     # copy of results/r0_932be94/claim_numbers.json
+    if r0.exists():
+        for k, v in json.loads(r0.read_text()).items():
+            if k.startswith(("p1_pooled_", "d_pooled_", "d_gravity_", "d_flood_", "d_shift_", "cc_flood_",
+                             "cc_gravity_", "lr_")) or k in ("mut_killed", "mut_total", "n_tests"):
+                c[f"r0_{k}"] = v
+    if mut:
+        for pre, name in (("X", "rev"), ("Q", "r1")):
+            sel = [r for r in mut.get("mutants", []) if r["id"].startswith(pre)]
+            c[f"mut_{name}_killed"] = str(sum(r["status"] == "KILLED" for r in sel))
+            c[f"mut_{name}_total"] = str(len(sel))
     c["train_s_drm"] = f"{s['train_seconds']['drm']:.0f}"
     c["train_s_fwd"] = f"{s['train_seconds']['fwd']:.0f}"
     return c

@@ -40,19 +40,21 @@ def save(fig, name):
 
 
 def fig_primary(s):
-    groups = list(MAIN_TASKS) + ["pooled"]
-    fig, ax = plt.subplots(figsize=(11, 3.8))
+    groups = list(MAIN_TASKS) + ["pooled", "pooled3"]
+    fig, ax = plt.subplots(figsize=(12, 4.2))
     w = 0.16
     for i, m in enumerate(METHODS):
         r = [s["primary"][g][m] for g in groups]
         x = np.arange(len(groups)) + (i - 2) * w
         ax.bar(x, [v["mean"] for v in r], w, color=COL[m], label=LABEL[m],
                yerr=[[v["mean"] - v["lo"] for v in r], [v["hi"] - v["mean"] for v in r]], capsize=2)
-    ax.set_xticks(range(len(groups)), groups)
+    names = {"pooled": "pooled\n(all 5, primary)", "pooled3": "pooled3\n(shift+gravity+flood,\ndescriptive)"}
+    ax.set_xticks(range(len(groups)), [names.get(g, g) for g in groups])
+    ax.axvline(len(MAIN_TASKS) - 0.5, color="0.6", lw=0.8, ls=":")
     ax.set_ylabel("eval pass@1 (exact match)")
     ax.set_ylim(0, 1.05)
     ax.set_title("pass@1 at matched test compute (S x k_in = 16 Phi), schedule chosen on dev; 95% seed-bootstrap CI")
-    ax.legend(ncol=3, fontsize=8, loc="upper left")
+    ax.legend(ncol=5, fontsize=8, loc="upper center", bbox_to_anchor=(0.5, -0.22), frameon=False)
     save(fig, "primary.png")
 
 
@@ -74,7 +76,7 @@ def fig_forest(s):
 
 
 def fig_compute(s):
-    fig, axes = plt.subplots(1, len(MAIN_TASKS), figsize=(12, 3.2), sharey=True)
+    fig, axes = plt.subplots(1, len(MAIN_TASKS), figsize=(18, 3.4), sharey=True)
     for ax, t in zip(axes, MAIN_TASKS):
         for m in METHODS:
             cur = s["compute_curves"][t][m]
@@ -82,18 +84,24 @@ def fig_compute(s):
             ax.errorbar(cs, [cur[str(c)]["mean"] for c in cs],
                         yerr=[[cur[str(c)]["mean"] - cur[str(c)]["lo"] for c in cs],
                               [cur[str(c)]["hi"] - cur[str(c)]["mean"] for c in cs]],
-                        color=COL[m], marker="o", ms=3, label=SHORT[m], capsize=2)
+                        color=COL[m], marker=None, label=SHORT[m], capsize=2)
+            lat = [c for c in cs if cur[str(c)]["schedule"][0] == 1]
+            rem = [c for c in cs if cur[str(c)]["schedule"][0] != 1]
+            ax.plot(lat, [cur[str(c)]["mean"] for c in lat], "o", ms=4, color=COL[m])
+            ax.plot(rem, [cur[str(c)]["mean"] for c in rem], "o", ms=4, mfc="white", color=COL[m])
         ax.set_xscale("log", base=2)
         ax.set_xticks([1, 2, 4, 8, 16, 32, 64], ["1", "2", "4", "8", "16", "32", "64"])
         ax.set_title(t)
         ax.set_xlabel("test-time Phi applications (S x k_in)")
     axes[0].set_ylabel("eval pass@1")
     axes[0].legend(fontsize=7)
+    fig.suptitle("dev-best schedule at each budget, any S x k_in = c (filled = latent S=1, hollow = re-masking S>1); "
+                 "95% seed-bootstrap CI", fontsize=9)
     save(fig, "compute_curves.png")
 
 
-def fig_heatmaps(s, tasks=("flood", "gravity", "shift")):
-    fig, axes = plt.subplots(len(tasks), len(METHODS), figsize=(15, 3.0 * len(tasks)))
+def fig_heatmaps(s, tasks=("flood", "gravity", "shift", "symfill", "colormap")):
+    fig, axes = plt.subplots(len(tasks), len(METHODS), figsize=(19, 2.5 * len(tasks)))
     for r, t in enumerate(tasks):
         for c, m in enumerate(METHODS):
             ax = axes[r, c]
@@ -107,7 +115,7 @@ def fig_heatmaps(s, tasks=("flood", "gravity", "shift")):
             for i in range(len(S_GRID)):
                 for j in range(len(K_GRID)):
                     if not np.isnan(A[i, j]):
-                        ax.text(j, i, f"{A[i, j]:.2f}", ha="center", va="center", fontsize=6,
+                        ax.text(j, i, f"{A[i, j]:.2f}", ha="center", va="center", fontsize=5,
                                 color="w" if A[i, j] < 0.5 else "k")
             ch = s["tuning"][t][m]["schedule"]
             ax.add_patch(plt.Rectangle((K_GRID.index(ch[1]) - .5, S_GRID.index(ch[0]) - .5), 1, 1,
@@ -120,7 +128,8 @@ def fig_heatmaps(s, tasks=("flood", "gravity", "shift")):
                 ax.set_ylabel(f"{t}\nouter steps S")
             if r == 0:
                 ax.set_title(SHORT[m])
-    fig.suptitle("eval pass@1 for every inference schedule (mean over 10 seeds); red box = schedule chosen on dev")
+    fig.suptitle(f"eval pass@1 for every inference schedule (mean over {len(s['meta']['eval_seeds'])} seeds); "
+                 "red box = schedule chosen on dev from the S x k_in = 16 menu")
     save(fig, "schedule_heatmaps.png")
 
 
@@ -145,8 +154,30 @@ def fig_mismatch(s, task="flood"):
     save(fig, "mismatch.png")
 
 
+def fig_mismatch_own(s, methods=("fwd", "drm", "bwd_tbptt")):
+    """Last-step cell accuracy on own trajectory vs oracle (noised clean target), each method at its own
+    dev-chosen schedule (review m1)."""
+    tac = s["traces_at_choice"]
+    fig, ax = plt.subplots(figsize=(12, 3.6))
+    w = 0.13
+    for i, m in enumerate(methods):
+        for j, kind in enumerate(("own", "oracle")):
+            x = np.arange(len(MAIN_TASKS)) + (2 * i + j - 2.5) * w
+            v = [tac[t][m][kind][-1]["cell_acc"] for t in MAIN_TASKS]
+            ax.bar(x, v, w, color=COL[m], alpha=1.0 if kind == "own" else 0.45, hatch=None if kind == "own" else "//",
+                   label=f"{SHORT[m]}: {'own trajectory' if kind == 'own' else 'noised clean target'}")
+    ax.set_xticks(range(len(MAIN_TASKS)),
+                  [t + "\n" + ", ".join(f"{SHORT[m]} S={tac[t][m]['schedule'][0]},k={tac[t][m]['schedule'][1]}"
+                                         for m in methods) for t in MAIN_TASKS], fontsize=7)
+    ax.set_ylim(0, 1.05)
+    ax.set_ylabel("cell accuracy at the last outer step")
+    ax.set_title("own-trajectory vs training-distribution input, each method at its own dev-chosen schedule", fontsize=10)
+    ax.legend(ncol=3, fontsize=7, loc="upper center", bbox_to_anchor=(0.5, -0.25), frameon=False)
+    save(fig, "mismatch_own_schedule.png")
+
+
 def fig_learning(s):
-    fig, axes = plt.subplots(1, len(MAIN_TASKS), figsize=(12, 3.0), sharey=True)
+    fig, axes = plt.subplots(1, len(MAIN_TASKS), figsize=(18, 3.0), sharey=True)
     for ax, t in zip(axes, MAIN_TASKS):
         for m in METHODS:
             lc = s["learning_curves"][t][m]
@@ -242,6 +273,7 @@ def main(results: Path = ROOT / "results", fig_dir: Path | None = None):
     fig_compute(s)
     fig_heatmaps(s)
     fig_mismatch(s)
+    fig_mismatch_own(s)
     fig_learning(s)
     fig_ksweep(s)
     fig_tasks()

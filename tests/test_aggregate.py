@@ -38,7 +38,7 @@ def fake_run(cfg, code="c"):
                      "n_params": 123},
             "train": {"curve": [[1, 10, 0.1], [2, 20, 0.2]], "train_seconds": 1.0},
             "eval": {f"S{s}_k{k}": {"S": s, "k_in": k, "pass1": value(cfg, s, k)} for s, k in inference_grid()},
-            "traces": {"S16_k1": {"own": trace, "oracle": trace}}}
+            "traces": {f"S{s}_k{k}": {"own": trace, "oracle": trace} for s, k in run_one.TRACE_SCHEDULES}}
 
 
 def write(cfg, raw, d=None):
@@ -167,10 +167,9 @@ def test_pooled3_traces_at_choice_and_cpu_hours(grid):
     assert s["primary"]["pooled3"]["drm"]["mean"] == pytest.approx(p3)
     assert not any(k.startswith("pooled3") for k in s["tests"])        # descriptive only, not in Holm family
     assert set(A.DEPTH_TASKS) < set(MAIN_TASKS) == set(TASKS)
-    # the fabricated traces only exist for S16_k1 -> only methods whose dev schedule is S16_k1 appear
     tac = s["traces_at_choice"]["flood"]
-    assert set(tac) == {m for m in METHODS if SCHED[m] == [16, 1]}
-    assert all(v["schedule"] == [16, 1] for v in tac.values())
+    assert set(tac) == set(METHODS)
+    assert all(tac[m]["schedule"] == SCHED[m] for m in METHODS)
     n_eval = len(run_grid.main_jobs(tuning))
     assert s["cpu_hours"]["eval"] == pytest.approx(n_eval * 1.0 / 3600)
     r = s["primary"]["gravity"]["drm"]
