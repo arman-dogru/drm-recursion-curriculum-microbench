@@ -20,18 +20,22 @@ All numbers are eval-split pass@1 (whole-grid exact match) over **{{n_eval_seeds
 ## What was compared
 
 ```mermaid
-flowchart LR
+flowchart TB
   subgraph A["(a) one-step denoising: fwd"]
+    direction LR
     Y1[clean target Y] -->|"mask cells, tau ~ U(0,1), cosine"| N1[corrupted Y~]
     N1 --> P1["Phi x1"] --> L1[CE to Y]
   end
   subgraph B["(b) backward TBPTT: bwd_tbptt"]
+    direction LR
     M2[all MASK] --> P2["Phi x k"] --> L2a[CE] --> S2["stop-grad"] --> P2b["Phi x k"] --> L2b["CE ... (4 windows)"]
   end
   subgraph C["(c) DRM: drm"]
+    direction LR
     Y3[clean target Y] -->|"mask cells, tau ~ U(0,1)"| N3[corrupted Y~]
     N3 --> P3["Phi x k (backprop through all k)"] --> L3[CE to Y]
   end
+  A ~~~ B ~~~ C
 ```
 
 | id | what | start state | Phi per opt step | opt steps | training Phi |
@@ -44,7 +48,7 @@ flowchart LR
 
 Every method uses the same block, initialisation (paired by seed), optimiser and batch size. The learning rate and the inference schedule are tuned **per method on dev**, so each baseline gets its best setting. Details are in [docs/method.md](docs/method.md), and the section-by-section mapping to the paper is in [docs/paper_mapping.md](docs/paper_mapping.md).
 
-**Why local attention.** Phi is one transformer layer whose attention only reaches neighbouring cells (radius 1), so information moves at most one cell per Phi step. That gives each task a known minimum recursion depth (shift: 2; gravity and flood: up to the grid size), and a test checks this. In a dev-only pilot with global attention, one Phi step solved most tasks, so recursion could not matter.
+**Why local attention.** Phi is one transformer layer whose attention only reaches neighbouring cells (radius 1), so information moves at most one cell per Phi step. That gives each task a known minimum recursion depth (shift: 2; gravity and flood: up to the grid size), and a test checks this. This is a design choice, not an empirical finding: I have no committed evidence that global attention would make the tasks one-step solvable (an earlier version of this README claimed it did; see [docs/pilots.md](docs/pilots.md)).
 
 ### Inference: the same for every method
 
@@ -55,7 +59,7 @@ flowchart LR
   D -->|"i = S"| O["prediction"]
 ```
 
-S = 1 is pure latent recursion, which is how a backward-trained model is natively used. Every run is scored on every (S, k_in) with S·k_in ≤ 64. The headline uses the matched-compute menu S·k_in = 16, picking the schedule that is best on dev for each (task, method).
+S = 1 is pure latent recursion, which is how a backward-trained model is natively used. Every run is scored on all 25 schedules with S ∈ {1,…,16}, k_in ∈ {1,…,64} and S·k_in ≤ 64, so pure latent recursion (S = 1) is available at every budget up to 64. The headline uses the matched-compute menu S·k_in = 16, picking the schedule that is best on dev for each (task, method).
 
 ## Tasks
 
@@ -175,13 +179,16 @@ See [docs/paper_mapping.md](docs/paper_mapping.md) for the equation-by-equation 
 
 ```mermaid
 flowchart TD
-  T["run_grid.py tune<br/>dev split, seeds 1-2, lr grid"] --> U["tune.py<br/>lr + matched schedule per task x method"]
-  U --> M["run_grid.py main<br/>eval split, seeds 100-109"]
-  U --> K["run_grid.py ksweep<br/>flood, k in 1,2,8, seeds 100-103"]
+  T["run_grid.py tune<br/>dev split, seeds 1-2, 7 lrs x 5 tasks x 5 methods"] --> U["tune.py --fail-on-edge<br/>lr + matched schedule per task x method"]
+  U --> G["git commit of dev outputs<br/>(before any eval run)"]
+  G --> M["run_grid.py main<br/>eval split, 5 tasks, seeds 100-111"]
+  G --> K["run_grid.py ksweep<br/>gravity, flood; k in 1,2,8; seeds 100-103"]
   M --> A["aggregate.py<br/>guards: complete, no extras, one code hash"]
   K --> A
-  A --> C["claims.py -> claim_numbers.json"]
+  A --> D["demo_trajectories.py<br/>retrains seed-100 flood models"]
   A --> F["make_figures.py"]
+  D --> F
+  A --> C["claims.py -> claim_numbers.json"]
   C --> R["render_readme.py -> README.md"]
 ```
 
