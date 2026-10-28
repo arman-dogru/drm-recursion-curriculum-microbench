@@ -36,7 +36,11 @@ TUNING_PATH = ROOT / "results" / "tuning.json"
 # flood bwd_k peaked at the 1.6e-2 edge of config.LR_GRID (0.47 at 8e-3 -> 0.79 at 1.6e-2),
 # so one more point is added for EVERY task and method. Kept here rather than in
 # drm/config.py so the code hash, and hence the finished dev runs, stay valid.
-LR_EXT = (3.2e-2,)
+# Second and LAST extension (~17:58 EDT, dev only, before any eval run): at 3.2e-2 the chosen lr
+# was again at the edge for gravity drm, shift bwd_k/fwd and symfill drm/bwd_tbptt, so 6.4e-2 was
+# added for every task and method. Fixed in advance: no further extension; remaining edges are
+# disclosed (tuning.json meta.lr_edges) instead.
+LR_EXT = (3.2e-2, 6.4e-2)
 LR_GRID_FULL = LR_GRID + LR_EXT  # same grid for every task and method
 
 

@@ -159,6 +159,6 @@ def test_r1_scope_is_the_full_preregistered_suite():
     """Round-1 review M1/M2: all 5 tasks, all 12 eval seeds, the same 6-point lr grid for everyone."""
     assert tuple(run_grid.MAIN_TASKS) == TASKS and len(TASKS) == 5
     assert tuple(run_grid.MAIN_SEEDS) == EVAL_SEEDS and len(EVAL_SEEDS) == 12
-    assert tuple(run_grid.LR_GRID_FULL) == (5e-4, 1e-3, 2e-3, 4e-3, 8e-3, 1.6e-2, 3.2e-2)
+    assert tuple(run_grid.LR_GRID_FULL) == (5e-4, 1e-3, 2e-3, 4e-3, 8e-3, 1.6e-2, 3.2e-2, 6.4e-2)
     assert set(run_grid.KSWEEP_TASKS) == {"gravity", "flood"}
     assert set(run_one.TRACE_SCHEDULES) == set(MATCHED_MENU)

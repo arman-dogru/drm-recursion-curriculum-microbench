@@ -179,7 +179,7 @@ See [docs/paper_mapping.md](docs/paper_mapping.md) for the equation-by-equation 
 
 ```mermaid
 flowchart TD
-  T["run_grid.py tune<br/>dev split, seeds 1-2, 7 lrs x 5 tasks x 5 methods"] --> U["tune.py --fail-on-edge<br/>lr + matched schedule per task x method"]
+  T["run_grid.py tune<br/>dev split, seeds 1-2, 8 lrs x 5 tasks x 5 methods"] --> U["tune.py --fail-on-edge<br/>lr + matched schedule per task x method"]
   U --> G["git commit of dev outputs<br/>(before any eval run)"]
   G --> M["run_grid.py main<br/>eval split, 5 tasks, seeds 100-111"]
   G --> K["run_grid.py ksweep<br/>gravity, flood; k in 1,2,8; seeds 100-103"]

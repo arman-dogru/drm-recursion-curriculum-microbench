@@ -11,7 +11,8 @@ ts() { date -Iseconds; }
 echo "$(ts) stage tune"
 $PY scripts/run_grid.py tune --workers $W
 # exit 3 if any chosen lr is at a grid edge -> stop, extend on dev, rerun
-$PY scripts/tune.py --fail-on-edge
+# FAIL_ON_EDGE=0 only after the pre-declared last grid extension (edges are then disclosed)
+if [ "${FAIL_ON_EDGE:-1}" = 1 ]; then $PY scripts/tune.py --fail-on-edge; else $PY scripts/tune.py; fi
 if [ "${COMMIT:-0}" = 1 ]; then
   git add results/tuning.json results/raw/dev logs
   git commit -q -m "Dev tuning outputs (committed before any eval run is launched)" || true
