@@ -48,3 +48,15 @@ def holm(pvals: dict[str, float]) -> dict[str, float]:
         running = max(running, min(1.0, (m - i) * pvals[k]))
         out[k] = running
     return out
+
+
+def t_ci(values: np.ndarray, alpha: float = 0.05):
+    """Student-t CI of the mean over seeds. Reported next to the percentile bootstrap,
+    which under-covers at n = 12 (its interval is about sqrt((n-1)/n) * z/t as wide)."""
+    from scipy import stats as st
+    v = np.asarray(values, dtype=float)
+    m = float(v.mean())
+    if len(v) < 2 or np.all(v == v[0]):
+        return m, m, m
+    half = float(st.t.ppf(1 - alpha / 2, len(v) - 1) * v.std(ddof=1) / np.sqrt(len(v)))
+    return m, m - half, m + half

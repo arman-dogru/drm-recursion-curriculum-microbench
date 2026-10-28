@@ -81,8 +81,7 @@ def test_seed_sets_disjoint():
 
 def test_tune_jobs_cover_dev_grid_only():
     jobs = run_grid.tune_jobs()
-    grid = {(t, m, lr) for t in TASKS for m in METHODS
-            for lr in (LR_GRID if t in run_grid.MAIN_TASKS else run_grid.LR_GRID)}
+    grid = {(t, m, lr) for t in TASKS for m in METHODS for lr in LR_GRID}
     assert len(jobs) == len(grid) * len(DEV_SEEDS)
     assert {j.split for j in jobs} == {"dev"} and {j.seed for j in jobs} == set(DEV_SEEDS)
     assert {(j.task, j.method, j.lr) for j in jobs} == grid
@@ -107,7 +106,7 @@ def test_ksweep_jobs():
     assert {j.k for j in jobs} == set(run_grid.KSWEEP_K) and 4 not in run_grid.KSWEEP_K
     assert {j.seed for j in jobs} == set(run_grid.KSWEEP_SEEDS) <= set(EVAL_SEEDS)
     assert {j.split for j in jobs} == {"eval"}
-    assert {j.phi_budget for j in jobs} == {Config("t", "drm", 0).phi_budget}   # FLOP-matched across k
+    assert {j.phi_budget for j in jobs} == {Config("flood", "drm", 0).phi_budget}   # FLOP-matched across k
 
 
 def _fake_dev_run(cfg, scores):
