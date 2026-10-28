@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_render_substitutes_and_rejects_unknown():
     assert render_readme.render("a {{x}} b", {"x": "1.0"}) == "a 1.0 b"
-    with pytest.raises(KeyError):
-        render_readme.render("{{nope}}", {})
+    with pytest.raises(KeyError, match=r"unknown claim keys: \['a', 'nope'\]"):
+        render_readme.render("{{nope}} {{a}}", {})                 # reports every missing key
 
 
 def test_readme_in_sync_with_claim_numbers():
