@@ -99,12 +99,13 @@ def parse(argv=None):
     p.add_argument("--split", default="dev", choices=["dev", "eval"])
     p.add_argument("--lr", type=float, default=1e-3)
     p.add_argument("--k", type=int, default=4)
-    p.add_argument("--phi_budget", type=int, default=8000)
+    p.add_argument("--phi_budget", type=int, default=12000)
+    p.add_argument("--radius", type=int, default=1)
     p.add_argument("--out", default=str(ROOT / "results" / "raw"))
     p.add_argument("--force", action="store_true")
     a = p.parse_args(argv)
     cfg = Config(task=a.task, method=a.method, seed=a.seed, split=a.split, lr=a.lr, k=a.k,
-                 phi_budget=a.phi_budget)
+                 phi_budget=a.phi_budget, radius=a.radius)
     return cfg, Path(a.out), a.force
 
 

@@ -1,4 +1,4 @@
-"""Synthetic 8x8 grid tasks with exact, deterministic targets.
+"""Synthetic 6x6 grid tasks with exact, deterministic targets.
 
 Every task maps an input grid X (values 0..7) to a unique output grid Y
 (values 0..7). Colour 0 is background. Generators are pure functions of a
@@ -10,7 +10,7 @@ from collections import deque
 
 import numpy as np
 
-H = W = 8
+H = W = 6
 M = H * W
 N_COLORS = 8          # output/input colours 0..7
 MASK = N_COLORS       # extra label token used only in the (corrupted) target stream
@@ -44,7 +44,7 @@ def _symfill(rng):
     left = rng.integers(1, 7, size=(H, W // 2))
     y = np.concatenate([left, left[:, ::-1]], axis=1)
     x = y.copy()
-    h, w = rng.integers(2, 5), rng.integers(2, 5)
+    h, w = rng.integers(2, H // 2 + 2), rng.integers(2, W // 2 + 1)
     r = rng.integers(0, H - h + 1)
     side = rng.integers(0, 2)  # occluder stays inside one half -> mirror always visible
     c0 = rng.integers(0, W // 2 - w + 1) + side * (W // 2)

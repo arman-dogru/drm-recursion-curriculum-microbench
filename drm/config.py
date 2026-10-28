@@ -8,9 +8,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 METHODS = ("fwd", "fwd_steps", "bwd_k", "bwd_tbptt", "drm")
-DEV_SEEDS = (1, 2, 3)
-EVAL_SEEDS = tuple(range(100, 116))           # 16 seeds, disjoint from DEV_SEEDS
-LR_GRID = (3e-4, 1e-3, 3e-3)
+DEV_SEEDS = (1, 2)
+EVAL_SEEDS = tuple(range(100, 112))           # 12 seeds, disjoint from DEV_SEEDS
+LR_GRID = (5e-4, 1e-3, 2e-3)
 # inference menu at matched test compute (outer steps S x inner steps k_in = 16)
 MATCHED_MENU = ((1, 16), (2, 8), (4, 4), (8, 2), (16, 1))
 S_GRID = (1, 2, 4, 8, 16)
@@ -31,7 +31,7 @@ class Config:
     lr: float = 1e-3
     k: int = 4                    # recursion window (gradient-bearing Phi steps)
     n_sup: int = 4                # TBPTT windows per batch (bwd_tbptt only)
-    phi_budget: int = 8000        # gradient-bearing Phi applications per batch row, summed over training
+    phi_budget: int = 12000       # gradient-bearing Phi applications per batch row, summed over training
     ref_k: int = 4                # k used to define the budget for step-matched baselines
     batch: int = 64
     wd: float = 0.1
