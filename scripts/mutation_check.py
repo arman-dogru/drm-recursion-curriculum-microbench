@@ -21,7 +21,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-COPY = ("drm", "scripts", "tests")
+COPY = ("drm", "scripts", "tests", "docs")
 
 # (id, file, old, new, what the bug would mean)
 MUTANTS = [
