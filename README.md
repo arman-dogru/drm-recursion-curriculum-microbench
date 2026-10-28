@@ -126,7 +126,7 @@ What the compute curves and heatmaps show:
 - **One-step denoising does not improve with more test compute.** On flood it peaks at 39.1% at 16 Phi and falls to 20.6% at 64. On gravity it stays near 0 at every budget.
 - **DRM keeps improving past the matched budget on flood**, from 75.7% at 16 Phi to 85.4% at 64. TBPTT peaks at 16 Phi (69.8%) and degrades at 64 (23.8%). So the flood gap to TBPTT widens with test compute.
 - **Backward-trained models are tied to their training horizon.** They do well with latent recursion near 16 steps and badly with re-masking (S > 1), because they never saw a visible label token in training. The heatmaps show this as a bright S = 1 row.
-- **DRM is good on a band of schedules** with k_in ≥ 4 and S ≥ 2. That matches its training, where k = 4 steps start from a partially visible grid.
+- **DRM does well whenever k_in ≥ 4**, its training window, at almost any S, and fails with k_in ≤ 2. That matches its training: k = 4 latent steps that start from a partially visible grid.
 
 ## Train-test mismatch of one-step denoising
 
@@ -143,9 +143,9 @@ How to read this probe:
 - **Backward TBPTT.** TBPTT never sees visible tokens in training. It fixes 38.1% of wrong visible cells on flood (16.8% on gravity), but for the same reason it gains little from noised clean targets. Its dashed line stays within about 2 points of its solid line (71.5% vs 69.6% at the last flood step).
 - **Scope.** The probe is measured on S = 16, k_in = 1, which is the one-step denoiser's dev-chosen schedule on every eval task. It is not each model's best schedule.
 
-![Denoising trajectory on one flood eval example for DRM and for one-step denoising, each at its dev-chosen schedule. Each column shows the masked input state and the predicted grid at one outer step.](figures/trajectory.png)
+![Denoising trajectory on one flood eval example for DRM (S=4, k_in=4) and for one-step denoising (S=16, k_in=1), each at its dev-chosen schedule. Each column shows the masked input state (white = MASK) and the predicted grid at one outer step; a tick marks a fully correct prediction.](figures/trajectory.png)
 
-*[figures/trajectory.png](figures/trajectory.png): data in [results/demo/trajectories.json](results/demo/trajectories.json), from [scripts/demo_trajectories.py](scripts/demo_trajectories.py), which retrains the seed-100 models and asserts they match the main-grid pass@1 exactly.*
+*[figures/trajectory.png](figures/trajectory.png): data in [results/demo/trajectories.json](results/demo/trajectories.json), from [scripts/demo_trajectories.py](scripts/demo_trajectories.py), which retrains the seed-100 models and asserts they match the main-grid pass@1. The example shown is chosen by a fixed rule, the first of the 6 recorded eval examples where DRM ends correct and fwd ends wrong, so it is illustrative and not typical.*
 
 ## Training timelines and the k sweep
 

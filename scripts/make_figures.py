@@ -84,6 +84,7 @@ def fig_compute(s):
                               [cur[str(c)]["hi"] - cur[str(c)]["mean"] for c in cs]],
                         color=COL[m], marker="o", ms=3, label=SHORT[m], capsize=2)
         ax.set_xscale("log", base=2)
+        ax.set_xticks([1, 2, 4, 8, 16, 32, 64], ["1", "2", "4", "8", "16", "32", "64"])
         ax.set_title(t)
         ax.set_xlabel("test-time Phi applications (S x k_in)")
     axes[0].set_ylabel("eval pass@1")
@@ -124,7 +125,7 @@ def fig_heatmaps(s, tasks=("flood", "gravity", "shift")):
 
 
 def fig_mismatch(s, task="flood"):
-    fig, axes = plt.subplots(1, 3, figsize=(15, 3.4))
+    fig, axes = plt.subplots(1, 3, figsize=(18, 4.0))
     tr = s["traces"][task]
     for m in ("fwd", "drm", "bwd_tbptt"):
         own, ora = tr[m]["S16_k1"]["own"], tr[m]["S16_k1"]["oracle"]
@@ -134,10 +135,10 @@ def fig_mismatch(s, task="flood"):
         axes[1].plot(st[1:], [r["visible_wrong_frac"] for r in own][1:], color=COL[m], label=SHORT[m])
         sc = [r["self_correct_rate"] for r in own][1:]
         axes[2].plot(st[1:], [np.nan if v is None else v for v in sc], color=COL[m], label=SHORT[m])
-    axes[0].set_title(f"{task}, S=16, k_in=1: cell accuracy per denoising step")
+    axes[0].set_title(f"{task}, S=16, k_in=1: cell accuracy", fontsize=10)
     axes[0].set_ylabel("cell accuracy")
-    axes[1].set_title("fraction of visible (unmasked) input cells that are wrong")
-    axes[2].set_title("of those wrong visible cells: fraction fixed in the next prediction")
+    axes[1].set_title("visible input cells that are wrong", fontsize=10)
+    axes[2].set_title("wrong visible cells fixed at the next step", fontsize=10)
     for ax in axes:
         ax.set_xlabel("outer denoising step")
         ax.legend(fontsize=7)
@@ -172,6 +173,7 @@ def fig_ksweep(s):
                             color=COL[m], ls=ls, marker="o", ms=3, capsize=2,
                             label=f"{SHORT[m]} ({'S=16/k, k_in=k' if kind == 'native' else 'S=1, k_in=16'})")
         ax.set_xscale("log", base=2)
+        ax.set_xticks([1, 2, 4, 8], ["1", "2", "4", "8"])
         ax.set_title(t)
         ax.set_xlabel("training recursion window k (FLOP-matched)")
     np.atleast_1d(axes)[0].set_ylabel("eval pass@1")
@@ -191,7 +193,17 @@ def fig_tasks():
     save(fig, "tasks.png")
 
 
-def fig_trajectory(demo, ex=0):
+def pick_example(demo):
+    """First shown example where DRM's final grid is right and fwd's is wrong (else 0)."""
+    d, f = demo["methods"]["drm"], demo["methods"]["fwd"]
+    for i in range(len(d["y"])):
+        if d["steps"][-1]["pred"][i] == d["y"][i] and f["steps"][-1]["pred"][i] != f["y"][i]:
+            return i
+    return 0
+
+
+def fig_trajectory(demo, ex=None):
+    ex = pick_example(demo) if ex is None else ex
     ms = list(demo["methods"])
     nmax = max(len(demo["methods"][m]["steps"]) for m in ms)
     fig, axes = plt.subplots(2 * len(ms), nmax + 2, figsize=(1.3 * (nmax + 2), 2.7 * len(ms)))
@@ -211,7 +223,9 @@ def fig_trajectory(demo, ex=0):
             axes[2 * r + 1, i + 2].imshow(np.array(st["pred"][ex]).reshape(H, W), cmap=GRID_CMAP, vmin=0, vmax=8)
             axes[2 * r + 1, i + 2].set_title("pred" + (" ✓" if ok else ""), fontsize=7)
         S, k = d["schedule"]
-        axes[2 * r + 1, 0].text(0, 0.5, f"{SHORT[m]}\nS={S}, k_in={k}", fontsize=10, transform=axes[2 * r + 1, 0].transAxes)
+        final_ok = d["steps"][-1]["pred"][ex] == d["y"][ex]
+        axes[2 * r + 1, 0].text(0, 0.5, f"{SHORT[m]}\nS={S}, k_in={k}\nfinal: {'correct' if final_ok else 'wrong'}",
+                                fontsize=10, transform=axes[2 * r + 1, 0].transAxes)
     save(fig, "trajectory.png")
 
 
