@@ -89,7 +89,7 @@ MUTANTS = [
      "main grid on dev split"),
     ("J2", "scripts/run_grid.py", "seed=s, split=\"eval\", lr=tuning[t][m][\"lr\"])\n", "seed=s, split=\"eval\", lr=1e-3)\n",
      "tuned lr ignored"),
-    ("J3", "scripts/run_grid.py", "for t in tasks for m in methods for s in EVAL_SEEDS]", "for t in tasks for m in methods for s in DEV_SEEDS]",
+    ("J3", "scripts/run_grid.py", "for t in tasks for m in methods for s in MAIN_SEEDS]", "for t in tasks for m in methods for s in DEV_SEEDS]",
      "main grid on dev seeds"),
     ("J4", "scripts/run_grid.py", "lr=tuning[t][m][\"lr\"], k=k)", "lr=tuning[t][m][\"lr\"], k=k, phi_budget=3000 * k)",
      "k-sweep not FLOP-matched"),

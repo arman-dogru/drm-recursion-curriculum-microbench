@@ -57,7 +57,7 @@ def choose(runs: dict):
     for t in scores:
         for m in scores[t]:
             best = None
-            for lr in LR_GRID:                       # fixed order -> deterministic tie-breaks
+            for lr in [x for x in LR_GRID if f"{x:g}" in scores[t][m]]:   # fixed order -> deterministic ties
                 sc = scores[t][m][f"{lr:g}"]
                 for s, k in MATCHED_MENU:
                     v = sc[f"S{s}_k{k}"]

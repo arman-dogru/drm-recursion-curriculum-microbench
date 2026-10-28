@@ -15,6 +15,8 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from drm.config import METHODS, ROOT  # noqa: E402
 from drm.tasks import TASKS  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from run_grid import MAIN_TASKS  # noqa: E402
 
 R = ROOT / "results"
 
@@ -47,6 +49,7 @@ def build(s, mut, n_tests):
         for m in METHODS:
             ch = s["tuning"][g][m]
             c[f"lr_{g}_{m}"] = f"{ch['lr']:g}"
+            c[f"dev_{g}_{m}"] = pct(ch["dev_pass1"])
             c[f"sched_{g}_{m}"] = f"S={ch['schedule'][0]}, k_in={ch['schedule'][1]}"
     sig = 0
     for k, r in s["tests"].items():
@@ -56,7 +59,7 @@ def build(s, mut, n_tests):
         c[f"ph_{key}"] = f"{r['p_holm']:.2g}"
         sig += r["significant"]
     c["n_sig"] = str(sig)
-    for t in TASKS:
+    for t in MAIN_TASKS:
         tr = s["traces"][t]
         for m in METHODS:
             own = tr[m]["S16_k1"]["own"]
@@ -72,7 +75,7 @@ def build(s, mut, n_tests):
             for k, v in ks.items():
                 c[f"ks_{t}_{m}_k{k}"] = ci(v["native"])
                 c[f"ksl_{t}_{m}_k{k}"] = ci(v["latent16"])
-    for t in TASKS:
+    for t in MAIN_TASKS:
         for m in METHODS:
             cur = s["compute_curves"][t][m]
             for q in cur:

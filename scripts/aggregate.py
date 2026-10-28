@@ -3,7 +3,7 @@
 Primary metric: eval pass@1 (exact match) at the inference schedule chosen on
 dev for that (task, method) from the matched-compute menu (S x k_in = 16).
 Comparisons are DRM minus each baseline, paired by training seed; two-sided
-exact sign-flip test; Holm over the whole family (4 baselines x (5 tasks + pooled)).
+exact sign-flip test; Holm over the whole family (4 baselines x (3 main tasks + pooled)).
 
 Refuses (exit 2) on a missing/extra/stale/mixed-code grid. --allow-partial is
 for debugging only and must write to a directory other than results/.
@@ -24,8 +24,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from drm.config import EVAL_SEEDS, MATCHED_MENU, METHODS, ROOT, inference_grid  # noqa: E402
 from drm.stats import bootstrap_ci, holm, sign_flip_p  # noqa: E402
 from drm.tasks import TASKS  # noqa: E402
-from run_grid import (KSWEEP_METHODS, KSWEEP_SEEDS, KSWEEP_TASKS, TUNING_PATH, ksweep_jobs,  # noqa: E402
-                      main_jobs)  # noqa: E402
+from run_grid import (KSWEEP_METHODS, KSWEEP_SEEDS, KSWEEP_TASKS, MAIN_SEEDS, MAIN_TASKS,  # noqa: E402
+                      TUNING_PATH, ksweep_jobs, main_jobs)  # noqa: E402
 from run_one import out_paths  # noqa: E402
 from tune import GridError  # noqa: E402
 
@@ -143,7 +143,7 @@ def compute_curves(runs, by_compute):
 
 def traces(runs):
     out = defaultdict(lambda: defaultdict(dict))
-    for t in TASKS:
+    for t in MAIN_TASKS:
         for m in METHODS:
             ds = [d for c, d in runs.items() if c.task == t and c.method == m and c.k == 4]
             if not ds:
@@ -168,7 +168,7 @@ def traces(runs):
 
 def learning_curves(runs):
     out = defaultdict(dict)
-    for t in TASKS:
+    for t in MAIN_TASKS:
         for m in METHODS:
             ds = [d for c, d in runs.items() if c.task == t and c.method == m and c.k == 4]
             if not ds:
@@ -209,15 +209,15 @@ def main(raw: Path, out_dir: Path, allow_partial: bool = False):
     runs_k, miss_k = load_grid(kj, raw, allow_partial, code)
 
     ps = per_seed(runs, tuning)
-    ps = add_pooled(ps, TASKS)
-    groups = list(TASKS) + [POOLED]
+    ps = add_pooled(ps, MAIN_TASKS)
+    groups = list(MAIN_TASKS) + [POOLED]
     primary = {g: {m: summarize(ps[g][m]) for m in METHODS if ps[g].get(m)} for g in groups}
     tests = compare(ps, groups)
     n_params = sorted({d["meta"]["n_params"] for d in runs.values()})
     summary = {
         "meta": {"code_hash": code, "n_runs_main": len(runs), "n_runs_ksweep": len(runs_k),
                  "missing": miss_m + miss_k, "partial": bool(miss_m or miss_k),
-                 "eval_seeds": list(EVAL_SEEDS), "n_params": n_params,
+                 "eval_seeds": list(MAIN_SEEDS), "main_tasks": list(MAIN_TASKS), "n_params": n_params,
                  "holm_family_size": len(tests), "menu": [list(x) for x in MATCHED_MENU]},
         "tuning": tuning,
         "primary": primary,

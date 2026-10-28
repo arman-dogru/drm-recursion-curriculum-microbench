@@ -75,14 +75,17 @@ def test_cli_parse_defaults():
 
 def test_seed_sets_disjoint():
     assert not set(DEV_SEEDS) & set(EVAL_SEEDS)
-    assert len(EVAL_SEEDS) >= 10
+    assert set(run_grid.MAIN_SEEDS) <= set(EVAL_SEEDS) and len(run_grid.MAIN_SEEDS) >= 10
+    assert set(run_grid.KSWEEP_SEEDS) <= set(run_grid.MAIN_SEEDS)
 
 
 def test_tune_jobs_cover_dev_grid_only():
     jobs = run_grid.tune_jobs()
-    assert len(jobs) == len(TASKS) * len(METHODS) * len(LR_GRID) * len(DEV_SEEDS)
+    grid = {(t, m, lr) for t in TASKS for m in METHODS
+            for lr in (LR_GRID if t in run_grid.MAIN_TASKS else run_grid.LR_GRID)}
+    assert len(jobs) == len(grid) * len(DEV_SEEDS)
     assert {j.split for j in jobs} == {"dev"} and {j.seed for j in jobs} == set(DEV_SEEDS)
-    assert {(j.task, j.method, j.lr) for j in jobs} == {(t, m, lr) for t in TASKS for m in METHODS for lr in LR_GRID}
+    assert {(j.task, j.method, j.lr) for j in jobs} == grid
     assert {j.k for j in jobs} == {4}
 
 
@@ -93,8 +96,9 @@ def _tuning(lr_of=lambda t, m: 1e-3):
 def test_main_jobs_use_tuned_lr_eval_split_eval_seeds():
     lr_of = lambda t, m: LR_GRID[(TASKS.index(t) + METHODS.index(m)) % 3]   # noqa: E731
     jobs = run_grid.main_jobs(_tuning(lr_of))
-    assert len(jobs) == len(TASKS) * len(METHODS) * len(EVAL_SEEDS)
-    assert {j.split for j in jobs} == {"eval"} and {j.seed for j in jobs} == set(EVAL_SEEDS)
+    assert len(jobs) == len(run_grid.MAIN_TASKS) * len(METHODS) * len(run_grid.MAIN_SEEDS)
+    assert {j.split for j in jobs} == {"eval"} and {j.seed for j in jobs} == set(run_grid.MAIN_SEEDS)
+    assert {j.task for j in jobs} == set(run_grid.MAIN_TASKS)
     assert all(j.lr == lr_of(j.task, j.method) for j in jobs)
 
 

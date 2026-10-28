@@ -20,6 +20,8 @@ from matplotlib.colors import ListedColormap  # noqa: E402
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from drm.config import K_GRID, METHODS, ROOT, S_GRID  # noqa: E402
 from drm.tasks import H, TASKS, W, make_task_data  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from run_grid import MAIN_TASKS  # noqa: E402
 
 FIG = ROOT / "figures"
 LABEL = {"fwd": "one-step denoise (FLOP-matched)", "fwd_steps": "one-step denoise (step-matched)",
@@ -38,7 +40,7 @@ def save(fig, name):
 
 
 def fig_primary(s):
-    groups = list(TASKS) + ["pooled"]
+    groups = list(MAIN_TASKS) + ["pooled"]
     fig, ax = plt.subplots(figsize=(11, 3.8))
     w = 0.16
     for i, m in enumerate(METHODS):
@@ -56,7 +58,7 @@ def fig_primary(s):
 
 def fig_forest(s):
     tests = s["tests"]
-    keys = sorted(tests, key=lambda k: (tests[k]["baseline"], (list(TASKS) + ["pooled"]).index(tests[k]["group"])))
+    keys = sorted(tests, key=lambda k: (tests[k]["baseline"], (list(MAIN_TASKS) + ["pooled"]).index(tests[k]["group"])))
     fig, ax = plt.subplots(figsize=(7, 0.28 * len(keys) + 1))
     for i, k in enumerate(keys):
         r = tests[k]
@@ -72,8 +74,8 @@ def fig_forest(s):
 
 
 def fig_compute(s):
-    fig, axes = plt.subplots(1, len(TASKS), figsize=(16, 3.2), sharey=True)
-    for ax, t in zip(axes, TASKS):
+    fig, axes = plt.subplots(1, len(MAIN_TASKS), figsize=(12, 3.2), sharey=True)
+    for ax, t in zip(axes, MAIN_TASKS):
         for m in METHODS:
             cur = s["compute_curves"][t][m]
             cs = sorted(map(int, cur))
@@ -117,7 +119,7 @@ def fig_heatmaps(s, tasks=("flood", "gravity", "shift")):
                 ax.set_ylabel(f"{t}\nouter steps S")
             if r == 0:
                 ax.set_title(SHORT[m])
-    fig.suptitle("eval pass@1 for every inference schedule (mean over 12 seeds); red box = schedule chosen on dev")
+    fig.suptitle("eval pass@1 for every inference schedule (mean over 10 seeds); red box = schedule chosen on dev")
     save(fig, "schedule_heatmaps.png")
 
 
@@ -143,8 +145,8 @@ def fig_mismatch(s, task="flood"):
 
 
 def fig_learning(s):
-    fig, axes = plt.subplots(1, len(TASKS), figsize=(16, 3.0), sharey=True)
-    for ax, t in zip(axes, TASKS):
+    fig, axes = plt.subplots(1, len(MAIN_TASKS), figsize=(12, 3.0), sharey=True)
+    for ax, t in zip(axes, MAIN_TASKS):
         for m in METHODS:
             lc = s["learning_curves"][t][m]
             ax.plot([p["phi_used"] for p in lc], [p["dev_pass1"] for p in lc], color=COL[m], marker=".",

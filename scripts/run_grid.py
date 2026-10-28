@@ -20,29 +20,40 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from drm.config import DEV_SEEDS, EVAL_SEEDS, LR_GRID, METHODS, ROOT, Config  # noqa: E402
 from drm.tasks import TASKS  # noqa: E402
 
-KSWEEP_TASKS = ("gravity", "flood")
+# Scope cut made at ~10:00 EDT on 2026-10-28, after the box CPU slowed ~3.5x and
+# before any eval run, using dev results only:
+#  * colormap is solved (dev pass@1 = 1.00) by every method at every lr, and
+#    symfill by none (dev pass@1 < 0.05) -> both are reported from dev tuning
+#    only and dropped from the eval grid;
+#  * the eval grid uses the first 10 of the 12 reserved eval seeds;
+#  * the k-sweep runs on flood only with 4 seeds.
+MAIN_TASKS = ("shift", "gravity", "flood")
+MAIN_SEEDS = EVAL_SEEDS[:10]
+KSWEEP_TASKS = ("flood",)
 KSWEEP_METHODS = ("drm", "bwd_tbptt")
 KSWEEP_K = (1, 2, 8)
-KSWEEP_SEEDS = EVAL_SEEDS[:6]
+KSWEEP_SEEDS = EVAL_SEEDS[:4]
 TUNING_PATH = ROOT / "results" / "tuning.json"
 # The dev optimum for the recursive methods sat at the 2e-3 edge of the initial
 # grid (config.LR_GRID), so the dev grid was extended by one point for every
 # method before any eval run. Decided on dev results only.
 LR_GRID_FULL = LR_GRID + (4e-3,)
+LR_EXT = (4e-3,)                 # extension applied to MAIN_TASKS only
 
 
 def tune_jobs(tasks=TASKS, methods=METHODS):
     return [Config(task=t, method=m, seed=s, split="dev", lr=lr)
-            for t in tasks for m in methods for lr in LR_GRID_FULL for s in DEV_SEEDS]
+            for t in tasks for m in methods
+            for lr in (LR_GRID_FULL if t in MAIN_TASKS else LR_GRID) for s in DEV_SEEDS]
 
 
 def load_tuning(path: Path = TUNING_PATH) -> dict:
     return json.loads(Path(path).read_text())["choice"]
 
 
-def main_jobs(tuning: dict, tasks=TASKS, methods=METHODS):
+def main_jobs(tuning: dict, tasks=MAIN_TASKS, methods=METHODS):
     return [Config(task=t, method=m, seed=s, split="eval", lr=tuning[t][m]["lr"])
-            for t in tasks for m in methods for s in EVAL_SEEDS]
+            for t in tasks for m in methods for s in MAIN_SEEDS]
 
 
 def ksweep_jobs(tuning: dict):

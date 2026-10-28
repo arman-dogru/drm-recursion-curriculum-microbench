@@ -10,7 +10,8 @@ import pytest
 import aggregate as A
 import run_grid
 import run_one
-from drm.config import EVAL_SEEDS, METHODS, inference_grid
+from drm.config import METHODS, inference_grid
+from run_grid import MAIN_SEEDS as EVAL_SEEDS, MAIN_TASKS
 from drm.tasks import TASKS
 from tune import GridError
 
@@ -65,13 +66,13 @@ def grid(tmp_path, monkeypatch):
 def test_primary_uses_dev_chosen_schedule_and_pools(grid):
     raw, out, _, _ = grid
     s = A.main(raw, out)
-    for t in TASKS:
+    for t in MAIN_TASKS:
         for m in METHODS:
             if m == "bwd_tbptt" and t == "flood":
                 continue
             exp = BASE[m] + 0.01 * TASKS.index(t) + 0.001 * np.mean(np.array(EVAL_SEEDS) - 100)
             assert s["primary"][t][m]["mean"] == pytest.approx(exp)
-    pooled = np.mean([s["primary"][t]["drm"]["mean"] for t in TASKS])
+    pooled = np.mean([s["primary"][t]["drm"]["mean"] for t in MAIN_TASKS])
     assert s["primary"]["pooled"]["drm"]["mean"] == pytest.approx(pooled)
     assert s["primary"]["pooled"]["drm"]["n_seeds"] == len(EVAL_SEEDS)
     assert (out / "tables" / "primary.csv").exists() and (out / "tables" / "tests.csv").exists()
@@ -81,7 +82,7 @@ def test_paired_tests_and_holm_family(grid):
     raw, out, _, _ = grid
     s = A.main(raw, out)
     T = s["tests"]
-    assert s["meta"]["holm_family_size"] == len(T) == 4 * (len(TASKS) + 1)
+    assert s["meta"]["holm_family_size"] == len(T) == 4 * (len(MAIN_TASKS) + 1)
     r = T["gravity:drm-fwd"]
     assert r["diff"] == pytest.approx(0.2) and r["wins"] == len(EVAL_SEEDS)
     assert r["p"] == pytest.approx(2 / 2 ** len(EVAL_SEEDS)) and r["significant"]

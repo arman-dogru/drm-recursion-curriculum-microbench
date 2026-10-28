@@ -50,9 +50,11 @@ Every run is evaluated on **every** schedule with S, k_in ∈ {1, 2, 4, 8, 16} a
 
 ## Protocol: dev/eval separation ([`scripts/run_grid.py`](../scripts/run_grid.py), [`scripts/tune.py`](../scripts/tune.py))
 
-1. **Tune (dev only).** Every (task, method, lr ∈ {5e-4, 1e-3, 2e-3, 4e-3}; 4e-3 was added on dev evidence because the recursive methods peaked at the 2e-3 edge) is trained with dev seeds {1, 2} and scored on the dev split. For each (task, method), `tune.py` picks the lr **and** the inference schedule from the matched-compute menu S × k_in = 16, {(1,16), (2,8), (4,4), (8,2), (16,1)}, that maximise mean dev pass@1. This gives every baseline its best schedule, so for example the one-step denoiser can choose 16 small steps. For the compute curves it also records the dev-best schedule at every test-compute level.
-2. **Main (eval only).** Every (task, method) is retrained at its tuned lr with 12 fresh eval seeds {100, …, 111} and scored on the held-out eval split at its dev-chosen schedule.
-3. **k-sweep.** `drm` and `bwd_tbptt` are trained at k ∈ {1, 2, 8} (k = 4 comes from the main grid) on gravity and flood with eval seeds 100-105, at a fixed 12000-Phi budget. Each is scored at two pre-registered schedules: native (S = 16/k, k_in = k) and latent (S = 1, k_in = 16).
+1. **Tune (dev only).** Every (task, method, lr ∈ {5e-4, 1e-3, 2e-3}) is trained, plus lr = 4e-3 on the three eval tasks. I added 4e-3 on dev evidence, because the recursive methods peaked at the 2e-3 edge. Each run is trained with dev seeds {1, 2} and scored on the dev split. For each (task, method), `tune.py` picks the lr **and** the inference schedule from the matched-compute menu S × k_in = 16, {(1,16), (2,8), (4,4), (8,2), (16,1)}, that maximise mean dev pass@1. This gives every baseline its best schedule, so for example the one-step denoiser can choose 16 small steps. For the compute curves it also records the dev-best schedule at every test-compute level.
+2. **Main (eval only).** Every (method, task ∈ {shift, gravity, flood}) is retrained at its tuned lr with 10 fresh eval seeds {100, …, 109} and scored on the held-out eval split at its dev-chosen schedule.
+3. **k-sweep.** `drm` and `bwd_tbptt` are trained at k ∈ {1, 2, 8} (k = 4 comes from the main grid) on flood with eval seeds 100-103, at a fixed 12000-Phi budget.
+
+**Scope cut, made before any eval run.** At about 10:00 EDT the box CPU slowed about 3.5× (per-run training went from about 140 s to about 510 s). Using **dev results only**, I cut the eval grid. Colormap is solved by every method at every lr (dev pass@1 = 1.00), so it cannot separate them. Symfill is solved by none (dev pass@1 < 0.05 for every method and lr). Both are reported from the dev tuning grid only. The eval grid uses 10 of the 12 reserved eval seeds, and the k-sweep uses flood only. The cut is recorded in [`scripts/run_grid.py`](../scripts/run_grid.py). Each is scored at two pre-registered schedules: native (S = 16/k, k_in = k) and latent (S = 1, k_in = 16).
 
 The learning curve logged during training is measured on 200 **dev** examples, never on eval, and a test checks this.
 
@@ -60,8 +62,8 @@ The learning curve logged during training is measured on 200 **dev** examples, n
 
 - The unit is the training seed. Methods with the same seed share the init RNG, batch-order RNG and inference RNG, so comparisons are paired by seed.
 - **CI:** a percentile bootstrap over seeds (10,000 resamples), seeds only. Examples within a seed are not resampled.
-- **Test:** an exact two-sided paired sign-flip permutation test on the per-seed difference. With 12 seeds the smallest attainable p is 2/4096 ≈ 0.00049.
-- **Multiplicity:** one Holm family over all 24 primary comparisons (DRM vs 4 baselines × (5 tasks + the pooled mean over tasks)).
+- **Test:** an exact two-sided paired sign-flip permutation test on the per-seed difference. With 10 seeds the smallest attainable p is 2/1024 ≈ 0.002.
+- **Multiplicity:** one Holm family over all 16 primary comparisons (DRM vs 4 baselines × (3 eval tasks + the pooled mean over them)). A comparison where all 10 seeds agree in sign survives Holm (16 × 0.002 = 0.031).
 - **Provenance:** every raw result records a hash of the code and of its config. `tune.py` and `aggregate.py` refuse (exit 2) a grid that is incomplete or has extra, stale or mixed-code files. `--allow-partial` must write somewhere other than `results/`.
 
 ## Train-test mismatch probe
