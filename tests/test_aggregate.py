@@ -85,6 +85,7 @@ def test_paired_tests_and_holm_family(grid):
     r = T["gravity:drm-fwd"]
     assert r["diff"] == pytest.approx(0.2) and r["wins"] == len(EVAL_SEEDS)
     assert r["p"] == pytest.approx(2 / 2 ** len(EVAL_SEEDS)) and r["significant"]
+    assert r["p_holm"] == pytest.approx(len(T) * r["p"])          # one Holm family over all tests
     # flood vs tbptt: paired diff alternates +-0.02 around 0 -> not significant
     f = T["flood:drm-bwd_tbptt"]
     assert f["diff"] == pytest.approx(0.0, abs=1e-9) and not f["significant"] and f["p_holm"] >= f["p"]

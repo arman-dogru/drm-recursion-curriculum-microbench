@@ -77,3 +77,25 @@ def test_reachable_simple():
     walls[:, 2] = True
     r = reachable(walls, (0, 0))
     assert r[:, :2].all() and not r[:, 2:].any()
+
+
+def test_reachable_is_four_connected():
+    walls = np.ones((H, W), dtype=bool)
+    walls[0, 0] = walls[1, 1] = False                 # diagonal neighbours only
+    r = reachable(walls, (0, 0))
+    assert r[0, 0] and not r[1, 1]
+
+
+def test_make_task_data_excludes_earlier_splits(monkeypatch):
+    seen = {}
+    real = tasks.make_split
+
+    def spy(task, split, n, data_seed=0, exclude=None):
+        seen[split] = set(exclude or ())
+        return real(task, split, n, data_seed, exclude)
+
+    monkeypatch.setattr(tasks, "make_split", spy)
+    d = tasks.make_task_data("shift", 30, 10, 10)
+    assert seen["train"] == set()
+    assert seen["dev"] == tasks.keys(d["train"][0])
+    assert seen["eval"] == tasks.keys(d["train"][0]) | tasks.keys(d["dev"][0])

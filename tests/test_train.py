@@ -149,3 +149,12 @@ def test_training_reduces_loss():
     cfg = tiny("drm", phi_budget=400, task="colormap")
     _, log = T.train(cfg, *_data(cfg))
     assert log["loss"][-1][2] < log["loss"][0][2]
+
+
+def test_init_weights_depend_on_seed_only():
+    X, Y = _data(tiny())
+    a, _ = T.train(tiny("drm", phi_budget=0), X, Y)
+    b, _ = T.train(tiny("bwd_k", phi_budget=0), X, Y)
+    c, _ = T.train(tiny("drm", phi_budget=0, seed=2), X, Y)
+    assert all(torch.equal(p, q) for p, q in zip(a.parameters(), b.parameters()))   # paired init
+    assert not all(torch.equal(p, q) for p, q in zip(a.parameters(), c.parameters()))
