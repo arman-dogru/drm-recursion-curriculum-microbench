@@ -53,7 +53,7 @@ def main():
         _, full = trajectory(model, X, S, k, eval_gen(cfg.seed, S, k))
         p1 = float((full == Y).all(1).float().mean())
         ref = json.loads(out_paths(cfg, ROOT / "results" / "raw")[0].read_text())["eval"][f"S{S}_k{k}"]["pass1"]
-        assert abs(p1 - ref) < 1e-9, (m, p1, ref)
+        assert abs(p1 - ref) < 1e-6, (m, p1, ref)   # float32 vs float64 mean
         idx = list(range(N_SHOW))
         steps, _ = trajectory(model, X[idx], S, k, torch.Generator().manual_seed(0))
         out["methods"][m] = {"schedule": [S, k], "pass1_check": p1, "x": X[idx].tolist(), "y": Y[idx].tolist(),
