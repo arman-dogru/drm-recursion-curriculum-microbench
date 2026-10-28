@@ -28,7 +28,10 @@ def test_colormap_and_shift_exact():
     assert np.array_equal(tasks.COLORMAP_PERM[X], Y)
     X, Y = make_task_data("shift", 20, 5, 5)["train"]
     for x, y in zip(X, Y):
-        assert np.array_equal(np.roll(x.reshape(H, W), (tasks.SHIFT_DR, tasks.SHIFT_DC), (0, 1)), y.reshape(H, W))
+        x, y = x.reshape(H, W), y.reshape(H, W)
+        dr, dc = tasks.SHIFT_DR, tasks.SHIFT_DC
+        assert np.array_equal(y[dr:, dc:], x[:H - dr, :W - dc])
+        assert not y[:dr].any() and not y[:, :dc].any()
 
 
 def test_symfill_symmetric_and_recoverable():

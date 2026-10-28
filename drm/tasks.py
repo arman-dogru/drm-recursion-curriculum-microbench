@@ -36,7 +36,9 @@ def _shift(rng):
         for i in range(h):
             for j in range(w):
                 x[(r + i) % H, (c + j) % W] = col
-    y = np.roll(x, shift=(SHIFT_DR, SHIFT_DC), axis=(0, 1))
+    # translate without wrap-around: cells pushed past the border disappear
+    y = np.zeros_like(x)
+    y[SHIFT_DR:, SHIFT_DC:] = x[:H - SHIFT_DR, :W - SHIFT_DC]
     return x, y
 
 
