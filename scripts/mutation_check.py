@@ -122,7 +122,7 @@ MUTANTS = [
     ("K1", "scripts/run_grid.py", "MAIN_TASKS = TASKS\n", "MAIN_TASKS = (\"shift\", \"gravity\", \"flood\")\n",
      "post-hoc task cut re-applied to the eval grid"),
     ("K2", "scripts/run_grid.py", "for t in tasks for m in methods for lr in LR_GRID_FULL for s in DEV_SEEDS]",
-     "for t in tasks for m in methods for lr in LR_GRID_FULL[:4] for s in DEV_SEEDS]", "lr extension dropped"),
+     "for t in tasks for m in methods for lr in LR_GRID_FULL[:6] for s in DEV_SEEDS]", "lr extension dropped"),
     ("K3", "scripts/run_grid.py", "MAIN_SEEDS = EVAL_SEEDS\n", "MAIN_SEEDS = EVAL_SEEDS[:10]\n", "too few eval seeds"),
     ("F1", "scripts/make_figures.py", "    if s[\"meta\"].get(\"partial\"):\n        print(\"make_figures",
      "    if False:\n        print(\"make_figures", "figures drawn from a partial summary"),

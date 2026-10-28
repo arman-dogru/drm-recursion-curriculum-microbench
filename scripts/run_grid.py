@@ -32,7 +32,12 @@ KSWEEP_METHODS = ("drm", "bwd_tbptt")
 KSWEEP_K = (1, 2, 8)
 KSWEEP_SEEDS = EVAL_SEEDS[:4]
 TUNING_PATH = ROOT / "results" / "tuning.json"
-LR_GRID_FULL = LR_GRID          # same grid for every task and method
+# Dev-only extension (decided at ~15:55 EDT from dev results, before any eval run):
+# flood bwd_k peaked at the 1.6e-2 edge of config.LR_GRID (0.47 at 8e-3 -> 0.79 at 1.6e-2),
+# so one more point is added for EVERY task and method. Kept here rather than in
+# drm/config.py so the code hash, and hence the finished dev runs, stay valid.
+LR_EXT = (3.2e-2,)
+LR_GRID_FULL = LR_GRID + LR_EXT  # same grid for every task and method
 
 
 def tune_jobs(tasks=TASKS, methods=METHODS):
