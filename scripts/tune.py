@@ -16,8 +16,8 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from drm.config import DEV_SEEDS, LR_GRID, MATCHED_MENU, ROOT, inference_grid  # noqa: E402
-from run_grid import TUNING_PATH, tune_jobs  # noqa: E402
+from drm.config import DEV_SEEDS, MATCHED_MENU, ROOT, inference_grid  # noqa: E402
+from run_grid import LR_GRID_FULL as LR_GRID, TUNING_PATH, tune_jobs  # noqa: E402
 from run_one import out_paths  # noqa: E402
 
 

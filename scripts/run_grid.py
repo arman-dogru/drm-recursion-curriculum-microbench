@@ -1,6 +1,6 @@
 """Build and run the experiment stages.
 
-  tune    dev split, DEV_SEEDS, every (task, method, lr in LR_GRID)
+  tune    dev split, DEV_SEEDS, every (task, method, lr in LR_GRID_FULL)
   main    eval split, EVAL_SEEDS, every (task, method) at its dev-tuned lr
   ksweep  eval split, KSWEEP_SEEDS, recursive methods at k in KSWEEP_K on KSWEEP_TASKS
 
@@ -25,11 +25,15 @@ KSWEEP_METHODS = ("drm", "bwd_tbptt")
 KSWEEP_K = (1, 2, 8)
 KSWEEP_SEEDS = EVAL_SEEDS[:6]
 TUNING_PATH = ROOT / "results" / "tuning.json"
+# The dev optimum for the recursive methods sat at the 2e-3 edge of the initial
+# grid (config.LR_GRID), so the dev grid was extended by one point for every
+# method before any eval run. Decided on dev results only.
+LR_GRID_FULL = LR_GRID + (4e-3,)
 
 
 def tune_jobs(tasks=TASKS, methods=METHODS):
     return [Config(task=t, method=m, seed=s, split="dev", lr=lr)
-            for t in tasks for m in methods for lr in LR_GRID for s in DEV_SEEDS]
+            for t in tasks for m in methods for lr in LR_GRID_FULL for s in DEV_SEEDS]
 
 
 def load_tuning(path: Path = TUNING_PATH) -> dict:

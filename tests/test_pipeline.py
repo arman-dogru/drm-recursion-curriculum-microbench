@@ -8,9 +8,11 @@ import torch
 import run_grid
 import run_one
 import tune
-from drm.config import DEV_SEEDS, EVAL_SEEDS, LR_GRID, MATCHED_MENU, METHODS, Config, code_hash, inference_grid
+from drm.config import DEV_SEEDS, EVAL_SEEDS, MATCHED_MENU, METHODS, Config, code_hash, inference_grid
 from drm.tasks import TASKS, make_task_data
 from helpers import tiny
+
+LR_GRID = run_grid.LR_GRID_FULL
 
 
 def test_run_one_end_to_end(tmp_path):
