@@ -1,8 +1,8 @@
 {
  "control_exit": 0,
- "n": 116,
+ "n": 131,
  "counts": {
-  "KILLED": 116,
+  "KILLED": 131,
   "SURVIVED": 0,
   "ERROR": 0,
   "NOT_APPLICABLE": 0
@@ -422,7 +422,7 @@
    "exit": 1
   },
   {
-   "id": "W1",
+   "id": "V1",
    "file": "scripts/render_readme.py",
    "why": "README renders with unknown claim keys",
    "status": "KILLED",
@@ -817,6 +817,111 @@
    "id": "Z10",
    "file": "scripts/pipeline.sh",
    "why": "pre-eval push skipped",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W1",
+   "file": "scripts/tune.py",
+   "why": "ties go to the LAST (lr, schedule) instead of the first",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W2",
+   "file": "scripts/tune.py",
+   "why": "tie-break prefers the highest lr",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W3",
+   "file": "scripts/verify_lineage.py",
+   "why": "lineage json comparison disabled",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W4",
+   "file": "scripts/verify_lineage.py",
+   "why": "lineage ignores eval and traces",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W5",
+   "file": "scripts/run_one.py",
+   "why": "up_to_date accepts any code hash",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W6",
+   "file": "scripts/pipeline.sh",
+   "why": "uncommitted-dev check removed",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W7",
+   "file": "scripts/claims.py",
+   "why": "README claims results computed under current hash",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W8",
+   "file": "scripts/tune.py",
+   "why": "tune may read non-dev runs",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W9",
+   "file": "scripts/run_one.py",
+   "why": "CLI radius check removed (Config still raises)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W10",
+   "file": "scripts/run_one.py",
+   "why": "overwrite refusal exits 0",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W11",
+   "file": "drm/lineage.py",
+   "why": "lineage cycle guard removed",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W12",
+   "file": "scripts/tune.py",
+   "why": "tuning.json relabelled with the current code hash on regeneration (m2)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W13",
+   "file": "scripts/pipeline.sh",
+   "why": "hygiene scan before push removed (n4)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W14",
+   "file": "scripts/aggregate.py",
+   "why": "native-horizon sensitivity silently uses the headline schedule",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W15",
+   "file": "scripts/aggregate.py",
+   "why": "tie sensitivity silently reports the round-2 cell",
    "status": "KILLED",
    "exit": 1
   }

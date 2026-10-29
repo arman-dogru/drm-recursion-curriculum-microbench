@@ -58,7 +58,7 @@ K1,scripts/run_grid.py,KILLED,1,post-hoc task cut re-applied to the eval grid
 K2,scripts/run_grid.py,KILLED,1,lr extension dropped
 K3,scripts/run_grid.py,KILLED,1,too few eval seeds
 F1,scripts/make_figures.py,KILLED,1,figures drawn from a partial summary
-W1,scripts/render_readme.py,KILLED,1,README renders with unknown claim keys
+V1,scripts/render_readme.py,KILLED,1,README renders with unknown claim keys
 X1,scripts/aggregate.py,KILLED,1,Holm per group instead of one family
 X2,scripts/run_grid.py,KILLED,1,tuning on eval split
 X3,drm/stats.py,KILLED,1,90% CI labelled 95%
@@ -115,3 +115,18 @@ Z7,drm/config.py,KILLED,1,non-default fields do not reach the run name
 Z8,drm/lineage.py,KILLED,1,unverified lineage links accepted
 Z9,scripts/aggregate.py,KILLED,1,eval grid code-hash check disabled
 Z10,scripts/pipeline.sh,KILLED,1,pre-eval push skipped
+W1,scripts/tune.py,KILLED,1,"ties go to the LAST (lr, schedule) instead of the first"
+W2,scripts/tune.py,KILLED,1,tie-break prefers the highest lr
+W3,scripts/verify_lineage.py,KILLED,1,lineage json comparison disabled
+W4,scripts/verify_lineage.py,KILLED,1,lineage ignores eval and traces
+W5,scripts/run_one.py,KILLED,1,up_to_date accepts any code hash
+W6,scripts/pipeline.sh,KILLED,1,uncommitted-dev check removed
+W7,scripts/claims.py,KILLED,1,README claims results computed under current hash
+W8,scripts/tune.py,KILLED,1,tune may read non-dev runs
+W9,scripts/run_one.py,KILLED,1,CLI radius check removed (Config still raises)
+W10,scripts/run_one.py,KILLED,1,overwrite refusal exits 0
+W11,drm/lineage.py,KILLED,1,lineage cycle guard removed
+W12,scripts/tune.py,KILLED,1,tuning.json relabelled with the current code hash on regeneration (m2)
+W13,scripts/pipeline.sh,KILLED,1,hygiene scan before push removed (n4)
+W14,scripts/aggregate.py,KILLED,1,native-horizon sensitivity silently uses the headline schedule
+W15,scripts/aggregate.py,KILLED,1,tie sensitivity silently reports the round-2 cell
