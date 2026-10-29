@@ -267,42 +267,42 @@
      ]
     },
     "16": {
-     "dev_pass1": 0.792,
+     "dev_pass1": 0.472,
      "schedule": [
-      2,
-      8
+      1,
+      16
      ]
     },
     "2": {
-     "dev_pass1": 0.007,
+     "dev_pass1": 0.016,
      "schedule": [
       1,
       2
      ]
     },
     "32": {
-     "dev_pass1": 0.7390000000000001,
+     "dev_pass1": 0.307,
      "schedule": [
       4,
       8
      ]
     },
     "4": {
-     "dev_pass1": 0.67,
+     "dev_pass1": 0.657,
      "schedule": [
       1,
       4
      ]
     },
     "64": {
-     "dev_pass1": 0.7270000000000001,
+     "dev_pass1": 0.288,
      "schedule": [
       8,
       8
      ]
     },
     "8": {
-     "dev_pass1": 0.8320000000000001,
+     "dev_pass1": 0.839,
      "schedule": [
       1,
       8
@@ -524,42 +524,42 @@
      ]
     },
     "16": {
-     "dev_pass1": 0.47000000000000003,
+     "dev_pass1": 0.405,
      "schedule": [
       1,
       16
      ]
     },
     "2": {
-     "dev_pass1": 0.013000000000000001,
+     "dev_pass1": 0.0,
      "schedule": [
       1,
       2
      ]
     },
     "32": {
-     "dev_pass1": 0.21799999999999997,
+     "dev_pass1": 0.14100000000000001,
      "schedule": [
       1,
       32
      ]
     },
     "4": {
-     "dev_pass1": 0.725,
+     "dev_pass1": 0.712,
      "schedule": [
       1,
       4
      ]
     },
     "64": {
-     "dev_pass1": 0.07999999999999999,
+     "dev_pass1": 0.047,
      "schedule": [
       1,
       64
      ]
     },
     "8": {
-     "dev_pass1": 0.722,
+     "dev_pass1": 0.8089999999999999,
      "schedule": [
       1,
       8
@@ -679,8 +679,8 @@
     "16": {
      "dev_pass1": 0.001,
      "schedule": [
-      16,
-      1
+      8,
+      2
      ]
     },
     "2": {
@@ -698,7 +698,7 @@
      ]
     },
     "4": {
-     "dev_pass1": 0.001,
+     "dev_pass1": 0.002,
      "schedule": [
       4,
       1
@@ -712,10 +712,10 @@
      ]
     },
     "8": {
-     "dev_pass1": 0.0,
+     "dev_pass1": 0.001,
      "schedule": [
-      1,
-      8
+      8,
+      1
      ]
     }
    },
@@ -749,7 +749,7 @@
      ]
     },
     "4": {
-     "dev_pass1": 0.001,
+     "dev_pass1": 0.002,
      "schedule": [
       4,
       1
@@ -763,7 +763,7 @@
      ]
     },
     "8": {
-     "dev_pass1": 0.001,
+     "dev_pass1": 0.002,
      "schedule": [
       8,
       1
@@ -781,42 +781,42 @@
      ]
     },
     "16": {
-     "dev_pass1": 0.992,
+     "dev_pass1": 0.85,
      "schedule": [
       4,
       4
      ]
     },
     "2": {
-     "dev_pass1": 0.287,
+     "dev_pass1": 0.07400000000000001,
      "schedule": [
       1,
       2
      ]
     },
     "32": {
-     "dev_pass1": 0.997,
+     "dev_pass1": 0.837,
      "schedule": [
       8,
       4
      ]
     },
     "4": {
-     "dev_pass1": 0.998,
+     "dev_pass1": 1.0,
      "schedule": [
       1,
       4
      ]
     },
     "64": {
-     "dev_pass1": 0.996,
+     "dev_pass1": 0.841,
      "schedule": [
       16,
       4
      ]
     },
     "8": {
-     "dev_pass1": 0.997,
+     "dev_pass1": 0.915,
      "schedule": [
       2,
       4
@@ -978,49 +978,49 @@
    },
    "fwd_steps": {
     "1": {
-     "dev_pass1": 0.042,
+     "dev_pass1": 0.047,
      "schedule": [
       1,
       1
      ]
     },
     "16": {
-     "dev_pass1": 0.05,
+     "dev_pass1": 0.041999999999999996,
      "schedule": [
-      16,
-      1
+      8,
+      2
      ]
     },
     "2": {
-     "dev_pass1": 0.043,
+     "dev_pass1": 0.055,
      "schedule": [
       2,
       1
      ]
     },
     "32": {
-     "dev_pass1": 0.043,
+     "dev_pass1": 0.045,
      "schedule": [
-      8,
-      4
+      16,
+      2
      ]
     },
     "4": {
-     "dev_pass1": 0.039999999999999994,
+     "dev_pass1": 0.045,
      "schedule": [
       4,
       1
      ]
     },
     "64": {
-     "dev_pass1": 0.040999999999999995,
+     "dev_pass1": 0.037,
      "schedule": [
       16,
       4
      ]
     },
     "8": {
-     "dev_pass1": 0.047,
+     "dev_pass1": 0.049,
      "schedule": [
       8,
       1
@@ -1082,14 +1082,14 @@
    },
    "bwd_tbptt": {
     "1": {
-     "dev_pass1": 0.0,
+     "dev_pass1": 0.005,
      "schedule": [
       1,
       1
      ]
     },
     "16": {
-     "dev_pass1": 0.288,
+     "dev_pass1": 0.286,
      "schedule": [
       1,
       16
@@ -1103,7 +1103,7 @@
      ]
     },
     "32": {
-     "dev_pass1": 0.28500000000000003,
+     "dev_pass1": 0.275,
      "schedule": [
       1,
       32
@@ -1117,14 +1117,14 @@
      ]
     },
     "64": {
-     "dev_pass1": 0.265,
+     "dev_pass1": 0.232,
      "schedule": [
       1,
       64
      ]
     },
     "8": {
-     "dev_pass1": 0.285,
+     "dev_pass1": 0.288,
      "schedule": [
       1,
       8
@@ -1242,45 +1242,45 @@
      ]
     },
     "16": {
-     "dev_pass1": 0.004,
+     "dev_pass1": 0.003,
      "schedule": [
-      16,
-      1
+      4,
+      4
      ]
     },
     "2": {
-     "dev_pass1": 0.002,
+     "dev_pass1": 0.004,
      "schedule": [
       1,
       2
      ]
     },
     "32": {
-     "dev_pass1": 0.002,
+     "dev_pass1": 0.005,
      "schedule": [
       16,
       2
      ]
     },
     "4": {
-     "dev_pass1": 0.002,
+     "dev_pass1": 0.006,
      "schedule": [
-      1,
-      4
+      4,
+      1
      ]
     },
     "64": {
      "dev_pass1": 0.003,
      "schedule": [
-      8,
-      8
+      16,
+      4
      ]
     },
     "8": {
-     "dev_pass1": 0.002,
+     "dev_pass1": 0.005,
      "schedule": [
-      1,
-      8
+      8,
+      1
      ]
     }
    }
@@ -1331,10 +1331,10 @@
   },
   "flood": {
    "bwd_k": {
-    "dev_pass1": 0.792,
-    "lr": 0.016,
+    "dev_pass1": 0.839,
+    "lr": 0.008,
     "schedule": [
-     2,
+     1,
      8
     ]
    },
@@ -1373,52 +1373,52 @@
   },
   "gravity": {
    "bwd_k": {
-    "dev_pass1": 0.47000000000000003,
-    "lr": 0.064,
-    "schedule": [
-     1,
-     16
-    ]
-   },
-   "bwd_tbptt": {
-    "dev_pass1": 0.952,
+    "dev_pass1": 0.8089999999999999,
     "lr": 0.004,
     "schedule": [
      1,
-     16
+     8
+    ]
+   },
+   "bwd_tbptt": {
+    "dev_pass1": 0.958,
+    "lr": 0.004,
+    "schedule": [
+     1,
+     8
     ]
    },
    "drm": {
-    "dev_pass1": 0.847,
+    "dev_pass1": 0.8480000000000001,
     "lr": 0.032,
     "schedule": [
-     2,
+     1,
      8
     ]
    },
    "fwd": {
-    "dev_pass1": 0.001,
-    "lr": 0.0005,
+    "dev_pass1": 0.002,
+    "lr": 0.064,
     "schedule": [
-     16,
+     4,
      1
     ]
    },
    "fwd_steps": {
-    "dev_pass1": 0.001,
-    "lr": 0.001,
+    "dev_pass1": 0.002,
+    "lr": 0.002,
     "schedule": [
-     16,
+     8,
      1
     ]
    }
   },
   "shift": {
    "bwd_k": {
-    "dev_pass1": 0.992,
-    "lr": 0.064,
+    "dev_pass1": 1.0,
+    "lr": 0.016,
     "schedule": [
-     4,
+     1,
      4
     ]
    },
@@ -1447,29 +1447,29 @@
     ]
    },
    "fwd_steps": {
-    "dev_pass1": 0.05,
-    "lr": 0.016,
+    "dev_pass1": 0.055,
+    "lr": 0.064,
     "schedule": [
-     16,
+     2,
      1
     ]
    }
   },
   "symfill": {
    "bwd_k": {
-    "dev_pass1": 0.198,
+    "dev_pass1": 0.282,
     "lr": 0.004,
     "schedule": [
      1,
-     16
+     4
     ]
    },
    "bwd_tbptt": {
     "dev_pass1": 0.288,
-    "lr": 0.032,
+    "lr": 0.016,
     "schedule": [
      1,
-     16
+     8
     ]
    },
    "drm": {
@@ -1489,10 +1489,10 @@
     ]
    },
    "fwd_steps": {
-    "dev_pass1": 0.004,
-    "lr": 0.001,
+    "dev_pass1": 0.006,
+    "lr": 0.004,
     "schedule": [
-     16,
+     4,
      1
     ]
    }
@@ -6968,9 +6968,8 @@
   ],
   "lr_edges": [
    "flood:fwd_steps:0.064",
-   "gravity:bwd_k:0.064",
-   "gravity:fwd:0.0005",
-   "shift:bwd_k:0.064"
+   "gravity:fwd:0.064",
+   "shift:fwd_steps:0.064"
   ],
   "lr_grid": [
    0.0005,
@@ -7001,6 +7000,46 @@
    ],
    [
     16,
+    1
+   ],
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    4,
+    2
+   ],
+   [
+    8,
+    1
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    1,
     1
    ]
   ]
