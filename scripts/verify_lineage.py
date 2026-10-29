@@ -8,7 +8,9 @@ Checks, all of which must pass:
      hash fields must be identical: eval dict, traces, learning curve, per-example bits.
   2. Full-budget committed runs are re-run under the current code and compared with the
      committed results the same way.
-Usage: python scripts/verify_lineage.py PARENT_COMMIT [--full dev/flood/drm_k4_lr0p008 ...]
+The training loss log's elapsed-seconds column, train_seconds and the timing/hash meta
+fields are the only fields excluded from the comparison.
+Usage: python scripts/verify_lineage.py PARENT_COMMIT [--full dev/flood/drm_k4_lr0p008 ...] [--tmp DIR]
 """
 from __future__ import annotations
 
@@ -37,6 +39,8 @@ def strip(d: dict) -> dict:
     d = json.loads(json.dumps(d))
     d["meta"] = {k: v for k, v in d["meta"].items() if k not in VOLATILE_META}
     d["train"].pop("train_seconds", None)
+    # loss rows are [step, phi_used, mean_loss, elapsed_seconds]: drop only the wall-clock column
+    d["train"]["loss"] = [row[:3] for row in d["train"].get("loss", [])]
     return d
 
 
@@ -52,6 +56,9 @@ def same(js_a: Path, js_b: Path) -> tuple[bool, str]:
 
 
 def run(tree: Path, py: str, args: list[str], out: Path) -> Path:
+    done = list(out.rglob("*.json")) if out.exists() else []
+    if len(done) == 1:                    # --tmp reuse: this exact run already finished in this dir
+        return done[0]
     out.mkdir(parents=True, exist_ok=True)
     subprocess.run([py, str(tree / "scripts" / "run_one.py"), *args, "--out", str(out)], check=True,
                    capture_output=True, cwd=tree)
@@ -66,13 +73,17 @@ def main():
     p.add_argument("--full", nargs="*", default=[], help="committed runs, e.g. dev/flood/drm_k4_lr0p008_b12000_r1_s1")
     p.add_argument("--workers", type=int, default=4)
     p.add_argument("--budget", type=int, default=48)
+    p.add_argument("--tmp", help="reuse the outputs of an earlier invocation in this scratch dir")
     a = p.parse_args()
     py = sys.executable
     parent = subprocess.run(["git", "rev-parse", a.parent], cwd=ROOT, check=True, capture_output=True,
                             text=True).stdout.strip()
     cur = code_hash()
-    tmp = Path(tempfile.mkdtemp(prefix="lineage_"))
+    tmp = Path(a.tmp) if a.tmp else Path(tempfile.mkdtemp(prefix="lineage_"))
     tree = tmp / "parent"
+    if tree.exists():
+        subprocess.run(["git", "worktree", "remove", "--force", str(tree)], cwd=ROOT, capture_output=True)
+        subprocess.run(["git", "worktree", "prune"], cwd=ROOT, capture_output=True)
     subprocess.run(["git", "worktree", "add", "--detach", str(tree), parent], cwd=ROOT, check=True, capture_output=True)
     try:
         old = subprocess.run([py, "-c", "from drm.config import code_hash; print(code_hash())"], cwd=tree,

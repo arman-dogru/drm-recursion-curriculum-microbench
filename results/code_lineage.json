@@ -1,0 +1,233 @@
+{
+ "equivalent": {
+  "23eb93ba4b532a98": {
+   "all_identical": true,
+   "checks": [
+    {
+     "args": "--task flood --method fwd --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method fwd --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method fwd --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method fwd --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method fwd_steps --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method fwd_steps --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method fwd_steps --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method fwd_steps --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method bwd_k --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method bwd_k --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method bwd_k --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method bwd_k --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method bwd_tbptt --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method bwd_tbptt --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method bwd_tbptt --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method bwd_tbptt --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method drm --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method drm --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method drm --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task flood --method drm --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method fwd --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method fwd --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method fwd --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method fwd --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method fwd_steps --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method fwd_steps --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method fwd_steps --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method fwd_steps --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method bwd_k --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method bwd_k --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method bwd_k --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method bwd_k --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method bwd_tbptt --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method bwd_tbptt --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method bwd_tbptt --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method bwd_tbptt --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method drm --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method drm --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method drm --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "--task gravity --method drm --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "committed dev/flood/drm_k4_lr0p008_b12000_r1_s1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "committed eval/gravity/bwd_tbptt_k4_lr0p004_b12000_r1_s100",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "committed eval/shift/bwd_k_k4_lr0p016_b12000_r1_s100",
+     "ok": true,
+     "why": "identical"
+    }
+   ],
+   "code_diffstat": [
+    "drm/config.py      | 20 +++++++++++++++++---",
+    " scripts/run_one.py | 31 ++++++++++++++++++++++++++++---",
+    " 2 files changed, 45 insertions(+), 6 deletions(-)"
+   ],
+   "n_checks": 43,
+   "parent": "91de577ed2a30aae",
+   "parent_commit": "16fa8b4648071040acb692c8c9315a67d8e64395",
+   "verified_at": "2026-10-29T00:14:18-04:00"
+  }
+ }
+}

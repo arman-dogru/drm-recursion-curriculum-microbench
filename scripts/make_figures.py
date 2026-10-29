@@ -215,7 +215,8 @@ def fig_ksweep(s):
         ax.set_title(t)
         ax.set_xlabel("training recursion window k (FLOP-matched)")
     np.atleast_1d(axes)[0].set_ylabel("eval pass@1")
-    np.atleast_1d(axes)[0].legend(fontsize=7)
+    h, lab = np.atleast_1d(axes)[0].get_legend_handles_labels()
+    fig.legend(h, lab, ncol=3, fontsize=7, loc="upper center", bbox_to_anchor=(0.5, -0.04), frameon=False)
     save(fig, "ksweep.png")
 
 

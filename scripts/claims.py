@@ -145,11 +145,13 @@ def build(s, mut, n_tests):
                         d = json.loads(js.read_text())
                         secs += d["train"].get("train_seconds", 0) + d["meta"].get("eval_seconds", 0)
         c["cpu_h_r2"] = f"{secs / 3600:.1f}"
-    from drm.lineage import accepted_hashes
-    anc = sorted(accepted_hashes(s["meta"]["code_hash"]) - {s["meta"]["code_hash"]})
-    c["code_hash_parent"] = ", ".join(anc) if anc else s["meta"]["code_hash"]
+    # code_hash = current code; code_hash_parent = the hash the results were computed under
+    # (equal unless a verified lineage link, results/code_lineage.json, connects them)
+    from drm.config import code_hash as current_code_hash
+    c["code_hash_parent"] = s["meta"]["code_hash"]
+    c["code_hash"] = current_code_hash()
     lin = R / "code_lineage.json"
-    e = json.loads(lin.read_text())["equivalent"].get(s["meta"]["code_hash"], {}) if lin.exists() else {}
+    e = json.loads(lin.read_text())["equivalent"].get(c["code_hash"], {}) if lin.exists() else {}
     c["lineage_n"] = str(e.get("n_checks", 0))
     if mut:
         for pre, name in (("X", "rev"), ("Q", "r1"), ("Y", "rev2"), ("Z", "r2")):
