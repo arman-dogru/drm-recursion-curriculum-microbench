@@ -1,8 +1,8 @@
 {
  "control_exit": 0,
- "n": 140,
+ "n": 144,
  "counts": {
-  "KILLED": 140,
+  "KILLED": 144,
   "SURVIVED": 0,
   "ERROR": 0,
   "NOT_APPLICABLE": 0
@@ -985,6 +985,34 @@
    "id": "P9",
    "file": "scripts/aggregate.py",
    "why": "sensitivity wins/losses swapped",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "E1",
+   "file": "scripts/claims.py",
+   "why": "same-schedule won/lost swapped in the claims",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "E2",
+   "file": "scripts/claims.py",
+   "why": "same-schedule S/k label swapped in the claims",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "E3",
+   "file": "scripts/pipeline.sh",
+   "why": "pipeline never runs same_schedule.py",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "E4",
+   "file": "scripts/pipeline.sh",
+   "why": "same_schedule.py runs after claims.py",
    "status": "KILLED",
    "exit": 1
   }

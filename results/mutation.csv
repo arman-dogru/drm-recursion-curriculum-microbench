@@ -139,3 +139,7 @@ P6,scripts/claims.py,KILLED,1,superseded/r0 CPU-h drop eval time
 P7,scripts/verify_lineage.py,KILLED,1,lineage records all_identical even when a check failed
 P8,scripts/verify_lineage.py,KILLED,1,default full set drops the k-sweep run
 P9,scripts/aggregate.py,KILLED,1,sensitivity wins/losses swapped
+E1,scripts/claims.py,KILLED,1,same-schedule won/lost swapped in the claims
+E2,scripts/claims.py,KILLED,1,same-schedule S/k label swapped in the claims
+E3,scripts/pipeline.sh,KILLED,1,pipeline never runs same_schedule.py
+E4,scripts/pipeline.sh,KILLED,1,same_schedule.py runs after claims.py
