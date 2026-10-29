@@ -8,7 +8,11 @@ A small, CPU-only reproduction of the core idea of **Denoising Recursion Models*
 
 > **Round 1 (after review).** The whole pipeline was rerun under a new code hash: all **5 tasks** × **{{n_eval_seeds}} eval seeds** (the round-0 task cut is reverted), an lr grid of 5e-4 … 6.4e-2 for **every** task and method, and pure latent inference up to 64 steps. Round-0 artifacts are kept in [results/r0_932be94/](results/r0_932be94/). What changed is summarised in [Round 1 changes](#round-1-changes).
 
-{{TLDR}}
+- **DRM beats one-step denoising, but on 3 of the 5 tasks, not all.** Pooled over all five tasks, pass@1 is {{p1_pooled_drm}} for DRM against {{p1_pooled_fwd}} for the FLOP-matched one-step denoiser ({{d_pooled_drm_vs_fwd}}, {{wl_pooled_drm_vs_fwd}} seeds won/lost, Holm p = {{ph_pooled_drm_vs_fwd}}). The gain comes from shift ({{d_shift_drm_vs_fwd}}), gravity ({{d_gravity_drm_vs_fwd}}) and flood ({{d_flood_drm_vs_fwd}}). On colormap every method scores 100%, and on symfill DRM and fwd are both near 0 ({{p1m_symfill_drm}}% vs {{p1m_symfill_fwd}}%, {{d_symfill_drm_vs_fwd}}).
+- **The noise curriculum helps on average, not everywhere.** DRM is the same k = 4 recursion as `bwd_k` but starts from a corrupted target instead of a full mask. Pooled it is ahead by {{d_pooled_drm_vs_bwd_k}} (shift {{d_shift_drm_vs_bwd_k}}, gravity {{d_gravity_drm_vs_bwd_k}}; flood {{d_flood_drm_vs_bwd_k}}, not significant after Holm), but it is **behind** on symfill ({{d_symfill_drm_vs_bwd_k}}).
+- **DRM loses to TRM-style backward TBPTT overall.** Pooled it is {{p1_pooled_drm}} against {{p1_pooled_bwd_tbptt}} ({{d_pooled_drm_vs_bwd_tbptt}}, Holm-significant). DRM is ahead on flood ({{d_flood_drm_vs_bwd_tbptt}}) and slightly on shift ({{d_shift_drm_vs_bwd_tbptt}}), and behind on gravity ({{d_gravity_drm_vs_bwd_tbptt}}) and symfill ({{d_symfill_drm_vs_bwd_tbptt}}). TBPTT here gets 4 windows (16 recursive steps) per batch for the same FLOPs.
+- **With more test compute, DRM keeps improving on flood and TBPTT does not**, now that both can use their best inference mode at every budget: from 16 to 64 Phi, DRM goes {{cc_flood_drm_16}}% → {{cc_flood_drm_64}}% ({{ccs_flood_drm_64}}) and latent TBPTT {{cc_flood_bwd_tbptt_16}}% → {{cc_flood_bwd_tbptt_64}}% ({{ccs_flood_bwd_tbptt_64}}). On gravity both are flat (DRM {{cc_gravity_drm_64}}%, TBPTT {{cc_gravity_bwd_tbptt_64}}% at 64 Phi).
+- **A train-test-mismatch symptom shows up for one-step denoising**, but this probe does not prove it is the cause. At each method's own dev schedule, flood cell accuracy on its own trajectory vs on noised clean targets is {{mmo_flood_fwd_own_last}}% vs {{mmo_flood_fwd_oracle_last}}% for fwd, and {{mmo_flood_drm_own_last}}% vs {{mmo_flood_drm_oracle_last}}% for DRM.
 
 All numbers are eval-split pass@1 (whole-grid exact match) over **{{n_eval_seeds}} fresh training seeds** (100-111), at a matched test compute of 16 Phi applications, with the lr and the inference schedule chosen on dev for each (task, method). Intervals are 95% percentile seed-bootstrap CIs (they under-cover a little at n = {{n_eval_seeds}}; Student-t intervals are in [results/tables/](results/tables/)). p-values are exact paired sign-flip tests, Holm-corrected over all {{holm_m}} comparisons. The model has {{n_params}} parameters, the code hash is `{{code_hash}}`, and there are {{n_tests}} tests with {{mut_killed}}/{{mut_total}} planted bugs caught (see [Verification](#verification)). Everything ran on CPU; no GPU was used.
 
@@ -137,7 +141,12 @@ On colormap every setting reaches 100% on dev, so the tie-break (first lr in gri
 
 *[figures/schedule_heatmaps.png](figures/schedule_heatmaps.png): data in [results/summary.json](results/summary.json) (`schedules`); script [scripts/make_figures.py](scripts/make_figures.py).*
 
-{{COMPUTE_TEXT}}
+What the compute curves and heatmaps show (each point uses the dev-best schedule at that budget, latent or re-masking):
+
+- **One-step denoising does not use extra test compute.** On flood it peaks at {{cc_flood_fwd_16}}% at 16 Phi and falls to {{cc_flood_fwd_64}}% at 64; on gravity and symfill it is near 0 at every budget, and on shift it stays at about {{cc_shift_fwd_16}}%.
+- **DRM keeps improving past the matched budget on flood**, {{cc_flood_drm_16}}% at 16 Phi to {{cc_flood_drm_32}}% at 32 and {{cc_flood_drm_64}}% at 64, using re-masking schedules. On gravity it is flat ({{cc_gravity_drm_16}}% → {{cc_gravity_drm_64}}%).
+- **Backward-trained models are best with latent recursion near their training horizon.** TBPTT now gets pure latent recursion at every budget and the dev picks it every time (S = 1). Going past 16 latent steps it slowly loses accuracy: flood {{cc_flood_bwd_tbptt_16}}% → {{cc_flood_bwd_tbptt_32}}% → {{cc_flood_bwd_tbptt_64}}%, gravity {{cc_gravity_bwd_tbptt_16}}% → {{cc_gravity_bwd_tbptt_64}}%. In round 0 the grid capped latent recursion at 16 steps, which forced TBPTT into re-masking above 16 Phi and made it look as if it collapsed; that was an artifact of the grid (review M3). The single-window `bwd_k` degrades faster (gravity {{cc_gravity_bwd_k_16}}% at 16 Phi, {{cc_gravity_bwd_k_64}}% at 64).
+- **DRM does well whenever k_in ≥ 4**, its training window, at almost any S, and fails with k_in ≤ 2 (heatmaps).
 
 ## Train-test mismatch probe
 
@@ -158,7 +167,12 @@ Under the masking process, every **visible** cell a denoiser sees in training is
 | gravity | {{mm_gravity_fwd_own_last_cell}} / {{mm_gravity_fwd_oracle_last_cell}} ({{mm_gravity_fwd_selfcorr}}%) | {{mm_gravity_drm_own_last_cell}} / {{mm_gravity_drm_oracle_last_cell}} ({{mm_gravity_drm_selfcorr}}%) | {{mm_gravity_bwd_tbptt_own_last_cell}} / {{mm_gravity_bwd_tbptt_oracle_last_cell}} ({{mm_gravity_bwd_tbptt_selfcorr}}%) |
 | flood | {{mm_flood_fwd_own_last_cell}} / {{mm_flood_fwd_oracle_last_cell}} ({{mm_flood_fwd_selfcorr}}%) | {{mm_flood_drm_own_last_cell}} / {{mm_flood_drm_oracle_last_cell}} ({{mm_flood_drm_selfcorr}}%) | {{mm_flood_bwd_tbptt_own_last_cell}} / {{mm_flood_bwd_tbptt_oracle_last_cell}} ({{mm_flood_bwd_tbptt_selfcorr}}%) |
 
-{{MISMATCH_TEXT}}
+How to read the probe:
+
+- **At the same schedule (S = 16, k_in = 1, the table above)** both DRM and fwd do better on noised clean targets than on their own states, and the gap is about as large for DRM as for fwd (larger on flood: DRM {{mm_flood_drm_own_last_cell}}% vs {{mm_flood_drm_oracle_last_cell}}%, fwd {{mm_flood_fwd_own_last_cell}}% vs {{mm_flood_fwd_oracle_last_cell}}%). This schedule is fwd's own dev choice but a poor one for DRM, and near the end of it the oracle input is almost all clean visible cells, so a high oracle number partly measures copying. At this schedule the probe does not single out one-step denoising.
+- **At each method's own dev schedule** ([mismatch_own_schedule.png](figures/mismatch_own_schedule.png)) the own-vs-oracle gap at the last step is {{mmo_flood_fwd_gap_last}} pp for fwd against {{mmo_flood_drm_gap_last}} pp for DRM on flood, {{mmo_gravity_fwd_gap_last}} vs {{mmo_gravity_drm_gap_last}} pp on gravity, and {{mmo_shift_fwd_gap_last}} vs {{mmo_shift_drm_gap_last}} pp on shift. TBPTT, which never sees visible tokens, has gaps of {{mmo_flood_bwd_tbptt_gap_last}} pp (flood) and {{mmo_gravity_bwd_tbptt_gap_last}} pp (gravity).
+- **Self-correction** of wrong visible cells is low for every denoiser (fwd {{mm_flood_fwd_selfcorr}}%, DRM {{mm_flood_drm_selfcorr}}% on flood at S = 16, k_in = 1). DRM's advantage therefore does not come from fixing visible tokens; it is consistent with the k latent steps inside each denoising step (paper §6), but this toy does not isolate that either.
+- **Bottom line:** the symptom the paper describes (a one-step denoiser does worse on its own states than on training-distribution states) is present and is larger for fwd than for DRM at their own schedules. This is consistent with paper §1 and §3.1.1. It is a correlation within this probe, not a causal test.
 
 ![Denoising trajectory on one flood eval example for DRM and for one-step denoising, each at its dev-chosen schedule. Each column shows the masked input state (white = MASK) and the predicted grid at one outer step; a tick marks a fully correct prediction.](figures/trajectory.png)
 
@@ -181,11 +195,18 @@ Under the masking process, every **visible** cell a denoiser sees in training is
 | 4 | {{ks_flood_drm_k4}} | {{ksl_flood_bwd_tbptt_k4}} | {{ks_gravity_drm_k4}} | {{ksl_gravity_bwd_tbptt_k4}} |
 | 8 | {{ks_flood_drm_k8}} | {{ksl_flood_bwd_tbptt_k8}} | {{ks_gravity_drm_k8}} | {{ksl_gravity_bwd_tbptt_k8}} |
 
-{{KSWEEP_TEXT}} The sweep is exploratory: 4 seeds, not in the Holm family, and **the k ≠ 4 runs reuse the lr tuned at k = 4**.
+At a fixed 12,000-Phi training budget, DRM at its native schedule (S = 16/k, k_in = k) improves steeply from k = 1 (which *is* one-step denoising) up to k = 4 on both tasks. TBPTT is native only in latent mode (S = 1, k_in = 16). The sweep is exploratory: 4 seeds, not in the Holm family, and **the k ≠ 4 runs reuse the lr tuned at k = 4**.
 
 ## How this maps to the paper (§3)
 
-{{MAPPING}}
+| paper claim (§3, §5, App. F) | this toy |
+|---|---|
+| Forward (one-step) training misaligns train and test, which causes compounding and greedy errors (§1, §3.1.1) | **Consistent: symptom observed, cause not isolated.** At their own schedules, fwd's own-vs-oracle gap is larger than DRM's (flood {{mmo_flood_fwd_gap_last}} vs {{mmo_flood_drm_gap_last}} pp); at a shared S = 16, k_in = 1 schedule it is not. DRM beats fwd by {{d_pooled_drm_vs_fwd}} pooled, from the three tasks that need depth. |
+| Masked diffusion without recursion fails badly (Table 1: about 0%) | Consistent: `fwd` reaches {{p1m_gravity_fwd}}% on gravity, {{p1m_symfill_fwd}}% on symfill and {{p1m_shift_fwd}}% on shift. |
+| DRM's noise curriculum helps compared with recursion from noise without it (§3.2, §6) | **Partly reproduced** against `bwd_k`: {{d_pooled_drm_vs_bwd_k}} pooled, ahead on shift and gravity, n.s. on flood, **behind on symfill** ({{d_symfill_drm_vs_bwd_k}}). |
+| DRM beats TRM (Table 1) | **Not reproduced.** DRM wins flood and (by little) shift, but loses gravity, symfill and the pooled mean to TBPTT ({{d_pooled_drm_vs_bwd_tbptt}}). There is no scratchpad, warm-up loop or halting here, and TBPTT gets 4 windows per batch; the paper's App. F.8 also reports TRM ahead on Sudoku. |
+| DRM gains more per recursive step k than TRM (Table 5) | See the k-sweep table above; exploratory, 4 seeds, lr not re-tuned per k. |
+| DRM uses extra test-time compute well | Consistent on flood (DRM rises to {{cc_flood_drm_64}}% at 64 Phi while latent TBPTT drifts down to {{cc_flood_bwd_tbptt_64}}%); flat on gravity. |
 
 See [docs/paper_mapping.md](docs/paper_mapping.md) for the equation-by-equation mapping and for the simplifications. None of the following are used, for any method: scratchpad z, warm-up loops, Q-head and halting, EMA, task embedding, augmentation and voting, or SPRM.
 
