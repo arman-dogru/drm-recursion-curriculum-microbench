@@ -6,32 +6,39 @@ A small, CPU-only reproduction of the core idea of **Denoising Recursion Models*
 
 ## TL;DR
 
-- **DRM beats one-step denoising on every eval task at matched parameters and matched training FLOPs.** Pooled pass@1 is 82.6% [80.2, 84.9] for DRM against 15.2% [14.8, 15.6] for the FLOP-matched one-step denoiser (+67.4 pp [+65.0, +69.7], 10/0 seeds won/lost, Holm p = 0.031). This is the deliverable in the brief, and it holds per task: shift +93.1 pp [+92.9, +93.3], gravity +72.4 pp [+65.4, +79.7], flood +36.5 pp [+34.5, +38.5].
-- **The noise curriculum matters.** DRM is the same k = 4 recursion as `bwd_k` but starts from a corrupted target instead of a full mask. It beats `bwd_k` by +42.2 pp [+37.8, +46.6] pooled.
-- **DRM does not beat TRM-style backward TBPTT overall.** Pooled it is 82.6% [80.2, 84.9] against 88.0% [87.2, 88.9] (-5.5 pp [-7.8, -3.4]). DRM is better on flood (+5.8 pp [+3.3, +8.5]) and shift (+1.0 pp [+0.6, +1.3]), but clearly worse on gravity (-23.3 pp [-30.3, -16.2]). All three differences survive Holm correction. TBPTT here gets 4 windows (16 recursive steps) per batch for the same FLOPs, which is the regime where the paper's App. F.8 also reports TRM ahead (Sudoku).
-- **The one-step denoiser's train-test mismatch is directly visible.** It essentially never corrects a wrong visible cell: self-correction is 0.1% on flood and 0.0% on gravity and shift, because in training every visible cell is correct. Along its own trajectory, flood cell accuracy stays at 87.0% after 16 steps, while the same model fed noised clean targets reaches 100.0%.
+> **Round 1 (after review).** The whole pipeline was rerun under a new code hash: all **5 tasks** × **12 eval seeds** (the round-0 task cut is reverted), an lr grid of 5e-4 … 6.4e-2 for **every** task and method, and pure latent inference up to 64 steps. Round-0 artifacts are kept in [results/r0_932be94/](results/r0_932be94/). What changed is summarised in [Round 1 changes](#round-1-changes).
 
-All numbers are eval-split pass@1 (whole-grid exact match) over **10 fresh training seeds**, at a matched test compute of 16 Phi applications, with the inference schedule chosen on dev. Intervals are 95% seed-bootstrap CIs, and p-values are exact paired sign-flip tests with Holm correction over all 16 comparisons. The model has 52,488 parameters, the code hash is `5e3b723109944734`, and there are 73 tests with 63/63 planted bugs caught (see [Verification](#verification)).
+- **DRM beats one-step denoising, but on 3 of the 5 tasks, not all.** Pooled over all five tasks, pass@1 is 71.2% [69.8, 72.6] for DRM against 29.1% [28.9, 29.3] for the FLOP-matched one-step denoiser (+42.1 pp [+40.6, +43.5], 12/0 seeds won/lost, Holm p = 0.012). The gain comes from shift (+93.6 pp [+93.4, +93.9]), gravity (+76.7 pp [+69.4, +83.8]) and flood (+40.1 pp [+38.3, +41.9]). On colormap every method scores 100%, and on symfill DRM and fwd are both near 0 (0.2% vs 0.2%, +0.0 pp [-0.1, +0.1]).
+- **The noise curriculum helps on average, not everywhere.** DRM is the same k = 4 recursion as `bwd_k` but starts from a corrupted target instead of a full mask. Pooled it is ahead by +10.7 pp [+8.5, +12.9] (shift +8.6 pp [+3.2, +15.8], gravity +48.0 pp [+38.6, +56.8]; flood +13.2 pp [+3.5, +26.0], not significant after Holm), but it is **behind** on symfill (-16.4 pp [-20.1, -12.1]).
+- **DRM loses to TRM-style backward TBPTT overall.** Pooled it is 71.2% [69.8, 72.6] against 76.7% [75.7, 77.6] (-5.5 pp [-6.8, -4.0], Holm-significant). DRM is ahead on flood (+10.3 pp [+7.7, +13.2]) and slightly on shift (+1.4 pp [+1.2, +1.7]), and behind on gravity (-19.0 pp [-26.2, -12.1]) and symfill (-20.1 pp [-24.2, -14.1]). TBPTT here gets 4 windows (16 recursive steps) per batch for the same FLOPs.
+- **With more test compute, DRM keeps improving on flood and TBPTT does not**, now that both can use their best inference mode at every budget: from 16 to 64 Phi, DRM goes 79.2% → 86.8% (S=16, k_in=4) and latent TBPTT 68.9% → 60.7% (S=1, k_in=64). On gravity both are flat (DRM 77.4%, TBPTT 92.3% at 64 Phi).
+- **A train-test-mismatch symptom shows up for one-step denoising**, but this probe does not prove it is the cause. At each method's own dev schedule, flood cell accuracy on its own trajectory vs on noised clean targets is 87.0% vs 100.0% for fwd, and 96.9% vs 99.9% for DRM.
 
-![Grouped bar chart of eval pass@1 for five trainers on shift, gravity, flood and their pooled mean. DRM 82.6%, backward TBPTT 88.0%, one-step denoising FLOP-matched 15.2%, step-matched 14.6%, single-window backward 40.3% pooled.](figures/primary.png)
+All numbers are eval-split pass@1 (whole-grid exact match) over **12 fresh training seeds** (100-111), at a matched test compute of 16 Phi applications, with the lr and the inference schedule chosen on dev for each (task, method). Intervals are 95% percentile seed-bootstrap CIs (they under-cover a little at n = 12; Student-t intervals are in [results/tables/](results/tables/)). p-values are exact paired sign-flip tests, Holm-corrected over all 24 comparisons. The model has 52,488 parameters, the code hash is `91de577ed2a30aae`, and there are 102 tests with 92/92 planted bugs caught (see [Verification](#verification)). Everything ran on CPU; no GPU was used.
+
+![Grouped bar chart of eval pass@1 for five trainers on all five tasks, the pooled mean over all five (primary) and the descriptive pooled mean over shift, gravity and flood. Pooled over all five: DRM 71.2%, backward TBPTT 76.7%, single-window backward 60.5%, one-step denoising FLOP-matched 29.1%, step-matched 28.4%.](figures/primary.png)
 
 *[figures/primary.png](figures/primary.png): data in [results/summary.json](results/summary.json) (`primary`) and [results/tables/primary.csv](results/tables/primary.csv); script [scripts/make_figures.py](scripts/make_figures.py).*
 
 ## What was compared
 
 ```mermaid
-flowchart LR
+flowchart TB
   subgraph A["(a) one-step denoising: fwd"]
+    direction LR
     Y1[clean target Y] -->|"mask cells, tau ~ U(0,1), cosine"| N1[corrupted Y~]
     N1 --> P1["Phi x1"] --> L1[CE to Y]
   end
   subgraph B["(b) backward TBPTT: bwd_tbptt"]
+    direction LR
     M2[all MASK] --> P2["Phi x k"] --> L2a[CE] --> S2["stop-grad"] --> P2b["Phi x k"] --> L2b["CE ... (4 windows)"]
   end
   subgraph C["(c) DRM: drm"]
+    direction LR
     Y3[clean target Y] -->|"mask cells, tau ~ U(0,1)"| N3[corrupted Y~]
     N3 --> P3["Phi x k (backprop through all k)"] --> L3[CE to Y]
   end
+  A ~~~ B ~~~ C
 ```
 
 | id | what | start state | Phi per opt step | opt steps | training Phi |
@@ -44,7 +51,7 @@ flowchart LR
 
 Every method uses the same block, initialisation (paired by seed), optimiser and batch size. The learning rate and the inference schedule are tuned **per method on dev**, so each baseline gets its best setting. Details are in [docs/method.md](docs/method.md), and the section-by-section mapping to the paper is in [docs/paper_mapping.md](docs/paper_mapping.md).
 
-**Why local attention.** Phi is one transformer layer whose attention only reaches neighbouring cells (radius 1), so information moves at most one cell per Phi step. That gives each task a known minimum recursion depth (shift: 2; gravity and flood: up to the grid size), and a test checks this. In a dev-only pilot with global attention, one Phi step solved most tasks, so recursion could not matter.
+**Why local attention.** Phi is one transformer layer whose attention only reaches neighbouring cells (radius 1), so information moves at most one cell per Phi step. That gives each task a known minimum recursion depth (shift: 2; gravity and flood: up to the grid size), and a test checks this. This is a design choice, not an empirical finding: I have no committed evidence that global attention would make the tasks one-step solvable (an earlier version of this README claimed it did; see [docs/pilots.md](docs/pilots.md)).
 
 ### Inference: the same for every method
 
@@ -55,7 +62,7 @@ flowchart LR
   D -->|"i = S"| O["prediction"]
 ```
 
-S = 1 is pure latent recursion, which is how a backward-trained model is natively used. Every run is scored on every (S, k_in) with S·k_in ≤ 64. The headline uses the matched-compute menu S·k_in = 16, picking the schedule that is best on dev for each (task, method).
+S = 1 is pure latent recursion, which is how a backward-trained model is natively used. Every run is scored on all 25 schedules with S ∈ {1,…,16}, k_in ∈ {1,…,64} and S·k_in ≤ 64, so pure latent recursion (S = 1) is available at every budget up to 64. The headline uses the matched-compute menu S·k_in = 16, picking the schedule that is best on dev for each (task, method).
 
 ## Tasks
 
@@ -63,111 +70,143 @@ S = 1 is pure latent recursion, which is how a backward-trained model is nativel
 
 *[figures/tasks.png](figures/tasks.png): generated by [drm/tasks.py](drm/tasks.py) through [scripts/make_figures.py](scripts/make_figures.py).*
 
-| task | rule | in eval grid? | dev evidence (best dev pass@1 per method) |
-|---|---|---|---|
-| `colormap` | per-cell colour permutation (depth 1) | **no, dev only** | every method 100.0% (fwd 100.0%, bwd-TBPTT 100.0%) |
-| `shift` | move objects (+1, +2), no wrap (depth 2) | yes | |
-| `symfill` | fill an occluder from the left-right mirror (depth ≤ 5) | **no, dev only** | DRM 0.5%, fwd 0.4%, fwd-steps 0.4%, bwd-TBPTT 0.3%, bwd-k 9.2% |
-| `gravity` | cells fall to the bottom of their column, keeping order | yes | |
-| `flood` | mark cells 4-connected to the source | yes | |
+| task | rule | min. Phi steps (radius-1 attention) |
+|---|---|---|
+| `colormap` | per-cell colour permutation | 1 |
+| `shift` | move objects (+1, +2), no wrap | 2 |
+| `symfill` | fill an occluder from the left-right mirror | up to 5 |
+| `gravity` | cells fall to the bottom of their column, keeping order | up to 5 |
+| `flood` | mark cells 4-connected to the source | path length |
 
-### Scope cut and dev-only evidence (please read)
+All five tasks are in the eval grid. `colormap` needs no recursion and acts as a sanity check (every method should solve it).
 
-- The plan was to evaluate all five tasks with 12 eval seeds. At about 10:00 EDT on 2026-10-28 the box CPU slowed about 3.5× (per-run training went from about 140 s to about 510 s). **Before any eval-split run**, and using **dev results only**, I cut the eval grid to **shift, gravity and flood × 10 seeds**, and the k-sweep to flood × 4 seeds. The cut is recorded in [scripts/run_grid.py](scripts/run_grid.py) and [docs/method.md](docs/method.md).
-- **colormap** is solved by every method at every learning rate on dev, so it cannot separate them. It serves as a sanity check that every trainer and inference path works.
-- **symfill** is near the floor for every method on dev. The only non-trivial cell is `bwd_k` at lr 2e-3, which reached 0.18 on one dev seed and 0.004 on the other. I make **no eval claim** about symfill. Under radius-1 attention it needs precise transport over up to 5 cells, and within this budget none of the trainers learns it.
-- The colormap and symfill numbers above are **dev-split numbers from the tuning grid** (2 dev seeds, best lr and best matched schedule), so they are optimistic by construction. They are not comparable to the eval numbers below.
-- **Learning-rate edge.** The lr grid is {5e-4, 1e-3, 2e-3} plus 4e-3 on the eval tasks. I added 4e-3 after dev showed the recursive methods peaking at 2e-3. Several (task, method) optima still sit at the 4e-3 edge (see the table below), so every method, baselines included, might gain a little from an even larger lr.
+### Round 1 changes
+
+- **All 5 tasks, 12 seeds (M1).** Round 0 dropped colormap and symfill from eval after looking at dev, and justified it with a "3.5× CPU slowdown". The logs show short bursts of slow jobs, not a sustained slowdown, and the two dropped tasks were the ones where DRM did not win on dev. The cut is reverted. The full story is in [docs/method.md](docs/method.md#round-0-scope-cut-reverted).
+- **lr grid (M2).** Every (task, method) gets the same grid {5e-4, 1e-3, 2e-3, 4e-3, 8e-3, 1.6e-2, 3.2e-2, 6.4e-2}. The last two points were added on dev evidence, for every cell, before any eval run; 6.4e-2 was declared the last extension. Cells whose dev optimum is still at an edge: flood:fwd_steps:0.064, gravity:bwd_k:0.064, gravity:fwd:0.0005, shift:bwd_k:0.064.
+- **Inference (M3).** Pure latent recursion (S = 1) is now offered at 32 and 64 Phi, so at every budget each method uses its dev-best mode (latent or re-masking).
+- **Provenance (m4).** Dev outputs and `tuning.json` were committed (3d7f9c4, 18:18 EDT) and pushed before any eval run, and every raw result records start and end timestamps, load average and wall time.
+- **Smaller items:** collision-free run names and input validation (m7), lock file and no hard-coded interpreter (m5), softened pilot claim (m6), DRM shown next to fwd in the mismatch probe (m1), corrected CPU-hours (m2), more mutants (m3), and the nits. See the PR thread for a per-item list.
 
 ## Results (eval split)
 
 | task | DRM | bwd-TBPTT | bwd-k | fwd (FLOP-matched) | fwd (step-matched) |
 |---|---|---|---|---|---|
-| shift | 99.5% [99.3, 99.6] | 98.5% [98.2, 98.8] | 72.9% [62.8, 83.0] | 6.3% [6.2, 6.5] | 5.8% [5.7, 6.0] |
-| gravity | 72.5% [65.5, 79.8] | 95.8% [95.4, 96.2] | 18.6% [7.1, 31.6] | 0.1% [0.1, 0.1] | 0.1% [0.0, 0.1] |
-| flood | 75.7% [74.4, 76.8] | 69.8% [67.2, 72.4] | 29.5% [21.1, 37.5] | 39.1% [38.0, 40.3] | 38.0% [37.3, 38.8] |
-| **pooled** | **82.6% [80.2, 84.9]** | 88.0% [87.2, 88.9] | 40.3% [35.1, 45.1] | 15.2% [14.8, 15.6] | 14.6% [14.4, 14.9] |
+| colormap | 100.0% [100.0, 100.0] | 100.0% [100.0, 100.0] | 100.0% [100.0, 100.0] | 100.0% [100.0, 100.0] | 100.0% [100.0, 100.0] |
+| shift | 99.9% [99.8, 100.0] | 98.5% [98.2, 98.7] | 91.3% [84.2, 96.7] | 6.3% [6.0, 6.5] | 6.3% [6.1, 6.5] |
+| symfill | 0.2% [0.2, 0.3] | 20.4% [14.4, 24.5] | 16.6% [12.3, 20.3] | 0.2% [0.1, 0.3] | 0.3% [0.2, 0.4] |
+| gravity | 76.8% [69.5, 83.8] | 95.8% [95.4, 96.1] | 28.8% [23.0, 34.9] | 0.1% [0.1, 0.1] | 0.1% [0.0, 0.1] |
+| flood | 79.2% [77.3, 81.2] | 68.9% [66.5, 71.4] | 66.0% [54.4, 74.7] | 39.1% [38.2, 40.1] | 35.4% [34.6, 36.2] |
+| **pooled, all 5 (primary)** | **71.2% [69.8, 72.6]** | 76.7% [75.7, 77.6] | 60.5% [58.4, 62.6] | 29.1% [28.9, 29.3] | 28.4% [28.2, 28.6] |
+| pooled3: shift, gravity, flood (descriptive) | 85.3% [83.0, 87.5] | 87.7% [86.9, 88.6] | 62.0% [58.6, 65.3] | 15.2% [14.8, 15.5] | 13.9% [13.6, 14.2] |
 
 Dev-chosen settings (lr; schedule):
 
 | task | DRM | bwd-TBPTT | bwd-k | fwd | fwd-steps |
 |---|---|---|---|---|---|
-| shift | 0.004; S=4, k_in=4 | 0.002; S=1, k_in=16 | 0.004; S=1, k_in=16 | 0.002; S=16, k_in=1 | 0.002; S=16, k_in=1 |
-| gravity | 0.004; S=2, k_in=8 | 0.004; S=1, k_in=16 | 0.004; S=1, k_in=16 | 0.0005; S=16, k_in=1 | 0.001; S=16, k_in=1 |
-| flood | 0.004; S=4, k_in=4 | 0.002; S=1, k_in=16 | 0.004; S=1, k_in=16 | 0.004; S=16, k_in=1 | 0.004; S=16, k_in=1 |
+| colormap | 0.0005; S=1, k_in=16 | 0.0005; S=1, k_in=16 | 0.0005; S=1, k_in=16 | 0.0005; S=1, k_in=16 | 0.0005; S=1, k_in=16 |
+| shift | 0.016; S=4, k_in=4 | 0.002; S=1, k_in=16 | 0.064; S=4, k_in=4 | 0.032; S=16, k_in=1 | 0.016; S=16, k_in=1 |
+| symfill | 0.032; S=1, k_in=16 | 0.032; S=1, k_in=16 | 0.004; S=1, k_in=16 | 0.016; S=16, k_in=1 | 0.001; S=16, k_in=1 |
+| gravity | 0.032; S=2, k_in=8 | 0.004; S=1, k_in=16 | 0.064; S=1, k_in=16 | 0.0005; S=16, k_in=1 | 0.001; S=16, k_in=1 |
+| flood | 0.008; S=2, k_in=8 | 0.002; S=1, k_in=16 | 0.016; S=2, k_in=8 | 0.004; S=16, k_in=1 | 0.064; S=16, k_in=1 |
+
+On colormap every setting reaches 100% on dev, so the tie-break (first lr in grid order) picks 5e-4 for everyone.
 
 ### DRM minus each baseline (paired by seed)
 
 | | vs fwd (FLOP) | vs fwd (steps) | vs bwd-k | vs bwd-TBPTT |
 |---|---|---|---|---|
-| shift | +93.1 pp [+92.9, +93.3] (p_H=0.031) | +93.6 pp [+93.4, +93.8] (p_H=0.031) | +26.6 pp [+16.4, +36.7] (p_H=0.031) | +1.0 pp [+0.6, +1.3] (p_H=0.031) |
-| gravity | +72.4 pp [+65.4, +79.7] (p_H=0.031) | +72.5 pp [+65.4, +79.7] (p_H=0.031) | +53.9 pp [+40.0, +68.1] (p_H=0.031) | -23.3 pp [-30.3, -16.2] (p_H=0.031) |
-| flood | +36.5 pp [+34.5, +38.5] (p_H=0.031) | +37.6 pp [+35.9, +38.8] (p_H=0.031) | +46.2 pp [+37.3, +54.7] (p_H=0.031) | +5.8 pp [+3.3, +8.5] (p_H=0.031) |
-| **pooled** | +67.4 pp [+65.0, +69.7] (p_H=0.031) | +67.9 pp [+65.6, +70.3] (p_H=0.031) | +42.2 pp [+37.8, +46.6] (p_H=0.031) | -5.5 pp [-7.8, -3.4] (p_H=0.031) |
+| colormap | +0.0 pp [+0.0, +0.0] (p_H=1) | +0.0 pp [+0.0, +0.0] (p_H=1) | +0.0 pp [+0.0, +0.0] (p_H=1) | +0.0 pp [+0.0, +0.0] (p_H=1) |
+| shift | +93.6 pp [+93.4, +93.9] (p_H=0.012) | +93.6 pp [+93.5, +93.8] (p_H=0.012) | +8.6 pp [+3.2, +15.8] (p_H=0.012) | +1.4 pp [+1.2, +1.7] (p_H=0.012) |
+| symfill | +0.0 pp [-0.1, +0.1] (p_H=1) | -0.1 pp [-0.2, +0.1] (p_H=1) | -16.4 pp [-20.1, -12.1] (p_H=0.012) | -20.1 pp [-24.2, -14.1] (p_H=0.012) |
+| gravity | +76.7 pp [+69.4, +83.8] (p_H=0.012) | +76.7 pp [+69.5, +83.8] (p_H=0.012) | +48.0 pp [+38.6, +56.8] (p_H=0.012) | -19.0 pp [-26.2, -12.1] (p_H=0.012) |
+| flood | +40.1 pp [+38.3, +41.9] (p_H=0.012) | +43.8 pp [+41.8, +45.8] (p_H=0.012) | +13.2 pp [+3.5, +26.0] (p_H=0.1) | +10.3 pp [+7.7, +13.2] (p_H=0.012) |
+| **pooled** | +42.1 pp [+40.6, +43.5] (p_H=0.012) | +42.8 pp [+41.3, +44.2] (p_H=0.012) | +10.7 pp [+8.5, +12.9] (p_H=0.012) | -5.5 pp [-6.8, -4.0] (p_H=0.012) |
 
-16 of 16 comparisons are significant after Holm (p_H < 0.05). With 10 seeds the smallest attainable raw p is 2/1024.
+17 of 24 comparisons are significant after Holm (p_H < 0.05). With 12 seeds the smallest attainable raw p is 2/4096. On colormap every difference is exactly 0 (p = 1).
 
-![Forest plot of DRM minus each baseline in eval pass@1, with 95% seed-bootstrap CIs for shift, gravity, flood and pooled. Pooled: vs fwd +67.4 pp [+65.0, +69.7], vs bwd-TBPTT -5.5 pp [-7.8, -3.4]. Filled markers are Holm-significant.](figures/forest.png)
+![Forest plot of DRM minus each baseline in eval pass@1, with 95% seed-bootstrap CIs for all five tasks and the pooled mean. Pooled: vs fwd +42.1 pp [+40.6, +43.5], vs bwd-k +10.7 pp [+8.5, +12.9], vs bwd-TBPTT -5.5 pp [-6.8, -4.0]. Filled markers are Holm-significant.](figures/forest.png)
 
 *[figures/forest.png](figures/forest.png): data in [results/summary.json](results/summary.json) (`tests`) and [results/tables/tests.csv](results/tables/tests.csv); script [scripts/make_figures.py](scripts/make_figures.py).*
 
+**Round 0 vs round 1 (pooled, DRM minus baseline).** Round 0 pooled only shift, gravity and flood with 10 seeds and a narrower lr grid: vs fwd +67.4 pp [+65.0, +69.7], vs bwd-k +42.2 pp [+37.8, +46.6], vs bwd-TBPTT -5.5 pp [-7.8, -3.4]. The comparable round-1 number is pooled3 above; the primary round-1 number is the 5-task pool.
+
 ## pass@1 vs test-time compute
 
-![Line plots of eval pass@1 against test-time Phi applications (1 to 64, log scale) for each method on shift, gravity and flood, using the dev-best schedule at each compute level. On flood at 16 Phi: DRM 75.7%, fwd 39.1%, bwd-TBPTT 69.8%; at 64 Phi: DRM 85.4%, fwd 20.6%, bwd-TBPTT 23.8%.](figures/compute_curves.png)
+![Line plots of eval pass@1 against test-time Phi applications (1 to 64, log scale) for each method on all five tasks, using the dev-best schedule at each compute level among all schedules with that budget. Filled markers are latent schedules (S=1), hollow markers re-masking (S>1). On flood at 64 Phi: DRM 86.8% (S=16, k_in=4), bwd-TBPTT 60.7% (S=1, k_in=64), fwd 19.3%. On gravity at 64 Phi: DRM 77.4%, bwd-TBPTT 92.3% (S=1, k_in=64).](figures/compute_curves.png)
 
-*[figures/compute_curves.png](figures/compute_curves.png): data in [results/summary.json](results/summary.json) (`compute_curves`); the schedule per compute level was chosen on dev ([results/tuning.json](results/tuning.json), `by_compute`).*
+*[figures/compute_curves.png](figures/compute_curves.png): data in [results/summary.json](results/summary.json) (`compute_curves`, which also records the schedule used at each point); the schedule per compute level was chosen on dev ([results/tuning.json](results/tuning.json), `by_compute`).*
 
-![Heatmaps of eval pass@1 for every inference schedule, outer steps S by inner steps k_in, for each method (columns) on flood, gravity and shift (rows). The red box marks the schedule chosen on dev.](figures/schedule_heatmaps.png)
+![Heatmaps of eval pass@1 for all 25 inference schedules, outer steps S by inner steps k_in up to 64, for each method (columns) and task (rows). The red box marks the schedule chosen on dev from the 16-Phi menu.](figures/schedule_heatmaps.png)
 
 *[figures/schedule_heatmaps.png](figures/schedule_heatmaps.png): data in [results/summary.json](results/summary.json) (`schedules`); script [scripts/make_figures.py](scripts/make_figures.py).*
 
-What the compute curves and heatmaps show:
+What the compute curves and heatmaps show (each point uses the dev-best schedule at that budget, latent or re-masking):
 
-- **One-step denoising does not improve with more test compute.** On flood it peaks at 39.1% at 16 Phi and falls to 20.6% at 64. On gravity it stays near 0 at every budget.
-- **DRM keeps improving past the matched budget on flood**, from 75.7% at 16 Phi to 85.4% at 64. TBPTT peaks at 16 Phi (69.8%) and degrades at 64 (23.8%). So the flood gap to TBPTT widens with test compute.
-- **Backward-trained models are tied to their training horizon.** They do well with latent recursion near 16 steps and badly with re-masking (S > 1), because they never saw a visible label token in training. The heatmaps show this as a bright S = 1 row.
-- **DRM does well whenever k_in ≥ 4**, its training window, at almost any S, and fails with k_in ≤ 2. That matches its training: k = 4 latent steps that start from a partially visible grid.
+- **One-step denoising does not use extra test compute.** On flood it peaks at 39.1% at 16 Phi and falls to 19.3% at 64; on gravity and symfill it is near 0 at every budget, and on shift it stays at about 6.3%.
+- **DRM keeps improving past the matched budget on flood**, 79.2% at 16 Phi to 84.2% at 32 and 86.8% at 64, using re-masking schedules. On gravity it is flat (76.8% → 77.4%).
+- **Backward-trained models are best with latent recursion near their training horizon.** TBPTT now gets pure latent recursion at every budget and the dev picks it every time (S = 1). Going past 16 latent steps it slowly loses accuracy: flood 68.9% → 66.8% → 60.7%, gravity 95.8% → 92.3%. In round 0 the grid capped latent recursion at 16 steps, which forced TBPTT into re-masking above 16 Phi and made it look as if it collapsed; that was an artifact of the grid (review M3). The single-window `bwd_k` degrades faster (gravity 28.8% at 16 Phi, 5.8% at 64).
+- **DRM does well whenever k_in ≥ 4**, its training window, at almost any S, and fails with k_in ≤ 2 (heatmaps).
 
-## Train-test mismatch of one-step denoising
+## Train-test mismatch probe
 
-Under the masking process, every **visible** cell a one-step denoiser sees in training is correct. At test time, the visible cells are its own earlier guesses. The probe below runs S = 16, k_in = 1 from a full mask on flood. At each step it compares accuracy along the model's own trajectory with accuracy when the same step's input is the training distribution (the clean target masked at the same level). It also measures how many wrong visible cells each model fixes.
+Under the masking process, every **visible** cell a denoiser sees in training is correct. At test time, the visible cells are its own earlier guesses. The probe compares, at each outer step, accuracy along the model's own trajectory with accuracy when the same step's input is the training distribution (the clean target masked at the same level, the "oracle" input). It also measures how many wrong visible cells each model fixes.
 
-![Three panels for flood with S=16, k_in=1. Left: cell accuracy per denoising step on the model's own trajectory (solid) versus a noised clean target (dashed), for fwd, DRM and bwd-TBPTT. Middle: fraction of visible input cells that are wrong (fwd averages 13.2%, DRM 32.1%). Right: fraction of those wrong cells fixed at the next step (fwd 0.1%, DRM 4.3%).](figures/mismatch.png)
+![Three panels for flood with S=16, k_in=1 for every method. Left: cell accuracy per denoising step on the model's own trajectory (solid) versus a noised clean target (dashed), for fwd, DRM and bwd-TBPTT. Middle: fraction of visible input cells that are wrong. Right: fraction of those wrong cells fixed at the next step (fwd 0.1%, DRM 4.3%).](figures/mismatch.png)
 
-*[figures/mismatch.png](figures/mismatch.png): data in [results/summary.json](results/summary.json) (`traces.flood`), recorded by [scripts/run_one.py](scripts/run_one.py); script [scripts/make_figures.py](scripts/make_figures.py).*
+*[figures/mismatch.png](figures/mismatch.png): data in [results/summary.json](results/summary.json) (`traces.flood.*.S16_k1`), recorded by [scripts/run_one.py](scripts/run_one.py); script [scripts/make_figures.py](scripts/make_figures.py).*
 
-How to read this probe:
+![Grouped bars per task: last-step cell accuracy on the model's own trajectory (solid) and on the noised clean target (hatched), for fwd, DRM and bwd-TBPTT, each at its own dev-chosen schedule. Flood: fwd 87.0% vs 100.0%, DRM 96.9% vs 99.9%.](figures/mismatch_own_schedule.png)
 
-- **One-step denoiser (`fwd`).** The dashed and solid lines diverge: the same model is much better on training-distribution states than on its own states. Its self-correction rate is 0.0% on shift, 0.0% on gravity and 0.1% on flood. A wrong visible cell is copied, so errors made in the first step are frozen in. This is the train-test mismatch described in paper §1 and §3.1.1, measured directly.
-- **DRM.** DRM also starts every training window from correct visible cells. Its token-level self-correction is low too: 4.3% on flood, 0.1% on shift and 0.2% on gravity. Its advantage comes from the k = 4 latent steps *inside* each denoising step, which are trained on its own intermediate states (the paper's "on-policy" part, §6). It does not come from fixing visible tokens.
-- **Backward TBPTT.** TBPTT never sees visible tokens in training. It fixes 38.1% of wrong visible cells on flood (16.8% on gravity), but for the same reason it gains little from noised clean targets. Its dashed line stays within about 2 points of its solid line (71.5% vs 69.6% at the last flood step).
-- **Scope.** The probe is measured on S = 16, k_in = 1, which is the one-step denoiser's dev-chosen schedule on every eval task. It is not each model's best schedule.
+*[figures/mismatch_own_schedule.png](figures/mismatch_own_schedule.png): data in [results/summary.json](results/summary.json) (`traces_at_choice`); script [scripts/make_figures.py](scripts/make_figures.py).*
 
-![Denoising trajectory on one flood eval example for DRM (S=4, k_in=4) and for one-step denoising (S=16, k_in=1), each at its dev-chosen schedule. Each column shows the masked input state (white = MASK) and the predicted grid at one outer step; a tick marks a fully correct prediction.](figures/trajectory.png)
+| at S = 16, k_in = 1, last step: own / oracle cell acc. (self-correction) | fwd | DRM | bwd-TBPTT |
+|---|---|---|---|
+| shift | 89.5 / 100.0 (0.0%) | 45.3 / 56.6 (0.0%) | 53.7 / 49.7 (16.1%) |
+| symfill | 87.9 / 100.0 (0.0%) | 87.9 / 100.0 (0.0%) | 82.5 / 81.2 (19.3%) |
+| gravity | 82.7 / 100.0 (0.0%) | 77.0 / 93.7 (0.1%) | 72.4 / 72.0 (16.7%) |
+| flood | 87.0 / 100.0 (0.1%) | 70.3 / 96.8 (4.3%) | 69.8 / 70.3 (39.5%) |
 
-*[figures/trajectory.png](figures/trajectory.png): data in [results/demo/trajectories.json](results/demo/trajectories.json), from [scripts/demo_trajectories.py](scripts/demo_trajectories.py), which retrains the seed-100 models and asserts they match the main-grid pass@1. The example shown is chosen by a fixed rule, the first of the 6 recorded eval examples where DRM ends correct and fwd ends wrong, so it is illustrative and not typical.*
+How to read the probe:
+
+- **At the same schedule (S = 16, k_in = 1, the table above)** both DRM and fwd do better on noised clean targets than on their own states, and the gap is about as large for DRM as for fwd (larger on flood: DRM 70.3% vs 96.8%, fwd 87.0% vs 100.0%). This schedule is fwd's own dev choice but a poor one for DRM, and near the end of it the oracle input is almost all clean visible cells, so a high oracle number partly measures copying. At this schedule the probe does not single out one-step denoising.
+- **At each method's own dev schedule** ([mismatch_own_schedule.png](figures/mismatch_own_schedule.png)) the own-vs-oracle gap at the last step is +13.0 pp for fwd against +3.0 pp for DRM on flood, +17.3 vs +0.3 pp on gravity, and +10.5 vs +0.0 pp on shift. TBPTT, which never sees visible tokens, has gaps of +0.0 pp (flood) and +0.0 pp (gravity).
+- **Self-correction** of wrong visible cells is low for every denoiser (fwd 0.1%, DRM 4.3% on flood at S = 16, k_in = 1). DRM's advantage therefore does not come from fixing visible tokens; it is consistent with the k latent steps inside each denoising step (paper §6), but this toy does not isolate that either.
+- **Bottom line:** the symptom the paper describes (a one-step denoiser does worse on its own states than on training-distribution states) is present and is larger for fwd than for DRM at their own schedules. This is consistent with paper §1 and §3.1.1. It is a correlation within this probe, not a causal test.
+
+![Denoising trajectory on one flood eval example for DRM and for one-step denoising, each at its dev-chosen schedule. Each column shows the masked input state (white = MASK) and the predicted grid at one outer step; a tick marks a fully correct prediction.](figures/trajectory.png)
+
+*[figures/trajectory.png](figures/trajectory.png): data in [results/demo/trajectories.json](results/demo/trajectories.json), from [scripts/demo_trajectories.py](scripts/demo_trajectories.py), which retrains the seed-100 flood models and asserts that they reproduce the main-grid pass@1 to within 1e-6 (the tolerance was loosened from 1e-9 in round 0 because the main grid stores a float32 mean). The example is the first of 6 recorded eval examples where DRM ends correct and fwd ends wrong: illustrative, not typical.*
 
 ## Training timelines and the k sweep
 
-![Dev pass@1 (S=4, k_in=4, 200 dev examples) against training Phi applications used, for each method on shift, gravity and flood.](figures/learning_curves.png)
+![Dev pass@1 (S=4, k_in=4, 200 dev examples) against training Phi applications used, for each method on all five tasks.](figures/learning_curves.png)
 
 *[figures/learning_curves.png](figures/learning_curves.png): data in [results/summary.json](results/summary.json) (`learning_curves`), logged on **dev** examples only during training ([drm/train.py](drm/train.py)).*
 
-![Eval pass@1 on flood against the training recursion window k in {1, 2, 4, 8} at a fixed 12,000-Phi training budget, for DRM and bwd-TBPTT, at the native schedule (S=16/k, k_in=k, solid) and at latent S=1, k_in=16 (dotted). DRM native: k=1 38.4% [37.3, 39.6], k=4 75.4% [74.3, 76.5], k=8 74.1% [71.2, 76.9]; bwd-TBPTT latent: k=4 71.7% [68.1, 75.3].](figures/ksweep.png)
+![Eval pass@1 on gravity and flood against the training recursion window k in {1, 2, 4, 8} at a fixed 12,000-Phi training budget, for DRM and bwd-TBPTT, at the native schedule (S=16/k, k_in=k, solid) and at latent S=1, k_in=16 (dotted). Flood DRM native: k=1 39.3% [37.8, 41.0], k=4 75.5% [73.4, 77.6], k=8 76.0% [74.0, 78.0].](figures/ksweep.png)
 
 *[figures/ksweep.png](figures/ksweep.png): data in [results/summary.json](results/summary.json) (`ksweep`), 4 eval seeds (100-103); script [scripts/make_figures.py](scripts/make_figures.py).*
 
-On flood, at a fixed 12,000-Phi training budget and with 4 seeds, DRM at its native schedule (S = 16/k, k_in = k) gives k = 1 38.4% [37.3, 39.6], k = 2 63.5% [62.4, 64.7], k = 4 75.4% [74.3, 76.5] and k = 8 74.1% [71.2, 76.9]. It rises steeply up to k = 4 and then plateaus. TBPTT is native only in latent mode, where S = 1, k_in = 16 gives k = 1 49.9% [44.5, 55.5], k = 2 67.4% [62.1, 72.4], k = 4 71.7% [68.1, 75.3] and k = 8 59.8% [54.6, 63.3]. With re-masking it collapses (k = 4: 6.9% [4.9, 10.4]), as in the heatmaps. DRM at k = 1 is one-step denoising, so its low value is the headline effect again. Going from k = 1 to k = 4, DRM gains more than TBPTT does, which is in line with the paper's Table 5. This sweep is exploratory: it has 4 seeds and is not part of the Holm family.
+| k | flood DRM native | flood TBPTT latent | gravity DRM native | gravity TBPTT latent |
+|---|---|---|---|---|
+| 1 | 39.3% [37.8, 41.0] | 49.9% [44.5, 55.5] | 0.0% [0.0, 0.1] | 7.2% [2.6, 12.4] |
+| 2 | 65.5% [64.0, 66.9] | 67.4% [62.1, 72.4] | 1.7% [1.6, 1.8] | 53.3% [35.1, 75.1] |
+| 4 | 75.5% [73.4, 77.6] | 71.7% [68.1, 75.3] | 73.3% [72.8, 73.6] | 95.9% [95.5, 96.4] |
+| 8 | 76.0% [74.0, 78.0] | 59.8% [54.6, 63.3] | 99.1% [98.8, 99.3] | 84.7% [80.1, 91.5] |
+
+At a fixed 12,000-Phi training budget, DRM at its native schedule (S = 16/k, k_in = k) improves steeply from k = 1, which *is* one-step denoising, to k = 4. On flood it then plateaus (75.5% [73.4, 77.6] at k = 4, 76.0% [74.0, 78.0] at k = 8). On gravity it keeps rising to 99.1% [98.8, 99.3] at k = 8, above TBPTT's best latent value (95.9% [95.5, 96.4] at k = 4). TBPTT is native only in latent mode (S = 1, k_in = 16), where it peaks at k = 4 on both tasks and drops at k = 8. So DRM gains more from a larger k than TBPTT does here, in line with the paper's Table 5. The gravity k = 8 result suggests that the k = 4 DRM in the main grid is not DRM's best configuration on gravity, but k was fixed at 4 for every method before the run. The sweep is exploratory: 4 seeds, not in the Holm family, and **the k ≠ 4 runs reuse the lr tuned at k = 4**.
 
 ## How this maps to the paper (§3)
 
 | paper claim (§3, §5, App. F) | this toy |
 |---|---|
-| Forward (one-step) training misaligns train and test, which causes compounding and greedy errors (§1, §3.1.1) | **Reproduced.** One-step denoising never corrects its own visible errors and loses to DRM by +67.4 pp [+65.0, +69.7] pooled. |
-| Masked diffusion without recursion fails badly (Table 1: about 0%) | Consistent: `fwd` reaches 0.1% on gravity and 6.3% on shift. |
-| DRM's noise curriculum helps compared with recursion from noise without it (§3.2, §6) | **Reproduced** against `bwd_k`, a single-window backward recursion at the same k: +42.2 pp [+37.8, +46.6]. |
-| DRM beats TRM (Table 1) | **Not reproduced overall.** DRM wins flood and shift, but loses gravity and the pooled mean to TBPTT (-5.5 pp [-7.8, -3.4]). There is no scratchpad, warm-up loop or halting here, and TBPTT gets 4 windows per batch. |
-| DRM gains more per recursive step k than TRM (Table 5) | Consistent on flood from k = 1 to 4, and DRM plateaus at k = 8. Exploratory, 4 seeds. |
+| Forward (one-step) training misaligns train and test, which causes compounding and greedy errors (§1, §3.1.1) | **Consistent: symptom observed, cause not isolated.** At their own schedules, fwd's own-vs-oracle gap is larger than DRM's (flood +13.0 vs +3.0 pp); at a shared S = 16, k_in = 1 schedule it is not. DRM beats fwd by +42.1 pp [+40.6, +43.5] pooled, from the three tasks that need depth. |
+| Masked diffusion without recursion fails badly (Table 1: about 0%) | Consistent: `fwd` reaches 0.1% on gravity, 0.2% on symfill and 6.3% on shift. |
+| DRM's noise curriculum helps compared with recursion from noise without it (§3.2, §6) | **Partly reproduced** against `bwd_k`: +10.7 pp [+8.5, +12.9] pooled, ahead on shift and gravity, n.s. on flood, **behind on symfill** (-16.4 pp [-20.1, -12.1]). |
+| DRM beats TRM (Table 1) | **Not reproduced.** DRM wins flood and (by little) shift, but loses gravity, symfill and the pooled mean to TBPTT (-5.5 pp [-6.8, -4.0]). There is no scratchpad, warm-up loop or halting here, and TBPTT gets 4 windows per batch; the paper's App. F.8 also reports TRM ahead on Sudoku. |
+| DRM gains more per recursive step k than TRM (Table 5) | See the k-sweep table above; exploratory, 4 seeds, lr not re-tuned per k. |
+| DRM uses extra test-time compute well | Consistent on flood (DRM rises to 86.8% at 64 Phi while latent TBPTT drifts down to 60.7%); flat on gravity. |
 
 See [docs/paper_mapping.md](docs/paper_mapping.md) for the equation-by-equation mapping and for the simplifications. None of the following are used, for any method: scratchpad z, warm-up loops, Q-head and halting, EMA, task embedding, augmentation and voting, or SPRM.
 
@@ -175,38 +214,43 @@ See [docs/paper_mapping.md](docs/paper_mapping.md) for the equation-by-equation 
 
 ```mermaid
 flowchart TD
-  T["run_grid.py tune<br/>dev split, seeds 1-2, lr grid"] --> U["tune.py<br/>lr + matched schedule per task x method"]
-  U --> M["run_grid.py main<br/>eval split, seeds 100-109"]
-  U --> K["run_grid.py ksweep<br/>flood, k in 1,2,8, seeds 100-103"]
+  T["run_grid.py tune<br/>dev split, seeds 1-2, 8 lrs x 5 tasks x 5 methods"] --> U["tune.py --fail-on-edge<br/>lr + matched schedule per task x method"]
+  U --> G["git commit of dev outputs<br/>(before any eval run)"]
+  G --> M["run_grid.py main<br/>eval split, 5 tasks, seeds 100-111"]
+  G --> K["run_grid.py ksweep<br/>gravity, flood; k in 1,2,8; seeds 100-103"]
   M --> A["aggregate.py<br/>guards: complete, no extras, one code hash"]
   K --> A
-  A --> C["claims.py -> claim_numbers.json"]
+  A --> D["demo_trajectories.py<br/>retrains seed-100 flood models"]
   A --> F["make_figures.py"]
+  D --> F
+  A --> C["claims.py -> claim_numbers.json"]
   C --> R["render_readme.py -> README.md"]
 ```
 
 ```bash
 python -m venv .venv && . .venv/bin/activate
 pip install --index-url https://download.pytorch.org/whl/cpu torch==2.14.1
-pip install numpy==2.5.4 scipy==1.18.1 matplotlib==3.11.2 pandas==3.1.0 pytest==9.1.1
-python -m pytest -q tests                  # fast; uses tiny configs
-WORKERS=7 sh scripts/pipeline.sh            # whole chain, foreground; skips up-to-date runs
-python scripts/claims.py && python scripts/render_readme.py
+pip install -r requirements.lock           # exact versions of every package (pip freeze of the run env)
+python -m pytest -q tests                  # about 30 s; uses tiny configs
+WORKERS=7 sh scripts/pipeline.sh            # whole chain incl. demo, figures, claims, README; skips up-to-date runs
 python scripts/mutation_check.py --workers 2
 ```
 
-`pipeline.sh` runs each stage to completion before starting the next. `tune.py` and `aggregate.py` exit 2 on an incomplete, stale, extra-file or mixed-code grid. One run takes about 217 s of training on one core of this box, so the full chain is roughly 4-6 CPU-hours.
+`pipeline.sh` uses `$PY` (default `python`) and runs each stage to completion before the next. `tune.py --fail-on-edge` stops it if a chosen lr sits at an end of the grid; `tune.py` and `aggregate.py` exit 2 on an incomplete, stale, extra-file or mixed-code grid. Python 3.13.5, torch 2.14.1+cpu; [requirements.lock](requirements.lock) pins the transitive packages that PNG bytes depend on (pillow, fonttools, kiwisolver, contourpy).
+
+**Compute used (CPU only, no GPU).** The single-threaded runs sum to **43.3 CPU-hours** of training plus evaluation: dev tuning 21.2 h, eval grid 18.6 h, k-sweep 3.5 h (from `train_seconds` + `eval_seconds` in the raw metas). With 7 workers on an 8-core box this was spread over 2026-10-28 15:07 to 2026-10-28 22:10 EDT, including interruptions. A DRM run trains in about 159 s on one core. Kaggle GPU access was available but not used, so every result in this repo comes from the same CPU environment.
 
 ## Verification
 
-- **73 tests** cover the pipeline wiring end to end, not just helpers. Examples: training Phi counts and budgets per method; DRM and fwd starting from corrupted targets while bwd starts from a full mask; TBPTT detaching between windows; loss targets being clean labels; the remask schedule; eval metrics using the eval split while the learning curve uses dev; the main grid using tuned lrs and eval seeds; tuning choosing only from the matched-compute menu; and aggregation pairing by seed, applying one Holm family, and refusing partial, extra or stale grids.
-- **Mutation check** ([scripts/mutation_check.py](scripts/mutation_check.py), [results/mutation.csv](results/mutation.csv)): an unmutated control run must pass first, and a mutant counts as killed only when pytest exits 1. **63/63 killed.**
-- **Provenance:** every raw result stores the code hash (`5e3b723109944734`) and its config hash. Results are deterministic per seed, which the trajectory demo re-checks.
+- **102 tests** cover the pipeline wiring end to end, not just helpers. Examples: training Phi counts and budgets per method; DRM and fwd starting from corrupted targets while bwd starts from a full mask; TBPTT detaching between windows; zero_grad before every backward; loss targets being clean labels; the remask schedule and the per-seed inference generator; eval metrics using the eval split while the learning curve uses dev; the main grid using tuned lrs, all 5 tasks and all 12 eval seeds; tuning choosing only from the matched-compute menu and flagging lr edges; collision-free run names and input validation; checkpoints that reproduce the stored pass@1; the 95% CI width; aggregation pairing by seed, applying one Holm family, and refusing partial, extra or stale grids; and no machine paths or token-like strings in the repo.
+- **Mutation check** ([scripts/mutation_check.py](scripts/mutation_check.py), [results/mutation.csv](results/mutation.csv)): an unmutated control run must pass first, and a mutant counts as killed only when pytest exits 1. **92/92 killed**, including the reviewer's 15 round-1 mutants (15/15) and 14 mutants of the round-1 code (14/14). The README-sync test skips inside mutation copies (they have no `results/`), so README drift is checked only in the full tree.
+- **Provenance:** every raw result stores the code hash (`91de577ed2a30aae`), its config hash, ISO start/end timestamps, load average and wall time. Dev outputs and `tuning.json` were committed and pushed (3d7f9c4) before the first eval run started. Training is deterministic per seed; the trajectory demo retrains two models and checks them against the grid.
 
 ## Limitations
 
 - This is a toy: 6×6 grids, about 52k parameters, one model per task, no augmentation. Effects here say nothing direct about ARC-AGI.
-- The scope cut (colormap and symfill dev-only, 10 seeds, k-sweep on flood only) is described above.
-- Several dev optima sit at the 4e-3 edge of the lr grid.
-- The seed is the replication unit. CIs resample seeds only, and the 1,000 eval examples are shared across seeds.
+- The lr is chosen from 2 dev seeds, and at lr ≥ 1.6e-2 some runs diverge, so the choice is noisy. Cells still at a grid edge after the last extension: flood:fwd_steps:0.064, gravity:bwd_k:0.064, gravity:fwd:0.0005, shift:bwd_k:0.064.
+- The k-sweep reuses the k = 4 lr for every k and has 4 seeds.
+- The seed is the replication unit. CIs resample seeds only, and the 1,000 eval examples are shared across seeds. The percentile bootstrap under-covers somewhat at 12 seeds; t-intervals are in the tables.
 - Inference uses evenly spaced remask levels and uniform remasking, with no confidence-based remasking.
+- No LICENSE file yet; that is the repository owner's decision.

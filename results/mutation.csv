@@ -54,11 +54,40 @@ A8,scripts/aggregate.py,KILLED,1,k=4 sweep point uses all seeds
 A9,scripts/aggregate.py,KILLED,1,incomplete grid accepted
 A10,scripts/aggregate.py,KILLED,1,--allow-partial overwrites results/
 A11,scripts/aggregate.py,KILLED,1,stale config accepted
-K1,scripts/run_grid.py,KILLED,1,scope cut not applied to eval grid
+K1,scripts/run_grid.py,KILLED,1,post-hoc task cut re-applied to the eval grid
 K2,scripts/run_grid.py,KILLED,1,lr extension dropped
 K3,scripts/run_grid.py,KILLED,1,too few eval seeds
 F1,scripts/make_figures.py,KILLED,1,figures drawn from a partial summary
 W1,scripts/render_readme.py,KILLED,1,README renders with unknown claim keys
+X1,scripts/aggregate.py,KILLED,1,Holm per group instead of one family
+X2,scripts/run_grid.py,KILLED,1,tuning on eval split
+X3,drm/stats.py,KILLED,1,90% CI labelled 95%
+X4,drm/stats.py,KILLED,1,anti-conservative ties
+X5,drm/train.py,KILLED,1,grads accumulate across steps
+X6,drm/train.py,KILLED,1,curriculum truncated to tau<=0.5
+X7,scripts/tune.py,KILLED,1,tuning on max over dev seeds
+X8,drm/config.py,KILLED,1,dev seeds overlap eval seeds
+X9,drm/config.py,KILLED,1,TBPTT gets 1/4 of the budget
+X10,scripts/aggregate.py,KILLED,1,aggregate accepts two code hashes
+X11,drm/train.py,KILLED,1,DRM silently gets TBPTT windows
+X12,drm/infer.py,KILLED,1,inference RNG ignores seed
+X13,drm/tasks.py,KILLED,1,"dedup on (x,y) instead of x"
+X14,scripts/aggregate.py,KILLED,1,pooled drops tasks
+X15,drm/corruption.py,KILLED,1,never fully masked
+Q1,drm/config.py,KILLED,1,latent recursion capped at 16 (review M3)
+Q2,drm/config.py,KILLED,1,lr grid stops at 4e-3 (review M2)
+Q3,drm/config.py,KILLED,1,lr run names collide (review m7)
+Q4,drm/config.py,KILLED,1,unknown task accepted
+Q5,drm/config.py,KILLED,1,k = 0 accepted
+Q6,scripts/run_one.py,KILLED,1,CLI accepts a non-positive budget
+Q7,scripts/run_one.py,KILLED,1,CLI accepts unknown method
+Q8,scripts/run_one.py,KILLED,1,checkpoint not saved
+Q9,scripts/run_one.py,KILLED,1,no timestamp in raw meta (review m4)
+Q10,scripts/run_one.py,KILLED,1,mismatch probe missing some menu schedules
+Q11,scripts/tune.py,KILLED,1,lr edge never flagged
+Q12,drm/stats.py,KILLED,1,t-interval uses z
+Q13,scripts/aggregate.py,KILLED,1,mismatch at own schedule uses S16_k1
+Q14,scripts/aggregate.py,KILLED,1,descriptive pooled3 enters the Holm family
 S1,drm/stats.py,KILLED,1,one-sided p
 S2,drm/stats.py,KILLED,1,bootstrap does not resample
 S3,drm/stats.py,KILLED,1,Holm not monotone

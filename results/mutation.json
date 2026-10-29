@@ -1,8 +1,8 @@
 {
  "control_exit": 0,
- "n": 63,
+ "n": 92,
  "counts": {
-  "KILLED": 63,
+  "KILLED": 92,
   "SURVIVED": 0,
   "ERROR": 0,
   "NOT_APPLICABLE": 0
@@ -396,7 +396,7 @@
   {
    "id": "K1",
    "file": "scripts/run_grid.py",
-   "why": "scope cut not applied to eval grid",
+   "why": "post-hoc task cut re-applied to the eval grid",
    "status": "KILLED",
    "exit": 1
   },
@@ -425,6 +425,209 @@
    "id": "W1",
    "file": "scripts/render_readme.py",
    "why": "README renders with unknown claim keys",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X1",
+   "file": "scripts/aggregate.py",
+   "why": "Holm per group instead of one family",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X2",
+   "file": "scripts/run_grid.py",
+   "why": "tuning on eval split",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X3",
+   "file": "drm/stats.py",
+   "why": "90% CI labelled 95%",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X4",
+   "file": "drm/stats.py",
+   "why": "anti-conservative ties",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X5",
+   "file": "drm/train.py",
+   "why": "grads accumulate across steps",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X6",
+   "file": "drm/train.py",
+   "why": "curriculum truncated to tau<=0.5",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X7",
+   "file": "scripts/tune.py",
+   "why": "tuning on max over dev seeds",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X8",
+   "file": "drm/config.py",
+   "why": "dev seeds overlap eval seeds",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X9",
+   "file": "drm/config.py",
+   "why": "TBPTT gets 1/4 of the budget",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X10",
+   "file": "scripts/aggregate.py",
+   "why": "aggregate accepts two code hashes",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X11",
+   "file": "drm/train.py",
+   "why": "DRM silently gets TBPTT windows",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X12",
+   "file": "drm/infer.py",
+   "why": "inference RNG ignores seed",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X13",
+   "file": "drm/tasks.py",
+   "why": "dedup on (x,y) instead of x",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X14",
+   "file": "scripts/aggregate.py",
+   "why": "pooled drops tasks",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X15",
+   "file": "drm/corruption.py",
+   "why": "never fully masked",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q1",
+   "file": "drm/config.py",
+   "why": "latent recursion capped at 16 (review M3)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q2",
+   "file": "drm/config.py",
+   "why": "lr grid stops at 4e-3 (review M2)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q3",
+   "file": "drm/config.py",
+   "why": "lr run names collide (review m7)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q4",
+   "file": "drm/config.py",
+   "why": "unknown task accepted",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q5",
+   "file": "drm/config.py",
+   "why": "k = 0 accepted",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q6",
+   "file": "scripts/run_one.py",
+   "why": "CLI accepts a non-positive budget",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q7",
+   "file": "scripts/run_one.py",
+   "why": "CLI accepts unknown method",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q8",
+   "file": "scripts/run_one.py",
+   "why": "checkpoint not saved",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q9",
+   "file": "scripts/run_one.py",
+   "why": "no timestamp in raw meta (review m4)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q10",
+   "file": "scripts/run_one.py",
+   "why": "mismatch probe missing some menu schedules",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q11",
+   "file": "scripts/tune.py",
+   "why": "lr edge never flagged",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q12",
+   "file": "drm/stats.py",
+   "why": "t-interval uses z",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q13",
+   "file": "scripts/aggregate.py",
+   "why": "mismatch at own schedule uses S16_k1",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q14",
+   "file": "scripts/aggregate.py",
+   "why": "descriptive pooled3 enters the Holm family",
    "status": "KILLED",
    "exit": 1
   },
