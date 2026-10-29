@@ -2,7 +2,11 @@
 AT MOST matched test compute (S x k_in <= 16) that maximise mean dev pass@1 over
 DEV_SEEDS. Round 2 review (major 1): the menu was S x k_in == 16, which forced
 single-window bwd_k (trained on a 4-step window) to run 4x past its horizon; any
-method may now stop early. Ties keep the S x k_in = 16 schedule (listed first).
+method may now stop early.
+Tie-break (exact ties in mean dev pass@1; review r3 m3): lr is the OUTER loop and the comparison
+is strict, so a tie goes to the LOWEST lr first, and only then to menu order (the S x k_in = 16
+schedules are listed first). In round 2 this rule decided symfill bwd_tbptt (3.2e-2 S1/k16 and
+1.6e-2 S1/k8 both 0.288 on dev -> 1.6e-2), shift bwd_k and symfill fwd_steps.
 
 Also records, for every test-compute level c = S*k_in, the dev-best schedule
 (used for the pass@1-vs-compute curves). Only dev-split runs are read.
@@ -25,7 +29,7 @@ from run_one import out_paths  # noqa: E402
 from drm.lineage import canonical  # noqa: E402
 
 
-# Headline menu: the S x k_in = 16 schedules first (so ties keep the round-1 choice),
+# Headline menu: the S x k_in = 16 schedules first (so, within one lr, ties keep the 16-Phi schedule),
 # then every cheaper schedule of the inference grid, most compute first.
 HEADLINE_MENU = tuple(MATCHED_MENU) + tuple(sorted(
     ((s, k) for s, k in inference_grid() if s * k < 16), key=lambda z: (-z[0] * z[1], z[0])))
@@ -52,7 +56,10 @@ def load_runs(jobs, raw: Path):
     hashes = {canonical(d["meta"]["code_hash"]) for d in runs.values()}
     if len(hashes) != 1:
         raise GridError(f"mixed code hashes: {sorted(hashes)}")
-    return runs, hashes.pop()
+    # record the hash the runs were COMPUTED under (review r3 m2), not the current code's hash,
+    # so regenerating at a newer HEAD never relabels the results
+    raw_hashes = sorted({d["meta"]["code_hash"] for d in runs.values()})
+    return runs, raw_hashes[0] if len(raw_hashes) == 1 else hashes.pop()
 
 
 def choose(runs: dict):

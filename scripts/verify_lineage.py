@@ -30,6 +30,17 @@ sys.path.insert(0, str(ROOT))
 from drm.config import CODE_FILES, code_hash  # noqa: E402
 from drm.lineage import LINEAGE_PATH  # noqa: E402
 
+STATIC_ARGUMENT = (
+    "The lineage rests on two legs. (1) Static: the CODE_FILES diff between parent and current touches only "
+    "run naming (Config.run_name, NAME_FIELDS), input validation (radius >= 0, CLI checks), the overwrite guard, "
+    "hash acceptance (drm/lineage.py, up_to_date) and comments. No training, inference, data or RNG code "
+    "changed; every RNG (data, init, corruption, eval_gen) derives from cfg fields (seed, data_seed, S, k), "
+    "never from run names or paths, and checkpoints are only written, never read back by the pipeline. "
+    "(2) Empirical: the checks below re-run configs under both versions and full committed runs under the "
+    "current code; all outputs except timing fields are identical. Leg 2 alone is a sample, not a proof; "
+    "it is sufficient here because of leg 1. A diff that touches numerics needs a full rerun, not a lineage link.")
+DEFAULT_FULL_SEED = 100
+
 VOLATILE_META = {"code_hash", "started_at", "finished_at", "wall_seconds", "eval_seconds",
                  "loadavg_start", "loadavg_end", "cpu_count"}
 METHODS = ("fwd", "fwd_steps", "bwd_k", "bwd_tbptt", "drm")
@@ -67,14 +78,33 @@ def run(tree: Path, py: str, args: list[str], out: Path) -> Path:
     return found[0]
 
 
+def default_full() -> list[str]:
+    """One committed eval run per task (DRM at its tuned lr, seed 100), one k-sweep run (k=1 TBPTT)
+    and one dev run, so that every task and the k != 4 path are re-run in full (review r3 n5)."""
+    tuning = json.loads((ROOT / "results" / "tuning.json").read_text())["choice"]
+    out = []
+    raw = ROOT / "results" / "raw"
+    for t in sorted(tuning):
+        lr = f"{tuning[t]['drm']['lr']:g}".replace(".", "p")
+        out.append(f"eval/{t}/drm_k4_lr{lr}_b12000_r1_s{DEFAULT_FULL_SEED}")
+    lr = f"{tuning['gravity']['bwd_tbptt']['lr']:g}".replace(".", "p")
+    out.append(f"eval/gravity/bwd_tbptt_k1_lr{lr}_b12000_r1_s{DEFAULT_FULL_SEED}")
+    lr = f"{tuning['shift']['fwd']['lr']:g}".replace(".", "p")
+    out.append(f"dev/shift/fwd_k4_lr{lr}_b12000_r1_s1")
+    return [x for x in out if (raw / f"{x}.json").exists()]
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("parent")
-    p.add_argument("--full", nargs="*", default=[], help="committed runs, e.g. dev/flood/drm_k4_lr0p008_b12000_r1_s1")
+    p.add_argument("--full", nargs="*", default=None,
+                   help="committed runs, e.g. dev/flood/drm_k4_lr0p008_b12000_r1_s1 (default: default_full())")
     p.add_argument("--workers", type=int, default=4)
     p.add_argument("--budget", type=int, default=48)
     p.add_argument("--tmp", help="reuse the outputs of an earlier invocation in this scratch dir")
     a = p.parse_args()
+    if a.full is None:
+        a.full = default_full()
     py = sys.executable
     parent = subprocess.run(["git", "rev-parse", a.parent], cwd=ROOT, check=True, capture_output=True,
                             text=True).stdout.strip()
@@ -126,7 +156,9 @@ def main():
     if not ok:
         sys.exit(1)
     doc = json.loads(LINEAGE_PATH.read_text()) if LINEAGE_PATH.exists() else {"equivalent": {}}
+    full_tasks = sorted({c["args"].split()[1].split("/")[1] for c in checks if c["args"].startswith("committed ")})
     doc["equivalent"][cur] = {"parent": old, "parent_commit": parent, "all_identical": True,
+                              "static_argument": STATIC_ARGUMENT, "full_tasks": full_tasks,
                               "verified_at": dt.datetime.now().astimezone().isoformat(timespec="seconds"),
                               "n_checks": len(checks), "checks": checks, "code_diffstat": diffstat}
     LINEAGE_PATH.write_text(json.dumps(doc, indent=1, sort_keys=True) + "\n")

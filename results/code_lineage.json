@@ -204,6 +204,41 @@
      "why": "identical"
     },
     {
+     "args": "committed eval/colormap/drm_k4_lr0p0005_b12000_r1_s100",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "committed eval/flood/drm_k4_lr0p008_b12000_r1_s100",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "committed eval/gravity/drm_k4_lr0p032_b12000_r1_s100",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "committed eval/shift/drm_k4_lr0p016_b12000_r1_s100",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "committed eval/symfill/drm_k4_lr0p032_b12000_r1_s100",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "committed eval/gravity/bwd_tbptt_k1_lr0p004_b12000_r1_s100",
+     "ok": true,
+     "why": "identical"
+    },
+    {
+     "args": "committed dev/shift/fwd_k4_lr0p032_b12000_r1_s1",
+     "ok": true,
+     "why": "identical"
+    },
+    {
      "args": "committed dev/flood/drm_k4_lr0p008_b12000_r1_s1",
      "ok": true,
      "why": "identical"
@@ -224,10 +259,18 @@
     " scripts/run_one.py | 31 ++++++++++++++++++++++++++++---",
     " 2 files changed, 45 insertions(+), 6 deletions(-)"
    ],
-   "n_checks": 43,
+   "full_tasks": [
+    "colormap",
+    "flood",
+    "gravity",
+    "shift",
+    "symfill"
+   ],
+   "n_checks": 50,
    "parent": "91de577ed2a30aae",
    "parent_commit": "16fa8b4648071040acb692c8c9315a67d8e64395",
-   "verified_at": "2026-10-29T00:14:18-04:00"
+   "static_argument": "The lineage rests on two legs. (1) Static: the CODE_FILES diff between parent and current touches only run naming (Config.run_name, NAME_FIELDS), input validation (radius >= 0, CLI checks), the overwrite guard, hash acceptance (drm/lineage.py, up_to_date) and comments. No training, inference, data or RNG code changed; every RNG (data, init, corruption, eval_gen) derives from cfg fields (seed, data_seed, S, k), never from run names or paths, and checkpoints are only written, never read back by the pipeline. (2) Empirical: the checks below re-run configs under both versions and full committed runs under the current code; all outputs except timing fields are identical. Leg 2 alone is a sample, not a proof; it is sufficient here because of leg 1. A diff that touches numerics needs a full rerun, not a lineage link.",
+   "verified_at": "2026-10-29T01:36:51-04:00"
   }
  }
 }

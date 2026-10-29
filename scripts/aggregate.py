@@ -35,6 +35,7 @@ from drm.lineage import canonical  # noqa: E402
 BASELINES = ("fwd", "fwd_steps", "bwd_k", "bwd_tbptt")
 TARGET = "drm"
 POOLED = "pooled"
+R1_TUNING = ROOT / "docs" / "r1_tuning.json"       # round-1 choices (copy of results/r1_c4532b5/tuning.json)
 POOLED3 = "pooled3"
 DEPTH_TASKS = ("shift", "gravity", "flood")
 
@@ -95,7 +96,56 @@ def summarize(vals: dict):
     v = np.array([vals[s] for s in seeds])
     mean, lo, hi = bootstrap_ci(v)
     _, tlo, thi = t_ci(v)
-    return {"mean": mean, "lo": lo, "hi": hi, "t_lo": tlo, "t_hi": thi, "n_seeds": len(seeds)}
+    sd = float(np.std(v, ddof=1)) if len(v) > 1 else 0.0       # seed-to-seed spread (review r3: unstable picks)
+    return {"mean": mean, "lo": lo, "hi": hi, "t_lo": tlo, "t_hi": thi, "n_seeds": len(seeds),
+            "sd": sd, "min": float(v.min()), "max": float(v.max())}
+
+
+def paired(a_: dict, b_: dict) -> dict:
+    """Paired-by-seed difference a - b: bootstrap CI and exact sign-flip p (no multiplicity correction)."""
+    common = sorted(set(a_) & set(b_))
+    diff = np.array([a_[s] - b_[s] for s in common])
+    mean, lo, hi = bootstrap_ci(diff)
+    return {"diff": mean, "lo": lo, "hi": hi, "p": sign_flip_p(diff), "wins": int((diff > 0).sum()),
+            "losses": int((diff < 0).sum()), "n_seeds": len(common)}
+
+
+def sensitivity(runs, tuning, ps, r1_dir: Path | None = None, r1_tuning: dict | None = None):
+    """Descriptive robustness checks (review r3). NOT part of the Holm family; raw p only.
+
+    bwd_k_native: bwd_k scored at its training horizon S=1, k_in=k (4), same lr and models as the
+      headline, against DRM at its headline schedule. Shows how much DRM - bwd_k depends on which
+      schedule dev picked for bwd_k (gravity: dev picked S=1, k_in=8, which is seed-unstable).
+    tie_symfill_tbptt_r1: round 2 changed symfill bwd_tbptt from (3.2e-2, S1/k16) to (1.6e-2, S1/k8)
+      only through an exact dev tie (0.288 both; ties go to the lower lr). Pooled DRM - TBPTT if the
+      round-1 configuration (its archived eval runs) had been kept instead.
+    """
+    out = {}
+    nat = per_seed(runs, tuning, method_filter=("drm", "bwd_k"),
+                   schedule_fn=lambda c: (1, c.k) if c.method == "bwd_k" else tuple(tuning[c.task][c.method]["schedule"]))
+    nat = add_pooled(nat, MAIN_TASKS)
+    out["bwd_k_native"] = {g: {"bwd_k_native": summarize(nat[g]["bwd_k"]), "bwd_k_headline": summarize(ps[g]["bwd_k"]),
+                               "drm_minus_bwd_k_native": paired(nat[g]["drm"], nat[g]["bwd_k"]),
+                               "drm_minus_bwd_k_headline": paired(ps[g]["drm"], ps[g]["bwd_k"])}
+                           for g in list(MAIN_TASKS) + [POOLED]}
+    if r1_dir is not None and r1_tuning is not None:
+        ch = r1_tuning["symfill"]["bwd_tbptt"]
+        lr = f"{ch['lr']:g}".replace(".", "p")
+        files = sorted((r1_dir / "symfill").glob(f"bwd_tbptt_k4_lr{lr}_s*.json"))
+        if files:
+            s, k = ch["schedule"]
+            alt = {t: {m: dict(v) for m, v in ps[t].items()} for t in MAIN_TASKS}
+            alt["symfill"]["bwd_tbptt"] = {}
+            for f in files:
+                d = json.loads(f.read_text())
+                alt["symfill"]["bwd_tbptt"][d["meta"]["config"]["seed"]] = d["eval"][f"S{s}_k{k}"]["pass1"]
+            pool = defaultdict(lambda: defaultdict(dict), alt)
+            pool = add_pooled(pool, MAIN_TASKS)
+            out["tie_symfill_tbptt_r1"] = {
+                "r1_config": {"lr": ch["lr"], "schedule": [s, k]},
+                "symfill_bwd_tbptt": summarize(alt["symfill"]["bwd_tbptt"]),
+                "pooled_drm_minus_bwd_tbptt": paired(pool[POOLED]["drm"], pool[POOLED]["bwd_tbptt"])}
+    return out
 
 
 def compare(ps, groups):
@@ -277,7 +327,11 @@ def main(raw: Path, out_dir: Path, allow_partial: bool = False):
     tests = compare(ps, groups)
     n_params = sorted({d["meta"]["n_params"] for d in runs.values()})
     summary = {
-        "meta": {"code_hash": code, "n_runs_main": len(runs), "n_runs_ksweep": len(runs_k),
+        # code_hash: what tuning.json records; computed_under: the hashes actually stored in the raw
+        # metas of the eval/k-sweep runs (review r3 m2: never relabelled by a regen at a newer HEAD)
+        "meta": {"code_hash": code, "computed_under": sorted({d["meta"]["code_hash"] for d in list(runs.values())
+                                                              + list(runs_k.values())}),
+                 "n_runs_main": len(runs), "n_runs_ksweep": len(runs_k),
                  "missing": miss_m + miss_k, "partial": bool(miss_m or miss_k),
                  "eval_seeds": list(MAIN_SEEDS), "main_tasks": list(MAIN_TASKS), "n_params": n_params,
                  "holm_family_size": len(tests), "menu": [list(x) for x in HEADLINE_MENU]},
@@ -286,6 +340,8 @@ def main(raw: Path, out_dir: Path, allow_partial: bool = False):
         "per_seed": {g: {m: {str(s): v for s, v in sorted(ps[g][m].items())} for m in ps[g]}
                      for g in groups + [POOLED3]},
         "tests": tests,
+        "sensitivity": sensitivity(runs, tuning, ps, raw.parent / "r1_c4532b5" / "raw" / "eval",
+                                   json.loads(R1_TUNING.read_text())["choice"] if R1_TUNING.exists() else None),
         "schedules": schedule_table(runs),
         "compute_curves": compute_curves(runs, tuning_full["by_compute"]),
         "traces": (tr := traces(runs)),
@@ -303,12 +359,13 @@ def main(raw: Path, out_dir: Path, allow_partial: bool = False):
     tdir.mkdir(exist_ok=True)
     with open(tdir / "primary.csv", "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["group", "method", "mean_pass1", "ci_lo", "ci_hi", "t_lo", "t_hi", "n_seeds", "lr", "schedule"])
+        w.writerow(["group", "method", "mean_pass1", "ci_lo", "ci_hi", "t_lo", "t_hi", "sd_seeds", "n_seeds", "lr",
+                    "schedule"])
         for g in groups + [POOLED3]:
             for m, r in primary[g].items():
                 ch = tuning.get(g, {}).get(m, {})
                 w.writerow([g, m, f"{r['mean']:.4f}", f"{r['lo']:.4f}", f"{r['hi']:.4f}",
-                            f"{r['t_lo']:.4f}", f"{r['t_hi']:.4f}", r["n_seeds"],
+                            f"{r['t_lo']:.4f}", f"{r['t_hi']:.4f}", f"{r['sd']:.4f}", r["n_seeds"],
                             ch.get("lr", ""), "x".join(map(str, ch.get("schedule", [])))])
     with open(tdir / "tests.csv", "w", newline="") as f:
         w = csv.writer(f)

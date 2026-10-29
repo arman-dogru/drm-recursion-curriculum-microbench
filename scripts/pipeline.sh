@@ -18,6 +18,8 @@ if [ "${COMMIT:-0}" = 1 ]; then
   # Round 2 review (m2): fail hard. Commit and push the dev outputs, then check that
   # nothing under them is left uncommitted, before any eval run is launched.
   git add results/tuning.json results/raw/dev logs
+  # Round 3 review (n4): the repo is public; refuse to commit or push machine paths or tokens
+  $PY -m pytest -q tests/test_hygiene.py
   if ! git diff --cached --quiet; then
     git commit -q -m "Dev tuning outputs (committed and pushed before any eval run is launched)"
   fi

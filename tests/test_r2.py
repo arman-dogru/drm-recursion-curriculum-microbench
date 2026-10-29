@@ -18,13 +18,14 @@ from helpers import tiny
 ROOT = Path(__file__).resolve().parents[1]
 
 
-# ---------- major 1: headline menu is "at most 16 Phi", ties keep the 16-Phi schedule
+# ---------- major 1: headline menu is "at most 16 Phi"; within one lr, ties keep the 16-Phi schedule
+# (across lrs the lowest lr wins first: see tests/test_r3.py, review r3 m3)
 
 def test_headline_menu_is_every_schedule_with_at_most_16_phi():
     menu = tune.HEADLINE_MENU
     assert set(menu) == {(s, k) for s, k in inference_grid() if s * k <= 16}
     assert len(menu) == len(set(menu))
-    assert tuple(menu[:len(MATCHED_MENU)]) == tuple(MATCHED_MENU)     # ties keep the 16-Phi choice
+    assert tuple(menu[:len(MATCHED_MENU)]) == tuple(MATCHED_MENU)     # within one lr, ties keep 16 Phi
     assert (1, 4) in menu and (1, 32) not in menu
 
 
@@ -39,7 +40,7 @@ def test_tune_can_stop_early_but_never_exceeds_16():
     # best overall at 64 Phi (not allowed), best allowed at S1 k4 (4 Phi)
     ch, _, _ = tune.choose(_runs(lambda a, b, lr: {(1, 64): 0.99, (1, 4): 0.8}.get((a, b), 0.1)))
     assert ch["flood"]["bwd_k"]["schedule"] == [1, 4]
-    # exact tie between a 16-Phi and a cheaper schedule -> the 16-Phi schedule is kept
+    # exact tie between a 16-Phi and a cheaper schedule at the SAME lr -> the 16-Phi schedule is kept
     ch, _, _ = tune.choose(_runs(lambda a, b, lr: 0.5 if (a, b) in ((4, 4), (1, 4)) else 0.1))
     assert ch["flood"]["bwd_k"]["schedule"] == [4, 4]
 

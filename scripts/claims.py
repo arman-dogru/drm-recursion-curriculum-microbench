@@ -148,16 +148,64 @@ def build(s, mut, n_tests):
     # code_hash = current code; code_hash_parent = the hash the results were computed under
     # (equal unless a verified lineage link, results/code_lineage.json, connects them)
     from drm.config import code_hash as current_code_hash
-    c["code_hash_parent"] = s["meta"]["code_hash"]
+    c["code_hash_parent"] = ", ".join(s["meta"].get("computed_under") or [s["meta"]["code_hash"]])
     c["code_hash"] = current_code_hash()
     lin = R / "code_lineage.json"
     e = json.loads(lin.read_text())["equivalent"].get(c["code_hash"], {}) if lin.exists() else {}
     c["lineage_n"] = str(e.get("n_checks", 0))
     if mut:
-        for pre, name in (("X", "rev"), ("Q", "r1"), ("Y", "rev2"), ("Z", "r2")):
+        for pre, name in (("X", "rev"), ("Q", "r1"), ("Y", "rev2"), ("Z", "r2"), ("W", "rev3")):
             sel = [r for r in mut.get("mutants", []) if r["id"].startswith(pre)]
             c[f"mut_{name}_killed"] = str(sum(r["status"] == "KILLED" for r in sel))
             c[f"mut_{name}_total"] = str(len(sel))
+    # ---- review r3: seed spread of headline cells, robustness checks, total compute spent
+    for g, ms in s["primary"].items():
+        for m, r in ms.items():
+            if "sd" in r:
+                c[f"sd_{g}_{m}"] = pct(r["sd"])
+                c[f"range_{g}_{m}"] = f"{pct(r['min'])}-{pct(r['max'])}"
+    sens = s.get("sensitivity", {})
+    for g, r in sens.get("bwd_k_native", {}).items():
+        d = r["drm_minus_bwd_k_native"]
+        c[f"snat_{g}_bwd_k"] = ci(r["bwd_k_native"])
+        c[f"snat_{g}_bwd_k_sd"] = pct(r["bwd_k_native"]["sd"])
+        c[f"snat_{g}_d"] = f"{pp(d['diff'])} pp [{pp(d['lo'])}, {pp(d['hi'])}]"
+        c[f"snat_{g}_p"] = f"{d['p']:.2g}"
+        c[f"snat_{g}_wl"] = f"{d['wins']}/{d['losses']}"
+    tie = sens.get("tie_symfill_tbptt_r1")
+    c["tie_symfill_tbptt_r1"] = ci(tie["symfill_bwd_tbptt"]) if tie else "n/a"
+    c["tie_pooled_d_vs_tbptt"] = (f"{pp(tie['pooled_drm_minus_bwd_tbptt']['diff'])} pp [{pp(tie['pooled_drm_minus_bwd_tbptt']['lo'])}, "
+                                  f"{pp(tie['pooled_drm_minus_bwd_tbptt']['hi'])}]") if tie else "n/a"
+
+    # exact cross-lr dev ties decided by the tie rule (lowest lr first; review r3 m3), colormap excluded
+    tp = R / "tuning.json"
+    ties = []
+    if tp.exists():
+        td = json.loads(tp.read_text())
+        menu = {f"S{a}_k{b}" for a, b in td["meta"]["menu"]}
+        for t, ms in td.get("dev_scores", {}).items():
+            for m, lrs in ms.items():
+                best = max(v for sc in lrs.values() for k, v in sc.items() if k in menu)
+                tied = {lr for lr, sc in lrs.items() for k, v in sc.items() if k in menu and abs(v - best) < 1e-12}
+                if len(tied) > 1 and t != "colormap":
+                    ties.append(f"{t} {m}")
+    c["n_tie_cells"] = str(len(ties)) if tp.exists() else "n/a"
+    c["tie_cells"] = ", ".join(sorted(ties)) if tp.exists() else "n/a"
+
+    def raw_hours(root):
+        files = list(root.rglob("*.json")) if root.exists() else []
+        tot = 0.0
+        for f in files:
+            d = json.loads(f.read_text())
+            if "train" in d and "meta" in d:
+                tot += d["train"].get("train_seconds", 0) + d["meta"].get("eval_seconds", 0)
+        return (f"{tot / 3600:.1f}" if files else "n/a"), len(files)
+    c["cpu_h_superseded"], c["n_runs_superseded"] = (lambda h, n: (h, str(n)))(*raw_hours(R / "r1_c4532b5" / "raw"))
+    c["cpu_h_r0"], c["n_runs_r0"] = (lambda h, n: (h, str(n)))(*raw_hours(R / "r0_932be94" / "raw"))
+    try:
+        c["cpu_h_spent_r12"] = f"{float(c['cpu_h_total']) + float(c['cpu_h_superseded']):.1f}"
+    except ValueError:
+        c["cpu_h_spent_r12"] = "n/a"
     c["train_s_drm"] = f"{s['train_seconds']['drm']:.0f}"
     c["train_s_fwd"] = f"{s['train_seconds']['fwd']:.0f}"
     return c
