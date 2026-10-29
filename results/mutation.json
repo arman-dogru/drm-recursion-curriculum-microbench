@@ -1,0 +1,992 @@
+{
+ "control_exit": 0,
+ "n": 140,
+ "counts": {
+  "KILLED": 140,
+  "SURVIVED": 0,
+  "ERROR": 0,
+  "NOT_APPLICABLE": 0
+ },
+ "mutants": [
+  {
+   "id": "T1",
+   "file": "drm/tasks.py",
+   "why": "colormap target is identity",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "T2",
+   "file": "drm/tasks.py",
+   "why": "shift goes the wrong way",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "T3",
+   "file": "drm/tasks.py",
+   "why": "occluder may hide both mirror cells (unrecoverable target)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "T4",
+   "file": "drm/tasks.py",
+   "why": "gravity reverses order",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "T5",
+   "file": "drm/tasks.py",
+   "why": "flood leaks diagonally",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "T6",
+   "file": "drm/tasks.py",
+   "why": "eval split not de-duplicated against train/dev",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "T7",
+   "file": "drm/tasks.py",
+   "why": "dev split not de-duplicated against train",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "T8",
+   "file": "drm/tasks.py",
+   "why": "flood source cell not marked",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "M1",
+   "file": "drm/model.py",
+   "why": "attention radius off by one",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "M2",
+   "file": "drm/model.py",
+   "why": "local attention silently global",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "M3",
+   "file": "drm/model.py",
+   "why": "input not injected at each Phi step",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "M4",
+   "file": "drm/model.py",
+   "why": "label and input embeddings shared",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "C1",
+   "file": "drm/corruption.py",
+   "why": "linear instead of cosine schedule (tensor path)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "C2",
+   "file": "drm/corruption.py",
+   "why": "masks the complement",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "C3",
+   "file": "drm/corruption.py",
+   "why": "corruption writes colour 0 instead of MASK",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "R1",
+   "file": "drm/train.py",
+   "why": "DRM starts from full mask (= bwd_k)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "R2",
+   "file": "drm/train.py",
+   "why": "TBPTT starts from corrupted target",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "R3",
+   "file": "drm/train.py",
+   "why": "no stop-gradient between TBPTT windows",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "R4",
+   "file": "drm/train.py",
+   "why": "one-step denoiser unrolled k steps",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "R5",
+   "file": "drm/train.py",
+   "why": "TBPTT has a single window",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "R6",
+   "file": "drm/train.py",
+   "why": "loss target is the input grid",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "R7",
+   "file": "drm/train.py",
+   "why": "init ignores seed",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "R8",
+   "file": "drm/train.py",
+   "why": "no warmup",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "R9",
+   "file": "drm/train.py",
+   "why": "TBPTT restarts every window",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "G1",
+   "file": "drm/config.py",
+   "why": "fwd_steps gets FLOP-matched steps",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "G2",
+   "file": "drm/config.py",
+   "why": "DRM budget miscounted",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "G3",
+   "file": "drm/config.py",
+   "why": "eval seeds overlap dev seeds",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "I1",
+   "file": "drm/infer.py",
+   "why": "remask schedule off by one step",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "I2",
+   "file": "drm/infer.py",
+   "why": "inference ignores its own predictions",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "I3",
+   "file": "drm/infer.py",
+   "why": "inference starts from the answer when traced",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "I4",
+   "file": "drm/infer.py",
+   "why": "inner steps ignored at inference",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "O1",
+   "file": "scripts/run_one.py",
+   "why": "always evaluates on dev",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "O2",
+   "file": "scripts/run_one.py",
+   "why": "learning curve peeks at eval",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "O3",
+   "file": "scripts/run_one.py",
+   "why": "stale code not recomputed",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "O4",
+   "file": "scripts/run_one.py",
+   "why": "per-example bits truncated",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "O5",
+   "file": "scripts/run_one.py",
+   "why": "--force ignored",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "J1",
+   "file": "scripts/run_grid.py",
+   "why": "main grid on dev split",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "J2",
+   "file": "scripts/run_grid.py",
+   "why": "tuned lr ignored",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "J3",
+   "file": "scripts/run_grid.py",
+   "why": "main grid on dev seeds",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "J4",
+   "file": "scripts/run_grid.py",
+   "why": "k-sweep not FLOP-matched",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "U1",
+   "file": "scripts/tune.py",
+   "why": "tuning picks off-menu (more test compute) schedules",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "U2",
+   "file": "scripts/tune.py",
+   "why": "tuning minimises",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "U3",
+   "file": "scripts/tune.py",
+   "why": "tuning accepts mixed code",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "U4",
+   "file": "scripts/tune.py",
+   "why": "tuning accepts missing runs",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "A1",
+   "file": "scripts/aggregate.py",
+   "why": "primary ignores dev-chosen schedule",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "A2",
+   "file": "scripts/aggregate.py",
+   "why": "pooled = first task",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "A3",
+   "file": "scripts/aggregate.py",
+   "why": "difference sign flipped",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "A4",
+   "file": "scripts/aggregate.py",
+   "why": "comparison not paired by seed",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "A5",
+   "file": "scripts/aggregate.py",
+   "why": "no multiplicity correction",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "A6",
+   "file": "scripts/aggregate.py",
+   "why": "extra files accepted",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "A7",
+   "file": "scripts/aggregate.py",
+   "why": "dev-split run accepted in eval grid",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "A8",
+   "file": "scripts/aggregate.py",
+   "why": "k=4 sweep point uses all seeds",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "A9",
+   "file": "scripts/aggregate.py",
+   "why": "incomplete grid accepted",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "A10",
+   "file": "scripts/aggregate.py",
+   "why": "--allow-partial overwrites results/",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "A11",
+   "file": "scripts/aggregate.py",
+   "why": "stale config accepted",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "K1",
+   "file": "scripts/run_grid.py",
+   "why": "post-hoc task cut re-applied to the eval grid",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "K2",
+   "file": "scripts/run_grid.py",
+   "why": "lr extension dropped",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "K3",
+   "file": "scripts/run_grid.py",
+   "why": "too few eval seeds",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "F1",
+   "file": "scripts/make_figures.py",
+   "why": "figures drawn from a partial summary",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "V1",
+   "file": "scripts/render_readme.py",
+   "why": "README renders with unknown claim keys",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X1",
+   "file": "scripts/aggregate.py",
+   "why": "Holm per group instead of one family",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X2",
+   "file": "scripts/run_grid.py",
+   "why": "tuning on eval split",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X3",
+   "file": "drm/stats.py",
+   "why": "90% CI labelled 95%",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X4",
+   "file": "drm/stats.py",
+   "why": "anti-conservative ties",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X5",
+   "file": "drm/train.py",
+   "why": "grads accumulate across steps",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X6",
+   "file": "drm/train.py",
+   "why": "curriculum truncated to tau<=0.5",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X7",
+   "file": "scripts/tune.py",
+   "why": "tuning on max over dev seeds",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X8",
+   "file": "drm/config.py",
+   "why": "dev seeds overlap eval seeds",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X9",
+   "file": "drm/config.py",
+   "why": "TBPTT gets 1/4 of the budget",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X10",
+   "file": "scripts/aggregate.py",
+   "why": "aggregate accepts two code hashes",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X11",
+   "file": "drm/train.py",
+   "why": "DRM silently gets TBPTT windows",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X12",
+   "file": "drm/infer.py",
+   "why": "inference RNG ignores seed",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X13",
+   "file": "drm/tasks.py",
+   "why": "dedup on (x,y) instead of x",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X14",
+   "file": "scripts/aggregate.py",
+   "why": "pooled drops tasks",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "X15",
+   "file": "drm/corruption.py",
+   "why": "never fully masked",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q1",
+   "file": "drm/config.py",
+   "why": "latent recursion capped at 16 (review M3)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q2",
+   "file": "drm/config.py",
+   "why": "lr grid stops at 4e-3 (review M2)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q3",
+   "file": "drm/config.py",
+   "why": "lr run names collide (review m7)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q4",
+   "file": "drm/config.py",
+   "why": "unknown task accepted",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q5",
+   "file": "drm/config.py",
+   "why": "k = 0 accepted",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q6",
+   "file": "scripts/run_one.py",
+   "why": "CLI accepts a non-positive budget",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q7",
+   "file": "scripts/run_one.py",
+   "why": "CLI accepts unknown method",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q8",
+   "file": "scripts/run_one.py",
+   "why": "checkpoint not saved",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q9",
+   "file": "scripts/run_one.py",
+   "why": "no timestamp in raw meta (review m4)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q10",
+   "file": "scripts/run_one.py",
+   "why": "mismatch probe missing some menu schedules",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q11",
+   "file": "scripts/tune.py",
+   "why": "lr edge never flagged",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q12",
+   "file": "drm/stats.py",
+   "why": "t-interval uses z",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q13",
+   "file": "scripts/aggregate.py",
+   "why": "mismatch at own schedule uses S16_k1",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Q14",
+   "file": "scripts/aggregate.py",
+   "why": "descriptive pooled3 enters the Holm family",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "S1",
+   "file": "drm/stats.py",
+   "why": "one-sided p",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "S2",
+   "file": "drm/stats.py",
+   "why": "bootstrap does not resample",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "S3",
+   "file": "drm/stats.py",
+   "why": "Holm not monotone",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y1",
+   "file": "scripts/tune.py",
+   "why": "headline tuning picks from all schedules, not the <=16-Phi menu",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y2",
+   "file": "scripts/tune.py",
+   "why": "compute curves use the dev-WORST schedule",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y3",
+   "file": "scripts/aggregate.py",
+   "why": "traces_at_choice ignores own schedule",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y4",
+   "file": "drm/stats.py",
+   "why": "t-interval uses z",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y5",
+   "file": "scripts/tune.py",
+   "why": "lower lr edge not flagged",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y6",
+   "file": "drm/config.py",
+   "why": "negative budget accepted by Config",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y7",
+   "file": "scripts/run_one.py",
+   "why": "started_at records finish time",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y8",
+   "file": "tests/test_hygiene.py",
+   "why": "hygiene path regex neutered (test mutant)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y9",
+   "file": "scripts/aggregate.py",
+   "why": "primary pool silently 3 tasks again",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y10",
+   "file": "scripts/aggregate.py",
+   "why": "significance from raw p",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y11",
+   "file": "scripts/aggregate.py",
+   "why": "CPU-hours drop eval time",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y12",
+   "file": "scripts/run_grid.py",
+   "why": "k-sweep uses dev seeds",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y13",
+   "file": "scripts/run_one.py",
+   "why": "inference RNG same for every schedule",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y14",
+   "file": "scripts/pipeline.sh",
+   "why": "dev raw not committed before eval",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z1",
+   "file": "scripts/tune.py",
+   "why": "headline menu back to exactly 16 Phi (no early stopping)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z2",
+   "file": "scripts/tune.py",
+   "why": "menu order changed: ties no longer keep the round-1 order",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z3",
+   "file": "scripts/aggregate.py",
+   "why": "k-sweep TBPTT horizon ignores n_sup",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z4",
+   "file": "scripts/run_one.py",
+   "why": "different-config output silently overwritten",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z5",
+   "file": "drm/config.py",
+   "why": "negative radius accepted",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z6",
+   "file": "drm/config.py",
+   "why": "run name drops the Phi budget",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z7",
+   "file": "drm/config.py",
+   "why": "non-default fields do not reach the run name",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z8",
+   "file": "drm/lineage.py",
+   "why": "unverified lineage links accepted",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z9",
+   "file": "scripts/aggregate.py",
+   "why": "eval grid code-hash check disabled",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z10",
+   "file": "scripts/pipeline.sh",
+   "why": "pre-eval push skipped",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W1",
+   "file": "scripts/tune.py",
+   "why": "ties go to the LAST (lr, schedule) instead of the first",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W2",
+   "file": "scripts/tune.py",
+   "why": "tie-break prefers the highest lr",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W3",
+   "file": "scripts/verify_lineage.py",
+   "why": "lineage json comparison disabled",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W4",
+   "file": "scripts/verify_lineage.py",
+   "why": "lineage ignores eval and traces",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W5",
+   "file": "scripts/run_one.py",
+   "why": "up_to_date accepts any code hash",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W6",
+   "file": "scripts/pipeline.sh",
+   "why": "uncommitted-dev check removed",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W7",
+   "file": "scripts/claims.py",
+   "why": "README claims results computed under current hash",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W8",
+   "file": "scripts/tune.py",
+   "why": "tune may read non-dev runs",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W9",
+   "file": "scripts/run_one.py",
+   "why": "CLI radius check removed (Config still raises)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W10",
+   "file": "scripts/run_one.py",
+   "why": "overwrite refusal exits 0",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W11",
+   "file": "drm/lineage.py",
+   "why": "lineage cycle guard removed",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W12",
+   "file": "scripts/tune.py",
+   "why": "tuning.json relabelled with the current code hash on regeneration (m2)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W13",
+   "file": "scripts/pipeline.sh",
+   "why": "hygiene scan before push removed (n4)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W14",
+   "file": "scripts/aggregate.py",
+   "why": "native-horizon sensitivity silently uses the headline schedule",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "W15",
+   "file": "scripts/aggregate.py",
+   "why": "tie sensitivity silently reports the round-2 cell",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P1",
+   "file": "scripts/aggregate.py",
+   "why": "sensitivity p halved (one-sided)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P2",
+   "file": "scripts/aggregate.py",
+   "why": "seed sd uses ddof=0",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P3",
+   "file": "scripts/aggregate.py",
+   "why": "native pooled over 3 tasks",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P4",
+   "file": "scripts/aggregate.py",
+   "why": "computed_under relabelled to canonical hash",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P5",
+   "file": "scripts/claims.py",
+   "why": "tie-cell list includes colormap",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P6",
+   "file": "scripts/claims.py",
+   "why": "superseded/r0 CPU-h drop eval time",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P7",
+   "file": "scripts/verify_lineage.py",
+   "why": "lineage records all_identical even when a check failed",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P8",
+   "file": "scripts/verify_lineage.py",
+   "why": "default full set drops the k-sweep run",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P9",
+   "file": "scripts/aggregate.py",
+   "why": "sensitivity wins/losses swapped",
+   "status": "KILLED",
+   "exit": 1
+  }
+ ]
+}

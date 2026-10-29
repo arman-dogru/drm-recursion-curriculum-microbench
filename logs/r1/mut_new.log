@@ -1,0 +1,35 @@
+control (unmutated) pytest exit = 0
+A2   KILLED         pooled = first task
+K1   KILLED         post-hoc task cut re-applied to the eval grid
+K2   KILLED         lr extension dropped
+K3   KILLED         too few eval seeds
+X1   KILLED         Holm per group instead of one family
+X2   KILLED         tuning on eval split
+X3   KILLED         90% CI labelled 95%
+X4   KILLED         anti-conservative ties
+X5   KILLED         grads accumulate across steps
+X6   KILLED         curriculum truncated to tau<=0.5
+X7   KILLED         tuning on max over dev seeds
+X8   KILLED         dev seeds overlap eval seeds
+X9   KILLED         TBPTT gets 1/4 of the budget
+X10  KILLED         aggregate accepts two code hashes
+X11  KILLED         DRM silently gets TBPTT windows
+X12  KILLED         inference RNG ignores seed
+X13  KILLED         dedup on (x,y) instead of x
+X14  KILLED         pooled drops tasks
+X15  KILLED         never fully masked
+Q1   KILLED         latent recursion capped at 16 (review M3)
+Q2   KILLED         lr grid stops at 4e-3 (review M2)
+Q3   KILLED         lr run names collide (review m7)
+Q4   KILLED         unknown task accepted
+Q5   KILLED         k = 0 accepted
+Q6   KILLED         CLI accepts a non-positive budget
+Q7   KILLED         CLI accepts unknown method
+Q8   KILLED         checkpoint not saved
+Q9   KILLED         no timestamp in raw meta (review m4)
+Q10  KILLED         mismatch probe missing some menu schedules
+Q11  KILLED         lr edge never flagged
+Q12  KILLED         t-interval uses z
+Q13  KILLED         mismatch at own schedule uses S16_k1
+Q14  KILLED         descriptive pooled3 enters the Holm family
+{"KILLED": 33, "SURVIVED": 0, "ERROR": 0, "NOT_APPLICABLE": 0}

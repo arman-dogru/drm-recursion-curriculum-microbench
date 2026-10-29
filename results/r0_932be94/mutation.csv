@@ -1,0 +1,64 @@
+id,file,status,exit,why
+T1,drm/tasks.py,KILLED,1,colormap target is identity
+T2,drm/tasks.py,KILLED,1,shift goes the wrong way
+T3,drm/tasks.py,KILLED,1,occluder may hide both mirror cells (unrecoverable target)
+T4,drm/tasks.py,KILLED,1,gravity reverses order
+T5,drm/tasks.py,KILLED,1,flood leaks diagonally
+T6,drm/tasks.py,KILLED,1,eval split not de-duplicated against train/dev
+T7,drm/tasks.py,KILLED,1,dev split not de-duplicated against train
+T8,drm/tasks.py,KILLED,1,flood source cell not marked
+M1,drm/model.py,KILLED,1,attention radius off by one
+M2,drm/model.py,KILLED,1,local attention silently global
+M3,drm/model.py,KILLED,1,input not injected at each Phi step
+M4,drm/model.py,KILLED,1,label and input embeddings shared
+C1,drm/corruption.py,KILLED,1,linear instead of cosine schedule (tensor path)
+C2,drm/corruption.py,KILLED,1,masks the complement
+C3,drm/corruption.py,KILLED,1,corruption writes colour 0 instead of MASK
+R1,drm/train.py,KILLED,1,DRM starts from full mask (= bwd_k)
+R2,drm/train.py,KILLED,1,TBPTT starts from corrupted target
+R3,drm/train.py,KILLED,1,no stop-gradient between TBPTT windows
+R4,drm/train.py,KILLED,1,one-step denoiser unrolled k steps
+R5,drm/train.py,KILLED,1,TBPTT has a single window
+R6,drm/train.py,KILLED,1,loss target is the input grid
+R7,drm/train.py,KILLED,1,init ignores seed
+R8,drm/train.py,KILLED,1,no warmup
+R9,drm/train.py,KILLED,1,TBPTT restarts every window
+G1,drm/config.py,KILLED,1,fwd_steps gets FLOP-matched steps
+G2,drm/config.py,KILLED,1,DRM budget miscounted
+G3,drm/config.py,KILLED,1,eval seeds overlap dev seeds
+I1,drm/infer.py,KILLED,1,remask schedule off by one step
+I2,drm/infer.py,KILLED,1,inference ignores its own predictions
+I3,drm/infer.py,KILLED,1,inference starts from the answer when traced
+I4,drm/infer.py,KILLED,1,inner steps ignored at inference
+O1,scripts/run_one.py,KILLED,1,always evaluates on dev
+O2,scripts/run_one.py,KILLED,1,learning curve peeks at eval
+O3,scripts/run_one.py,KILLED,1,stale code not recomputed
+O4,scripts/run_one.py,KILLED,1,per-example bits truncated
+O5,scripts/run_one.py,KILLED,1,--force ignored
+J1,scripts/run_grid.py,KILLED,1,main grid on dev split
+J2,scripts/run_grid.py,KILLED,1,tuned lr ignored
+J3,scripts/run_grid.py,KILLED,1,main grid on dev seeds
+J4,scripts/run_grid.py,KILLED,1,k-sweep not FLOP-matched
+U1,scripts/tune.py,KILLED,1,tuning picks off-menu (more test compute) schedules
+U2,scripts/tune.py,KILLED,1,tuning minimises
+U3,scripts/tune.py,KILLED,1,tuning accepts mixed code
+U4,scripts/tune.py,KILLED,1,tuning accepts missing runs
+A1,scripts/aggregate.py,KILLED,1,primary ignores dev-chosen schedule
+A2,scripts/aggregate.py,KILLED,1,pooled = first task
+A3,scripts/aggregate.py,KILLED,1,difference sign flipped
+A4,scripts/aggregate.py,KILLED,1,comparison not paired by seed
+A5,scripts/aggregate.py,KILLED,1,no multiplicity correction
+A6,scripts/aggregate.py,KILLED,1,extra files accepted
+A7,scripts/aggregate.py,KILLED,1,dev-split run accepted in eval grid
+A8,scripts/aggregate.py,KILLED,1,k=4 sweep point uses all seeds
+A9,scripts/aggregate.py,KILLED,1,incomplete grid accepted
+A10,scripts/aggregate.py,KILLED,1,--allow-partial overwrites results/
+A11,scripts/aggregate.py,KILLED,1,stale config accepted
+K1,scripts/run_grid.py,KILLED,1,scope cut not applied to eval grid
+K2,scripts/run_grid.py,KILLED,1,lr extension dropped
+K3,scripts/run_grid.py,KILLED,1,too few eval seeds
+F1,scripts/make_figures.py,KILLED,1,figures drawn from a partial summary
+W1,scripts/render_readme.py,KILLED,1,README renders with unknown claim keys
+S1,drm/stats.py,KILLED,1,one-sided p
+S2,drm/stats.py,KILLED,1,bootstrap does not resample
+S3,drm/stats.py,KILLED,1,Holm not monotone

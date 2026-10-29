@@ -1,0 +1,141 @@
+id,file,status,exit,why
+T1,drm/tasks.py,KILLED,1,colormap target is identity
+T2,drm/tasks.py,KILLED,1,shift goes the wrong way
+T3,drm/tasks.py,KILLED,1,occluder may hide both mirror cells (unrecoverable target)
+T4,drm/tasks.py,KILLED,1,gravity reverses order
+T5,drm/tasks.py,KILLED,1,flood leaks diagonally
+T6,drm/tasks.py,KILLED,1,eval split not de-duplicated against train/dev
+T7,drm/tasks.py,KILLED,1,dev split not de-duplicated against train
+T8,drm/tasks.py,KILLED,1,flood source cell not marked
+M1,drm/model.py,KILLED,1,attention radius off by one
+M2,drm/model.py,KILLED,1,local attention silently global
+M3,drm/model.py,KILLED,1,input not injected at each Phi step
+M4,drm/model.py,KILLED,1,label and input embeddings shared
+C1,drm/corruption.py,KILLED,1,linear instead of cosine schedule (tensor path)
+C2,drm/corruption.py,KILLED,1,masks the complement
+C3,drm/corruption.py,KILLED,1,corruption writes colour 0 instead of MASK
+R1,drm/train.py,KILLED,1,DRM starts from full mask (= bwd_k)
+R2,drm/train.py,KILLED,1,TBPTT starts from corrupted target
+R3,drm/train.py,KILLED,1,no stop-gradient between TBPTT windows
+R4,drm/train.py,KILLED,1,one-step denoiser unrolled k steps
+R5,drm/train.py,KILLED,1,TBPTT has a single window
+R6,drm/train.py,KILLED,1,loss target is the input grid
+R7,drm/train.py,KILLED,1,init ignores seed
+R8,drm/train.py,KILLED,1,no warmup
+R9,drm/train.py,KILLED,1,TBPTT restarts every window
+G1,drm/config.py,KILLED,1,fwd_steps gets FLOP-matched steps
+G2,drm/config.py,KILLED,1,DRM budget miscounted
+G3,drm/config.py,KILLED,1,eval seeds overlap dev seeds
+I1,drm/infer.py,KILLED,1,remask schedule off by one step
+I2,drm/infer.py,KILLED,1,inference ignores its own predictions
+I3,drm/infer.py,KILLED,1,inference starts from the answer when traced
+I4,drm/infer.py,KILLED,1,inner steps ignored at inference
+O1,scripts/run_one.py,KILLED,1,always evaluates on dev
+O2,scripts/run_one.py,KILLED,1,learning curve peeks at eval
+O3,scripts/run_one.py,KILLED,1,stale code not recomputed
+O4,scripts/run_one.py,KILLED,1,per-example bits truncated
+O5,scripts/run_one.py,KILLED,1,--force ignored
+J1,scripts/run_grid.py,KILLED,1,main grid on dev split
+J2,scripts/run_grid.py,KILLED,1,tuned lr ignored
+J3,scripts/run_grid.py,KILLED,1,main grid on dev seeds
+J4,scripts/run_grid.py,KILLED,1,k-sweep not FLOP-matched
+U1,scripts/tune.py,KILLED,1,tuning picks off-menu (more test compute) schedules
+U2,scripts/tune.py,KILLED,1,tuning minimises
+U3,scripts/tune.py,KILLED,1,tuning accepts mixed code
+U4,scripts/tune.py,KILLED,1,tuning accepts missing runs
+A1,scripts/aggregate.py,KILLED,1,primary ignores dev-chosen schedule
+A2,scripts/aggregate.py,KILLED,1,pooled = first task
+A3,scripts/aggregate.py,KILLED,1,difference sign flipped
+A4,scripts/aggregate.py,KILLED,1,comparison not paired by seed
+A5,scripts/aggregate.py,KILLED,1,no multiplicity correction
+A6,scripts/aggregate.py,KILLED,1,extra files accepted
+A7,scripts/aggregate.py,KILLED,1,dev-split run accepted in eval grid
+A8,scripts/aggregate.py,KILLED,1,k=4 sweep point uses all seeds
+A9,scripts/aggregate.py,KILLED,1,incomplete grid accepted
+A10,scripts/aggregate.py,KILLED,1,--allow-partial overwrites results/
+A11,scripts/aggregate.py,KILLED,1,stale config accepted
+K1,scripts/run_grid.py,KILLED,1,post-hoc task cut re-applied to the eval grid
+K2,scripts/run_grid.py,KILLED,1,lr extension dropped
+K3,scripts/run_grid.py,KILLED,1,too few eval seeds
+F1,scripts/make_figures.py,KILLED,1,figures drawn from a partial summary
+V1,scripts/render_readme.py,KILLED,1,README renders with unknown claim keys
+X1,scripts/aggregate.py,KILLED,1,Holm per group instead of one family
+X2,scripts/run_grid.py,KILLED,1,tuning on eval split
+X3,drm/stats.py,KILLED,1,90% CI labelled 95%
+X4,drm/stats.py,KILLED,1,anti-conservative ties
+X5,drm/train.py,KILLED,1,grads accumulate across steps
+X6,drm/train.py,KILLED,1,curriculum truncated to tau<=0.5
+X7,scripts/tune.py,KILLED,1,tuning on max over dev seeds
+X8,drm/config.py,KILLED,1,dev seeds overlap eval seeds
+X9,drm/config.py,KILLED,1,TBPTT gets 1/4 of the budget
+X10,scripts/aggregate.py,KILLED,1,aggregate accepts two code hashes
+X11,drm/train.py,KILLED,1,DRM silently gets TBPTT windows
+X12,drm/infer.py,KILLED,1,inference RNG ignores seed
+X13,drm/tasks.py,KILLED,1,"dedup on (x,y) instead of x"
+X14,scripts/aggregate.py,KILLED,1,pooled drops tasks
+X15,drm/corruption.py,KILLED,1,never fully masked
+Q1,drm/config.py,KILLED,1,latent recursion capped at 16 (review M3)
+Q2,drm/config.py,KILLED,1,lr grid stops at 4e-3 (review M2)
+Q3,drm/config.py,KILLED,1,lr run names collide (review m7)
+Q4,drm/config.py,KILLED,1,unknown task accepted
+Q5,drm/config.py,KILLED,1,k = 0 accepted
+Q6,scripts/run_one.py,KILLED,1,CLI accepts a non-positive budget
+Q7,scripts/run_one.py,KILLED,1,CLI accepts unknown method
+Q8,scripts/run_one.py,KILLED,1,checkpoint not saved
+Q9,scripts/run_one.py,KILLED,1,no timestamp in raw meta (review m4)
+Q10,scripts/run_one.py,KILLED,1,mismatch probe missing some menu schedules
+Q11,scripts/tune.py,KILLED,1,lr edge never flagged
+Q12,drm/stats.py,KILLED,1,t-interval uses z
+Q13,scripts/aggregate.py,KILLED,1,mismatch at own schedule uses S16_k1
+Q14,scripts/aggregate.py,KILLED,1,descriptive pooled3 enters the Holm family
+S1,drm/stats.py,KILLED,1,one-sided p
+S2,drm/stats.py,KILLED,1,bootstrap does not resample
+S3,drm/stats.py,KILLED,1,Holm not monotone
+Y1,scripts/tune.py,KILLED,1,"headline tuning picks from all schedules, not the <=16-Phi menu"
+Y2,scripts/tune.py,KILLED,1,compute curves use the dev-WORST schedule
+Y3,scripts/aggregate.py,KILLED,1,traces_at_choice ignores own schedule
+Y4,drm/stats.py,KILLED,1,t-interval uses z
+Y5,scripts/tune.py,KILLED,1,lower lr edge not flagged
+Y6,drm/config.py,KILLED,1,negative budget accepted by Config
+Y7,scripts/run_one.py,KILLED,1,started_at records finish time
+Y8,tests/test_hygiene.py,KILLED,1,hygiene path regex neutered (test mutant)
+Y9,scripts/aggregate.py,KILLED,1,primary pool silently 3 tasks again
+Y10,scripts/aggregate.py,KILLED,1,significance from raw p
+Y11,scripts/aggregate.py,KILLED,1,CPU-hours drop eval time
+Y12,scripts/run_grid.py,KILLED,1,k-sweep uses dev seeds
+Y13,scripts/run_one.py,KILLED,1,inference RNG same for every schedule
+Y14,scripts/pipeline.sh,KILLED,1,dev raw not committed before eval
+Z1,scripts/tune.py,KILLED,1,headline menu back to exactly 16 Phi (no early stopping)
+Z2,scripts/tune.py,KILLED,1,menu order changed: ties no longer keep the round-1 order
+Z3,scripts/aggregate.py,KILLED,1,k-sweep TBPTT horizon ignores n_sup
+Z4,scripts/run_one.py,KILLED,1,different-config output silently overwritten
+Z5,drm/config.py,KILLED,1,negative radius accepted
+Z6,drm/config.py,KILLED,1,run name drops the Phi budget
+Z7,drm/config.py,KILLED,1,non-default fields do not reach the run name
+Z8,drm/lineage.py,KILLED,1,unverified lineage links accepted
+Z9,scripts/aggregate.py,KILLED,1,eval grid code-hash check disabled
+Z10,scripts/pipeline.sh,KILLED,1,pre-eval push skipped
+W1,scripts/tune.py,KILLED,1,"ties go to the LAST (lr, schedule) instead of the first"
+W2,scripts/tune.py,KILLED,1,tie-break prefers the highest lr
+W3,scripts/verify_lineage.py,KILLED,1,lineage json comparison disabled
+W4,scripts/verify_lineage.py,KILLED,1,lineage ignores eval and traces
+W5,scripts/run_one.py,KILLED,1,up_to_date accepts any code hash
+W6,scripts/pipeline.sh,KILLED,1,uncommitted-dev check removed
+W7,scripts/claims.py,KILLED,1,README claims results computed under current hash
+W8,scripts/tune.py,KILLED,1,tune may read non-dev runs
+W9,scripts/run_one.py,KILLED,1,CLI radius check removed (Config still raises)
+W10,scripts/run_one.py,KILLED,1,overwrite refusal exits 0
+W11,drm/lineage.py,KILLED,1,lineage cycle guard removed
+W12,scripts/tune.py,KILLED,1,tuning.json relabelled with the current code hash on regeneration (m2)
+W13,scripts/pipeline.sh,KILLED,1,hygiene scan before push removed (n4)
+W14,scripts/aggregate.py,KILLED,1,native-horizon sensitivity silently uses the headline schedule
+W15,scripts/aggregate.py,KILLED,1,tie sensitivity silently reports the round-2 cell
+P1,scripts/aggregate.py,KILLED,1,sensitivity p halved (one-sided)
+P2,scripts/aggregate.py,KILLED,1,seed sd uses ddof=0
+P3,scripts/aggregate.py,KILLED,1,native pooled over 3 tasks
+P4,scripts/aggregate.py,KILLED,1,computed_under relabelled to canonical hash
+P5,scripts/claims.py,KILLED,1,tie-cell list includes colormap
+P6,scripts/claims.py,KILLED,1,superseded/r0 CPU-h drop eval time
+P7,scripts/verify_lineage.py,KILLED,1,lineage records all_identical even when a check failed
+P8,scripts/verify_lineage.py,KILLED,1,default full set drops the k-sweep run
+P9,scripts/aggregate.py,KILLED,1,sensitivity wins/losses swapped

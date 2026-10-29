@@ -1,0 +1,785 @@
+tune: 180 jobs
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr5e-4_s1.json
+[1/180] dev/colormap/bwd_k_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr1e-3_s1.json
+[2/180] dev/colormap/fwd_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr1e-3_s1.json
+[3/180] dev/colormap/bwd_k_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr2e-3_s1.json
+[4/180] dev/colormap/fwd_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr2e-3_s1.json
+[5/180] dev/colormap/bwd_k_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr5e-4_s1.json
+[6/180] dev/colormap/bwd_tbptt_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr5e-4_s1.json
+[7/180] dev/colormap/fwd_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr1e-3_s1.json
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr1e-3_s1.json
+[8/180] dev/colormap/drm_k4_lr1e-3_s1 ok
+[9/180] dev/colormap/bwd_tbptt_k4_lr1e-3_s1 ok
+[10/180] dev/colormap/drm_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr2e-3_s1.json
+[11/180] dev/colormap/bwd_tbptt_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr2e-3_s1.json
+[12/180] dev/colormap/drm_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr1e-3_s2.json
+[13/180] dev/colormap/fwd_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr5e-4_s2.json
+[14/180] dev/colormap/fwd_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr5e-4_s2.json
+[15/180] dev/colormap/bwd_k_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr1e-3_s2.json
+[16/180] dev/colormap/bwd_k_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr2e-3_s2.json
+[17/180] dev/colormap/fwd_k4_lr2e-3_s2 ok
+[18/180] dev/colormap/bwd_k_k4_lr2e-3_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr5e-4_s2.json
+[19/180] dev/colormap/bwd_tbptt_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr1e-3_s2.json
+[20/180] dev/colormap/bwd_tbptt_k4_lr1e-3_s2 ok
+[21/180] dev/colormap/bwd_tbptt_k4_lr2e-3_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/flood/fwd_k4_lr5e-4_s1.json
+[22/180] dev/flood/fwd_k4_lr5e-4_s1 ok
+[23/180] dev/colormap/drm_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr5e-4_s2.json
+[24/180] dev/colormap/drm_k4_lr2e-3_s2 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr2e-3_s2.json
+[25/180] dev/colormap/drm_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/flood/fwd_k4_lr1e-3_s1.json
+[26/180] dev/flood/fwd_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr2e-3_s1.json
+[27/180] dev/flood/fwd_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr5e-4_s1.json
+[28/180] dev/flood/bwd_k_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr1e-3_s1.json
+[29/180] dev/flood/bwd_k_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr5e-4_s1.json
+[30/180] dev/flood/bwd_tbptt_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr2e-3_s1.json
+[31/180] dev/flood/bwd_k_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr1e-3_s1.json
+[32/180] dev/flood/bwd_tbptt_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr5e-4_s1.json
+[33/180] dev/flood/drm_k4_lr5e-4_s1 ok
+[34/180] dev/flood/bwd_tbptt_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/flood/drm_k4_lr1e-3_s1.json
+[35/180] dev/flood/drm_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr2e-3_s1.json
+[36/180] dev/flood/drm_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr5e-4_s2.json
+[37/180] dev/flood/fwd_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr1e-3_s2.json
+[38/180] dev/flood/fwd_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr2e-3_s2.json
+[39/180] dev/flood/fwd_k4_lr2e-3_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr5e-4_s2.json
+[40/180] dev/flood/bwd_k_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr1e-3_s2.json
+[41/180] dev/flood/bwd_k_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr2e-3_s2.json
+[42/180] dev/flood/bwd_k_k4_lr2e-3_s2 ok
+[43/180] dev/flood/bwd_tbptt_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr1e-3_s2.json
+[44/180] dev/flood/bwd_tbptt_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr2e-3_s2.json
+[45/180] dev/flood/bwd_tbptt_k4_lr2e-3_s2 ok
+wrote results/raw/dev/flood/bwd_tbptt_k4_lr4e-3_s1.json  pass1(S4,k4)=0.056  train=160s
+[46/180] dev/flood/bwd_tbptt_k4_lr4e-3_s1 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr5e-4_s2.json
+[47/180] dev/flood/drm_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr1e-3_s2.json
+[48/180] dev/flood/drm_k4_lr1e-3_s2 ok
+[49/180] dev/flood/drm_k4_lr2e-3_s2 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr2e-3_s2.json
+[50/180] dev/flood/fwd_k4_lr4e-3_s1 ok
+wrote results/raw/dev/flood/fwd_k4_lr4e-3_s1.json  pass1(S4,k4)=0.158  train=166s
+[51/180] dev/flood/bwd_k_k4_lr4e-3_s1 ok
+wrote results/raw/dev/flood/bwd_k_k4_lr4e-3_s1.json  pass1(S4,k4)=0.026  train=166s
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr5e-4_s1.json
+[52/180] dev/gravity/fwd_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr1e-3_s1.json
+[53/180] dev/gravity/fwd_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr2e-3_s1.json
+[54/180] dev/gravity/fwd_k4_lr2e-3_s1 ok
+[55/180] dev/flood/bwd_tbptt_k4_lr4e-3_s2 ok
+wrote results/raw/dev/flood/bwd_tbptt_k4_lr4e-3_s2.json  pass1(S4,k4)=0.044  train=161s
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr5e-4_s1.json
+[56/180] dev/gravity/bwd_k_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr1e-3_s1.json
+[57/180] dev/gravity/bwd_k_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr2e-3_s1.json
+[58/180] dev/gravity/bwd_k_k4_lr2e-3_s1 ok
+[59/180] dev/flood/fwd_k4_lr4e-3_s2 ok
+wrote results/raw/dev/flood/fwd_k4_lr4e-3_s2.json  pass1(S4,k4)=0.236  train=168s
+[60/180] dev/gravity/bwd_tbptt_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr1e-3_s1.json
+[61/180] dev/gravity/bwd_tbptt_k4_lr1e-3_s1 ok
+[62/180] dev/gravity/bwd_tbptt_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/gravity/drm_k4_lr5e-4_s1.json
+[63/180] dev/gravity/drm_k4_lr5e-4_s1 ok
+[64/180] dev/flood/bwd_k_k4_lr4e-3_s2 ok
+wrote results/raw/dev/flood/bwd_k_k4_lr4e-3_s2.json  pass1(S4,k4)=0.130  train=169s
+skip (up to date) results/raw/dev/gravity/drm_k4_lr1e-3_s1.json
+[65/180] dev/gravity/drm_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr2e-3_s1.json
+[66/180] dev/gravity/drm_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr5e-4_s2.json
+[67/180] dev/gravity/fwd_k4_lr5e-4_s2 ok
+[68/180] dev/gravity/fwd_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr1e-3_s2.json
+[69/180] dev/gravity/fwd_k4_lr2e-3_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr2e-3_s2.json
+[70/180] dev/flood/drm_k4_lr4e-3_s1 ok
+wrote results/raw/dev/flood/drm_k4_lr4e-3_s1.json  pass1(S4,k4)=0.738  train=178s
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr5e-4_s2.json
+[71/180] dev/gravity/bwd_k_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr1e-3_s2.json
+[72/180] dev/gravity/bwd_k_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr2e-3_s2.json
+[73/180] dev/gravity/bwd_k_k4_lr2e-3_s2 ok
+wrote results/raw/dev/gravity/bwd_k_k4_lr4e-3_s1.json  pass1(S4,k4)=0.000  train=164s
+[74/180] dev/gravity/bwd_k_k4_lr4e-3_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr5e-4_s2.json
+[75/180] dev/gravity/bwd_tbptt_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr1e-3_s2.json
+[76/180] dev/gravity/bwd_tbptt_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr2e-3_s2.json
+[77/180] dev/gravity/bwd_tbptt_k4_lr2e-3_s2 ok
+[78/180] dev/gravity/bwd_tbptt_k4_lr4e-3_s1 ok
+wrote results/raw/dev/gravity/bwd_tbptt_k4_lr4e-3_s1.json  pass1(S4,k4)=0.000  train=167s
+skip (up to date) results/raw/dev/gravity/drm_k4_lr5e-4_s2.json
+[79/180] dev/gravity/drm_k4_lr5e-4_s2 ok
+[80/180] dev/gravity/drm_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/gravity/drm_k4_lr2e-3_s2.json
+[81/180] dev/gravity/drm_k4_lr2e-3_s2 ok
+[82/180] dev/gravity/fwd_k4_lr4e-3_s1 ok
+wrote results/raw/dev/gravity/fwd_k4_lr4e-3_s1.json  pass1(S4,k4)=0.000  train=178s
+skip (up to date) results/raw/dev/shift/fwd_k4_lr5e-4_s1.json
+[83/180] dev/shift/fwd_k4_lr5e-4_s1 ok
+[84/180] dev/shift/fwd_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr1e-3_s1.json
+[85/180] dev/gravity/bwd_k_k4_lr4e-3_s2 ok
+wrote results/raw/dev/gravity/bwd_k_k4_lr4e-3_s2.json  pass1(S4,k4)=0.000  train=165s
+[86/180] dev/shift/fwd_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr2e-3_s1.json
+[87/180] dev/shift/bwd_k_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr5e-4_s1.json
+wrote results/raw/dev/flood/drm_k4_lr4e-3_s2.json  pass1(S4,k4)=0.758  train=185s
+[88/180] dev/flood/drm_k4_lr4e-3_s2 ok
+[89/180] dev/shift/bwd_k_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr1e-3_s1.json
+[90/180] dev/shift/bwd_k_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr2e-3_s1.json
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr5e-4_s1.json
+[91/180] dev/shift/bwd_tbptt_k4_lr5e-4_s1 ok
+wrote results/raw/dev/gravity/drm_k4_lr4e-3_s1.json  pass1(S4,k4)=0.722  train=177s
+[92/180] dev/gravity/drm_k4_lr4e-3_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr1e-3_s1.json
+[93/180] dev/shift/bwd_tbptt_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr2e-3_s1.json
+[94/180] dev/shift/bwd_tbptt_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr5e-4_s1.json
+[95/180] dev/shift/drm_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr1e-3_s1.json
+[96/180] dev/shift/drm_k4_lr1e-3_s1 ok
+[97/180] dev/shift/drm_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr2e-3_s1.json
+[98/180] dev/gravity/fwd_k4_lr4e-3_s2 ok
+wrote results/raw/dev/gravity/fwd_k4_lr4e-3_s2.json  pass1(S4,k4)=0.000  train=179s
+skip (up to date) results/raw/dev/shift/fwd_k4_lr5e-4_s2.json
+[99/180] dev/shift/fwd_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr1e-3_s2.json
+[100/180] dev/shift/fwd_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr2e-3_s2.json
+[101/180] dev/shift/fwd_k4_lr2e-3_s2 ok
+[102/180] dev/gravity/bwd_tbptt_k4_lr4e-3_s2 ok
+wrote results/raw/dev/gravity/bwd_tbptt_k4_lr4e-3_s2.json  pass1(S4,k4)=0.000  train=176s
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr5e-4_s2.json
+[103/180] dev/shift/bwd_k_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr1e-3_s2.json
+[104/180] dev/shift/bwd_k_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr2e-3_s2.json
+[105/180] dev/shift/bwd_k_k4_lr2e-3_s2 ok
+[106/180] dev/shift/bwd_tbptt_k4_lr4e-3_s1 ok
+wrote results/raw/dev/shift/bwd_tbptt_k4_lr4e-3_s1.json  pass1(S4,k4)=0.084  train=170s
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr5e-4_s2.json
+[107/180] dev/shift/bwd_tbptt_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr1e-3_s2.json
+[108/180] dev/shift/bwd_tbptt_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr2e-3_s2.json
+[109/180] dev/shift/bwd_tbptt_k4_lr2e-3_s2 ok
+[110/180] dev/gravity/drm_k4_lr4e-3_s2 ok
+wrote results/raw/dev/gravity/drm_k4_lr4e-3_s2.json  pass1(S4,k4)=0.734  train=186s
+skip (up to date) results/raw/dev/shift/drm_k4_lr5e-4_s2.json
+[111/180] dev/shift/drm_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr1e-3_s2.json
+[112/180] dev/shift/drm_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr2e-3_s2.json
+[113/180] dev/shift/drm_k4_lr2e-3_s2 ok
+[114/180] dev/shift/fwd_k4_lr4e-3_s1 ok
+wrote results/raw/dev/shift/fwd_k4_lr4e-3_s1.json  pass1(S4,k4)=0.034  train=185s
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr5e-4_s1.json
+[115/180] dev/symfill/fwd_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr1e-3_s1.json
+[116/180] dev/symfill/fwd_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr2e-3_s1.json
+[117/180] dev/symfill/fwd_k4_lr2e-3_s1 ok
+wrote results/raw/dev/shift/bwd_k_k4_lr4e-3_s1.json  pass1(S4,k4)=0.000  train=184s
+[118/180] dev/shift/bwd_k_k4_lr4e-3_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr5e-4_s1.json
+[119/180] dev/symfill/bwd_k_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr1e-3_s1.json
+[120/180] dev/symfill/bwd_k_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr2e-3_s1.json
+[121/180] dev/symfill/bwd_k_k4_lr2e-3_s1 ok
+[122/180] dev/symfill/bwd_tbptt_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr1e-3_s1.json
+[123/180] dev/symfill/bwd_tbptt_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr2e-3_s1.json
+[124/180] dev/symfill/bwd_tbptt_k4_lr2e-3_s1 ok
+[125/180] dev/symfill/drm_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr5e-4_s1.json
+skip (up to date) results/raw/dev/symfill/drm_k4_lr1e-3_s1.json
+[126/180] dev/symfill/drm_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr2e-3_s1.json
+[127/180] dev/symfill/drm_k4_lr2e-3_s1 ok
+[128/180] dev/symfill/fwd_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr1e-3_s2.json
+[129/180] dev/symfill/fwd_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr2e-3_s2.json
+[130/180] dev/symfill/fwd_k4_lr2e-3_s2 ok
+[131/180] dev/shift/fwd_k4_lr4e-3_s2 ok
+wrote results/raw/dev/shift/fwd_k4_lr4e-3_s2.json  pass1(S4,k4)=0.034  train=182s
+[132/180] dev/symfill/bwd_k_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr1e-3_s2.json
+[133/180] dev/symfill/bwd_k_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr5e-4_s2.json
+[134/180] dev/symfill/bwd_tbptt_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr2e-3_s2.json
+[135/180] dev/symfill/bwd_k_k4_lr2e-3_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr1e-3_s2.json
+[136/180] dev/symfill/bwd_tbptt_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr2e-3_s2.json
+[137/180] dev/symfill/bwd_tbptt_k4_lr2e-3_s2 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr5e-4_s2.json
+[138/180] dev/symfill/drm_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr1e-3_s2.json
+[139/180] dev/symfill/drm_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr2e-3_s2.json
+[140/180] dev/symfill/drm_k4_lr2e-3_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr5e-4_s1.json
+[141/180] dev/colormap/fwd_steps_k4_lr5e-4_s1 ok
+[142/180] dev/shift/drm_k4_lr4e-3_s1 ok
+wrote results/raw/dev/shift/drm_k4_lr4e-3_s1.json  pass1(S4,k4)=0.994  train=188s
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr1e-3_s1.json
+[143/180] dev/colormap/fwd_steps_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr2e-3_s1.json
+[144/180] dev/colormap/fwd_steps_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr5e-4_s2.json
+[145/180] dev/colormap/fwd_steps_k4_lr5e-4_s2 ok
+[146/180] dev/colormap/fwd_steps_k4_lr2e-3_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr2e-3_s2.json
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr1e-3_s2.json
+[147/180] dev/colormap/fwd_steps_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr5e-4_s1.json
+[148/180] dev/flood/fwd_steps_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr1e-3_s1.json
+[149/180] dev/flood/fwd_steps_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr2e-3_s1.json
+[150/180] dev/flood/fwd_steps_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr1e-3_s2.json
+[151/180] dev/flood/fwd_steps_k4_lr1e-3_s2 ok
+[152/180] dev/flood/fwd_steps_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr5e-4_s2.json
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr2e-3_s2.json
+[153/180] dev/flood/fwd_steps_k4_lr2e-3_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr5e-4_s1.json
+[154/180] dev/gravity/fwd_steps_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr1e-3_s1.json
+[155/180] dev/gravity/fwd_steps_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr2e-3_s1.json
+[156/180] dev/gravity/fwd_steps_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr5e-4_s2.json
+[157/180] dev/gravity/fwd_steps_k4_lr5e-4_s2 ok
+[158/180] dev/gravity/fwd_steps_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr1e-3_s2.json
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr2e-3_s2.json
+[159/180] dev/gravity/fwd_steps_k4_lr2e-3_s2 ok
+[160/180] dev/flood/fwd_steps_k4_lr4e-3_s1 ok
+wrote results/raw/dev/flood/fwd_steps_k4_lr4e-3_s1.json  pass1(S4,k4)=0.206  train=42s
+[161/180] dev/flood/fwd_steps_k4_lr4e-3_s2 ok
+wrote results/raw/dev/flood/fwd_steps_k4_lr4e-3_s2.json  pass1(S4,k4)=0.052  train=43s
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr5e-4_s1.json
+[162/180] dev/shift/fwd_steps_k4_lr5e-4_s1 ok
+wrote results/raw/dev/gravity/fwd_steps_k4_lr4e-3_s1.json  pass1(S4,k4)=0.000  train=43s
+[163/180] dev/gravity/fwd_steps_k4_lr4e-3_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr1e-3_s1.json
+[164/180] dev/shift/fwd_steps_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr2e-3_s1.json
+[165/180] dev/shift/fwd_steps_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr5e-4_s2.json
+[166/180] dev/shift/fwd_steps_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr1e-3_s2.json
+[167/180] dev/shift/fwd_steps_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr2e-3_s2.json
+[168/180] dev/shift/fwd_steps_k4_lr2e-3_s2 ok
+[169/180] dev/gravity/fwd_steps_k4_lr4e-3_s2 ok
+wrote results/raw/dev/gravity/fwd_steps_k4_lr4e-3_s2.json  pass1(S4,k4)=0.000  train=43s
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr5e-4_s1.json
+[170/180] dev/symfill/fwd_steps_k4_lr5e-4_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr1e-3_s1.json
+[171/180] dev/symfill/fwd_steps_k4_lr1e-3_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr2e-3_s1.json
+[172/180] dev/symfill/fwd_steps_k4_lr2e-3_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr5e-4_s2.json
+[173/180] dev/symfill/fwd_steps_k4_lr5e-4_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr1e-3_s2.json
+[174/180] dev/symfill/fwd_steps_k4_lr1e-3_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr2e-3_s2.json
+[175/180] dev/symfill/fwd_steps_k4_lr2e-3_s2 ok
+[176/180] dev/shift/fwd_steps_k4_lr4e-3_s1 ok
+wrote results/raw/dev/shift/fwd_steps_k4_lr4e-3_s1.json  pass1(S4,k4)=0.026  train=44s
+wrote results/raw/dev/shift/fwd_steps_k4_lr4e-3_s2.json  pass1(S4,k4)=0.026  train=44s
+[177/180] dev/shift/fwd_steps_k4_lr4e-3_s2 ok
+wrote results/raw/dev/shift/bwd_tbptt_k4_lr4e-3_s2.json  pass1(S4,k4)=0.038  train=165s
+[178/180] dev/shift/bwd_tbptt_k4_lr4e-3_s2 ok
+wrote results/raw/dev/shift/bwd_k_k4_lr4e-3_s2.json  pass1(S4,k4)=0.042  train=176s
+[179/180] dev/shift/bwd_k_k4_lr4e-3_s2 ok
+wrote results/raw/dev/shift/drm_k4_lr4e-3_s2.json  pass1(S4,k4)=0.994  train=174s
+[180/180] dev/shift/drm_k4_lr4e-3_s2 ok
+done; 0 failed
+{
+ "colormap": {
+  "fwd": {
+   "lr": 0.0005,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 1.0
+  },
+  "fwd_steps": {
+   "lr": 0.0005,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 1.0
+  },
+  "bwd_k": {
+   "lr": 0.0005,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 1.0
+  },
+  "bwd_tbptt": {
+   "lr": 0.0005,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 1.0
+  },
+  "drm": {
+   "lr": 0.0005,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 1.0
+  }
+ },
+ "shift": {
+  "fwd": {
+   "lr": 0.002,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.048
+  },
+  "fwd_steps": {
+   "lr": 0.002,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.049
+  },
+  "bwd_k": {
+   "lr": 0.004,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.716
+  },
+  "bwd_tbptt": {
+   "lr": 0.002,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.988
+  },
+  "drm": {
+   "lr": 0.004,
+   "schedule": [
+    4,
+    4
+   ],
+   "dev_pass1": 0.994
+  }
+ },
+ "symfill": {
+  "fwd": {
+   "lr": 0.0005,
+   "schedule": [
+    8,
+    2
+   ],
+   "dev_pass1": 0.004
+  },
+  "fwd_steps": {
+   "lr": 0.001,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.004
+  },
+  "bwd_k": {
+   "lr": 0.002,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.092
+  },
+  "bwd_tbptt": {
+   "lr": 0.001,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.003
+  },
+  "drm": {
+   "lr": 0.002,
+   "schedule": [
+    4,
+    4
+   ],
+   "dev_pass1": 0.005
+  }
+ },
+ "gravity": {
+  "fwd": {
+   "lr": 0.0005,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.001
+  },
+  "fwd_steps": {
+   "lr": 0.001,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.001
+  },
+  "bwd_k": {
+   "lr": 0.004,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.405
+  },
+  "bwd_tbptt": {
+   "lr": 0.004,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.952
+  },
+  "drm": {
+   "lr": 0.004,
+   "schedule": [
+    2,
+    8
+   ],
+   "dev_pass1": 0.746
+  }
+ },
+ "flood": {
+  "fwd": {
+   "lr": 0.004,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.41200000000000003
+  },
+  "fwd_steps": {
+   "lr": 0.004,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.363
+  },
+  "bwd_k": {
+   "lr": 0.004,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.278
+  },
+  "bwd_tbptt": {
+   "lr": 0.002,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.71
+  },
+  "drm": {
+   "lr": 0.004,
+   "schedule": [
+    4,
+    4
+   ],
+   "dev_pass1": 0.748
+  }
+ }
+}
+main: 150 jobs
+wrote results/raw/eval/flood/bwd_k_k4_lr4e-3_s100.json  pass1(S4,k4)=0.238  train=159s
+[1/150] eval/flood/bwd_k_k4_lr4e-3_s100 ok
+[2/150] eval/flood/bwd_tbptt_k4_lr2e-3_s100 ok
+wrote results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s100.json  pass1(S4,k4)=0.053  train=164s
+[3/150] eval/flood/bwd_tbptt_k4_lr2e-3_s101 ok
+wrote results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s101.json  pass1(S4,k4)=0.053  train=163s
+wrote results/raw/eval/flood/fwd_k4_lr4e-3_s100.json  pass1(S4,k4)=0.153  train=169s
+[4/150] eval/flood/fwd_k4_lr4e-3_s100 ok
+wrote results/raw/eval/flood/bwd_k_k4_lr4e-3_s101.json  pass1(S4,k4)=0.006  train=171s
+[5/150] eval/flood/bwd_k_k4_lr4e-3_s101 ok
+wrote results/raw/eval/flood/fwd_k4_lr4e-3_s101.json  pass1(S4,k4)=0.308  train=174s
+[6/150] eval/flood/fwd_k4_lr4e-3_s101 ok
+[7/150] eval/flood/drm_k4_lr4e-3_s100 ok
+wrote results/raw/eval/flood/drm_k4_lr4e-3_s100.json  pass1(S4,k4)=0.749  train=175s
+[8/150] eval/flood/fwd_k4_lr4e-3_s102 ok
+wrote results/raw/eval/flood/fwd_k4_lr4e-3_s102.json  pass1(S4,k4)=0.266  train=165s
+[9/150] eval/flood/bwd_k_k4_lr4e-3_s102 ok
+wrote results/raw/eval/flood/bwd_k_k4_lr4e-3_s102.json  pass1(S4,k4)=0.087  train=167s
+[10/150] eval/flood/bwd_tbptt_k4_lr2e-3_s102 ok
+wrote results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s102.json  pass1(S4,k4)=0.047  train=159s
+[11/150] eval/flood/drm_k4_lr4e-3_s101 ok
+wrote results/raw/eval/flood/drm_k4_lr4e-3_s101.json  pass1(S4,k4)=0.764  train=172s
+[12/150] eval/flood/fwd_k4_lr4e-3_s103 ok
+wrote results/raw/eval/flood/fwd_k4_lr4e-3_s103.json  pass1(S4,k4)=0.199  train=165s
+[13/150] eval/flood/drm_k4_lr4e-3_s102 ok
+wrote results/raw/eval/flood/drm_k4_lr4e-3_s102.json  pass1(S4,k4)=0.737  train=168s
+wrote results/raw/eval/flood/bwd_k_k4_lr4e-3_s103.json  pass1(S4,k4)=0.003  train=172s
+[14/150] eval/flood/bwd_k_k4_lr4e-3_s103 ok
+[15/150] eval/flood/bwd_tbptt_k4_lr2e-3_s103 ok
+wrote results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s103.json  pass1(S4,k4)=0.121  train=159s
+[16/150] eval/flood/fwd_k4_lr4e-3_s104 ok
+wrote results/raw/eval/flood/fwd_k4_lr4e-3_s104.json  pass1(S4,k4)=0.159  train=164s
+[17/150] eval/flood/drm_k4_lr4e-3_s103 ok
+wrote results/raw/eval/flood/drm_k4_lr4e-3_s103.json  pass1(S4,k4)=0.765  train=169s
+[18/150] eval/flood/bwd_tbptt_k4_lr2e-3_s104 ok
+wrote results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s104.json  pass1(S4,k4)=0.105  train=162s
+[19/150] eval/flood/bwd_k_k4_lr4e-3_s104 ok
+wrote results/raw/eval/flood/bwd_k_k4_lr4e-3_s104.json  pass1(S4,k4)=0.125  train=172s
+[20/150] eval/flood/fwd_k4_lr4e-3_s105 ok
+wrote results/raw/eval/flood/fwd_k4_lr4e-3_s105.json  pass1(S4,k4)=0.330  train=167s
+[21/150] eval/flood/drm_k4_lr4e-3_s104 ok
+wrote results/raw/eval/flood/drm_k4_lr4e-3_s104.json  pass1(S4,k4)=0.760  train=174s
+[22/150] eval/flood/bwd_tbptt_k4_lr2e-3_s105 ok
+wrote results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s105.json  pass1(S4,k4)=0.190  train=163s
+[23/150] eval/flood/bwd_k_k4_lr4e-3_s105 ok
+wrote results/raw/eval/flood/bwd_k_k4_lr4e-3_s105.json  pass1(S4,k4)=0.205  train=177s
+wrote results/raw/eval/flood/drm_k4_lr4e-3_s105.json  pass1(S4,k4)=0.759  train=174s
+[24/150] eval/flood/drm_k4_lr4e-3_s105 ok
+wrote results/raw/eval/flood/fwd_k4_lr4e-3_s106.json  pass1(S4,k4)=0.218  train=169s
+[25/150] eval/flood/fwd_k4_lr4e-3_s106 ok
+wrote results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s106.json  pass1(S4,k4)=0.063  train=166s
+wrote results/raw/eval/flood/bwd_k_k4_lr4e-3_s106.json  pass1(S4,k4)=0.060  train=178s
+[26/150] eval/flood/bwd_tbptt_k4_lr2e-3_s106 ok
+[27/150] eval/flood/bwd_k_k4_lr4e-3_s106 ok
+[28/150] eval/flood/drm_k4_lr4e-3_s106 ok
+wrote results/raw/eval/flood/drm_k4_lr4e-3_s106.json  pass1(S4,k4)=0.780  train=174s
+[29/150] eval/flood/fwd_k4_lr4e-3_s107 ok
+wrote results/raw/eval/flood/fwd_k4_lr4e-3_s107.json  pass1(S4,k4)=0.244  train=170s
+wrote results/raw/eval/flood/bwd_k_k4_lr4e-3_s107.json  pass1(S4,k4)=0.000  train=173s
+[30/150] eval/flood/bwd_k_k4_lr4e-3_s107 ok
+[31/150] eval/flood/bwd_tbptt_k4_lr2e-3_s107 ok
+wrote results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s107.json  pass1(S4,k4)=0.282  train=168s
+[32/150] eval/flood/drm_k4_lr4e-3_s107 ok
+wrote results/raw/eval/flood/drm_k4_lr4e-3_s107.json  pass1(S4,k4)=0.751  train=171s
+[33/150] eval/flood/fwd_k4_lr4e-3_s108 ok
+wrote results/raw/eval/flood/fwd_k4_lr4e-3_s108.json  pass1(S4,k4)=0.001  train=172s
+wrote results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s108.json  pass1(S4,k4)=0.071  train=164s
+[34/150] eval/flood/bwd_tbptt_k4_lr2e-3_s108 ok
+[35/150] eval/flood/bwd_k_k4_lr4e-3_s108 ok
+wrote results/raw/eval/flood/bwd_k_k4_lr4e-3_s108.json  pass1(S4,k4)=0.305  train=176s
+wrote results/raw/eval/flood/drm_k4_lr4e-3_s108.json  pass1(S4,k4)=0.714  train=186s
+[36/150] eval/flood/drm_k4_lr4e-3_s108 ok
+wrote results/raw/eval/flood/fwd_k4_lr4e-3_s109.json  pass1(S4,k4)=0.025  train=179s
+[37/150] eval/flood/fwd_k4_lr4e-3_s109 ok
+[38/150] eval/flood/bwd_tbptt_k4_lr2e-3_s109 ok
+wrote results/raw/eval/flood/bwd_tbptt_k4_lr2e-3_s109.json  pass1(S4,k4)=0.019  train=170s
+[39/150] eval/flood/bwd_k_k4_lr4e-3_s109 ok
+wrote results/raw/eval/flood/bwd_k_k4_lr4e-3_s109.json  pass1(S4,k4)=0.007  train=188s
+wrote results/raw/eval/flood/drm_k4_lr4e-3_s109.json  pass1(S4,k4)=0.787  train=181s
+[40/150] eval/flood/drm_k4_lr4e-3_s109 ok
+[41/150] eval/gravity/fwd_k4_lr5e-4_s100 ok
+wrote results/raw/eval/gravity/fwd_k4_lr5e-4_s100.json  pass1(S4,k4)=0.000  train=180s
+[42/150] eval/gravity/bwd_k_k4_lr4e-3_s100 ok
+wrote results/raw/eval/gravity/bwd_k_k4_lr4e-3_s100.json  pass1(S4,k4)=0.000  train=188s
+wrote results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s100.json  pass1(S4,k4)=0.000  train=158s
+[43/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s100 ok
+wrote results/raw/eval/gravity/fwd_k4_lr5e-4_s101.json  pass1(S4,k4)=0.000  train=167s
+[44/150] eval/gravity/fwd_k4_lr5e-4_s101 ok
+wrote results/raw/eval/gravity/drm_k4_lr4e-3_s100.json  pass1(S4,k4)=0.736  train=175s
+[45/150] eval/gravity/drm_k4_lr4e-3_s100 ok
+[46/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s101 ok
+wrote results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s101.json  pass1(S4,k4)=0.000  train=162s
+[47/150] eval/gravity/bwd_k_k4_lr4e-3_s101 ok
+wrote results/raw/eval/gravity/bwd_k_k4_lr4e-3_s101.json  pass1(S4,k4)=0.000  train=179s
+[48/150] eval/gravity/drm_k4_lr4e-3_s101 ok
+wrote results/raw/eval/gravity/drm_k4_lr4e-3_s101.json  pass1(S4,k4)=0.735  train=175s
+[49/150] eval/gravity/fwd_k4_lr5e-4_s102 ok
+wrote results/raw/eval/gravity/fwd_k4_lr5e-4_s102.json  pass1(S4,k4)=0.000  train=168s
+[50/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s102 ok
+wrote results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s102.json  pass1(S4,k4)=0.000  train=190s
+wrote results/raw/eval/gravity/bwd_k_k4_lr4e-3_s102.json  pass1(S4,k4)=0.000  train=216s
+[51/150] eval/gravity/bwd_k_k4_lr4e-3_s102 ok
+[52/150] eval/gravity/drm_k4_lr4e-3_s102 ok
+wrote results/raw/eval/gravity/drm_k4_lr4e-3_s102.json  pass1(S4,k4)=0.728  train=218s
+[53/150] eval/gravity/fwd_k4_lr5e-4_s103 ok
+wrote results/raw/eval/gravity/fwd_k4_lr5e-4_s103.json  pass1(S4,k4)=0.000  train=207s
+[54/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s103 ok
+wrote results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s103.json  pass1(S4,k4)=0.000  train=193s
+[55/150] eval/gravity/bwd_k_k4_lr4e-3_s103 ok
+wrote results/raw/eval/gravity/bwd_k_k4_lr4e-3_s103.json  pass1(S4,k4)=0.000  train=220s
+[56/150] eval/gravity/drm_k4_lr4e-3_s103 ok
+wrote results/raw/eval/gravity/drm_k4_lr4e-3_s103.json  pass1(S4,k4)=0.726  train=216s
+[57/150] eval/gravity/fwd_k4_lr5e-4_s104 ok
+wrote results/raw/eval/gravity/fwd_k4_lr5e-4_s104.json  pass1(S4,k4)=0.000  train=406s
+[58/150] eval/gravity/bwd_k_k4_lr4e-3_s104 ok
+wrote results/raw/eval/gravity/bwd_k_k4_lr4e-3_s104.json  pass1(S4,k4)=0.000  train=420s
+[59/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s104 ok
+wrote results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s104.json  pass1(S4,k4)=0.000  train=393s
+[60/150] eval/gravity/fwd_k4_lr5e-4_s105 ok
+wrote results/raw/eval/gravity/fwd_k4_lr5e-4_s105.json  pass1(S4,k4)=0.000  train=404s
+[61/150] eval/gravity/drm_k4_lr4e-3_s104 ok
+wrote results/raw/eval/gravity/drm_k4_lr4e-3_s104.json  pass1(S4,k4)=0.727  train=416s
+[62/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s105 ok
+wrote results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s105.json  pass1(S4,k4)=0.000  train=399s
+[63/150] eval/gravity/bwd_k_k4_lr4e-3_s105 ok
+wrote results/raw/eval/gravity/bwd_k_k4_lr4e-3_s105.json  pass1(S4,k4)=0.000  train=418s
+[64/150] eval/gravity/drm_k4_lr4e-3_s105 ok
+wrote results/raw/eval/gravity/drm_k4_lr4e-3_s105.json  pass1(S4,k4)=0.734  train=201s
+wrote results/raw/eval/gravity/fwd_k4_lr5e-4_s106.json  pass1(S4,k4)=0.000  train=189s
+[65/150] eval/gravity/fwd_k4_lr5e-4_s106 ok
+[66/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s106 ok
+wrote results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s106.json  pass1(S4,k4)=0.000  train=178s
+[67/150] eval/gravity/bwd_k_k4_lr4e-3_s106 ok
+wrote results/raw/eval/gravity/bwd_k_k4_lr4e-3_s106.json  pass1(S4,k4)=0.000  train=201s
+[68/150] eval/gravity/fwd_k4_lr5e-4_s107 ok
+wrote results/raw/eval/gravity/fwd_k4_lr5e-4_s107.json  pass1(S4,k4)=0.000  train=185s
+[69/150] eval/gravity/drm_k4_lr4e-3_s106 ok
+wrote results/raw/eval/gravity/drm_k4_lr4e-3_s106.json  pass1(S4,k4)=0.723  train=211s
+[70/150] eval/gravity/bwd_k_k4_lr4e-3_s107 ok
+wrote results/raw/eval/gravity/bwd_k_k4_lr4e-3_s107.json  pass1(S4,k4)=0.000  train=221s
+wrote results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s107.json  pass1(S4,k4)=0.000  train=347s
+[71/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s107 ok
+[72/150] eval/gravity/drm_k4_lr4e-3_s107 ok
+wrote results/raw/eval/gravity/drm_k4_lr4e-3_s107.json  pass1(S4,k4)=0.730  train=362s
+[73/150] eval/gravity/fwd_k4_lr5e-4_s108 ok
+wrote results/raw/eval/gravity/fwd_k4_lr5e-4_s108.json  pass1(S4,k4)=0.000  train=350s
+[74/150] eval/gravity/bwd_k_k4_lr4e-3_s108 ok
+wrote results/raw/eval/gravity/bwd_k_k4_lr4e-3_s108.json  pass1(S4,k4)=0.000  train=365s
+[75/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s108 ok
+wrote results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s108.json  pass1(S4,k4)=0.000  train=301s
+[76/150] eval/gravity/drm_k4_lr4e-3_s108 ok
+wrote results/raw/eval/gravity/drm_k4_lr4e-3_s108.json  pass1(S4,k4)=0.730  train=314s
+wrote results/raw/eval/gravity/fwd_k4_lr5e-4_s109.json  pass1(S4,k4)=0.000  train=186s
+[77/150] eval/gravity/fwd_k4_lr5e-4_s109 ok
+wrote results/raw/eval/gravity/bwd_k_k4_lr4e-3_s109.json  pass1(S4,k4)=0.000  train=171s
+[78/150] eval/gravity/bwd_k_k4_lr4e-3_s109 ok
+[79/150] eval/gravity/bwd_tbptt_k4_lr4e-3_s109 ok
+wrote results/raw/eval/gravity/bwd_tbptt_k4_lr4e-3_s109.json  pass1(S4,k4)=0.000  train=153s
+[80/150] eval/gravity/drm_k4_lr4e-3_s109 ok
+wrote results/raw/eval/gravity/drm_k4_lr4e-3_s109.json  pass1(S4,k4)=0.729  train=172s
+[81/150] eval/shift/fwd_k4_lr2e-3_s100 ok
+wrote results/raw/eval/shift/fwd_k4_lr2e-3_s100.json  pass1(S4,k4)=0.005  train=162s
+[82/150] eval/shift/bwd_k_k4_lr4e-3_s100 ok
+wrote results/raw/eval/shift/bwd_k_k4_lr4e-3_s100.json  pass1(S4,k4)=0.000  train=167s
+[83/150] eval/shift/bwd_tbptt_k4_lr2e-3_s100 ok
+wrote results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s100.json  pass1(S4,k4)=0.000  train=150s
+[84/150] eval/shift/drm_k4_lr4e-3_s100 ok
+wrote results/raw/eval/shift/drm_k4_lr4e-3_s100.json  pass1(S4,k4)=0.991  train=165s
+[85/150] eval/shift/fwd_k4_lr2e-3_s101 ok
+wrote results/raw/eval/shift/fwd_k4_lr2e-3_s101.json  pass1(S4,k4)=0.004  train=160s
+[86/150] eval/shift/bwd_k_k4_lr4e-3_s101 ok
+wrote results/raw/eval/shift/bwd_k_k4_lr4e-3_s101.json  pass1(S4,k4)=0.059  train=162s
+wrote results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s101.json  pass1(S4,k4)=0.000  train=150s
+[87/150] eval/shift/bwd_tbptt_k4_lr2e-3_s101 ok
+[88/150] eval/shift/drm_k4_lr4e-3_s101 ok
+wrote results/raw/eval/shift/drm_k4_lr4e-3_s101.json  pass1(S4,k4)=0.992  train=163s
+[89/150] eval/shift/fwd_k4_lr2e-3_s102 ok
+wrote results/raw/eval/shift/fwd_k4_lr2e-3_s102.json  pass1(S4,k4)=0.000  train=159s
+[90/150] eval/shift/bwd_k_k4_lr4e-3_s102 ok
+wrote results/raw/eval/shift/bwd_k_k4_lr4e-3_s102.json  pass1(S4,k4)=0.013  train=161s
+[91/150] eval/shift/bwd_tbptt_k4_lr2e-3_s102 ok
+wrote results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s102.json  pass1(S4,k4)=0.000  train=145s
+wrote results/raw/eval/shift/drm_k4_lr4e-3_s102.json  pass1(S4,k4)=0.995  train=165s
+[92/150] eval/shift/drm_k4_lr4e-3_s102 ok
+[93/150] eval/shift/fwd_k4_lr2e-3_s103 ok
+wrote results/raw/eval/shift/fwd_k4_lr2e-3_s103.json  pass1(S4,k4)=0.039  train=165s
+[94/150] eval/shift/bwd_k_k4_lr4e-3_s103 ok
+wrote results/raw/eval/shift/bwd_k_k4_lr4e-3_s103.json  pass1(S4,k4)=0.040  train=169s
+[95/150] eval/shift/bwd_tbptt_k4_lr2e-3_s103 ok
+wrote results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s103.json  pass1(S4,k4)=0.000  train=153s
+[96/150] eval/shift/drm_k4_lr4e-3_s103 ok
+wrote results/raw/eval/shift/drm_k4_lr4e-3_s103.json  pass1(S4,k4)=0.994  train=171s
+[97/150] eval/shift/fwd_k4_lr2e-3_s104 ok
+wrote results/raw/eval/shift/fwd_k4_lr2e-3_s104.json  pass1(S4,k4)=0.030  train=167s
+[98/150] eval/shift/bwd_k_k4_lr4e-3_s104 ok
+wrote results/raw/eval/shift/bwd_k_k4_lr4e-3_s104.json  pass1(S4,k4)=0.075  train=167s
+wrote results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s104.json  pass1(S4,k4)=0.000  train=293s
+[99/150] eval/shift/bwd_tbptt_k4_lr2e-3_s104 ok
+[100/150] eval/shift/drm_k4_lr4e-3_s104 ok
+wrote results/raw/eval/shift/drm_k4_lr4e-3_s104.json  pass1(S4,k4)=0.994  train=310s
+[101/150] eval/shift/fwd_k4_lr2e-3_s105 ok
+wrote results/raw/eval/shift/fwd_k4_lr2e-3_s105.json  pass1(S4,k4)=0.038  train=304s
+[102/150] eval/shift/bwd_k_k4_lr4e-3_s105 ok
+wrote results/raw/eval/shift/bwd_k_k4_lr4e-3_s105.json  pass1(S4,k4)=0.066  train=310s
+[103/150] eval/shift/bwd_tbptt_k4_lr2e-3_s105 ok
+wrote results/raw/eval/shift/bwd_tbptt_k4_lr2e-3_s105.json  pass1(S4,k4)=0.003  train=295s
+wrote results/raw/eval/shift/drm_k4_lr4e-3_s105.json  pass1(S4,k4)=0.994  train=173s
+[104/150] eval/shift/drm_k4_lr4e-3_s105 ok
+[105/150] eval/shift/fwd_k4_lr2e-3_s106 ok
+wrote results/raw/eval/shift/fwd_k4_lr2e-3_s106.json  pass1(S4,k4)=0.018  train=159s

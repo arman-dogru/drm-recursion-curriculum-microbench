@@ -1,0 +1,60 @@
+control (unmutated) pytest exit = 0
+T1   KILLED         colormap target is identity
+T2   KILLED         shift goes the wrong way
+T3   KILLED         occluder may hide both mirror cells (unrecoverable target)
+T4   KILLED         gravity reverses order
+T5   KILLED         flood leaks diagonally
+T6   KILLED         eval split not de-duplicated against train/dev
+T7   KILLED         dev split not de-duplicated against train
+T8   KILLED         flood source cell not marked
+M1   KILLED         attention radius off by one
+M2   KILLED         local attention silently global
+M3   KILLED         input not injected at each Phi step
+M4   KILLED         label and input embeddings shared
+C1   KILLED         linear instead of cosine schedule (tensor path)
+C2   KILLED         masks the complement
+C3   KILLED         corruption writes colour 0 instead of MASK
+R1   KILLED         DRM starts from full mask (= bwd_k)
+R2   KILLED         TBPTT starts from corrupted target
+R3   KILLED         no stop-gradient between TBPTT windows
+R4   KILLED         one-step denoiser unrolled k steps
+R5   KILLED         TBPTT has a single window
+R6   KILLED         loss target is the input grid
+R7   KILLED         init ignores seed
+R8   KILLED         no warmup
+R9   KILLED         TBPTT restarts every window
+G1   KILLED         fwd_steps gets FLOP-matched steps
+G2   KILLED         DRM budget miscounted
+G3   KILLED         eval seeds overlap dev seeds
+I1   KILLED         remask schedule off by one step
+I2   KILLED         inference ignores its own predictions
+I3   KILLED         inference starts from the answer when traced
+I4   NOT_APPLICABLE inner steps ignored
+O1   KILLED         always evaluates on dev
+O2   KILLED         learning curve peeks at eval
+O3   KILLED         stale code not recomputed
+O4   KILLED         per-example bits truncated
+O5   KILLED         --force ignored
+J1   KILLED         main grid on dev split
+J2   KILLED         tuned lr ignored
+J3   KILLED         main grid on dev seeds
+J4   KILLED         k-sweep not FLOP-matched
+U1   KILLED         tuning picks off-menu (more test compute) schedules
+U2   KILLED         tuning minimises
+U3   KILLED         tuning accepts mixed code
+U4   KILLED         tuning accepts missing runs
+A1   KILLED         primary ignores dev-chosen schedule
+A2   KILLED         pooled = first task
+A3   KILLED         difference sign flipped
+A4   SURVIVED       comparison not paired by seed
+A5   KILLED         no multiplicity correction
+A6   KILLED         extra files accepted
+A7   KILLED         dev-split run accepted in eval grid
+A8   KILLED         k=4 sweep point uses all seeds
+A9   KILLED         incomplete grid accepted
+A10  KILLED         --allow-partial overwrites results/
+A11  KILLED         stale config accepted
+S1   KILLED         one-sided p
+S2   KILLED         bootstrap does not resample
+S3   KILLED         Holm not monotone
+{"KILLED": 56, "SURVIVED": 1, "ERROR": 0, "NOT_APPLICABLE": 1}

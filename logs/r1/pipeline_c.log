@@ -1,0 +1,1103 @@
+2026-10-28T17:57:31-04:00 stage tune
+2026-10-28T17:57:31-04:00 tune: 400 jobs
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p004_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [1/400] dev/colormap/fwd_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p016_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [2/400] dev/colormap/fwd_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p032_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [3/400] dev/colormap/fwd_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p008_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [4/400] dev/colormap/fwd_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p001_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [5/400] dev/colormap/fwd_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p0005_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [6/400] dev/colormap/fwd_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p002_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [7/400] dev/colormap/fwd_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p001_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [8/400] dev/colormap/bwd_k_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p004_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [9/400] dev/colormap/bwd_k_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p0005_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [10/400] dev/colormap/bwd_k_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p016_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [11/400] dev/colormap/bwd_k_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p002_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [12/400] dev/colormap/bwd_k_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p008_s1.json
+2026-10-28T17:57:32-04:00 load=0.6 [13/400] dev/colormap/bwd_k_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p0005_s1.json
+2026-10-28T17:57:33-04:00 load=0.6 [14/400] dev/colormap/bwd_tbptt_k4_lr0p0005_s1 ok
+2026-10-28T17:57:33-04:00 load=0.6 [15/400] dev/colormap/bwd_k_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p032_s1.json
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p002_s1.json
+2026-10-28T17:57:33-04:00 load=0.6 [16/400] dev/colormap/bwd_tbptt_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p001_s1.json
+2026-10-28T17:57:33-04:00 load=0.6 [17/400] dev/colormap/bwd_tbptt_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p004_s1.json
+2026-10-28T17:57:33-04:00 load=0.6 [18/400] dev/colormap/bwd_tbptt_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p016_s1.json
+2026-10-28T17:57:34-04:00 load=0.6 [19/400] dev/colormap/bwd_tbptt_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p008_s1.json
+2026-10-28T17:57:34-04:00 load=0.6 [20/400] dev/colormap/bwd_tbptt_k4_lr0p008_s1 ok
+2026-10-28T17:57:34-04:00 load=0.6 [21/400] dev/colormap/bwd_tbptt_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p032_s1.json
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p0005_s1.json
+2026-10-28T17:57:34-04:00 load=0.6 [22/400] dev/colormap/drm_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p001_s1.json
+2026-10-28T17:57:34-04:00 load=0.6 [23/400] dev/colormap/drm_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p002_s1.json
+2026-10-28T17:57:34-04:00 load=0.6 [24/400] dev/colormap/drm_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p004_s1.json
+2026-10-28T17:57:34-04:00 load=0.6 [25/400] dev/colormap/drm_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p008_s1.json
+2026-10-28T17:57:35-04:00 load=0.6 [26/400] dev/colormap/drm_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p032_s1.json
+2026-10-28T17:57:35-04:00 load=1.1 [27/400] dev/colormap/drm_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p016_s1.json
+2026-10-28T17:57:35-04:00 load=1.1 [28/400] dev/colormap/drm_k4_lr0p016_s1 ok
+2026-10-28T17:57:35-04:00 load=1.1 [29/400] dev/colormap/fwd_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p0005_s2.json
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p001_s2.json
+2026-10-28T17:57:36-04:00 load=1.1 [30/400] dev/colormap/fwd_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p002_s2.json
+2026-10-28T17:57:36-04:00 load=1.1 [31/400] dev/colormap/fwd_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p004_s2.json
+2026-10-28T17:57:36-04:00 load=1.1 [32/400] dev/colormap/fwd_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p008_s2.json
+2026-10-28T17:57:37-04:00 load=1.1 [33/400] dev/colormap/fwd_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p016_s2.json
+2026-10-28T17:57:37-04:00 load=1.1 [34/400] dev/colormap/fwd_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_k4_lr0p032_s2.json
+2026-10-28T17:57:37-04:00 load=1.1 [35/400] dev/colormap/fwd_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p0005_s2.json
+2026-10-28T17:57:38-04:00 load=1.1 [36/400] dev/colormap/bwd_k_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p001_s2.json
+2026-10-28T17:57:38-04:00 load=1.1 [37/400] dev/colormap/bwd_k_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p002_s2.json
+2026-10-28T17:57:38-04:00 load=1.1 [38/400] dev/colormap/bwd_k_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p004_s2.json
+2026-10-28T17:57:38-04:00 load=1.1 [39/400] dev/colormap/bwd_k_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p008_s2.json
+2026-10-28T17:57:39-04:00 load=1.1 [40/400] dev/colormap/bwd_k_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p016_s2.json
+2026-10-28T17:57:39-04:00 load=1.1 [41/400] dev/colormap/bwd_k_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_k_k4_lr0p032_s2.json
+2026-10-28T17:57:40-04:00 load=1.1 [42/400] dev/colormap/bwd_k_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p0005_s2.json
+2026-10-28T17:57:41-04:00 load=1.6 [43/400] dev/colormap/bwd_tbptt_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p001_s2.json
+2026-10-28T17:57:41-04:00 load=1.6 [44/400] dev/colormap/bwd_tbptt_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p002_s2.json
+2026-10-28T17:57:42-04:00 load=1.6 [45/400] dev/colormap/bwd_tbptt_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p004_s2.json
+2026-10-28T17:57:43-04:00 load=1.6 [46/400] dev/colormap/bwd_tbptt_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p008_s2.json
+2026-10-28T17:57:44-04:00 load=1.6 [47/400] dev/colormap/bwd_tbptt_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p016_s2.json
+2026-10-28T17:57:44-04:00 load=1.6 [48/400] dev/colormap/bwd_tbptt_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/colormap/bwd_tbptt_k4_lr0p032_s2.json
+2026-10-28T17:57:45-04:00 load=2.1 [49/400] dev/colormap/bwd_tbptt_k4_lr0p032_s2 ok
+wrote results/raw/dev/colormap/bwd_tbptt_k4_lr0p064_s1.json  pass1(S4,k4)=1.000  train=143s
+2026-10-28T18:00:31-04:00 load=7.5 [50/400] dev/colormap/bwd_tbptt_k4_lr0p064_s1 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p0005_s2.json
+2026-10-28T18:00:32-04:00 load=7.5 [51/400] dev/colormap/drm_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p001_s2.json
+2026-10-28T18:00:33-04:00 load=7.5 [52/400] dev/colormap/drm_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p002_s2.json
+2026-10-28T18:00:34-04:00 load=7.5 [53/400] dev/colormap/drm_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p004_s2.json
+2026-10-28T18:00:35-04:00 load=7.5 [54/400] dev/colormap/drm_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p008_s2.json
+2026-10-28T18:00:36-04:00 load=7.5 [55/400] dev/colormap/drm_k4_lr0p008_s2 ok
+2026-10-28T18:00:36-04:00 load=7.5 [56/400] dev/colormap/bwd_k_k4_lr0p064_s1 ok
+wrote results/raw/dev/colormap/bwd_k_k4_lr0p064_s1.json  pass1(S4,k4)=1.000  train=147s
+2026-10-28T18:00:36-04:00 load=7.5 [57/400] dev/colormap/fwd_k4_lr0p064_s1 ok
+wrote results/raw/dev/colormap/fwd_k4_lr0p064_s1.json  pass1(S4,k4)=0.790  train=149s
+2026-10-28T18:00:37-04:00 load=7.5 [58/400] dev/colormap/drm_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p016_s2.json
+skip (up to date) results/raw/dev/colormap/drm_k4_lr0p032_s2.json
+2026-10-28T18:00:37-04:00 load=7.5 [59/400] dev/colormap/drm_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p0005_s1.json
+2026-10-28T18:00:37-04:00 load=7.5 [60/400] dev/flood/fwd_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p001_s1.json
+2026-10-28T18:00:38-04:00 load=7.5 [61/400] dev/flood/fwd_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p002_s1.json
+2026-10-28T18:00:38-04:00 load=7.5 [62/400] dev/flood/fwd_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p004_s1.json
+2026-10-28T18:00:38-04:00 load=7.5 [63/400] dev/flood/fwd_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p008_s1.json
+2026-10-28T18:00:39-04:00 load=7.5 [64/400] dev/flood/fwd_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p016_s1.json
+2026-10-28T18:00:40-04:00 load=7.5 [65/400] dev/flood/fwd_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p032_s1.json
+2026-10-28T18:00:40-04:00 load=7.6 [66/400] dev/flood/fwd_k4_lr0p032_s1 ok
+2026-10-28T18:00:40-04:00 load=7.6 [67/400] dev/colormap/drm_k4_lr0p064_s1 ok
+wrote results/raw/dev/colormap/drm_k4_lr0p064_s1.json  pass1(S4,k4)=1.000  train=148s
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p0005_s1.json
+2026-10-28T18:00:41-04:00 load=7.6 [68/400] dev/flood/bwd_k_k4_lr0p0005_s1 ok
+2026-10-28T18:00:41-04:00 load=7.6 [69/400] dev/colormap/fwd_k4_lr0p064_s2 ok
+wrote results/raw/dev/colormap/fwd_k4_lr0p064_s2.json  pass1(S4,k4)=1.000  train=147s
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p001_s1.json
+2026-10-28T18:00:41-04:00 load=7.6 [70/400] dev/flood/bwd_k_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p002_s1.json
+2026-10-28T18:00:42-04:00 load=7.6 [71/400] dev/flood/bwd_k_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p004_s1.json
+2026-10-28T18:00:42-04:00 load=7.6 [72/400] dev/flood/bwd_k_k4_lr0p004_s1 ok
+2026-10-28T18:00:42-04:00 load=7.6 [73/400] dev/flood/bwd_k_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p008_s1.json
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p016_s1.json
+2026-10-28T18:00:42-04:00 load=7.6 [74/400] dev/flood/bwd_k_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p032_s1.json
+2026-10-28T18:00:43-04:00 load=7.6 [75/400] dev/flood/bwd_k_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p0005_s1.json
+2026-10-28T18:00:43-04:00 load=7.6 [76/400] dev/flood/bwd_tbptt_k4_lr0p0005_s1 ok
+2026-10-28T18:00:43-04:00 load=7.6 [77/400] dev/colormap/bwd_tbptt_k4_lr0p064_s2 ok
+wrote results/raw/dev/colormap/bwd_tbptt_k4_lr0p064_s2.json  pass1(S4,k4)=1.000  train=142s
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p001_s1.json
+2026-10-28T18:00:43-04:00 load=7.6 [78/400] dev/flood/bwd_tbptt_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p002_s1.json
+2026-10-28T18:00:44-04:00 load=7.6 [79/400] dev/flood/bwd_tbptt_k4_lr0p002_s1 ok
+2026-10-28T18:00:44-04:00 load=7.6 [80/400] dev/flood/bwd_tbptt_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p004_s1.json
+2026-10-28T18:00:44-04:00 load=7.6 [81/400] dev/flood/bwd_tbptt_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p008_s1.json
+2026-10-28T18:00:44-04:00 load=7.6 [82/400] dev/colormap/bwd_k_k4_lr0p064_s2 ok
+wrote results/raw/dev/colormap/bwd_k_k4_lr0p064_s2.json  pass1(S4,k4)=1.000  train=150s
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p016_s1.json
+2026-10-28T18:00:45-04:00 load=7.6 [83/400] dev/flood/bwd_tbptt_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p032_s1.json
+2026-10-28T18:00:45-04:00 load=7.6 [84/400] dev/flood/bwd_tbptt_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p0005_s1.json
+2026-10-28T18:00:45-04:00 load=7.6 [85/400] dev/flood/drm_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p001_s1.json
+2026-10-28T18:00:45-04:00 load=7.6 [86/400] dev/flood/drm_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p002_s1.json
+2026-10-28T18:00:46-04:00 load=7.6 [87/400] dev/flood/drm_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p004_s1.json
+2026-10-28T18:00:46-04:00 load=7.6 [88/400] dev/flood/drm_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p008_s1.json
+2026-10-28T18:00:46-04:00 load=7.6 [89/400] dev/flood/drm_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p016_s1.json
+2026-10-28T18:00:46-04:00 load=7.6 [90/400] dev/flood/drm_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p032_s1.json
+2026-10-28T18:00:47-04:00 load=7.6 [91/400] dev/flood/drm_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p0005_s2.json
+2026-10-28T18:00:47-04:00 load=7.6 [92/400] dev/flood/fwd_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p001_s2.json
+2026-10-28T18:00:47-04:00 load=7.6 [93/400] dev/flood/fwd_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p002_s2.json
+2026-10-28T18:00:48-04:00 load=7.6 [94/400] dev/flood/fwd_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p004_s2.json
+2026-10-28T18:00:48-04:00 load=7.6 [95/400] dev/flood/fwd_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p008_s2.json
+2026-10-28T18:00:49-04:00 load=7.6 [96/400] dev/flood/fwd_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p016_s2.json
+2026-10-28T18:00:49-04:00 load=7.6 [97/400] dev/flood/fwd_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_k4_lr0p032_s2.json
+2026-10-28T18:00:50-04:00 load=7.6 [98/400] dev/flood/fwd_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p0005_s2.json
+2026-10-28T18:00:50-04:00 load=8.2 [99/400] dev/flood/bwd_k_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p001_s2.json
+2026-10-28T18:00:51-04:00 load=8.2 [100/400] dev/flood/bwd_k_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p002_s2.json
+2026-10-28T18:00:52-04:00 load=8.2 [101/400] dev/flood/bwd_k_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p004_s2.json
+2026-10-28T18:00:53-04:00 load=8.2 [102/400] dev/flood/bwd_k_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p008_s2.json
+2026-10-28T18:00:54-04:00 load=8.2 [103/400] dev/flood/bwd_k_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p016_s2.json
+2026-10-28T18:00:55-04:00 load=8.2 [104/400] dev/flood/bwd_k_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_k_k4_lr0p032_s2.json
+2026-10-28T18:00:55-04:00 load=8.8 [105/400] dev/flood/bwd_k_k4_lr0p032_s2 ok
+wrote results/raw/dev/flood/bwd_tbptt_k4_lr0p064_s1.json  pass1(S4,k4)=0.182  train=140s
+2026-10-28T18:03:39-04:00 load=7.4 [106/400] dev/flood/bwd_tbptt_k4_lr0p064_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p0005_s2.json
+2026-10-28T18:03:39-04:00 load=7.4 [107/400] dev/flood/bwd_tbptt_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p001_s2.json
+2026-10-28T18:03:40-04:00 load=7.3 [108/400] dev/flood/bwd_tbptt_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p002_s2.json
+2026-10-28T18:03:41-04:00 load=7.3 [109/400] dev/flood/bwd_tbptt_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p004_s2.json
+2026-10-28T18:03:42-04:00 load=7.3 [110/400] dev/flood/bwd_tbptt_k4_lr0p004_s2 ok
+wrote results/raw/dev/flood/fwd_k4_lr0p064_s1.json  pass1(S4,k4)=0.000  train=145s
+2026-10-28T18:03:42-04:00 load=7.3 [111/400] dev/flood/fwd_k4_lr0p064_s1 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p008_s2.json
+2026-10-28T18:03:43-04:00 load=7.3 [112/400] dev/flood/bwd_tbptt_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p016_s2.json
+2026-10-28T18:03:43-04:00 load=7.3 [113/400] dev/flood/bwd_tbptt_k4_lr0p016_s2 ok
+2026-10-28T18:03:44-04:00 load=7.3 [114/400] dev/flood/bwd_tbptt_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/flood/bwd_tbptt_k4_lr0p032_s2.json
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p0005_s2.json
+2026-10-28T18:03:44-04:00 load=7.3 [115/400] dev/flood/drm_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p001_s2.json
+2026-10-28T18:03:45-04:00 load=7.3 [116/400] dev/flood/drm_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p002_s2.json
+2026-10-28T18:03:46-04:00 load=7.3 [117/400] dev/flood/drm_k4_lr0p002_s2 ok
+2026-10-28T18:03:46-04:00 load=7.3 [118/400] dev/colormap/drm_k4_lr0p064_s2 ok
+wrote results/raw/dev/colormap/drm_k4_lr0p064_s2.json  pass1(S4,k4)=1.000  train=151s
+2026-10-28T18:03:46-04:00 load=7.3 [119/400] dev/flood/bwd_k_k4_lr0p064_s1 ok
+wrote results/raw/dev/flood/bwd_k_k4_lr0p064_s1.json  pass1(S4,k4)=0.422  train=148s
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p004_s2.json
+2026-10-28T18:03:47-04:00 load=7.3 [120/400] dev/flood/drm_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p008_s2.json
+2026-10-28T18:03:47-04:00 load=7.3 [121/400] dev/flood/drm_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p016_s2.json
+2026-10-28T18:03:47-04:00 load=7.3 [122/400] dev/flood/drm_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/flood/drm_k4_lr0p032_s2.json
+2026-10-28T18:03:48-04:00 load=7.3 [123/400] dev/flood/drm_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p0005_s1.json
+2026-10-28T18:03:48-04:00 load=7.3 [124/400] dev/gravity/fwd_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p001_s1.json
+2026-10-28T18:03:48-04:00 load=7.3 [125/400] dev/gravity/fwd_k4_lr0p001_s1 ok
+2026-10-28T18:03:49-04:00 load=7.3 [126/400] dev/gravity/fwd_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p002_s1.json
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p004_s1.json
+2026-10-28T18:03:49-04:00 load=7.3 [127/400] dev/gravity/fwd_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p008_s1.json
+2026-10-28T18:03:50-04:00 load=7.3 [128/400] dev/gravity/fwd_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p016_s1.json
+2026-10-28T18:03:50-04:00 load=7.3 [129/400] dev/gravity/fwd_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p032_s1.json
+2026-10-28T18:03:50-04:00 load=7.4 [130/400] dev/gravity/fwd_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p0005_s1.json
+2026-10-28T18:03:51-04:00 load=7.4 [131/400] dev/gravity/bwd_k_k4_lr0p0005_s1 ok
+2026-10-28T18:03:52-04:00 load=7.4 [132/400] dev/flood/drm_k4_lr0p064_s1 ok
+wrote results/raw/dev/flood/drm_k4_lr0p064_s1.json  pass1(S4,k4)=0.582  train=147s
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p001_s1.json
+2026-10-28T18:03:52-04:00 load=7.4 [133/400] dev/gravity/bwd_k_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p002_s1.json
+2026-10-28T18:03:52-04:00 load=7.4 [134/400] dev/gravity/bwd_k_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p004_s1.json
+2026-10-28T18:03:53-04:00 load=7.4 [135/400] dev/gravity/bwd_k_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p008_s1.json
+2026-10-28T18:03:53-04:00 load=7.4 [136/400] dev/gravity/bwd_k_k4_lr0p008_s1 ok
+2026-10-28T18:03:54-04:00 load=7.4 [137/400] dev/flood/fwd_k4_lr0p064_s2 ok
+wrote results/raw/dev/flood/fwd_k4_lr0p064_s2.json  pass1(S4,k4)=0.246  train=146s
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p016_s1.json
+2026-10-28T18:03:54-04:00 load=7.4 [138/400] dev/gravity/bwd_k_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p032_s1.json
+2026-10-28T18:03:54-04:00 load=7.4 [139/400] dev/gravity/bwd_k_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p0005_s1.json
+2026-10-28T18:03:55-04:00 load=7.4 [140/400] dev/gravity/bwd_tbptt_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p001_s1.json
+2026-10-28T18:03:55-04:00 load=7.4 [141/400] dev/gravity/bwd_tbptt_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p002_s1.json
+2026-10-28T18:03:56-04:00 load=7.3 [142/400] dev/gravity/bwd_tbptt_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p004_s1.json
+2026-10-28T18:03:56-04:00 load=7.3 [143/400] dev/gravity/bwd_tbptt_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p008_s1.json
+2026-10-28T18:03:56-04:00 load=7.3 [144/400] dev/gravity/bwd_tbptt_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p016_s1.json
+2026-10-28T18:03:57-04:00 load=7.3 [145/400] dev/gravity/bwd_tbptt_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p032_s1.json
+2026-10-28T18:03:57-04:00 load=7.3 [146/400] dev/gravity/bwd_tbptt_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p0005_s1.json
+2026-10-28T18:03:58-04:00 load=7.3 [147/400] dev/gravity/drm_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p001_s1.json
+2026-10-28T18:03:59-04:00 load=7.3 [148/400] dev/gravity/drm_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p002_s1.json
+2026-10-28T18:04:00-04:00 load=7.3 [149/400] dev/gravity/drm_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p004_s1.json
+2026-10-28T18:04:01-04:00 load=7.3 [150/400] dev/gravity/drm_k4_lr0p004_s1 ok
+wrote results/raw/dev/flood/bwd_k_k4_lr0p064_s2.json  pass1(S4,k4)=0.470  train=150s
+2026-10-28T18:04:01-04:00 load=7.3 [151/400] dev/flood/bwd_k_k4_lr0p064_s2 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p008_s1.json
+2026-10-28T18:04:02-04:00 load=7.3 [152/400] dev/gravity/drm_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p016_s1.json
+2026-10-28T18:04:02-04:00 load=7.3 [153/400] dev/gravity/drm_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p032_s1.json
+2026-10-28T18:04:02-04:00 load=7.3 [154/400] dev/gravity/drm_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p0005_s2.json
+2026-10-28T18:04:03-04:00 load=7.3 [155/400] dev/gravity/fwd_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p001_s2.json
+2026-10-28T18:04:04-04:00 load=7.3 [156/400] dev/gravity/fwd_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p002_s2.json
+2026-10-28T18:04:05-04:00 load=7.3 [157/400] dev/gravity/fwd_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p004_s2.json
+2026-10-28T18:04:06-04:00 load=7.3 [158/400] dev/gravity/fwd_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p008_s2.json
+2026-10-28T18:04:07-04:00 load=7.3 [159/400] dev/gravity/fwd_k4_lr0p008_s2 ok
+2026-10-28T18:04:08-04:00 load=7.3 [160/400] dev/gravity/fwd_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p016_s2.json
+skip (up to date) results/raw/dev/gravity/fwd_k4_lr0p032_s2.json
+2026-10-28T18:04:08-04:00 load=7.3 [161/400] dev/gravity/fwd_k4_lr0p032_s2 ok
+wrote results/raw/dev/flood/bwd_tbptt_k4_lr0p064_s2.json  pass1(S4,k4)=0.106  train=157s
+2026-10-28T18:06:57-04:00 load=7.5 [162/400] dev/flood/bwd_tbptt_k4_lr0p064_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p0005_s2.json
+2026-10-28T18:06:57-04:00 load=7.5 [163/400] dev/gravity/bwd_k_k4_lr0p0005_s2 ok
+2026-10-28T18:06:58-04:00 load=7.5 [164/400] dev/gravity/fwd_k4_lr0p064_s1 ok
+wrote results/raw/dev/gravity/fwd_k4_lr0p064_s1.json  pass1(S4,k4)=0.000  train=146s
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p001_s2.json
+2026-10-28T18:06:58-04:00 load=7.5 [165/400] dev/gravity/bwd_k_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p002_s2.json
+2026-10-28T18:06:59-04:00 load=7.5 [166/400] dev/gravity/bwd_k_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p004_s2.json
+2026-10-28T18:06:59-04:00 load=7.5 [167/400] dev/gravity/bwd_k_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p008_s2.json
+2026-10-28T18:07:00-04:00 load=7.5 [168/400] dev/gravity/bwd_k_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p016_s2.json
+2026-10-28T18:07:00-04:00 load=7.5 [169/400] dev/gravity/bwd_k_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_k_k4_lr0p032_s2.json
+2026-10-28T18:07:01-04:00 load=7.7 [170/400] dev/gravity/bwd_k_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p0005_s2.json
+2026-10-28T18:07:02-04:00 load=7.7 [171/400] dev/gravity/bwd_tbptt_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p001_s2.json
+2026-10-28T18:07:02-04:00 load=7.7 [172/400] dev/gravity/bwd_tbptt_k4_lr0p001_s2 ok
+2026-10-28T18:07:03-04:00 load=7.7 [173/400] dev/gravity/bwd_tbptt_k4_lr0p064_s1 ok
+wrote results/raw/dev/gravity/bwd_tbptt_k4_lr0p064_s1.json  pass1(S4,k4)=0.000  train=148s
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p002_s2.json
+2026-10-28T18:07:03-04:00 load=7.7 [174/400] dev/gravity/bwd_tbptt_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p004_s2.json
+2026-10-28T18:07:04-04:00 load=7.7 [175/400] dev/gravity/bwd_tbptt_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p008_s2.json
+2026-10-28T18:07:04-04:00 load=7.7 [176/400] dev/gravity/bwd_tbptt_k4_lr0p008_s2 ok
+2026-10-28T18:07:04-04:00 load=7.7 [177/400] dev/gravity/bwd_tbptt_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p016_s2.json
+skip (up to date) results/raw/dev/gravity/bwd_tbptt_k4_lr0p032_s2.json
+2026-10-28T18:07:05-04:00 load=7.7 [178/400] dev/gravity/bwd_tbptt_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p0005_s2.json
+2026-10-28T18:07:06-04:00 load=7.6 [179/400] dev/gravity/drm_k4_lr0p0005_s2 ok
+2026-10-28T18:07:06-04:00 load=7.6 [180/400] dev/gravity/drm_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p001_s2.json
+wrote results/raw/dev/gravity/bwd_k_k4_lr0p064_s1.json  pass1(S4,k4)=0.050  train=155s
+2026-10-28T18:07:07-04:00 load=7.6 [181/400] dev/gravity/bwd_k_k4_lr0p064_s1 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p002_s2.json
+2026-10-28T18:07:07-04:00 load=7.6 [182/400] dev/gravity/drm_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p004_s2.json
+2026-10-28T18:07:08-04:00 load=7.6 [183/400] dev/gravity/drm_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p008_s2.json
+2026-10-28T18:07:08-04:00 load=7.6 [184/400] dev/gravity/drm_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p016_s2.json
+2026-10-28T18:07:09-04:00 load=7.6 [185/400] dev/gravity/drm_k4_lr0p016_s2 ok
+2026-10-28T18:07:09-04:00 load=7.6 [186/400] dev/gravity/drm_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/gravity/drm_k4_lr0p032_s2.json
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p0005_s1.json
+2026-10-28T18:07:10-04:00 load=7.6 [187/400] dev/shift/fwd_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p001_s1.json
+2026-10-28T18:07:11-04:00 load=7.6 [188/400] dev/shift/fwd_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p002_s1.json
+2026-10-28T18:07:12-04:00 load=7.6 [189/400] dev/shift/fwd_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p004_s1.json
+2026-10-28T18:07:12-04:00 load=7.6 [190/400] dev/shift/fwd_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p008_s1.json
+2026-10-28T18:07:13-04:00 load=7.6 [191/400] dev/shift/fwd_k4_lr0p008_s1 ok
+wrote results/raw/dev/flood/drm_k4_lr0p064_s2.json  pass1(S4,k4)=0.454  train=167s
+2026-10-28T18:07:14-04:00 load=7.6 [192/400] dev/flood/drm_k4_lr0p064_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p016_s1.json
+2026-10-28T18:07:14-04:00 load=7.6 [193/400] dev/shift/fwd_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p032_s1.json
+2026-10-28T18:07:15-04:00 load=7.6 [194/400] dev/shift/fwd_k4_lr0p032_s1 ok
+2026-10-28T18:07:15-04:00 load=7.5 [195/400] dev/gravity/fwd_k4_lr0p064_s2 ok
+wrote results/raw/dev/gravity/fwd_k4_lr0p064_s2.json  pass1(S4,k4)=0.000  train=146s
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p0005_s1.json
+2026-10-28T18:07:15-04:00 load=7.5 [196/400] dev/shift/bwd_k_k4_lr0p0005_s1 ok
+wrote results/raw/dev/gravity/drm_k4_lr0p064_s1.json  pass1(S4,k4)=0.710  train=157s
+2026-10-28T18:07:16-04:00 load=7.5 [197/400] dev/gravity/drm_k4_lr0p064_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p001_s1.json
+2026-10-28T18:07:16-04:00 load=7.5 [198/400] dev/shift/bwd_k_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p002_s1.json
+2026-10-28T18:07:16-04:00 load=7.5 [199/400] dev/shift/bwd_k_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p004_s1.json
+2026-10-28T18:07:17-04:00 load=7.5 [200/400] dev/shift/bwd_k_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p008_s1.json
+2026-10-28T18:07:17-04:00 load=7.5 [201/400] dev/shift/bwd_k_k4_lr0p008_s1 ok
+2026-10-28T18:07:17-04:00 load=7.5 [202/400] dev/shift/bwd_k_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p016_s1.json
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p032_s1.json
+2026-10-28T18:07:18-04:00 load=7.5 [203/400] dev/shift/bwd_k_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p0005_s1.json
+2026-10-28T18:07:18-04:00 load=7.5 [204/400] dev/shift/bwd_tbptt_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p001_s1.json
+2026-10-28T18:07:18-04:00 load=7.5 [205/400] dev/shift/bwd_tbptt_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p002_s1.json
+2026-10-28T18:07:19-04:00 load=7.5 [206/400] dev/shift/bwd_tbptt_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p004_s1.json
+2026-10-28T18:07:19-04:00 load=7.5 [207/400] dev/shift/bwd_tbptt_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p008_s1.json
+2026-10-28T18:07:19-04:00 load=7.5 [208/400] dev/shift/bwd_tbptt_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p016_s1.json
+2026-10-28T18:07:20-04:00 load=7.5 [209/400] dev/shift/bwd_tbptt_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p032_s1.json
+2026-10-28T18:07:20-04:00 load=7.5 [210/400] dev/shift/bwd_tbptt_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p0005_s1.json
+2026-10-28T18:07:21-04:00 load=7.5 [211/400] dev/shift/drm_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p001_s1.json
+2026-10-28T18:07:22-04:00 load=7.5 [212/400] dev/shift/drm_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p002_s1.json
+2026-10-28T18:07:22-04:00 load=7.5 [213/400] dev/shift/drm_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p004_s1.json
+2026-10-28T18:07:23-04:00 load=7.5 [214/400] dev/shift/drm_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p008_s1.json
+2026-10-28T18:07:24-04:00 load=7.5 [215/400] dev/shift/drm_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p016_s1.json
+2026-10-28T18:07:25-04:00 load=7.5 [216/400] dev/shift/drm_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p032_s1.json
+2026-10-28T18:07:26-04:00 load=7.4 [217/400] dev/shift/drm_k4_lr0p032_s1 ok
+wrote results/raw/dev/gravity/bwd_k_k4_lr0p064_s2.json  pass1(S4,k4)=0.136  train=155s
+2026-10-28T18:10:14-04:00 load=7.4 [218/400] dev/gravity/bwd_k_k4_lr0p064_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p0005_s2.json
+2026-10-28T18:10:15-04:00 load=7.4 [219/400] dev/shift/fwd_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p001_s2.json
+2026-10-28T18:10:16-04:00 load=7.4 [220/400] dev/shift/fwd_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p002_s2.json
+2026-10-28T18:10:17-04:00 load=7.4 [221/400] dev/shift/fwd_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p004_s2.json
+2026-10-28T18:10:18-04:00 load=7.4 [222/400] dev/shift/fwd_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p008_s2.json
+2026-10-28T18:10:18-04:00 load=7.4 [223/400] dev/shift/fwd_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p016_s2.json
+2026-10-28T18:10:19-04:00 load=7.4 [224/400] dev/shift/fwd_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_k4_lr0p032_s2.json
+2026-10-28T18:10:20-04:00 load=7.4 [225/400] dev/shift/fwd_k4_lr0p032_s2 ok
+2026-10-28T18:10:22-04:00 load=7.3 [226/400] dev/shift/fwd_k4_lr0p064_s1 ok
+wrote results/raw/dev/shift/fwd_k4_lr0p064_s1.json  pass1(S4,k4)=0.038  train=151s
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p0005_s2.json
+2026-10-28T18:10:23-04:00 load=7.3 [227/400] dev/shift/bwd_k_k4_lr0p0005_s2 ok
+wrote results/raw/dev/gravity/drm_k4_lr0p064_s2.json  pass1(S4,k4)=0.728  train=156s
+2026-10-28T18:10:23-04:00 load=7.3 [228/400] dev/gravity/drm_k4_lr0p064_s2 ok
+2026-10-28T18:10:23-04:00 load=7.3 [229/400] dev/shift/bwd_k_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p001_s2.json
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p002_s2.json
+2026-10-28T18:10:24-04:00 load=7.3 [230/400] dev/shift/bwd_k_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p004_s2.json
+2026-10-28T18:10:24-04:00 load=7.3 [231/400] dev/shift/bwd_k_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p008_s2.json
+2026-10-28T18:10:25-04:00 load=7.3 [232/400] dev/shift/bwd_k_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p016_s2.json
+2026-10-28T18:10:25-04:00 load=7.3 [233/400] dev/shift/bwd_k_k4_lr0p016_s2 ok
+wrote results/raw/dev/gravity/bwd_tbptt_k4_lr0p064_s2.json  pass1(S4,k4)=0.000  train=163s
+2026-10-28T18:10:25-04:00 load=7.3 [234/400] dev/gravity/bwd_tbptt_k4_lr0p064_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_k_k4_lr0p032_s2.json
+2026-10-28T18:10:25-04:00 load=7.3 [235/400] dev/shift/bwd_k_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p0005_s2.json
+2026-10-28T18:10:26-04:00 load=7.3 [236/400] dev/shift/bwd_tbptt_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p001_s2.json
+2026-10-28T18:10:26-04:00 load=7.3 [237/400] dev/shift/bwd_tbptt_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p002_s2.json
+2026-10-28T18:10:27-04:00 load=7.3 [238/400] dev/shift/bwd_tbptt_k4_lr0p002_s2 ok
+2026-10-28T18:10:27-04:00 load=7.3 [239/400] dev/shift/bwd_tbptt_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p004_s2.json
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p008_s2.json
+2026-10-28T18:10:28-04:00 load=7.3 [240/400] dev/shift/bwd_tbptt_k4_lr0p008_s2 ok
+2026-10-28T18:10:28-04:00 load=7.3 [241/400] dev/shift/bwd_tbptt_k4_lr0p064_s1 ok
+wrote results/raw/dev/shift/bwd_tbptt_k4_lr0p064_s1.json  pass1(S4,k4)=0.038  train=149s
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p016_s2.json
+2026-10-28T18:10:28-04:00 load=7.3 [242/400] dev/shift/bwd_tbptt_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/shift/bwd_tbptt_k4_lr0p032_s2.json
+2026-10-28T18:10:29-04:00 load=7.3 [243/400] dev/shift/bwd_tbptt_k4_lr0p032_s2 ok
+2026-10-28T18:10:29-04:00 load=7.3 [244/400] dev/shift/drm_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p0005_s2.json
+2026-10-28T18:10:30-04:00 load=7.3 [245/400] dev/shift/drm_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p002_s2.json
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p001_s2.json
+2026-10-28T18:10:30-04:00 load=7.3 [246/400] dev/shift/drm_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p004_s2.json
+2026-10-28T18:10:30-04:00 load=7.3 [247/400] dev/shift/drm_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p008_s2.json
+2026-10-28T18:10:30-04:00 load=7.3 [248/400] dev/shift/drm_k4_lr0p008_s2 ok
+2026-10-28T18:10:31-04:00 load=7.3 [249/400] dev/shift/drm_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p016_s2.json
+skip (up to date) results/raw/dev/shift/drm_k4_lr0p032_s2.json
+2026-10-28T18:10:31-04:00 load=7.3 [250/400] dev/shift/drm_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p0005_s1.json
+2026-10-28T18:10:32-04:00 load=7.3 [251/400] dev/symfill/fwd_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p001_s1.json
+2026-10-28T18:10:33-04:00 load=7.3 [252/400] dev/symfill/fwd_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p002_s1.json
+2026-10-28T18:10:34-04:00 load=7.3 [253/400] dev/symfill/fwd_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p004_s1.json
+2026-10-28T18:10:34-04:00 load=7.3 [254/400] dev/symfill/fwd_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p008_s1.json
+2026-10-28T18:10:35-04:00 load=7.3 [255/400] dev/symfill/fwd_k4_lr0p008_s1 ok
+2026-10-28T18:10:36-04:00 load=7.5 [256/400] dev/symfill/fwd_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p016_s1.json
+2026-10-28T18:10:37-04:00 load=7.5 [257/400] dev/symfill/fwd_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p032_s1.json
+wrote results/raw/dev/shift/bwd_k_k4_lr0p064_s1.json  pass1(S4,k4)=0.988  train=173s
+2026-10-28T18:10:44-04:00 load=7.6 [258/400] dev/shift/bwd_k_k4_lr0p064_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p0005_s1.json
+2026-10-28T18:10:45-04:00 load=7.6 [259/400] dev/symfill/bwd_k_k4_lr0p0005_s1 ok
+2026-10-28T18:10:46-04:00 load=7.6 [260/400] dev/symfill/bwd_k_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p001_s1.json
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p002_s1.json
+2026-10-28T18:10:47-04:00 load=7.6 [261/400] dev/symfill/bwd_k_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p004_s1.json
+2026-10-28T18:10:47-04:00 load=7.6 [262/400] dev/symfill/bwd_k_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p008_s1.json
+2026-10-28T18:10:48-04:00 load=7.6 [263/400] dev/symfill/bwd_k_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p016_s1.json
+2026-10-28T18:10:49-04:00 load=7.6 [264/400] dev/symfill/bwd_k_k4_lr0p016_s1 ok
+2026-10-28T18:10:49-04:00 load=7.6 [265/400] dev/shift/drm_k4_lr0p064_s1 ok
+wrote results/raw/dev/shift/drm_k4_lr0p064_s1.json  pass1(S4,k4)=1.000  train=166s
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p032_s1.json
+2026-10-28T18:10:50-04:00 load=7.6 [266/400] dev/symfill/bwd_k_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p0005_s1.json
+2026-10-28T18:10:50-04:00 load=7.6 [267/400] dev/symfill/bwd_tbptt_k4_lr0p0005_s1 ok
+2026-10-28T18:10:51-04:00 load=7.8 [268/400] dev/symfill/bwd_tbptt_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p001_s1.json
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p002_s1.json
+2026-10-28T18:10:52-04:00 load=7.8 [269/400] dev/symfill/bwd_tbptt_k4_lr0p002_s1 ok
+2026-10-28T18:10:53-04:00 load=7.8 [270/400] dev/symfill/bwd_tbptt_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p004_s1.json
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p008_s1.json
+2026-10-28T18:10:54-04:00 load=7.8 [271/400] dev/symfill/bwd_tbptt_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p016_s1.json
+2026-10-28T18:10:54-04:00 load=7.8 [272/400] dev/symfill/bwd_tbptt_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p032_s1.json
+2026-10-28T18:10:55-04:00 load=7.8 [273/400] dev/symfill/bwd_tbptt_k4_lr0p032_s1 ok
+wrote results/raw/dev/shift/fwd_k4_lr0p064_s2.json  pass1(S4,k4)=0.038  train=139s
+2026-10-28T18:13:13-04:00 load=8.8 [274/400] dev/shift/fwd_k4_lr0p064_s2 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p0005_s1.json
+2026-10-28T18:13:13-04:00 load=8.8 [275/400] dev/symfill/drm_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p001_s1.json
+2026-10-28T18:13:14-04:00 load=8.8 [276/400] dev/symfill/drm_k4_lr0p001_s1 ok
+2026-10-28T18:13:15-04:00 load=8.8 [277/400] dev/shift/bwd_tbptt_k4_lr0p064_s2 ok
+wrote results/raw/dev/shift/bwd_tbptt_k4_lr0p064_s2.json  pass1(S4,k4)=0.036  train=131s
+2026-10-28T18:13:15-04:00 load=8.8 [278/400] dev/symfill/drm_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p002_s1.json
+2026-10-28T18:13:16-04:00 load=9.3 [279/400] dev/symfill/drm_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p004_s1.json
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p008_s1.json
+2026-10-28T18:13:16-04:00 load=9.3 [280/400] dev/symfill/drm_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p016_s1.json
+2026-10-28T18:13:17-04:00 load=9.3 [281/400] dev/symfill/drm_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p032_s1.json
+2026-10-28T18:13:17-04:00 load=9.3 [282/400] dev/symfill/drm_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p0005_s2.json
+2026-10-28T18:13:17-04:00 load=9.3 [283/400] dev/symfill/fwd_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p001_s2.json
+2026-10-28T18:13:18-04:00 load=9.3 [284/400] dev/symfill/fwd_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p002_s2.json
+2026-10-28T18:13:19-04:00 load=9.3 [285/400] dev/symfill/fwd_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p004_s2.json
+2026-10-28T18:13:20-04:00 load=9.3 [286/400] dev/symfill/fwd_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p008_s2.json
+2026-10-28T18:13:21-04:00 load=9.6 [287/400] dev/symfill/fwd_k4_lr0p008_s2 ok
+2026-10-28T18:13:22-04:00 load=9.6 [288/400] dev/symfill/fwd_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p016_s2.json
+skip (up to date) results/raw/dev/symfill/fwd_k4_lr0p032_s2.json
+2026-10-28T18:13:22-04:00 load=9.6 [289/400] dev/symfill/fwd_k4_lr0p032_s2 ok
+2026-10-28T18:13:30-04:00 load=10.5 [290/400] dev/shift/drm_k4_lr0p064_s2 ok
+wrote results/raw/dev/shift/drm_k4_lr0p064_s2.json  pass1(S4,k4)=0.992  train=143s
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p0005_s2.json
+2026-10-28T18:13:31-04:00 load=10.9 [291/400] dev/symfill/bwd_k_k4_lr0p0005_s2 ok
+2026-10-28T18:13:32-04:00 load=10.9 [292/400] dev/symfill/bwd_k_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p001_s2.json
+2026-10-28T18:13:33-04:00 load=10.9 [293/400] dev/symfill/bwd_k_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p002_s2.json
+2026-10-28T18:13:34-04:00 load=10.9 [294/400] dev/symfill/bwd_k_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p004_s2.json
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p008_s2.json
+2026-10-28T18:13:34-04:00 load=10.9 [295/400] dev/symfill/bwd_k_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p016_s2.json
+2026-10-28T18:13:35-04:00 load=10.9 [296/400] dev/symfill/bwd_k_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_k_k4_lr0p032_s2.json
+2026-10-28T18:13:36-04:00 load=11.4 [297/400] dev/symfill/bwd_k_k4_lr0p032_s2 ok
+wrote results/raw/dev/shift/bwd_k_k4_lr0p064_s2.json  pass1(S4,k4)=0.996  train=162s
+2026-10-28T18:13:42-04:00 load=11.8 [298/400] dev/shift/bwd_k_k4_lr0p064_s2 ok
+2026-10-28T18:13:43-04:00 load=11.8 [299/400] dev/symfill/bwd_tbptt_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p0005_s2.json
+2026-10-28T18:13:44-04:00 load=11.8 [300/400] dev/symfill/bwd_tbptt_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p001_s2.json
+2026-10-28T18:13:44-04:00 load=11.8 [301/400] dev/symfill/fwd_k4_lr0p064_s1 ok
+wrote results/raw/dev/symfill/fwd_k4_lr0p064_s1.json  pass1(S4,k4)=0.004  train=150s
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p002_s2.json
+2026-10-28T18:13:45-04:00 load=11.8 [302/400] dev/symfill/bwd_tbptt_k4_lr0p002_s2 ok
+2026-10-28T18:13:45-04:00 load=11.8 [303/400] dev/symfill/bwd_tbptt_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p004_s2.json
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p008_s2.json
+2026-10-28T18:13:45-04:00 load=11.8 [304/400] dev/symfill/bwd_tbptt_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p016_s2.json
+2026-10-28T18:13:46-04:00 load=11.8 [305/400] dev/symfill/bwd_tbptt_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/symfill/bwd_tbptt_k4_lr0p032_s2.json
+2026-10-28T18:13:46-04:00 load=12.2 [306/400] dev/symfill/bwd_tbptt_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p0005_s2.json
+2026-10-28T18:13:47-04:00 load=12.2 [307/400] dev/symfill/drm_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p001_s2.json
+2026-10-28T18:13:48-04:00 load=12.2 [308/400] dev/symfill/drm_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p002_s2.json
+2026-10-28T18:13:49-04:00 load=12.2 [309/400] dev/symfill/drm_k4_lr0p002_s2 ok
+wrote results/raw/dev/symfill/bwd_tbptt_k4_lr0p064_s1.json  pass1(S4,k4)=0.002  train=137s
+2026-10-28T18:13:49-04:00 load=12.2 [310/400] dev/symfill/bwd_tbptt_k4_lr0p064_s1 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p004_s2.json
+2026-10-28T18:13:49-04:00 load=12.2 [311/400] dev/symfill/drm_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p008_s2.json
+2026-10-28T18:13:50-04:00 load=12.2 [312/400] dev/symfill/drm_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p016_s2.json
+2026-10-28T18:13:50-04:00 load=12.2 [313/400] dev/symfill/drm_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/symfill/drm_k4_lr0p032_s2.json
+2026-10-28T18:13:51-04:00 load=12.2 [314/400] dev/symfill/drm_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p0005_s1.json
+2026-10-28T18:13:51-04:00 load=12.6 [315/400] dev/colormap/fwd_steps_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p001_s1.json
+2026-10-28T18:13:52-04:00 load=12.6 [316/400] dev/colormap/fwd_steps_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p002_s1.json
+2026-10-28T18:13:53-04:00 load=12.6 [317/400] dev/colormap/fwd_steps_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p004_s1.json
+2026-10-28T18:13:54-04:00 load=12.6 [318/400] dev/colormap/fwd_steps_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p008_s1.json
+2026-10-28T18:13:55-04:00 load=12.6 [319/400] dev/colormap/fwd_steps_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p016_s1.json
+2026-10-28T18:13:56-04:00 load=12.9 [320/400] dev/colormap/fwd_steps_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p032_s1.json
+2026-10-28T18:13:56-04:00 load=12.9 [321/400] dev/colormap/fwd_steps_k4_lr0p032_s1 ok
+wrote results/raw/dev/symfill/bwd_k_k4_lr0p064_s1.json  pass1(S4,k4)=0.004  train=149s
+2026-10-28T18:13:57-04:00 load=12.9 [322/400] dev/symfill/bwd_k_k4_lr0p064_s1 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p0005_s2.json
+2026-10-28T18:13:57-04:00 load=12.9 [323/400] dev/colormap/fwd_steps_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p001_s2.json
+2026-10-28T18:13:58-04:00 load=12.9 [324/400] dev/colormap/fwd_steps_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p002_s2.json
+2026-10-28T18:13:59-04:00 load=12.9 [325/400] dev/colormap/fwd_steps_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p004_s2.json
+2026-10-28T18:14:00-04:00 load=12.9 [326/400] dev/colormap/fwd_steps_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p008_s2.json
+2026-10-28T18:14:01-04:00 load=12.9 [327/400] dev/colormap/fwd_steps_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p016_s2.json
+2026-10-28T18:14:01-04:00 load=12.6 [328/400] dev/colormap/fwd_steps_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/colormap/fwd_steps_k4_lr0p032_s2.json
+2026-10-28T18:14:02-04:00 load=12.6 [329/400] dev/colormap/fwd_steps_k4_lr0p032_s2 ok
+wrote results/raw/dev/colormap/fwd_steps_k4_lr0p064_s1.json  pass1(S4,k4)=0.000  train=49s
+2026-10-28T18:15:54-04:00 load=16.9 [330/400] dev/colormap/fwd_steps_k4_lr0p064_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p0005_s1.json
+2026-10-28T18:15:56-04:00 load=16.9 [331/400] dev/flood/fwd_steps_k4_lr0p0005_s1 ok
+2026-10-28T18:15:57-04:00 load=16.9 [332/400] dev/flood/fwd_steps_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p001_s1.json
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p002_s1.json
+2026-10-28T18:15:59-04:00 load=16.9 [333/400] dev/flood/fwd_steps_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p004_s1.json
+2026-10-28T18:16:00-04:00 load=16.9 [334/400] dev/flood/fwd_steps_k4_lr0p004_s1 ok
+2026-10-28T18:16:01-04:00 load=16.9 [335/400] dev/flood/fwd_steps_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p008_s1.json
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p016_s1.json
+2026-10-28T18:16:02-04:00 load=16.9 [336/400] dev/flood/fwd_steps_k4_lr0p016_s1 ok
+2026-10-28T18:16:04-04:00 load=16.9 [337/400] dev/flood/fwd_steps_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p032_s1.json
+wrote results/raw/dev/colormap/fwd_steps_k4_lr0p064_s2.json  pass1(S4,k4)=0.004  train=56s
+2026-10-28T18:16:05-04:00 load=16.9 [338/400] dev/colormap/fwd_steps_k4_lr0p064_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p0005_s2.json
+2026-10-28T18:16:06-04:00 load=16.8 [339/400] dev/flood/fwd_steps_k4_lr0p0005_s2 ok
+2026-10-28T18:16:08-04:00 load=16.8 [340/400] dev/flood/fwd_steps_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p001_s2.json
+2026-10-28T18:16:08-04:00 load=16.8 [341/400] dev/flood/fwd_steps_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p002_s2.json
+2026-10-28T18:16:09-04:00 load=16.8 [342/400] dev/flood/fwd_steps_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p004_s2.json
+2026-10-28T18:16:10-04:00 load=16.8 [343/400] dev/flood/fwd_steps_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p008_s2.json
+2026-10-28T18:16:11-04:00 load=16.6 [344/400] dev/flood/fwd_steps_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p016_s2.json
+2026-10-28T18:16:11-04:00 load=16.6 [345/400] dev/flood/fwd_steps_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/flood/fwd_steps_k4_lr0p032_s2.json
+wrote results/raw/dev/symfill/drm_k4_lr0p064_s1.json  pass1(S4,k4)=0.002  train=196s
+2026-10-28T18:17:11-04:00 load=16.1 [346/400] dev/symfill/drm_k4_lr0p064_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p0005_s1.json
+2026-10-28T18:17:13-04:00 load=16.1 [347/400] dev/gravity/fwd_steps_k4_lr0p0005_s1 ok
+2026-10-28T18:17:14-04:00 load=16.1 [348/400] dev/gravity/fwd_steps_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p001_s1.json
+2026-10-28T18:17:15-04:00 load=16.1 [349/400] dev/gravity/fwd_steps_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p002_s1.json
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p004_s1.json
+2026-10-28T18:17:16-04:00 load=16.1 [350/400] dev/gravity/fwd_steps_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p008_s1.json
+2026-10-28T18:17:16-04:00 load=15.6 [351/400] dev/gravity/fwd_steps_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p016_s1.json
+2026-10-28T18:17:17-04:00 load=15.6 [352/400] dev/gravity/fwd_steps_k4_lr0p016_s1 ok
+2026-10-28T18:17:18-04:00 load=15.6 [353/400] dev/symfill/fwd_k4_lr0p064_s2 ok
+wrote results/raw/dev/symfill/fwd_k4_lr0p064_s2.json  pass1(S4,k4)=0.004  train=199s
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p032_s1.json
+2026-10-28T18:17:18-04:00 load=15.6 [354/400] dev/gravity/fwd_steps_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p0005_s2.json
+2026-10-28T18:17:19-04:00 load=15.6 [355/400] dev/gravity/fwd_steps_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p001_s2.json
+2026-10-28T18:17:19-04:00 load=15.6 [356/400] dev/gravity/fwd_steps_k4_lr0p001_s2 ok
+wrote results/raw/dev/flood/fwd_steps_k4_lr0p064_s1.json  pass1(S4,k4)=0.252  train=39s
+2026-10-28T18:17:20-04:00 load=15.6 [357/400] dev/flood/fwd_steps_k4_lr0p064_s1 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p002_s2.json
+2026-10-28T18:17:20-04:00 load=15.6 [358/400] dev/gravity/fwd_steps_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p004_s2.json
+2026-10-28T18:17:21-04:00 load=15.6 [359/400] dev/gravity/fwd_steps_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p008_s2.json
+2026-10-28T18:17:21-04:00 load=15.0 [360/400] dev/gravity/fwd_steps_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p016_s2.json
+2026-10-28T18:17:21-04:00 load=15.0 [361/400] dev/gravity/fwd_steps_k4_lr0p016_s2 ok
+2026-10-28T18:17:22-04:00 load=15.0 [362/400] dev/gravity/fwd_steps_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/gravity/fwd_steps_k4_lr0p032_s2.json
+2026-10-28T18:17:23-04:00 load=15.0 [363/400] dev/shift/fwd_steps_k4_lr0p0005_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p0005_s1.json
+2026-10-28T18:17:23-04:00 load=15.0 [364/400] dev/shift/fwd_steps_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p001_s1.json
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p002_s1.json
+2026-10-28T18:17:24-04:00 load=15.0 [365/400] dev/shift/fwd_steps_k4_lr0p002_s1 ok
+2026-10-28T18:17:25-04:00 load=15.0 [366/400] dev/shift/fwd_steps_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p004_s1.json
+2026-10-28T18:17:26-04:00 load=15.0 [367/400] dev/shift/fwd_steps_k4_lr0p008_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p008_s1.json
+wrote results/raw/dev/flood/fwd_steps_k4_lr0p064_s2.json  pass1(S4,k4)=0.288  train=38s
+2026-10-28T18:17:26-04:00 load=14.5 [368/400] dev/flood/fwd_steps_k4_lr0p064_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p016_s1.json
+2026-10-28T18:17:26-04:00 load=14.5 [369/400] dev/shift/fwd_steps_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p032_s1.json
+2026-10-28T18:17:27-04:00 load=14.5 [370/400] dev/shift/fwd_steps_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p0005_s2.json
+2026-10-28T18:17:27-04:00 load=14.5 [371/400] dev/shift/fwd_steps_k4_lr0p0005_s2 ok
+wrote results/raw/dev/symfill/bwd_tbptt_k4_lr0p064_s2.json  pass1(S4,k4)=0.002  train=187s
+2026-10-28T18:17:28-04:00 load=14.5 [372/400] dev/symfill/bwd_tbptt_k4_lr0p064_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p001_s2.json
+2026-10-28T18:17:28-04:00 load=14.5 [373/400] dev/shift/fwd_steps_k4_lr0p001_s2 ok
+2026-10-28T18:17:29-04:00 load=14.5 [374/400] dev/shift/fwd_steps_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p002_s2.json
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p004_s2.json
+2026-10-28T18:17:29-04:00 load=14.5 [375/400] dev/shift/fwd_steps_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p008_s2.json
+2026-10-28T18:17:30-04:00 load=14.5 [376/400] dev/shift/fwd_steps_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p016_s2.json
+2026-10-28T18:17:30-04:00 load=14.5 [377/400] dev/shift/fwd_steps_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/shift/fwd_steps_k4_lr0p032_s2.json
+2026-10-28T18:17:31-04:00 load=14.5 [378/400] dev/shift/fwd_steps_k4_lr0p032_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p0005_s1.json
+2026-10-28T18:17:31-04:00 load=14.1 [379/400] dev/symfill/fwd_steps_k4_lr0p0005_s1 ok
+2026-10-28T18:17:32-04:00 load=14.1 [380/400] dev/symfill/bwd_k_k4_lr0p064_s2 ok
+wrote results/raw/dev/symfill/bwd_k_k4_lr0p064_s2.json  pass1(S4,k4)=0.260  train=198s
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p001_s1.json
+2026-10-28T18:17:32-04:00 load=14.1 [381/400] dev/symfill/fwd_steps_k4_lr0p001_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p002_s1.json
+2026-10-28T18:17:32-04:00 load=14.1 [382/400] dev/symfill/fwd_steps_k4_lr0p002_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p004_s1.json
+2026-10-28T18:17:33-04:00 load=14.1 [383/400] dev/symfill/fwd_steps_k4_lr0p004_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p008_s1.json
+2026-10-28T18:17:33-04:00 load=14.1 [384/400] dev/symfill/fwd_steps_k4_lr0p008_s1 ok
+2026-10-28T18:17:34-04:00 load=14.1 [385/400] dev/symfill/fwd_steps_k4_lr0p016_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p016_s1.json
+2026-10-28T18:17:34-04:00 load=14.1 [386/400] dev/symfill/fwd_steps_k4_lr0p032_s1 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p032_s1.json
+2026-10-28T18:17:35-04:00 load=14.1 [387/400] dev/symfill/fwd_steps_k4_lr0p0005_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p0005_s2.json
+2026-10-28T18:17:36-04:00 load=13.6 [388/400] dev/symfill/fwd_steps_k4_lr0p001_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p001_s2.json
+2026-10-28T18:17:37-04:00 load=13.6 [389/400] dev/symfill/fwd_steps_k4_lr0p002_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p002_s2.json
+2026-10-28T18:17:38-04:00 load=13.6 [390/400] dev/symfill/fwd_steps_k4_lr0p004_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p004_s2.json
+2026-10-28T18:17:39-04:00 load=13.6 [391/400] dev/symfill/fwd_steps_k4_lr0p008_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p008_s2.json
+2026-10-28T18:17:39-04:00 load=13.6 [392/400] dev/symfill/fwd_steps_k4_lr0p016_s2 ok
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p016_s2.json
+skip (up to date) results/raw/dev/symfill/fwd_steps_k4_lr0p032_s2.json
+2026-10-28T18:17:40-04:00 load=13.6 [393/400] dev/symfill/fwd_steps_k4_lr0p032_s2 ok
+2026-10-28T18:17:41-04:00 load=13.5 [394/400] dev/symfill/drm_k4_lr0p064_s2 ok
+wrote results/raw/dev/symfill/drm_k4_lr0p064_s2.json  pass1(S4,k4)=0.004  train=193s
+wrote results/raw/dev/gravity/fwd_steps_k4_lr0p064_s1.json  pass1(S4,k4)=0.000  train=36s
+2026-10-28T18:18:29-04:00 load=9.9 [395/400] dev/gravity/fwd_steps_k4_lr0p064_s1 ok
+wrote results/raw/dev/gravity/fwd_steps_k4_lr0p064_s2.json  pass1(S4,k4)=0.000  train=36s
+2026-10-28T18:18:32-04:00 load=9.5 [396/400] dev/gravity/fwd_steps_k4_lr0p064_s2 ok
+wrote results/raw/dev/shift/fwd_steps_k4_lr0p064_s1.json  pass1(S4,k4)=0.040  train=36s
+2026-10-28T18:18:33-04:00 load=9.5 [397/400] dev/shift/fwd_steps_k4_lr0p064_s1 ok
+wrote results/raw/dev/shift/fwd_steps_k4_lr0p064_s2.json  pass1(S4,k4)=0.036  train=37s
+2026-10-28T18:18:37-04:00 load=9.0 [398/400] dev/shift/fwd_steps_k4_lr0p064_s2 ok
+wrote results/raw/dev/symfill/fwd_steps_k4_lr0p064_s1.json  pass1(S4,k4)=0.000  train=38s
+2026-10-28T18:18:42-04:00 load=8.4 [399/400] dev/symfill/fwd_steps_k4_lr0p064_s1 ok
+wrote results/raw/dev/symfill/fwd_steps_k4_lr0p064_s2.json  pass1(S4,k4)=0.000  train=36s
+2026-10-28T18:18:45-04:00 load=8.4 [400/400] dev/symfill/fwd_steps_k4_lr0p064_s2 ok
+2026-10-28T18:18:45-04:00 done; 0 failed
+{
+ "colormap": {
+  "fwd": {
+   "lr": 0.0005,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 1.0
+  },
+  "fwd_steps": {
+   "lr": 0.0005,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 1.0
+  },
+  "bwd_k": {
+   "lr": 0.0005,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 1.0
+  },
+  "bwd_tbptt": {
+   "lr": 0.0005,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 1.0
+  },
+  "drm": {
+   "lr": 0.0005,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 1.0
+  }
+ },
+ "shift": {
+  "fwd": {
+   "lr": 0.032,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.055999999999999994
+  },
+  "fwd_steps": {
+   "lr": 0.016,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.05
+  },
+  "bwd_k": {
+   "lr": 0.064,
+   "schedule": [
+    4,
+    4
+   ],
+   "dev_pass1": 0.992
+  },
+  "bwd_tbptt": {
+   "lr": 0.002,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.988
+  },
+  "drm": {
+   "lr": 0.016,
+   "schedule": [
+    4,
+    4
+   ],
+   "dev_pass1": 1.0
+  }
+ },
+ "symfill": {
+  "fwd": {
+   "lr": 0.016,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.006
+  },
+  "fwd_steps": {
+   "lr": 0.001,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.004
+  },
+  "bwd_k": {
+   "lr": 0.004,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.198
+  },
+  "bwd_tbptt": {
+   "lr": 0.032,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.288
+  },
+  "drm": {
+   "lr": 0.032,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.01
+  }
+ },
+ "gravity": {
+  "fwd": {
+   "lr": 0.0005,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.001
+  },
+  "fwd_steps": {
+   "lr": 0.001,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.001
+  },
+  "bwd_k": {
+   "lr": 0.064,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.47000000000000003
+  },
+  "bwd_tbptt": {
+   "lr": 0.004,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.952
+  },
+  "drm": {
+   "lr": 0.032,
+   "schedule": [
+    2,
+    8
+   ],
+   "dev_pass1": 0.847
+  }
+ },
+ "flood": {
+  "fwd": {
+   "lr": 0.004,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.41200000000000003
+  },
+  "fwd_steps": {
+   "lr": 0.064,
+   "schedule": [
+    16,
+    1
+   ],
+   "dev_pass1": 0.395
+  },
+  "bwd_k": {
+   "lr": 0.016,
+   "schedule": [
+    2,
+    8
+   ],
+   "dev_pass1": 0.792
+  },
+  "bwd_tbptt": {
+   "lr": 0.002,
+   "schedule": [
+    1,
+    16
+   ],
+   "dev_pass1": 0.71
+  },
+  "drm": {
+   "lr": 0.008,
+   "schedule": [
+    2,
+    8
+   ],
+   "dev_pass1": 0.821
+  }
+ }
+}
+lr edges: ['flood:fwd_steps:0.064', 'gravity:bwd_k:0.064', 'gravity:fwd:0.0005', 'shift:bwd_k:0.064']
+2026-10-28T18:18:47-04:00 committed tuning at 3d7f9c4
+2026-10-28T18:18:47-04:00 stage main
+2026-10-28T18:18:47-04:00 main: 300 jobs
+wrote results/raw/eval/colormap/bwd_tbptt_k4_lr0p0005_s101.json  pass1(S4,k4)=1.000  train=126s
+2026-10-28T18:22:19-04:00 load=9.3 [1/300] eval/colormap/bwd_tbptt_k4_lr0p0005_s101 ok
+wrote results/raw/eval/colormap/bwd_tbptt_k4_lr0p0005_s100.json  pass1(S4,k4)=1.000  train=130s
+2026-10-28T18:22:22-04:00 load=9.2 [2/300] eval/colormap/bwd_tbptt_k4_lr0p0005_s100 ok
+wrote results/raw/eval/colormap/fwd_k4_lr0p0005_s100.json  pass1(S4,k4)=1.000  train=140s
+2026-10-28T18:22:35-04:00 load=9.1 [3/300] eval/colormap/fwd_k4_lr0p0005_s100 ok
+2026-10-28T18:22:37-04:00 load=9.5 [4/300] eval/colormap/drm_k4_lr0p0005_s100 ok
+wrote results/raw/eval/colormap/drm_k4_lr0p0005_s100.json  pass1(S4,k4)=1.000  train=141s
+2026-10-28T18:22:38-04:00 load=9.5 [5/300] eval/colormap/fwd_k4_lr0p0005_s101 ok
+wrote results/raw/eval/colormap/fwd_k4_lr0p0005_s101.json  pass1(S4,k4)=1.000  train=139s
+2026-10-28T18:22:38-04:00 load=9.5 [6/300] eval/colormap/bwd_k_k4_lr0p0005_s101 ok
+wrote results/raw/eval/colormap/bwd_k_k4_lr0p0005_s101.json  pass1(S4,k4)=1.000  train=141s
+wrote results/raw/eval/colormap/bwd_k_k4_lr0p0005_s100.json  pass1(S4,k4)=1.000  train=148s
+2026-10-28T18:22:44-04:00 load=9.3 [7/300] eval/colormap/bwd_k_k4_lr0p0005_s100 ok
+wrote results/raw/eval/colormap/drm_k4_lr0p0005_s101.json  pass1(S4,k4)=1.000  train=130s
+2026-10-28T18:25:48-04:00 load=7.6 [8/300] eval/colormap/drm_k4_lr0p0005_s101 ok
+wrote results/raw/eval/colormap/fwd_k4_lr0p0005_s102.json  pass1(S4,k4)=1.000  train=140s
+2026-10-28T18:26:00-04:00 load=7.6 [9/300] eval/colormap/fwd_k4_lr0p0005_s102 ok
+2026-10-28T18:26:05-04:00 load=7.5 [10/300] eval/colormap/drm_k4_lr0p0005_s102 ok
+wrote results/raw/eval/colormap/drm_k4_lr0p0005_s102.json  pass1(S4,k4)=1.000  train=129s
+wrote results/raw/eval/colormap/bwd_tbptt_k4_lr0p0005_s102.json  pass1(S4,k4)=1.000  train=129s
+2026-10-28T18:26:06-04:00 load=7.5 [11/300] eval/colormap/bwd_tbptt_k4_lr0p0005_s102 ok
+wrote results/raw/eval/colormap/fwd_k4_lr0p0005_s103.json  pass1(S4,k4)=1.000  train=137s
+2026-10-28T18:26:17-04:00 load=7.5 [12/300] eval/colormap/fwd_k4_lr0p0005_s103 ok
+wrote results/raw/eval/colormap/bwd_k_k4_lr0p0005_s102.json  pass1(S4,k4)=1.000  train=144s
+2026-10-28T18:26:20-04:00 load=7.5 [13/300] eval/colormap/bwd_k_k4_lr0p0005_s102 ok
+wrote results/raw/eval/colormap/bwd_k_k4_lr0p0005_s103.json  pass1(S4,k4)=1.000  train=143s
+2026-10-28T18:26:26-04:00 load=7.4 [14/300] eval/colormap/bwd_k_k4_lr0p0005_s103 ok
+wrote results/raw/eval/colormap/bwd_tbptt_k4_lr0p0005_s103.json  pass1(S4,k4)=1.000  train=133s
+2026-10-28T18:29:23-04:00 load=7.4 [15/300] eval/colormap/bwd_tbptt_k4_lr0p0005_s103 ok
+wrote results/raw/eval/colormap/drm_k4_lr0p0005_s103.json  pass1(S4,k4)=1.000  train=133s
+2026-10-28T18:29:33-04:00 load=7.6 [16/300] eval/colormap/drm_k4_lr0p0005_s103 ok
+2026-10-28T18:29:46-04:00 load=8.0 [17/300] eval/colormap/fwd_k4_lr0p0005_s104 ok
+wrote results/raw/eval/colormap/fwd_k4_lr0p0005_s104.json  pass1(S4,k4)=1.000  train=138s
+wrote results/raw/eval/colormap/bwd_tbptt_k4_lr0p0005_s104.json  pass1(S4,k4)=1.000  train=134s
+2026-10-28T18:29:52-04:00 load=8.1 [18/300] eval/colormap/bwd_tbptt_k4_lr0p0005_s104 ok
+wrote results/raw/eval/colormap/drm_k4_lr0p0005_s104.json  pass1(S4,k4)=1.000  train=135s
+2026-10-28T18:29:55-04:00 load=8.1 [19/300] eval/colormap/drm_k4_lr0p0005_s104 ok
+2026-10-28T18:29:57-04:00 load=8.3 [20/300] eval/colormap/bwd_k_k4_lr0p0005_s104 ok
+wrote results/raw/eval/colormap/bwd_k_k4_lr0p0005_s104.json  pass1(S4,k4)=1.000  train=150s
+2026-10-28T18:30:05-04:00 load=8.4 [21/300] eval/colormap/fwd_k4_lr0p0005_s105 ok
+wrote results/raw/eval/colormap/fwd_k4_lr0p0005_s105.json  pass1(S4,k4)=1.000  train=135s
+wrote results/raw/eval/colormap/bwd_tbptt_k4_lr0p0005_s105.json  pass1(S4,k4)=1.000  train=129s
+2026-10-28T18:33:05-04:00 load=8.2 [22/300] eval/colormap/bwd_tbptt_k4_lr0p0005_s105 ok
+2026-10-28T18:33:09-04:00 load=8.2 [23/300] eval/colormap/bwd_k_k4_lr0p0005_s105 ok
+wrote results/raw/eval/colormap/bwd_k_k4_lr0p0005_s105.json  pass1(S4,k4)=1.000  train=142s
+2026-10-28T18:33:15-04:00 load=8.1 [24/300] eval/colormap/drm_k4_lr0p0005_s105 ok
+wrote results/raw/eval/colormap/drm_k4_lr0p0005_s105.json  pass1(S4,k4)=1.000  train=126s
+2026-10-28T18:33:27-04:00 load=7.8 [25/300] eval/colormap/fwd_k4_lr0p0005_s106 ok
+wrote results/raw/eval/colormap/fwd_k4_lr0p0005_s106.json  pass1(S4,k4)=1.000  train=133s
+2026-10-28T18:33:29-04:00 load=7.8 [26/300] eval/colormap/bwd_tbptt_k4_lr0p0005_s106 ok
+wrote results/raw/eval/colormap/bwd_tbptt_k4_lr0p0005_s106.json  pass1(S4,k4)=1.000  train=129s
+2026-10-28T18:33:39-04:00 load=7.9 [27/300] eval/colormap/bwd_k_k4_lr0p0005_s106 ok
+wrote results/raw/eval/colormap/bwd_k_k4_lr0p0005_s106.json  pass1(S4,k4)=1.000  train=141s
+2026-10-28T18:33:50-04:00 load=7.8 [28/300] eval/colormap/drm_k4_lr0p0005_s106 ok
+wrote results/raw/eval/colormap/drm_k4_lr0p0005_s106.json  pass1(S4,k4)=1.000  train=143s
+wrote results/raw/eval/colormap/fwd_k4_lr0p0005_s107.json  pass1(S4,k4)=1.000  train=134s
+2026-10-28T18:36:41-04:00 load=7.9 [29/300] eval/colormap/fwd_k4_lr0p0005_s107 ok
+2026-10-28T18:36:48-04:00 load=7.8 [30/300] eval/colormap/bwd_tbptt_k4_lr0p0005_s107 ok
+wrote results/raw/eval/colormap/bwd_tbptt_k4_lr0p0005_s107.json  pass1(S4,k4)=1.000  train=129s
+wrote results/raw/eval/colormap/bwd_k_k4_lr0p0005_s107.json  pass1(S4,k4)=1.000  train=143s
+2026-10-28T18:36:54-04:00 load=7.8 [31/300] eval/colormap/bwd_k_k4_lr0p0005_s107 ok
+2026-10-28T18:37:06-04:00 load=7.6 [32/300] eval/colormap/fwd_k4_lr0p0005_s108 ok
+wrote results/raw/eval/colormap/fwd_k4_lr0p0005_s108.json  pass1(S4,k4)=1.000  train=135s
+2026-10-28T18:37:16-04:00 load=7.5 [33/300] eval/colormap/drm_k4_lr0p0005_s107 ok
+wrote results/raw/eval/colormap/drm_k4_lr0p0005_s107.json  pass1(S4,k4)=1.000  train=148s
+wrote results/raw/eval/colormap/bwd_k_k4_lr0p0005_s108.json  pass1(S4,k4)=1.000  train=143s
+2026-10-28T18:37:24-04:00 load=7.5 [34/300] eval/colormap/bwd_k_k4_lr0p0005_s108 ok
+2026-10-28T18:37:24-04:00 load=7.5 [35/300] eval/colormap/bwd_tbptt_k4_lr0p0005_s108 ok
+wrote results/raw/eval/colormap/bwd_tbptt_k4_lr0p0005_s108.json  pass1(S4,k4)=1.000  train=133s
+wrote results/raw/eval/colormap/drm_k4_lr0p0005_s108.json  pass1(S4,k4)=1.000  train=142s
+2026-10-28T18:40:23-04:00 load=7.3 [36/300] eval/colormap/drm_k4_lr0p0005_s108 ok
+2026-10-28T18:40:23-04:00 load=7.3 [37/300] eval/colormap/fwd_k4_lr0p0005_s109 ok
+wrote results/raw/eval/colormap/fwd_k4_lr0p0005_s109.json  pass1(S4,k4)=1.000  train=135s
+wrote results/raw/eval/colormap/bwd_k_k4_lr0p0005_s109.json  pass1(S4,k4)=1.000  train=139s
+2026-10-28T18:40:35-04:00 load=7.4 [38/300] eval/colormap/bwd_k_k4_lr0p0005_s109 ok
+wrote results/raw/eval/colormap/bwd_tbptt_k4_lr0p0005_s109.json  pass1(S4,k4)=1.000  train=128s
+2026-10-28T18:40:36-04:00 load=7.4 [39/300] eval/colormap/bwd_tbptt_k4_lr0p0005_s109 ok
+wrote results/raw/eval/colormap/fwd_k4_lr0p0005_s110.json  pass1(S4,k4)=1.000  train=135s
+2026-10-28T18:40:59-04:00 load=8.0 [40/300] eval/colormap/fwd_k4_lr0p0005_s110 ok
+2026-10-28T18:41:00-04:00 load=8.0 [41/300] eval/colormap/drm_k4_lr0p0005_s109 ok
+wrote results/raw/eval/colormap/drm_k4_lr0p0005_s109.json  pass1(S4,k4)=1.000  train=143s
+2026-10-28T18:41:07-04:00 load=8.0 [42/300] eval/colormap/bwd_k_k4_lr0p0005_s110 ok
+wrote results/raw/eval/colormap/bwd_k_k4_lr0p0005_s110.json  pass1(S4,k4)=1.000  train=140s

@@ -1,0 +1,44 @@
+OK   --task flood --method fwd --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1: identical
+OK   --task flood --method fwd --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1: identical
+OK   --task flood --method fwd --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0: identical
+OK   --task flood --method fwd --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0: identical
+OK   --task flood --method fwd_steps --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1: identical
+OK   --task flood --method fwd_steps --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1: identical
+OK   --task flood --method fwd_steps --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0: identical
+OK   --task flood --method fwd_steps --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0: identical
+OK   --task flood --method bwd_k --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1: identical
+OK   --task flood --method bwd_k --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1: identical
+OK   --task flood --method bwd_k --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0: identical
+OK   --task flood --method bwd_k --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0: identical
+OK   --task flood --method bwd_tbptt --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1: identical
+OK   --task flood --method bwd_tbptt --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1: identical
+OK   --task flood --method bwd_tbptt --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0: identical
+OK   --task flood --method bwd_tbptt --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0: identical
+OK   --task flood --method drm --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1: identical
+OK   --task flood --method drm --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1: identical
+OK   --task flood --method drm --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0: identical
+OK   --task flood --method drm --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0: identical
+OK   --task gravity --method fwd --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1: identical
+OK   --task gravity --method fwd --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1: identical
+OK   --task gravity --method fwd --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0: identical
+OK   --task gravity --method fwd --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0: identical
+OK   --task gravity --method fwd_steps --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1: identical
+OK   --task gravity --method fwd_steps --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1: identical
+OK   --task gravity --method fwd_steps --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0: identical
+OK   --task gravity --method fwd_steps --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0: identical
+OK   --task gravity --method bwd_k --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1: identical
+OK   --task gravity --method bwd_k --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1: identical
+OK   --task gravity --method bwd_k --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0: identical
+OK   --task gravity --method bwd_k --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0: identical
+OK   --task gravity --method bwd_tbptt --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1: identical
+OK   --task gravity --method bwd_tbptt --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1: identical
+OK   --task gravity --method bwd_tbptt --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0: identical
+OK   --task gravity --method bwd_tbptt --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0: identical
+OK   --task gravity --method drm --seed 7 --split dev --lr 0.004 --k 2 --phi_budget 48 --radius 1: identical
+OK   --task gravity --method drm --seed 7 --split dev --lr 0.004 --k 4 --phi_budget 48 --radius 1: identical
+OK   --task gravity --method drm --seed 7 --split eval --lr 0.004 --k 2 --phi_budget 48 --radius 0: identical
+OK   --task gravity --method drm --seed 7 --split eval --lr 0.004 --k 4 --phi_budget 48 --radius 0: identical
+FAIL committed dev/flood/drm_k4_lr0p008_b12000_r1_s1: json differs in ['train']
+FAIL committed eval/gravity/bwd_tbptt_k4_lr0p004_b12000_r1_s100: json differs in ['train']
+FAIL committed eval/shift/bwd_k_k4_lr0p016_b12000_r1_s100: json differs in ['train']
+40/43 identical; parent 91de577ed2a30aae -> current 23eb93ba4b532a98
