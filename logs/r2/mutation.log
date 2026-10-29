@@ -1,0 +1,118 @@
+control (unmutated) pytest exit = 0
+T1   KILLED         colormap target is identity
+T2   KILLED         shift goes the wrong way
+T3   KILLED         occluder may hide both mirror cells (unrecoverable target)
+T4   KILLED         gravity reverses order
+T5   KILLED         flood leaks diagonally
+T6   KILLED         eval split not de-duplicated against train/dev
+T7   KILLED         dev split not de-duplicated against train
+T8   KILLED         flood source cell not marked
+M1   KILLED         attention radius off by one
+M2   KILLED         local attention silently global
+M3   KILLED         input not injected at each Phi step
+M4   KILLED         label and input embeddings shared
+C1   KILLED         linear instead of cosine schedule (tensor path)
+C2   KILLED         masks the complement
+C3   KILLED         corruption writes colour 0 instead of MASK
+R1   KILLED         DRM starts from full mask (= bwd_k)
+R2   KILLED         TBPTT starts from corrupted target
+R3   KILLED         no stop-gradient between TBPTT windows
+R4   KILLED         one-step denoiser unrolled k steps
+R5   KILLED         TBPTT has a single window
+R6   KILLED         loss target is the input grid
+R7   KILLED         init ignores seed
+R8   KILLED         no warmup
+R9   KILLED         TBPTT restarts every window
+G1   KILLED         fwd_steps gets FLOP-matched steps
+G2   KILLED         DRM budget miscounted
+G3   KILLED         eval seeds overlap dev seeds
+I1   KILLED         remask schedule off by one step
+I2   KILLED         inference ignores its own predictions
+I3   KILLED         inference starts from the answer when traced
+I4   KILLED         inner steps ignored at inference
+O1   KILLED         always evaluates on dev
+O2   KILLED         learning curve peeks at eval
+O3   KILLED         stale code not recomputed
+O4   KILLED         per-example bits truncated
+O5   KILLED         --force ignored
+J1   KILLED         main grid on dev split
+J2   KILLED         tuned lr ignored
+J3   KILLED         main grid on dev seeds
+J4   KILLED         k-sweep not FLOP-matched
+U1   KILLED         tuning picks off-menu (more test compute) schedules
+U2   KILLED         tuning minimises
+U3   KILLED         tuning accepts mixed code
+U4   KILLED         tuning accepts missing runs
+A1   KILLED         primary ignores dev-chosen schedule
+A2   KILLED         pooled = first task
+A3   KILLED         difference sign flipped
+A4   KILLED         comparison not paired by seed
+A5   KILLED         no multiplicity correction
+A6   KILLED         extra files accepted
+A7   KILLED         dev-split run accepted in eval grid
+A8   KILLED         k=4 sweep point uses all seeds
+A9   KILLED         incomplete grid accepted
+A10  KILLED         --allow-partial overwrites results/
+A11  KILLED         stale config accepted
+K1   KILLED         post-hoc task cut re-applied to the eval grid
+K2   KILLED         lr extension dropped
+K3   KILLED         too few eval seeds
+F1   KILLED         figures drawn from a partial summary
+W1   KILLED         README renders with unknown claim keys
+X1   KILLED         Holm per group instead of one family
+X2   KILLED         tuning on eval split
+X3   KILLED         90% CI labelled 95%
+X4   KILLED         anti-conservative ties
+X5   KILLED         grads accumulate across steps
+X6   KILLED         curriculum truncated to tau<=0.5
+X7   KILLED         tuning on max over dev seeds
+X8   KILLED         dev seeds overlap eval seeds
+X9   KILLED         TBPTT gets 1/4 of the budget
+X10  KILLED         aggregate accepts two code hashes
+X11  KILLED         DRM silently gets TBPTT windows
+X12  KILLED         inference RNG ignores seed
+X13  KILLED         dedup on (x,y) instead of x
+X14  KILLED         pooled drops tasks
+X15  KILLED         never fully masked
+Q1   KILLED         latent recursion capped at 16 (review M3)
+Q2   KILLED         lr grid stops at 4e-3 (review M2)
+Q3   KILLED         lr run names collide (review m7)
+Q4   KILLED         unknown task accepted
+Q5   KILLED         k = 0 accepted
+Q6   KILLED         CLI accepts a non-positive budget
+Q7   KILLED         CLI accepts unknown method
+Q8   KILLED         checkpoint not saved
+Q9   KILLED         no timestamp in raw meta (review m4)
+Q10  KILLED         mismatch probe missing some menu schedules
+Q11  KILLED         lr edge never flagged
+Q12  KILLED         t-interval uses z
+Q13  KILLED         mismatch at own schedule uses S16_k1
+Q14  KILLED         descriptive pooled3 enters the Holm family
+S1   KILLED         one-sided p
+S2   KILLED         bootstrap does not resample
+S3   KILLED         Holm not monotone
+Y1   KILLED         headline tuning picks from all schedules, not the <=16-Phi menu
+Y2   KILLED         compute curves use the dev-WORST schedule
+Y3   KILLED         traces_at_choice ignores own schedule
+Y4   KILLED         t-interval uses z
+Y5   KILLED         lower lr edge not flagged
+Y6   KILLED         negative budget accepted by Config
+Y7   KILLED         started_at records finish time
+Y8   KILLED         hygiene path regex neutered (test mutant)
+Y9   KILLED         primary pool silently 3 tasks again
+Y10  KILLED         significance from raw p
+Y11  KILLED         CPU-hours drop eval time
+Y12  KILLED         k-sweep uses dev seeds
+Y13  KILLED         inference RNG same for every schedule
+Y14  KILLED         dev raw not committed before eval
+Z1   KILLED         headline menu back to exactly 16 Phi (no early stopping)
+Z2   KILLED         menu order changed: ties no longer keep the round-1 order
+Z3   KILLED         k-sweep TBPTT horizon ignores n_sup
+Z4   KILLED         different-config output silently overwritten
+Z5   KILLED         negative radius accepted
+Z6   KILLED         run name drops the Phi budget
+Z7   KILLED         non-default fields do not reach the run name
+Z8   KILLED         unverified lineage links accepted
+Z9   KILLED         eval grid code-hash check disabled
+Z10  KILLED         pre-eval push skipped
+{"KILLED": 116, "SURVIVED": 0, "ERROR": 0, "NOT_APPLICABLE": 0}

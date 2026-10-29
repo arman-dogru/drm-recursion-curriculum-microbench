@@ -91,3 +91,27 @@ Q14,scripts/aggregate.py,KILLED,1,descriptive pooled3 enters the Holm family
 S1,drm/stats.py,KILLED,1,one-sided p
 S2,drm/stats.py,KILLED,1,bootstrap does not resample
 S3,drm/stats.py,KILLED,1,Holm not monotone
+Y1,scripts/tune.py,KILLED,1,"headline tuning picks from all schedules, not the <=16-Phi menu"
+Y2,scripts/tune.py,KILLED,1,compute curves use the dev-WORST schedule
+Y3,scripts/aggregate.py,KILLED,1,traces_at_choice ignores own schedule
+Y4,drm/stats.py,KILLED,1,t-interval uses z
+Y5,scripts/tune.py,KILLED,1,lower lr edge not flagged
+Y6,drm/config.py,KILLED,1,negative budget accepted by Config
+Y7,scripts/run_one.py,KILLED,1,started_at records finish time
+Y8,tests/test_hygiene.py,KILLED,1,hygiene path regex neutered (test mutant)
+Y9,scripts/aggregate.py,KILLED,1,primary pool silently 3 tasks again
+Y10,scripts/aggregate.py,KILLED,1,significance from raw p
+Y11,scripts/aggregate.py,KILLED,1,CPU-hours drop eval time
+Y12,scripts/run_grid.py,KILLED,1,k-sweep uses dev seeds
+Y13,scripts/run_one.py,KILLED,1,inference RNG same for every schedule
+Y14,scripts/pipeline.sh,KILLED,1,dev raw not committed before eval
+Z1,scripts/tune.py,KILLED,1,headline menu back to exactly 16 Phi (no early stopping)
+Z2,scripts/tune.py,KILLED,1,menu order changed: ties no longer keep the round-1 order
+Z3,scripts/aggregate.py,KILLED,1,k-sweep TBPTT horizon ignores n_sup
+Z4,scripts/run_one.py,KILLED,1,different-config output silently overwritten
+Z5,drm/config.py,KILLED,1,negative radius accepted
+Z6,drm/config.py,KILLED,1,run name drops the Phi budget
+Z7,drm/config.py,KILLED,1,non-default fields do not reach the run name
+Z8,drm/lineage.py,KILLED,1,unverified lineage links accepted
+Z9,scripts/aggregate.py,KILLED,1,eval grid code-hash check disabled
+Z10,scripts/pipeline.sh,KILLED,1,pre-eval push skipped

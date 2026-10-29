@@ -1,8 +1,8 @@
 {
  "control_exit": 0,
- "n": 92,
+ "n": 116,
  "counts": {
-  "KILLED": 92,
+  "KILLED": 116,
   "SURVIVED": 0,
   "ERROR": 0,
   "NOT_APPLICABLE": 0
@@ -649,6 +649,174 @@
    "id": "S3",
    "file": "drm/stats.py",
    "why": "Holm not monotone",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y1",
+   "file": "scripts/tune.py",
+   "why": "headline tuning picks from all schedules, not the <=16-Phi menu",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y2",
+   "file": "scripts/tune.py",
+   "why": "compute curves use the dev-WORST schedule",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y3",
+   "file": "scripts/aggregate.py",
+   "why": "traces_at_choice ignores own schedule",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y4",
+   "file": "drm/stats.py",
+   "why": "t-interval uses z",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y5",
+   "file": "scripts/tune.py",
+   "why": "lower lr edge not flagged",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y6",
+   "file": "drm/config.py",
+   "why": "negative budget accepted by Config",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y7",
+   "file": "scripts/run_one.py",
+   "why": "started_at records finish time",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y8",
+   "file": "tests/test_hygiene.py",
+   "why": "hygiene path regex neutered (test mutant)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y9",
+   "file": "scripts/aggregate.py",
+   "why": "primary pool silently 3 tasks again",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y10",
+   "file": "scripts/aggregate.py",
+   "why": "significance from raw p",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y11",
+   "file": "scripts/aggregate.py",
+   "why": "CPU-hours drop eval time",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y12",
+   "file": "scripts/run_grid.py",
+   "why": "k-sweep uses dev seeds",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y13",
+   "file": "scripts/run_one.py",
+   "why": "inference RNG same for every schedule",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Y14",
+   "file": "scripts/pipeline.sh",
+   "why": "dev raw not committed before eval",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z1",
+   "file": "scripts/tune.py",
+   "why": "headline menu back to exactly 16 Phi (no early stopping)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z2",
+   "file": "scripts/tune.py",
+   "why": "menu order changed: ties no longer keep the round-1 order",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z3",
+   "file": "scripts/aggregate.py",
+   "why": "k-sweep TBPTT horizon ignores n_sup",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z4",
+   "file": "scripts/run_one.py",
+   "why": "different-config output silently overwritten",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z5",
+   "file": "drm/config.py",
+   "why": "negative radius accepted",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z6",
+   "file": "drm/config.py",
+   "why": "run name drops the Phi budget",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z7",
+   "file": "drm/config.py",
+   "why": "non-default fields do not reach the run name",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z8",
+   "file": "drm/lineage.py",
+   "why": "unverified lineage links accepted",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z9",
+   "file": "scripts/aggregate.py",
+   "why": "eval grid code-hash check disabled",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "Z10",
+   "file": "scripts/pipeline.sh",
+   "why": "pre-eval push skipped",
    "status": "KILLED",
    "exit": 1
   }
