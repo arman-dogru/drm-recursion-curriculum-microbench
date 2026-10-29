@@ -1,5 +1,8 @@
-"""Pick, per (task, method), the learning rate and the matched-compute inference
-schedule (S x k_in = 16) that maximise mean dev pass@1 over DEV_SEEDS.
+"""Pick, per (task, method), the learning rate and the inference schedule with
+AT MOST matched test compute (S x k_in <= 16) that maximise mean dev pass@1 over
+DEV_SEEDS. Round 2 review (major 1): the menu was S x k_in == 16, which forced
+single-window bwd_k (trained on a 4-step window) to run 4x past its horizon; any
+method may now stop early. Ties keep the S x k_in = 16 schedule (listed first).
 
 Also records, for every test-compute level c = S*k_in, the dev-best schedule
 (used for the pass@1-vs-compute curves). Only dev-split runs are read.
@@ -19,6 +22,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from drm.config import DEV_SEEDS, MATCHED_MENU, ROOT, inference_grid  # noqa: E402
 from run_grid import LR_GRID_FULL as LR_GRID, TUNING_PATH, tune_jobs  # noqa: E402
 from run_one import out_paths  # noqa: E402
+
+
+# Headline menu: the S x k_in = 16 schedules first (so ties keep the round-1 choice),
+# then every cheaper schedule of the inference grid, most compute first.
+HEADLINE_MENU = tuple(MATCHED_MENU) + tuple(sorted(
+    ((s, k) for s, k in inference_grid() if s * k < 16), key=lambda z: (-z[0] * z[1], z[0])))
 
 
 class GridError(RuntimeError):
@@ -59,7 +68,7 @@ def choose(runs: dict):
             best = None
             for lr in [x for x in LR_GRID if f"{x:g}" in scores[t][m]]:   # fixed order -> deterministic ties
                 sc = scores[t][m][f"{lr:g}"]
-                for s, k in MATCHED_MENU:
+                for s, k in HEADLINE_MENU:
                     v = sc[f"S{s}_k{k}"]
                     if best is None or v > best[0] + 1e-12:
                         best = (v, lr, (s, k))
@@ -84,7 +93,7 @@ def lr_edges(choice: dict, scores: dict) -> list[str]:
             i = lrs.index(ch["lr"])
             if i in (0, len(lrs) - 1) and len(lrs) > 1:
                 nb = lrs[1] if i == 0 else lrs[-2]
-                nb_best = max(scores[t][m][f"{nb:g}"][f"S{s}_k{k}"] for s, k in MATCHED_MENU)
+                nb_best = max(scores[t][m][f"{nb:g}"][f"S{s}_k{k}"] for s, k in HEADLINE_MENU)
                 if ch["dev_pass1"] > nb_best + 1e-12:
                     out.append(f"{t}:{m}:{ch['lr']:g}")
     return sorted(out)
@@ -95,7 +104,7 @@ def main(raw: Path = ROOT / "results" / "raw", out: Path = TUNING_PATH, fail_on_
     choice, scores, by_compute = choose(runs)
     edges = lr_edges(choice, scores)
     out.write_text(json.dumps({"meta": {"code_hash": code, "dev_seeds": list(DEV_SEEDS),
-                                        "lr_grid": list(LR_GRID), "menu": [list(x) for x in MATCHED_MENU],
+                                        "lr_grid": list(LR_GRID), "menu": [list(x) for x in HEADLINE_MENU],
                                         "lr_edges": edges},
                                "choice": choice, "by_compute": by_compute, "dev_scores": scores},
                               indent=1, sort_keys=True))
