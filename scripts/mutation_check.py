@@ -274,6 +274,11 @@ MUTANTS = [
     ("P7","scripts/verify_lineage.py","    if not ok:\n        sys.exit(1)\n","\n","lineage records all_identical even when a check failed"),
     ("P8","scripts/verify_lineage.py","    out.append(f\"eval/gravity/bwd_tbptt_k1_lr{lr}_b12000_r1_s{DEFAULT_FULL_SEED}\")","    pass","default full set drops the k-sweep run"),
     ("P9","scripts/aggregate.py","\"wins\": int((diff > 0).sum()),\n            \"losses\": int((diff < 0).sum())","\"wins\": int((diff < 0).sum()),\n            \"losses\": int((diff > 0).sum())","sensitivity wins/losses swapped"),
+    # review r5: claims formatting of the same-schedule keys (m1) and the pipeline order (n3)
+    ("E1","scripts/claims.py","c[f\"ss_{t}_{role}_wl\"] = f\"{d['wins']}/{d['losses']}\"","c[f\"ss_{t}_{role}_wl\"] = f\"{d['losses']}/{d['wins']}\"","same-schedule won/lost swapped in the claims"),
+    ("E2","scripts/claims.py","\"S{}/k{}\".format(*x[\"schedule\"])","\"S{1}/k{0}\".format(*x[\"schedule\"])","same-schedule S/k label swapped in the claims"),
+    ("E3","scripts/pipeline.sh","$PY scripts/same_schedule.py\n","","pipeline never runs same_schedule.py"),
+    ("E4","scripts/pipeline.sh","$PY scripts/same_schedule.py\n$PY scripts/demo_trajectories.py\n$PY scripts/make_figures.py\n$PY scripts/claims.py\n","$PY scripts/demo_trajectories.py\n$PY scripts/make_figures.py\n$PY scripts/claims.py\n$PY scripts/same_schedule.py\n","same_schedule.py runs after claims.py"),
 ]
 
 

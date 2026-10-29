@@ -154,7 +154,8 @@ def build(s, mut, n_tests):
     e = json.loads(lin.read_text())["equivalent"].get(c["code_hash"], {}) if lin.exists() else {}
     c["lineage_n"] = str(e.get("n_checks", 0))
     if mut:
-        for pre, name in (("X", "rev"), ("Q", "r1"), ("Y", "rev2"), ("Z", "r2"), ("W", "rev3"), ("P", "rev4")):
+        for pre, name in (("X", "rev"), ("Q", "r1"), ("Y", "rev2"), ("Z", "r2"), ("W", "rev3"), ("P", "rev4"),
+                          ("E", "rev5")):
             sel = [r for r in mut.get("mutants", []) if r["id"].startswith(pre)]
             c[f"mut_{name}_killed"] = str(sum(r["status"] == "KILLED" for r in sel))
             c[f"mut_{name}_total"] = str(len(sel))
@@ -186,6 +187,11 @@ def build(s, mut, n_tests):
                 c[f"ss_{t}_{role}_d"] = f"{pp(d['diff'])} pp [{pp(d['lo'])}, {pp(d['hi'])}]"
                 c[f"ss_{t}_{role}_p"] = f"{d['p']:.2g}"
                 c[f"ss_{t}_{role}_wl"] = f"{d['wins']}/{d['losses']}"
+    # review r5 n1: bwd_k pass@1 at a few schedules (the cells of figures/schedule_heatmaps.png)
+    for t in ("flood", "gravity"):
+        tab = s.get("schedules", {}).get(t, {}).get("bwd_k", {})
+        for key in ("S1_k4", "S1_k8", "S1_k16", "S2_k8"):
+            c[f"hm_{t}_bwd_k_{key}"] = f"{tab[key]:.2f}" if key in tab else "n/a"
     tie = sens.get("tie_symfill_tbptt_r1")
     c["tie_symfill_tbptt_r1"] = ci(tie["symfill_bwd_tbptt"]) if tie else "n/a"
     c["tie_pooled_d_vs_tbptt"] = (f"{pp(tie['pooled_drm_minus_bwd_tbptt']['diff'])} pp [{pp(tie['pooled_drm_minus_bwd_tbptt']['lo'])}, "
