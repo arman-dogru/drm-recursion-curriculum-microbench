@@ -1,8 +1,8 @@
 {
  "control_exit": 0,
- "n": 131,
+ "n": 140,
  "counts": {
-  "KILLED": 131,
+  "KILLED": 140,
   "SURVIVED": 0,
   "ERROR": 0,
   "NOT_APPLICABLE": 0
@@ -922,6 +922,69 @@
    "id": "W15",
    "file": "scripts/aggregate.py",
    "why": "tie sensitivity silently reports the round-2 cell",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P1",
+   "file": "scripts/aggregate.py",
+   "why": "sensitivity p halved (one-sided)",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P2",
+   "file": "scripts/aggregate.py",
+   "why": "seed sd uses ddof=0",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P3",
+   "file": "scripts/aggregate.py",
+   "why": "native pooled over 3 tasks",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P4",
+   "file": "scripts/aggregate.py",
+   "why": "computed_under relabelled to canonical hash",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P5",
+   "file": "scripts/claims.py",
+   "why": "tie-cell list includes colormap",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P6",
+   "file": "scripts/claims.py",
+   "why": "superseded/r0 CPU-h drop eval time",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P7",
+   "file": "scripts/verify_lineage.py",
+   "why": "lineage records all_identical even when a check failed",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P8",
+   "file": "scripts/verify_lineage.py",
+   "why": "default full set drops the k-sweep run",
+   "status": "KILLED",
+   "exit": 1
+  },
+  {
+   "id": "P9",
+   "file": "scripts/aggregate.py",
+   "why": "sensitivity wins/losses swapped",
    "status": "KILLED",
    "exit": 1
   }

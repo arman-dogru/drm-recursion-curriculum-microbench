@@ -130,3 +130,12 @@ W12,scripts/tune.py,KILLED,1,tuning.json relabelled with the current code hash o
 W13,scripts/pipeline.sh,KILLED,1,hygiene scan before push removed (n4)
 W14,scripts/aggregate.py,KILLED,1,native-horizon sensitivity silently uses the headline schedule
 W15,scripts/aggregate.py,KILLED,1,tie sensitivity silently reports the round-2 cell
+P1,scripts/aggregate.py,KILLED,1,sensitivity p halved (one-sided)
+P2,scripts/aggregate.py,KILLED,1,seed sd uses ddof=0
+P3,scripts/aggregate.py,KILLED,1,native pooled over 3 tasks
+P4,scripts/aggregate.py,KILLED,1,computed_under relabelled to canonical hash
+P5,scripts/claims.py,KILLED,1,tie-cell list includes colormap
+P6,scripts/claims.py,KILLED,1,superseded/r0 CPU-h drop eval time
+P7,scripts/verify_lineage.py,KILLED,1,lineage records all_identical even when a check failed
+P8,scripts/verify_lineage.py,KILLED,1,default full set drops the k-sweep run
+P9,scripts/aggregate.py,KILLED,1,sensitivity wins/losses swapped
