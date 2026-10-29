@@ -2,7 +2,9 @@
 
 Writes results/raw/<split>/<task>/<name>.json (+ .npz with per-example exact
 match for every inference schedule). An existing output is skipped only if its
-recorded code_hash and config_hash match; otherwise it is recomputed.
+recorded config_hash matches and its code_hash is the current one or a verified-
+equivalent ancestor (drm/lineage.py); a stale code hash is recomputed. An existing
+output with a DIFFERENT config is never overwritten unless --force is given.
 """
 from __future__ import annotations
 
@@ -21,6 +23,7 @@ import torch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from drm.config import ROOT, Config, code_hash, inference_grid  # noqa: E402
 from drm.infer import exact_match, infer, oracle_state_acc  # noqa: E402
+from drm.lineage import accepted_hashes  # noqa: E402
 from drm.model import n_params  # noqa: E402
 from drm.config import METHODS  # noqa: E402
 from drm.tasks import TASKS, make_task_data  # noqa: E402
@@ -60,11 +63,27 @@ def up_to_date(js: Path, cfg: Config) -> bool:
         meta = json.loads(js.read_text())["meta"]
     except (json.JSONDecodeError, KeyError):
         return False
-    return meta.get("code_hash") == code_hash() and meta.get("config_hash") == cfg.config_hash()
+    return meta.get("code_hash") in accepted_hashes() and meta.get("config_hash") == cfg.config_hash()
+
+
+class OverwriteError(RuntimeError):
+    pass
+
+
+def existing_config_hash(js: Path):
+    try:
+        return json.loads(js.read_text())["meta"].get("config_hash")
+    except (OSError, json.JSONDecodeError, KeyError):
+        return None
 
 
 def run(cfg: Config, out_root: Path, force: bool = False) -> dict | None:
     js, npz = out_paths(cfg, out_root)
+    if not force and js.exists():
+        h = existing_config_hash(js)
+        if h is not None and h != cfg.config_hash():
+            raise OverwriteError(f"{js.name} holds a different config ({h} != {cfg.config_hash()}); "
+                                 "refusing to overwrite (use --force)")
     if not force and up_to_date(js, cfg) and npz.exists():
         print(f"skip (up to date) {js}")
         return None
@@ -135,6 +154,8 @@ def parse(argv=None):
         p.error("--phi_budget must be > 0")
     if a.lr <= 0:
         p.error("--lr must be > 0")
+    if a.radius < 0:
+        p.error("--radius must be >= 0 (0 = global attention)")
     cfg = Config(task=a.task, method=a.method, seed=a.seed, split=a.split, lr=a.lr, k=a.k,
                  phi_budget=a.phi_budget, radius=a.radius)
     return cfg, Path(a.out), a.force
@@ -142,4 +163,8 @@ def parse(argv=None):
 
 if __name__ == "__main__":
     cfg, out, force = parse()
-    run(cfg, out, force)
+    try:
+        run(cfg, out, force)
+    except OverwriteError as e:
+        print(f"run_one: {e}", file=sys.stderr)
+        sys.exit(2)

@@ -10,7 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 METHODS = ("fwd", "fwd_steps", "bwd_k", "bwd_tbptt", "drm")
 DEV_SEEDS = (1, 2)
 EVAL_SEEDS = tuple(range(100, 112))           # 12 seeds, disjoint from DEV_SEEDS
-# Round 1 review (M2): extended to 1.6e-2 for every task and method so dev optima are interior.
+# Base lr grid. Round 1 review (M2) extended it to 1.6e-2 for every task and method.
+# NOTE (round 2, n2): the EFFECTIVE tuning grid is scripts/run_grid.py LR_GRID_FULL =
+# LR_GRID + LR_EXT (3.2e-2, 6.4e-2), 8 points 5e-4 .. 6.4e-2; the two dev-only extensions
+# live there so that adding them did not change the code hash of the earlier dev runs.
 LR_GRID = (5e-4, 1e-3, 2e-3, 4e-3, 8e-3, 1.6e-2)
 # inference menu at matched test compute (outer steps S x inner steps k_in = 16)
 MATCHED_MENU = ((1, 16), (2, 8), (4, 4), (8, 2), (16, 1))
@@ -61,6 +64,8 @@ class Config:
             raise ValueError("k, n_sup and ref_k must be >= 1")
         if self.lr <= 0 or self.phi_budget < 0 or self.batch < 1:
             raise ValueError("lr must be > 0, phi_budget >= 0, batch >= 1")
+        if self.radius < 0:           # round 2 m5: negative radius used to mean global silently
+            raise ValueError("radius must be >= 0 (0 = global attention)")
 
     def phi_per_step(self) -> int:
         """Gradient-bearing Phi applications per optimiser step."""
@@ -82,12 +87,21 @@ class Config:
         return hashlib.sha256(self.to_json().encode()).hexdigest()[:16]
 
     def run_name(self) -> str:
+        """Unique per config (round 2 m5): the step budget and attention radius are always in
+        the name; any other non-default field appends the first 8 hex digits of config_hash."""
         lr = f"{self.lr:g}".replace(".", "p")    # exact (1.6e-2 -> 0p016), so 1.6e-2 and 2e-2 cannot collide
-        return f"{self.split}/{self.task}/{self.method}_k{self.k}_lr{lr}_s{self.seed}"
+        name = (f"{self.split}/{self.task}/{self.method}_k{self.k}_lr{lr}"
+                f"_b{self.phi_budget}_r{self.radius}_s{self.seed}")
+        extra = [f.name for f in dataclasses.fields(self)
+                 if f.name not in NAME_FIELDS and getattr(self, f.name) != f.default]
+        return name + (f"_c{self.config_hash()[:8]}" if extra else "")
+
+
+NAME_FIELDS = ("task", "method", "seed", "split", "lr", "k", "phi_budget", "radius")
 
 
 CODE_FILES = ("drm/__init__.py", "drm/tasks.py", "drm/model.py", "drm/corruption.py",
-              "drm/train.py", "drm/infer.py", "drm/config.py", "scripts/run_one.py")
+              "drm/train.py", "drm/infer.py", "drm/config.py", "drm/lineage.py", "scripts/run_one.py")
 
 
 def code_hash() -> str:

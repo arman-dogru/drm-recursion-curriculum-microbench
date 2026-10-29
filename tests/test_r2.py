@@ -126,7 +126,8 @@ def test_pipeline_commits_dev_outputs_before_eval():
     block = sh[sh.index('if [ "${COMMIT:-0}" = 1 ]'):sh.index("stage main")]
     add = re.search(r"^\s*git add (.+)$", block, re.M).group(1).split()
     assert "results/tuning.json" in add and "results/raw/dev" in add
-    assert "|| true" not in block and "git commit" in block and "git push" in block
+    assert "||" not in block and "git commit" in block
+    assert re.search(r"^\s*git push -q origin ", block, re.M)       # a real command, not a guarded one
     assert "git diff --quiet HEAD -- results/tuning.json results/raw/dev" in block
     assert sh.index("git push") < sh.index("run_grid.py main")
 

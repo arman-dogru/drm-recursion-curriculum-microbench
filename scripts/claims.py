@@ -128,7 +128,7 @@ def build(s, mut, n_tests):
         for k, v in json.loads(r1.read_text()).items():
             if k.startswith(("p1_", "p1m_", "d_", "ph_", "wl_", "lr_", "sched_", "cc_")) or k in ("n_sig",):
                 c[f"r1_{k}"] = v
-    r1t = R / "r1_c4532b5" / "tuning.json"
+    r1t = ROOT / "docs" / "r1_tuning.json"           # copy of results/r1_c4532b5/tuning.json
     if r1t.exists():
         old = json.loads(r1t.read_text())["choice"]
         changed = [f"{t} {m}: {old[t][m]['lr']:g} -> {s['tuning'][t][m]['lr']:g}"
@@ -136,9 +136,21 @@ def build(s, mut, n_tests):
         c["n_cells_lr_changed"] = str(len(changed))
         c["cells_lr_changed"] = "; ".join(changed)
         c["n_runs_r2"] = str(len(s["meta"]["eval_seeds"]) * len(changed))
+        secs = 0.0
+        for t in old:
+            for m in old[t]:
+                if old[t][m]["lr"] != s["tuning"][t][m]["lr"]:
+                    lr = f"{s['tuning'][t][m]['lr']:g}".replace(".", "p")
+                    for js in (R / "raw" / "eval" / t).glob(f"{m}_k4_lr{lr}_b*_s*.json"):
+                        d = json.loads(js.read_text())
+                        secs += d["train"].get("train_seconds", 0) + d["meta"].get("eval_seconds", 0)
+        c["cpu_h_r2"] = f"{secs / 3600:.1f}"
     from drm.lineage import accepted_hashes
     anc = sorted(accepted_hashes(s["meta"]["code_hash"]) - {s["meta"]["code_hash"]})
     c["code_hash_parent"] = ", ".join(anc) if anc else s["meta"]["code_hash"]
+    lin = R / "code_lineage.json"
+    e = json.loads(lin.read_text())["equivalent"].get(s["meta"]["code_hash"], {}) if lin.exists() else {}
+    c["lineage_n"] = str(e.get("n_checks", 0))
     if mut:
         for pre, name in (("X", "rev"), ("Q", "r1"), ("Y", "rev2"), ("Z", "r2")):
             sel = [r for r in mut.get("mutants", []) if r["id"].startswith(pre)]
