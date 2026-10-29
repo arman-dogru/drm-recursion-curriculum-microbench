@@ -5,8 +5,12 @@ single-window bwd_k (trained on a 4-step window) to run 4x past its horizon; any
 method may now stop early.
 Tie-break (exact ties in mean dev pass@1; review r3 m3): lr is the OUTER loop and the comparison
 is strict, so a tie goes to the LOWEST lr first, and only then to menu order (the S x k_in = 16
-schedules are listed first). In round 2 this rule decided symfill bwd_tbptt (3.2e-2 S1/k16 and
-1.6e-2 S1/k8 both 0.288 on dev -> 1.6e-2), shift bwd_k and symfill fwd_steps.
+schedules are listed first). Exact cross-lr dev ties occur in 6 non-colormap cells: gravity
+fwd_steps, shift bwd_k, shift bwd_tbptt, shift drm, symfill bwd_tbptt and symfill fwd_steps
+(results/claim_numbers.json `tie_cells`). The one that changed an eval run is symfill bwd_tbptt
+(3.2e-2 S1/k16 and 1.6e-2 S1/k8 both 0.288 on dev -> 1.6e-2).
+If the raw runs carry more than one (lineage-linked) hash, meta.code_hash is the canonical one
+and meta.computed_under lists every raw hash (review r4 n4); with one raw hash it is that hash.
 
 Also records, for every test-compute level c = S*k_in, the dev-best schedule
 (used for the pass@1-vs-compute curves). Only dev-split runs are read.
@@ -108,13 +112,23 @@ def lr_edges(choice: dict, scores: dict) -> list[str]:
     return sorted(out)
 
 
+def tuning_meta(runs: dict, code: str, edges: list[str]) -> dict:
+    meta = {"code_hash": code, "dev_seeds": list(DEV_SEEDS), "lr_grid": list(LR_GRID),
+            "menu": [list(x) for x in HEADLINE_MENU], "lr_edges": edges}
+    raw_hashes = sorted({d["meta"]["code_hash"] for d in runs.values()})
+    if len(raw_hashes) > 1:
+        # review r4 n4: a partial rerun under newer (lineage-linked) code; do not silently collapse
+        # the provenance to the canonical hash, list every hash the runs were computed under
+        meta["computed_under"] = raw_hashes
+        print(f"tune: raw runs carry {len(raw_hashes)} linked hashes: {raw_hashes}", file=sys.stderr)
+    return meta
+
+
 def main(raw: Path = ROOT / "results" / "raw", out: Path = TUNING_PATH, fail_on_edge: bool = False):
     runs, code = load_runs(tune_jobs(), raw)
     choice, scores, by_compute = choose(runs)
     edges = lr_edges(choice, scores)
-    out.write_text(json.dumps({"meta": {"code_hash": code, "dev_seeds": list(DEV_SEEDS),
-                                        "lr_grid": list(LR_GRID), "menu": [list(x) for x in HEADLINE_MENU],
-                                        "lr_edges": edges},
+    out.write_text(json.dumps({"meta": tuning_meta(runs, code, edges),
                                "choice": choice, "by_compute": by_compute, "dev_scores": scores},
                               indent=1, sort_keys=True))
     print(json.dumps(choice, indent=1))

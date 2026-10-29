@@ -149,20 +149,26 @@ def main():
         subprocess.run(["git", "worktree", "remove", "--force", str(tree)], cwd=ROOT, capture_output=True)
     diffstat = subprocess.run(["git", "diff", "--stat", parent, "--", *CODE_FILES], cwd=ROOT, capture_output=True,
                               text=True).stdout.strip().splitlines()
+    record(checks, cur, old, parent, diffstat)
+
+
+def record(checks: list[dict], cur: str, old: str, parent: str, diffstat: list[str], path: Path | None = None):
+    """Write the lineage link only if EVERY check passed; otherwise exit 1 and leave the file untouched."""
+    path = path or LINEAGE_PATH
     ok = all(c["ok"] for c in checks)
     for c in checks:
         print(("OK  " if c["ok"] else "FAIL") + f" {c['args']}: {c['why']}")
     print(f"{sum(c['ok'] for c in checks)}/{len(checks)} identical; parent {old} -> current {cur}")
     if not ok:
         sys.exit(1)
-    doc = json.loads(LINEAGE_PATH.read_text()) if LINEAGE_PATH.exists() else {"equivalent": {}}
+    doc = json.loads(path.read_text()) if path.exists() else {"equivalent": {}}
     full_tasks = sorted({c["args"].split()[1].split("/")[1] for c in checks if c["args"].startswith("committed ")})
-    doc["equivalent"][cur] = {"parent": old, "parent_commit": parent, "all_identical": True,
+    doc["equivalent"][cur] = {"parent": old, "parent_commit": parent, "all_identical": ok,
                               "static_argument": STATIC_ARGUMENT, "full_tasks": full_tasks,
                               "verified_at": dt.datetime.now().astimezone().isoformat(timespec="seconds"),
                               "n_checks": len(checks), "checks": checks, "code_diffstat": diffstat}
-    LINEAGE_PATH.write_text(json.dumps(doc, indent=1, sort_keys=True) + "\n")
-    print(f"recorded {cur} -> {old} in {LINEAGE_PATH.relative_to(ROOT)}")
+    path.write_text(json.dumps(doc, indent=1, sort_keys=True) + "\n")
+    print(f"recorded {cur} -> {old} in {path.name}")
 
 
 if __name__ == "__main__":

@@ -154,7 +154,7 @@ def build(s, mut, n_tests):
     e = json.loads(lin.read_text())["equivalent"].get(c["code_hash"], {}) if lin.exists() else {}
     c["lineage_n"] = str(e.get("n_checks", 0))
     if mut:
-        for pre, name in (("X", "rev"), ("Q", "r1"), ("Y", "rev2"), ("Z", "r2"), ("W", "rev3")):
+        for pre, name in (("X", "rev"), ("Q", "r1"), ("Y", "rev2"), ("Z", "r2"), ("W", "rev3"), ("P", "rev4")):
             sel = [r for r in mut.get("mutants", []) if r["id"].startswith(pre)]
             c[f"mut_{name}_killed"] = str(sum(r["status"] == "KILLED" for r in sel))
             c[f"mut_{name}_total"] = str(len(sel))
@@ -172,6 +172,20 @@ def build(s, mut, n_tests):
         c[f"snat_{g}_d"] = f"{pp(d['diff'])} pp [{pp(d['lo'])}, {pp(d['hi'])}]"
         c[f"snat_{g}_p"] = f"{d['p']:.2g}"
         c[f"snat_{g}_wl"] = f"{d['wins']}/{d['losses']}"
+    # review r4 m1: DRM and bwd_k at the SAME schedule (scripts/same_schedule.py, descriptive)
+    ssp = R / "same_schedule.json"
+    for t in MAIN_TASKS:            # every key exists even without the file (template-key test)
+        for role in ("bwd_k_native", "bwd_k_pick", "drm_pick"):
+            for f in ("sched", "d", "p", "wl"):
+                c[f"ss_{t}_{role}_{f}"] = "n/a"
+    if ssp.exists():
+        for t, rows in json.loads(ssp.read_text())["same_schedule"].items():
+            for role, x in rows.items():
+                d = x["drm_minus_bwd_k"]
+                c[f"ss_{t}_{role}_sched"] = "S{}/k{}".format(*x["schedule"])
+                c[f"ss_{t}_{role}_d"] = f"{pp(d['diff'])} pp [{pp(d['lo'])}, {pp(d['hi'])}]"
+                c[f"ss_{t}_{role}_p"] = f"{d['p']:.2g}"
+                c[f"ss_{t}_{role}_wl"] = f"{d['wins']}/{d['losses']}"
     tie = sens.get("tie_symfill_tbptt_r1")
     c["tie_symfill_tbptt_r1"] = ci(tie["symfill_bwd_tbptt"]) if tie else "n/a"
     c["tie_pooled_d_vs_tbptt"] = (f"{pp(tie['pooled_drm_minus_bwd_tbptt']['diff'])} pp [{pp(tie['pooled_drm_minus_bwd_tbptt']['lo'])}, "

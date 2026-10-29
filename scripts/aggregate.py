@@ -116,6 +116,9 @@ def sensitivity(runs, tuning, ps, r1_dir: Path | None = None, r1_tuning: dict | 
     bwd_k_native: bwd_k scored at its training horizon S=1, k_in=k (4), same lr and models as the
       headline, against DRM at its headline schedule. Shows how much DRM - bwd_k depends on which
       schedule dev picked for bwd_k (gravity: dev picked S=1, k_in=8, which is seed-unstable).
+      Only bwd_k's schedule is moved; DRM's is NOT perturbed, so on flood this compares DRM at its
+      16-Phi pick (S2/k8) with bwd_k at 4 Phi. Same-schedule comparisons of the two (review r4 m1)
+      are in scripts/same_schedule.py -> results/same_schedule.json.
     tie_symfill_tbptt_r1: round 2 changed symfill bwd_tbptt from (3.2e-2, S1/k16) to (1.6e-2, S1/k8)
       only through an exact dev tie (0.288 both; ties go to the lower lr). Pooled DRM - TBPTT if the
       round-1 configuration (its archived eval runs) had been kept instead.

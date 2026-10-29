@@ -34,6 +34,7 @@ echo "$(ts) stage ksweep"
 $PY scripts/run_grid.py ksweep --workers $W
 echo "$(ts) stage aggregate"
 $PY scripts/aggregate.py
+$PY scripts/same_schedule.py
 $PY scripts/demo_trajectories.py
 $PY scripts/make_figures.py
 $PY scripts/claims.py

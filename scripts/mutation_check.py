@@ -263,6 +263,17 @@ MUTANTS = [
     ("W15", "scripts/aggregate.py", "= d[\"eval\"][f\"S{s}_k{k}\"][\"pass1\"]",
      "= ps[\"symfill\"][\"bwd_tbptt\"][d[\"meta\"][\"config\"][\"seed\"]]",
      "tie sensitivity silently reports the round-2 cell"),
+    # ---- round-4 review: the reviewer's P1-P9 against the round-3 code (P10, a bypassed npz key-set
+    # check, is left out: a missing key raises in the comparison anyway, as the reviewer noted)
+    ("P1","scripts/aggregate.py","\"p\": sign_flip_p(diff), \"wins\": int((diff > 0).sum()),","\"p\": sign_flip_p(diff) / 2, \"wins\": int((diff > 0).sum()),","sensitivity p halved (one-sided)"),
+    ("P2","scripts/aggregate.py","sd = float(np.std(v, ddof=1))","sd = float(np.std(v, ddof=0))","seed sd uses ddof=0"),
+    ("P3","scripts/aggregate.py","    nat = add_pooled(nat, MAIN_TASKS)\n","    nat = add_pooled(nat, (\"shift\", \"gravity\", \"flood\"))\n","native pooled over 3 tasks"),
+    ("P4","scripts/aggregate.py","\"computed_under\": sorted({d[\"meta\"][\"code_hash\"]","\"computed_under\": sorted({canonical(d[\"meta\"][\"code_hash\"])","computed_under relabelled to canonical hash"),
+    ("P5","scripts/claims.py","if len(tied) > 1 and t != \"colormap\":","if len(tied) > 1:","tie-cell list includes colormap"),
+    ("P6","scripts/claims.py","                tot += d[\"train\"].get(\"train_seconds\", 0) + d[\"meta\"].get(\"eval_seconds\", 0)","                tot += d[\"train\"].get(\"train_seconds\", 0)","superseded/r0 CPU-h drop eval time"),
+    ("P7","scripts/verify_lineage.py","    if not ok:\n        sys.exit(1)\n","\n","lineage records all_identical even when a check failed"),
+    ("P8","scripts/verify_lineage.py","    out.append(f\"eval/gravity/bwd_tbptt_k1_lr{lr}_b12000_r1_s{DEFAULT_FULL_SEED}\")","    pass","default full set drops the k-sweep run"),
+    ("P9","scripts/aggregate.py","\"wins\": int((diff > 0).sum()),\n            \"losses\": int((diff < 0).sum())","\"wins\": int((diff < 0).sum()),\n            \"losses\": int((diff > 0).sum())","sensitivity wins/losses swapped"),
 ]
 
 
