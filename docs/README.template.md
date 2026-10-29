@@ -195,7 +195,7 @@ How to read the probe:
 | 4 | {{ks_flood_drm_k4}} | {{ksl_flood_bwd_tbptt_k4}} | {{ks_gravity_drm_k4}} | {{ksl_gravity_bwd_tbptt_k4}} |
 | 8 | {{ks_flood_drm_k8}} | {{ksl_flood_bwd_tbptt_k8}} | {{ks_gravity_drm_k8}} | {{ksl_gravity_bwd_tbptt_k8}} |
 
-At a fixed 12,000-Phi training budget, DRM at its native schedule (S = 16/k, k_in = k) improves steeply from k = 1 (which *is* one-step denoising) up to k = 4 on both tasks. TBPTT is native only in latent mode (S = 1, k_in = 16). The sweep is exploratory: 4 seeds, not in the Holm family, and **the k ≠ 4 runs reuse the lr tuned at k = 4**.
+At a fixed 12,000-Phi training budget, DRM at its native schedule (S = 16/k, k_in = k) improves steeply from k = 1, which *is* one-step denoising, to k = 4. On flood it then plateaus ({{ks_flood_drm_k4}} at k = 4, {{ks_flood_drm_k8}} at k = 8). On gravity it keeps rising to {{ks_gravity_drm_k8}} at k = 8, above TBPTT's best latent value ({{ksl_gravity_bwd_tbptt_k4}} at k = 4). TBPTT is native only in latent mode (S = 1, k_in = 16), where it peaks at k = 4 on both tasks and drops at k = 8. So DRM gains more from a larger k than TBPTT does here, in line with the paper's Table 5. The gravity k = 8 result suggests that the k = 4 DRM in the main grid is not DRM's best configuration on gravity, but k was fixed at 4 for every method before the run. The sweep is exploratory: 4 seeds, not in the Holm family, and **the k ≠ 4 runs reuse the lr tuned at k = 4**.
 
 ## How this maps to the paper (§3)
 
