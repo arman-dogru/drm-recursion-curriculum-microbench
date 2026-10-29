@@ -27,3 +27,15 @@ def test_no_absolute_box_paths_or_tokens():
         if PATH_RE.search(s) or TOKEN_RE.search(s):
             bad.append(rel)
     assert not bad, bad
+
+
+def test_patterns_catch_known_bad_strings():
+    """Round 2 (reviewer mutant Y8): the scan must not pass just because the regexes were weakened."""
+    home, scratch = "/ho" + "me/box/work/x.py", "/work" + "space/projects/y.md"
+    other_user = "/ho" + "me/alice/z"
+    for s in (home, scratch, other_user):
+        assert PATH_RE.search(s), s
+    for s in ("gh" + "p_" + "a" * 36, "KG" + "AT_" + "b" * 12, "-----BEGIN RSA " + "PRIVATE KEY"):
+        assert TOKEN_RE.search(s), s
+    for s in ("results/raw/dev/x.json", "~/work/x", "$PY scripts/run_one.py"):
+        assert not PATH_RE.search(s) and not TOKEN_RE.search(s), s
