@@ -162,7 +162,7 @@ def test_by_compute_can_pick_latent_beyond_16():
 
 
 def test_lr_edges():
-    sc = {f"{lr:g}": {f"S{s}_k{k}": 0.0 for s, k in MATCHED_MENU} for lr in LR_GRID}
+    sc = {f"{lr:g}": {f"S{s}_k{k}": 0.0 for s, k in tune.HEADLINE_MENU} for lr in LR_GRID}
     sc[f"{LR_GRID[-1]:g}"]["S4_k4"] = 0.5
     sc[f"{LR_GRID[-2]:g}"]["S4_k4"] = 0.4
     choice = {"flood": {"drm": {"lr": LR_GRID[-1], "dev_pass1": 0.5}}}

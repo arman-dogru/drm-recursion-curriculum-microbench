@@ -78,6 +78,8 @@ def build(s, mut, n_tests):
             for k, v in ks.items():
                 c[f"ks_{t}_{m}_k{k}"] = ci(v["native"])
                 c[f"ksl_{t}_{m}_k{k}"] = ci(v["latent16"])
+                c[f"ksh_{t}_{m}_k{k}"] = ci(v["horizon"])
+                c[f"ksh_kin_{t}_{m}_k{k}"] = str(v["horizon_k_in"])
     for t in MAIN_TASKS:
         for m in METHODS:
             cur = s["compute_curves"][t][m]
@@ -121,8 +123,24 @@ def build(s, mut, n_tests):
             if k.startswith(("p1_pooled_", "d_pooled_", "d_gravity_", "d_flood_", "d_shift_", "cc_flood_",
                              "cc_gravity_", "lr_")) or k in ("mut_killed", "mut_total", "n_tests"):
                 c[f"r0_{k}"] = v
+    r1 = ROOT / "docs" / "r1_claim_numbers.json"     # copy of results/r1_c4532b5/claim_numbers.json
+    if r1.exists():
+        for k, v in json.loads(r1.read_text()).items():
+            if k.startswith(("p1_", "p1m_", "d_", "ph_", "wl_", "lr_", "sched_", "cc_")) or k in ("n_sig",):
+                c[f"r1_{k}"] = v
+    r1t = R / "r1_c4532b5" / "tuning.json"
+    if r1t.exists():
+        old = json.loads(r1t.read_text())["choice"]
+        changed = [f"{t} {m}: {old[t][m]['lr']:g} -> {s['tuning'][t][m]['lr']:g}"
+                   for t in old for m in old[t] if old[t][m]["lr"] != s["tuning"][t][m]["lr"]]
+        c["n_cells_lr_changed"] = str(len(changed))
+        c["cells_lr_changed"] = "; ".join(changed)
+        c["n_runs_r2"] = str(len(s["meta"]["eval_seeds"]) * len(changed))
+    from drm.lineage import accepted_hashes
+    anc = sorted(accepted_hashes(s["meta"]["code_hash"]) - {s["meta"]["code_hash"]})
+    c["code_hash_parent"] = ", ".join(anc) if anc else s["meta"]["code_hash"]
     if mut:
-        for pre, name in (("X", "rev"), ("Q", "r1")):
+        for pre, name in (("X", "rev"), ("Q", "r1"), ("Y", "rev2"), ("Z", "r2")):
             sel = [r for r in mut.get("mutants", []) if r["id"].startswith(pre)]
             c[f"mut_{name}_killed"] = str(sum(r["status"] == "KILLED" for r in sel))
             c[f"mut_{name}_total"] = str(len(sel))

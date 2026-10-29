@@ -23,13 +23,14 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from drm.config import EVAL_SEEDS, MATCHED_MENU, METHODS, ROOT, inference_grid  # noqa: E402
+from drm.config import EVAL_SEEDS, METHODS, ROOT, inference_grid  # noqa: E402
 from drm.stats import bootstrap_ci, holm, sign_flip_p, t_ci  # noqa: E402
 from drm.tasks import TASKS  # noqa: E402
 from run_grid import (KSWEEP_METHODS, KSWEEP_SEEDS, KSWEEP_TASKS, MAIN_SEEDS, MAIN_TASKS,  # noqa: E402
                       TUNING_PATH, ksweep_jobs, main_jobs, tune_jobs)  # noqa: E402
 from run_one import out_paths  # noqa: E402
-from tune import GridError  # noqa: E402
+from tune import HEADLINE_MENU, GridError  # noqa: E402
+from drm.lineage import canonical  # noqa: E402
 
 BASELINES = ("fwd", "fwd_steps", "bwd_k", "bwd_tbptt")
 TARGET = "drm"
@@ -53,9 +54,10 @@ def load_grid(jobs, raw: Path, allow_partial=False, code=None):
         runs[cfg] = d
     if missing and not allow_partial:
         raise GridError(f"incomplete grid: {len(missing)} runs missing, e.g. {missing[:2]}")
-    hashes = {d["meta"]["code_hash"] for d in runs.values()}
+    # verified-equivalent ancestor hashes (results/code_lineage.json) count as the current code
+    hashes = {canonical(d["meta"]["code_hash"]) for d in runs.values()}
     if code is not None:
-        hashes.add(code)
+        hashes.add(canonical(code))
     if len(hashes) > 1:
         raise GridError(f"mixed code hashes: {sorted(hashes)}")
     return runs, missing
@@ -174,12 +176,14 @@ def traces(runs):
     return out
 
 
-def traces_at_choice(tr, tuning):
-    """Own-vs-oracle trace at each method's own dev-chosen schedule (review m1)."""
+def traces_at_choice(tr, by_compute):
+    """Own-vs-oracle trace at each method's own dev-best schedule with exactly 16 Phi
+    (review r1 m1). Traces are recorded only for the 16-Phi schedules, so since the
+    round-2 headline menu (<= 16 Phi) this probe stays at the 16-Phi dev choice."""
     out = defaultdict(dict)
     for t in tr:
         for m in tr[t]:
-            s, k = tuning[t][m]["schedule"]
+            s, k = by_compute[t][m]["16"]["schedule"]
             rec = tr[t][m].get(f"S{s}_k{k}")
             if rec is not None:
                 out[t][m] = {"schedule": [s, k], **rec}
@@ -206,7 +210,7 @@ def load_dev(raw: Path, code):
         js, _ = out_paths(cfg, raw)
         if js.exists():
             d = json.loads(js.read_text())
-            if d["meta"]["code_hash"] == code:
+            if canonical(d["meta"]["code_hash"]) == canonical(code):
                 runs[cfg] = d
     return runs
 
@@ -225,9 +229,17 @@ def learning_curves(runs):
     return out
 
 
+def train_horizon(cfg) -> int:
+    """Phi steps unrolled from a full mask in one training example."""
+    return cfg.n_sup * cfg.k if cfg.method == "bwd_tbptt" else cfg.k
+
+
 def ksweep(runs_main, runs_k):
     """k in {1,2,4,8} for recursive methods on KSWEEP_TASKS, KSWEEP_SEEDS only.
-    Pre-registered schedules: native (S = 16/k, k_in = k) and latent (S=1, k_in=16).
+    Pre-registered schedules: native (S = 16/k, k_in = k) and fixed 16-step latent
+    (S=1, k_in=16). Round 2 review (m3): plus the training-horizon-matched latent
+    schedule S=1, k_in = horizon, where the horizon is fixed by the config: n_sup*k
+    for bwd_tbptt (n_sup windows of k unrolled from a full mask), k otherwise.
     NOTE: k != 4 runs reuse the lr tuned at k = 4 (not re-tuned per k)."""
     out = defaultdict(lambda: defaultdict(dict))
     for t in KSWEEP_TASKS:
@@ -240,7 +252,10 @@ def ksweep(runs_main, runs_k):
                     continue
                 out[t][m][str(k)] = {
                     "native": summarize({c.seed: d["eval"][f"S{16 // k}_k{k}"]["pass1"] for c, d in sel.items()}),
-                    "latent16": summarize({c.seed: d["eval"]["S1_k16"]["pass1"] for c, d in sel.items()})}
+                    "latent16": summarize({c.seed: d["eval"]["S1_k16"]["pass1"] for c, d in sel.items()}),
+                    "horizon": summarize({c.seed: d["eval"][f"S1_k{train_horizon(c)}"]["pass1"]
+                                          for c, d in sel.items()}),
+                    "horizon_k_in": train_horizon(next(iter(sel)))}
     return out
 
 
@@ -265,7 +280,7 @@ def main(raw: Path, out_dir: Path, allow_partial: bool = False):
         "meta": {"code_hash": code, "n_runs_main": len(runs), "n_runs_ksweep": len(runs_k),
                  "missing": miss_m + miss_k, "partial": bool(miss_m or miss_k),
                  "eval_seeds": list(MAIN_SEEDS), "main_tasks": list(MAIN_TASKS), "n_params": n_params,
-                 "holm_family_size": len(tests), "menu": [list(x) for x in MATCHED_MENU]},
+                 "holm_family_size": len(tests), "menu": [list(x) for x in HEADLINE_MENU]},
         "tuning": tuning,
         "primary": primary,
         "per_seed": {g: {m: {str(s): v for s, v in sorted(ps[g][m].items())} for m in ps[g]}
@@ -274,7 +289,7 @@ def main(raw: Path, out_dir: Path, allow_partial: bool = False):
         "schedules": schedule_table(runs),
         "compute_curves": compute_curves(runs, tuning_full["by_compute"]),
         "traces": (tr := traces(runs)),
-        "traces_at_choice": traces_at_choice(tr, tuning),
+        "traces_at_choice": traces_at_choice(tr, tuning_full["by_compute"]),
         "cpu_hours": cpu_hours(raw, {"dev": load_dev(raw, code), "eval": runs, "ksweep": runs_k}),
         "tuning_meta": tuning_full["meta"],
         "learning_curves": learning_curves(runs),

@@ -53,7 +53,7 @@ def fig_primary(s):
     ax.axvline(len(MAIN_TASKS) - 0.5, color="0.6", lw=0.8, ls=":")
     ax.set_ylabel("eval pass@1 (exact match)")
     ax.set_ylim(0, 1.05)
-    ax.set_title("pass@1 at matched test compute (S x k_in = 16 Phi), schedule chosen on dev; 95% seed-bootstrap CI")
+    ax.set_title("pass@1 at most matched test compute (S x k_in <= 16 Phi), schedule chosen on dev; 95% seed-bootstrap CI")
     ax.legend(ncol=5, fontsize=8, loc="upper center", bbox_to_anchor=(0.5, -0.22), frameon=False)
     save(fig, "primary.png")
 
@@ -96,7 +96,7 @@ def fig_compute(s):
     axes[0].set_ylabel("eval pass@1")
     axes[0].legend(fontsize=7)
     fig.suptitle("dev-best schedule at each budget, any S x k_in = c (filled = latent S=1, hollow = re-masking S>1); "
-                 "95% seed-bootstrap CI", fontsize=9)
+                 "lr fixed at the headline dev choice; 95% seed-bootstrap CI", fontsize=9)
     save(fig, "compute_curves.png")
 
 
@@ -129,7 +129,7 @@ def fig_heatmaps(s, tasks=("flood", "gravity", "shift", "symfill", "colormap")):
             if r == 0:
                 ax.set_title(SHORT[m])
     fig.suptitle(f"eval pass@1 for every inference schedule (mean over {len(s['meta']['eval_seeds'])} seeds); "
-                 "red box = schedule chosen on dev from the S x k_in = 16 menu")
+                 "red box = schedule chosen on dev from the S x k_in <= 16 menu")
     save(fig, "schedule_heatmaps.png")
 
 
@@ -166,12 +166,17 @@ def fig_mismatch_own(s, methods=("fwd", "drm", "bwd_tbptt")):
             v = [tac[t][m][kind][-1]["cell_acc"] for t in MAIN_TASKS]
             ax.bar(x, v, w, color=COL[m], alpha=1.0 if kind == "own" else 0.45, hatch=None if kind == "own" else "//",
                    label=f"{SHORT[m]}: {'own trajectory' if kind == 'own' else 'noised clean target'}")
-    ax.set_xticks(range(len(MAIN_TASKS)),
-                  [t + "\n" + ", ".join(f"{SHORT[m]} S={tac[t][m]['schedule'][0]},k={tac[t][m]['schedule'][1]}"
-                                         for m in methods) for t in MAIN_TASKS], fontsize=7)
-    ax.set_ylim(0, 1.05)
+            if kind == "own":       # review r2 n3: one short vertical schedule label per method pair
+                for xi, t in zip(x, MAIN_TASKS):
+                    sch = tac[t][m]["schedule"]
+                    ax.text(xi + w / 2, 1.02, f"S{sch[0]} k{sch[1]}", rotation=90, ha="center", va="bottom",
+                            fontsize=6.5, color=COL[m])
+    ax.set_xticks(range(len(MAIN_TASKS)), MAIN_TASKS, fontsize=9)
+    ax.set_ylim(0, 1.3)
+    ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
     ax.set_ylabel("cell accuracy at the last outer step")
-    ax.set_title("own-trajectory vs training-distribution input, each method at its own dev-chosen schedule", fontsize=10)
+    ax.set_title("own-trajectory vs training-distribution input, each method at its own dev-best 16-Phi schedule "
+                 "(label above each pair)", fontsize=10)
     ax.legend(ncol=3, fontsize=7, loc="upper center", bbox_to_anchor=(0.5, -0.25), frameon=False)
     save(fig, "mismatch_own_schedule.png")
 
@@ -197,12 +202,14 @@ def fig_ksweep(s):
     for ax, t in zip(np.atleast_1d(axes), tasks):
         for m in sorted(ks[t]):
             kk = sorted(ks[t][m], key=int)
-            for kind, ls in (("native", "-"), ("latent16", ":")):
+            kinds = [("native", "-", "S=16/k, k_in=k"), ("latent16", ":", "fixed latent S=1, k_in=16")]
+            if m == "bwd_tbptt":     # review r2 m3: latent at its training horizon n_sup*k
+                kinds.append(("horizon", "--", "horizon latent S=1, k_in=4k"))
+            for kind, ls, lab in kinds:
                 v = [ks[t][m][k][kind] for k in kk]
                 ax.errorbar([int(k) for k in kk], [x["mean"] for x in v],
                             yerr=[[x["mean"] - x["lo"] for x in v], [x["hi"] - x["mean"] for x in v]],
-                            color=COL[m], ls=ls, marker="o", ms=3, capsize=2,
-                            label=f"{SHORT[m]} ({'S=16/k, k_in=k' if kind == 'native' else 'S=1, k_in=16'})")
+                            color=COL[m], ls=ls, marker="o", ms=3, capsize=2, label=f"{SHORT[m]} ({lab})")
         ax.set_xscale("log", base=2)
         ax.set_xticks([1, 2, 4, 8], ["1", "2", "4", "8"])
         ax.set_title(t)

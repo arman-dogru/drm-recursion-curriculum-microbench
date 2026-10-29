@@ -22,6 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from drm.config import DEV_SEEDS, MATCHED_MENU, ROOT, inference_grid  # noqa: E402
 from run_grid import LR_GRID_FULL as LR_GRID, TUNING_PATH, tune_jobs  # noqa: E402
 from run_one import out_paths  # noqa: E402
+from drm.lineage import canonical  # noqa: E402
 
 
 # Headline menu: the S x k_in = 16 schedules first (so ties keep the round-1 choice),
@@ -47,7 +48,8 @@ def load_runs(jobs, raw: Path):
         runs[cfg] = d
     if missing:
         raise GridError(f"{len(missing)} runs missing, e.g. {missing[:3]}")
-    hashes = {d["meta"]["code_hash"] for d in runs.values()}
+    # verified-equivalent ancestor hashes (results/code_lineage.json) count as the current code
+    hashes = {canonical(d["meta"]["code_hash"]) for d in runs.values()}
     if len(hashes) != 1:
         raise GridError(f"mixed code hashes: {sorted(hashes)}")
     return runs, hashes.pop()
